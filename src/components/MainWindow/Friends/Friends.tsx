@@ -1,9 +1,9 @@
 import React from 'react';
-import "./Friends.css"
+import c from "./Friends.module.css"
 
 const Friends = () => {
     return(
-        <div className="message">
+        <div className={c.friends}>
             Friends
         </div>
 

@@ -1,0 +1,18 @@
+.nav {
+    grid-area: n;
+    background-color: #dcb87e;
+    padding: 15px;
+}
+
+.item {
+    color: white;
+}
+
+.item.active {
+    color: #730bc4;
+}
+
+a:hover {
+    color: green;
+    font-weight: bold;
+}
