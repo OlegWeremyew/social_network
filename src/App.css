@@ -1,0 +1,40 @@
+.app-content {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+    grid-template-areas: "h h" "n c" "f f";
+    width: 1200px;
+    margin: 0px auto;
+
+}
+
+.header {
+    grid-area: h;
+    background-color: #68ec74;
+}
+
+.header img {
+    height: 60px;
+}
+
+.nav {
+    grid-area: n;
+    background-color: #dcb87e;
+}
+
+.content {
+    grid-area: c;
+    background-color: #b2ecee;
+}
+
+.content img {
+    width: 100%;
+    height: 500px;
+}
+
+.footer {
+    grid-area: f;
+    background-color: #dc7ecf;
+    padding: 40px;
+}
