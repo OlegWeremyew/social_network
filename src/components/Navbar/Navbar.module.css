@@ -5,14 +5,24 @@
 }
 
 .item {
-    color: white;
+    padding: 10px 0px;
+    margin: 5px;
+    border: solid #ce3f13;
+    border-radius: 7px;
+    background-color: #d2bdbd;
 }
 
-.item.active {
+.item a{
+    padding-left: 10px;
+    color: #ce3f13;
+    text-decoration: none;
+}
+
+.item a.activeLink {
     color: #730bc4;
 }
 
 a:hover {
     color: green;
-    font-weight: bold;
+    font-weight: bolder;
 }
