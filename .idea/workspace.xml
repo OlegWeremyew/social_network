@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="buttons">
-      <change afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
+    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="Messages and Profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636655644366</updated>
       <workItem from="1636655648291" duration="767000" />
-      <workItem from="1636797165725" duration="23694000" />
+      <workItem from="1636797165725" duration="24049000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
@@ -145,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636808636359</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Messages and Profile">
+      <created>1636834951422</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636834951422</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +162,7 @@
     <MESSAGE value="second Push" />
     <MESSAGE value="Folders" />
     <MESSAGE value="buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="buttons" />
+    <MESSAGE value="Messages and Profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Messages and Profile" />
   </component>
 </project>
