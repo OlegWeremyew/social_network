@@ -6,10 +6,11 @@
     grid-template-areas: "h h" "n p" "f f";
     width: 1200px;
     margin: 0px auto;
-    background-color: #efdddd;
+    background-color: rgba(255, 255, 255, 0.87);
 
 }
 
 .appContentWindow {
-    background-color: rgba(108, 168, 224, 0.87);
+    background-color: #c9c9c9;
+    border: solid thin;
 }

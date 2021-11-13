@@ -1,9 +1,16 @@
-.item{
-
+.item {
+    display:grid;
+    grid-template-columns: 1fr 6fr;
+    border: dotted thin;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin: 10px 0px;
 }
 
-.item img{
+.item img {
+    margin-top: 10px;
     width: 70px;
     height: 70px;
     border-radius: 35px;
+    border: solid 3px #41403c;
 }

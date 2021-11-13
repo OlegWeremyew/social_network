@@ -9,10 +9,14 @@ type PostMessageType = {
 const Post = (props: PostMessageType) => {
     return (
         <div className={c.item}>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxFfwGbGONI4_ANZMHSTx2XiNnL0Y96C254Q&usqp=CAU" alt="ava" title="ava" />
-            {props.message}
+            <img
+                src="https://slovami.net/wp-content/uploads/thumbs_dir/the-most-beautiful-guys-russia-4-1-nwkkkydf2f1mhw9a4ijzfs2ktasvevyjiyi4xibqis.jpg"
+                alt="ava" title="ava"/>
             <div>
-                <span>like: {props.likesCount}</span>
+                {props.message}
+                <div>
+                    <span>like: {props.likesCount}</span>
+                </div>
             </div>
         </div>
     );
