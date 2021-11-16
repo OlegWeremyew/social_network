@@ -2,6 +2,12 @@ import React from 'react';
 import c from "./MyPosts.module.css"
 import Post from "./Post/Post";
 
+export type PostMessageType = {
+    message: string
+    likesCount: number
+}
+
+
 const MyPosts = () => {
     return (
         <div className={c.myPosts}>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="Messages and Profile">
+    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="CSS in Post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +23,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.module.css" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="20mhODA6U5Z4EW7xoY4oRNVICrD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/MainWindow/Profile/ProfileInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Class/MyToDoList" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -80,7 +83,10 @@
       <option name="presentableId" value="Default" />
       <updated>1636655644366</updated>
       <workItem from="1636655648291" duration="767000" />
-      <workItem from="1636797165725" duration="24049000" />
+      <workItem from="1636797165725" duration="24162000" />
+      <workItem from="1636883421403" duration="862000" />
+      <workItem from="1636915496271" duration="3976000" />
+      <workItem from="1637086036874" duration="882000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
@@ -138,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636834951422</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="CSS in Post">
+      <created>1636835284406</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636835284406</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +176,7 @@
     <MESSAGE value="Folders" />
     <MESSAGE value="buttons" />
     <MESSAGE value="Messages and Profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Messages and Profile" />
+    <MESSAGE value="CSS in Post" />
+    <option name="LAST_COMMIT_MESSAGE" value="CSS in Post" />
   </component>
 </project>
