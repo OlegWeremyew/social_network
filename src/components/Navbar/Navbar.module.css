@@ -24,10 +24,11 @@
 
 .item a.activeLink {
     color: #f80505;
+    text-decoration: underline;
 }
 
 .item a:hover {
     color: #539b24;
     font-weight: bolder;
-    font-size: 22px;
+    text-decoration: underline;
 }

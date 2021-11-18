@@ -9,6 +9,12 @@ export type PostMessageType = {
 
 
 const MyPosts = () => {
+
+    let posts = [
+        {message: "Hello", likesCount: 12},
+        {message: "Dinosaurus are great", likesCount: 17}
+    ]
+
     return (
         <div className={c.myPosts}>
             <h3>My posts</h3>
@@ -21,8 +27,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={c.posts}>
-                <Post message="Hello" likesCount={12}/>
-                <Post message="Dinosaurus are great" likesCount={3}/>
+                <Post message={posts[0].message} likesCount={posts[0].likesCount}/>
             </div>
         </div>
     );
