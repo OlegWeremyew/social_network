@@ -2,19 +2,14 @@ import React from 'react';
 import c from "./MyPosts.module.css"
 import Post from "./Post/Post";
 
-export type PostMessageType = {
-    message: string
-    likesCount: number
-}
-
-let posts = [
-    {message: "Hello", likesCount: 12},
-    {message: "Dinosaurus are great", likesCount: 17}
-]
-
 const MyPosts = () => {
 
-let post = posts.map( p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let posts = [
+        {message: "Hello", likesCount: 12},
+        {message: "Dinosaurus are great", likesCount: 17}
+    ]
+
+let post =posts.map( p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div className={c.myPosts}>

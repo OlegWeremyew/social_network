@@ -1,8 +1,13 @@
 import React from 'react';
 import c from "./Post.module.css"
-import {PostMessageType} from "../MyPosts";
+
+type PostMessageType = {
+    message: string
+    likesCount: number
+}
 
 const Post = (props: PostMessageType) => {
+
     return (
         <div className={c.item}>
             <img
