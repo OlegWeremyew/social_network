@@ -7,13 +7,14 @@ export type PostMessageType = {
     likesCount: number
 }
 
+let posts = [
+    {message: "Hello", likesCount: 12},
+    {message: "Dinosaurus are great", likesCount: 17}
+]
 
 const MyPosts = () => {
 
-    let posts = [
-        {message: "Hello", likesCount: 12},
-        {message: "Dinosaurus are great", likesCount: 17}
-    ]
+let post = posts.map( p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div className={c.myPosts}>
@@ -27,7 +28,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={c.posts}>
-                <Post message={posts[0].message} likesCount={posts[0].likesCount}/>
+                {post}
             </div>
         </div>
     );

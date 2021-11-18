@@ -1,13 +1,3 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 6fr;
-    padding: 15px;
-}
-
-.dialogItem {
-
-}
-
 .dialog a {
     color: #211d1c;
     text-decoration: none;
@@ -17,8 +7,5 @@
 
 .dialog a:hover {
     color: green;
-}
-
-.messages {
-
+    text-decoration: underline;
 }

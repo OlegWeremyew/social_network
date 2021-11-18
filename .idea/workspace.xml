@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="CSS in Post">
+    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="logo">
+      <change afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem/DialogsItem.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem/DialogsItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Message/Message.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Message/Message.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Class/MyToDoList" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -51,11 +51,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Messages\DialogItem" />
+      <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Messages\Message" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Profile\ProfileInfo" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Profile\MyPosts\Post" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Profile\MyPosts" />
-      <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow" />
-      <recent name="D:\GitHub\myWayTypeScript\src\components\Footer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GitHub\myWayTypeScript\src\components\Header" />
@@ -92,7 +92,7 @@
       <workItem from="1636883421403" duration="862000" />
       <workItem from="1636915496271" duration="3976000" />
       <workItem from="1637086036874" duration="1683000" />
-      <workItem from="1637249959875" duration="3746000" />
+      <workItem from="1637249959875" duration="4936000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
@@ -164,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637088371930</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="UI and BLL">
+      <created>1637253907514</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1637253907514</updated>
+    </task>
+    <task id="LOCAL-00012" summary="logo">
+      <created>1637253927818</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1637253927818</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +204,8 @@
     <MESSAGE value="buttons" />
     <MESSAGE value="Messages and Profile" />
     <MESSAGE value="CSS in Post" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS in Post" />
+    <MESSAGE value="UI and BLL" />
+    <MESSAGE value="logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="logo" />
   </component>
 </project>
