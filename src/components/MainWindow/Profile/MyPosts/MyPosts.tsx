@@ -1,15 +1,11 @@
 import React from 'react';
 import c from "./MyPosts.module.css"
+import {MyPostMessageType} from "../Profile";
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props: MyPostMessageType) => {
 
-    let posts = [
-        {message: "Hello", likesCount: 12},
-        {message: "Dinosaurus are great", likesCount: 17}
-    ]
-
-let post =posts.map( p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let post = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div className={c.myPosts}>
