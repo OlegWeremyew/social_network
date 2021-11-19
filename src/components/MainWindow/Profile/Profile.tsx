@@ -7,8 +7,8 @@ import {PostMessageType} from "./MyPosts/Post/Post";
 const Profile = () => {
 
     let posts: Array<PostMessageType> = [
-        {message: "Hello", likesCount: 12},
-        {message: "Dinosaurus are great", likesCount: 17}
+        {message: "Hello", likesCount: 12, id: 1},
+        {message: "Dinosaurus are great", likesCount: 17, id: 2}
     ]
 
     return (

@@ -9,7 +9,7 @@ export type MyPostMessageType = {
 
 const MyPosts = (props: MyPostMessageType) => {
 
-    let post = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let post = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
 
     return (
         <div className={c.myPosts}>
