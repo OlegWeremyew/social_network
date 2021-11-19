@@ -8,7 +8,6 @@ import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
-import {AppType} from "./index";
 import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
 import {RootStateType} from "./redux/state";
@@ -25,8 +24,8 @@ function App(props: AppStateType) {
             <Navbar/>
             <div className={c.appContentWindow}>
                 <Routes>
-                    <Route path="/profile/*" element={<Profile posts={props.posts}/>}/>
-                    <Route path="/messages/*" element={<Messages users={props.users} messages={props.messages}/>}/>
+                    <Route path="/profile/*" element={<Profile state={props.state.profilePage}/>}/>
+                    <Route path="/messages/*" element={<Messages state={props.state.messagesPage} />}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>

@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import {PostMessageType} from "./components/MainWindow/Profile/MyPosts/Post/Post";
-import {MessageType, UsersType} from "./components/MainWindow/Messages/Messages";
 import state from "./redux/state";
 
 
