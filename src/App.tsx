@@ -10,8 +10,14 @@ import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
+import {PostMessageType} from "./components/MainWindow/Profile/MyPosts/Post/Post";
 
 function App() {
+
+    let posts: Array<PostMessageType> = [
+        {message: "Hello", likesCount: 12, id: 1},
+        {message: "Dinosaurus are great", likesCount: 17, id: 2}
+    ]
 
     return (
         <main className={c.appContent}>
@@ -19,7 +25,7 @@ function App() {
             <Navbar/>
             <div className={c.appContentWindow}>
                 <Routes>
-                    <Route path="/profile/*" element={<Profile />}/>
+                    <Route path="/profile/*" element={<Profile posts={posts} />}/>
                     <Route path="/messages/*" element={<Messages/>}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
