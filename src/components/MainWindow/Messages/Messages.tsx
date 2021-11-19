@@ -3,36 +3,25 @@ import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
 
-export type DialogItemType = {
+
+export type MessagesType = {
+    users: Array<UsersType>
+    messages: Array<MessageType>
+}
+
+export type UsersType = {
     name: string
     id: number
-};
-export type MessageIype = {
+}
+export type MessageType = {
     message: string
     id: number
-};
+}
 
-let users = [
-    {name: "Oleg", id: 1},
-    {name: "Diana", id: 2},
-    {name: "Fat cat", id: 2},
-    {name: "Dimka", id: 4},
-    {name: "Homka", id: 5},
-    {name: "Belka", id: 6},
-]
-let messages = [
-    {message: "Hi", id: 1},
-    {message: "Ho", id: 2},
-    {message: "He", id: 3},
-    {message: "Hu", id: 4},
-    {message: "Hio", id: 5},
-    {message: "Hia", id: 6},
-]
+const Messages = (props: MessagesType) => {
 
-const Messages = () => {
-
-    let dialogsItem = users.map(u => <DialogsItem name={u.name} id={u.id}/>)
-    let message = messages.map(m => <Message message={m.message} id={m.id}/>)
+    let dialogsItem = props.users.map(u => <DialogsItem name={u.name} id={u.id}/>)
+    let message = props.messages.map(m => <Message message={m.message} id={m.id}/>)
 
     return (
         <div className={c.dialogs}>

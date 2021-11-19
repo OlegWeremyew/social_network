@@ -1,8 +1,13 @@
 import React from 'react';
 import c from "./Message.module.css"
-import {MessageIype} from "../Messages";
+
+export type MessageIype = {
+    message: string
+    id: number
+};
 
 const Message = (props: MessageIype) => {
+
     return (
         <div className={c.message}>{props.message}</div>
     );
