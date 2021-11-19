@@ -12,13 +12,14 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 
 function App() {
+
     return (
         <main className={c.appContent}>
             <Header/>
             <Navbar/>
             <div className={c.appContentWindow}>
                 <Routes>
-                    <Route path="/profile/*" element={<Profile/>}/>
+                    <Route path="/profile/*" element={<Profile />}/>
                     <Route path="/messages/*" element={<Messages/>}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>

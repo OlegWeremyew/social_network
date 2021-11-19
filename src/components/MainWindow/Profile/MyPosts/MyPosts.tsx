@@ -1,7 +1,11 @@
 import React from 'react';
 import c from "./MyPosts.module.css"
-import {MyPostMessageType} from "../Profile";
-import Post from "./Post/Post";
+import Post, {PostMessageType} from "./Post/Post";
+
+export type MyPostMessageType = {
+    posts: Array<PostMessageType>
+}
+
 
 const MyPosts = (props: MyPostMessageType) => {
 

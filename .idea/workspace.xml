@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.tsx" afterDir="false" />
@@ -42,7 +43,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="ts.external.directory.path" value="D:\GitHub\myWayTypeScript\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\Oleg\GitHub\MyWayTypeScript\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -89,6 +90,7 @@
       <workItem from="1636915496271" duration="3976000" />
       <workItem from="1637086036874" duration="1683000" />
       <workItem from="1637249959875" duration="10194000" />
+      <workItem from="1637297049471" duration="4441000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
