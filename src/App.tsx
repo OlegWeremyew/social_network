@@ -11,8 +11,13 @@ import Settings from "./components/MainWindow/Settings/Settings";
 import {AppType} from "./index";
 import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
+import {RootStateType} from "./redux/state";
 
-function App(props: AppType) {
+type AppStateType = {
+    state: RootStateType
+}
+
+function App(props: AppStateType) {
 
     return (
         <main className={c.appContent}>
