@@ -9,7 +9,12 @@ const DialogsItem = (props: UserType) => {
 
     return (
         <div className={c.dialog}>
-            <NavLink to={path}>{props.name}</NavLink>
+            <div>
+                <img src={props.img}/>
+            </div>
+            <div>
+                <NavLink to={path}>{props.name}</NavLink>
+            </div>
         </div>
     );
 };

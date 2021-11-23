@@ -10,7 +10,7 @@ type MessagesType = {
 
 const Messages = (props: MessagesType) => {
 
-    let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id}/>)
+    let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)
     let message = props.state.messages.map(m => <Message message={m.message} id={m.id}/>)
 
     return (
@@ -21,6 +21,7 @@ const Messages = (props: MessagesType) => {
             <div className={c.messages}>
                 {message}
             </div>
+            <textarea> </textarea>
         </div>
     );
 }

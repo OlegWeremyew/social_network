@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="Mentor halp">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_2021_16_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_2021_16_41__Changes_.xml" afterDir="false" />
+    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="React.createRef() for MyPost">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem/DialogsItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem/DialogsItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem/DialogsItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/DialogItem/DialogsItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,7 @@
       <workItem from="1637309782114" duration="1899000" />
       <workItem from="1637556498890" duration="128000" />
       <workItem from="1637574026648" duration="608000" />
-      <workItem from="1637642236510" duration="2002000" />
+      <workItem from="1637642236510" duration="3893000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
@@ -244,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637331908616</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="React.createRef() for MyPost">
+      <created>1637644260389</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1637644260390</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +289,7 @@
     <MESSAGE value="data in App chapter 2" />
     <MESSAGE value="added data in Index" />
     <MESSAGE value="Mentor halp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mentor halp" />
+    <MESSAGE value="React.createRef() for MyPost" />
+    <option name="LAST_COMMIT_MESSAGE" value="React.createRef() for MyPost" />
   </component>
 </project>
