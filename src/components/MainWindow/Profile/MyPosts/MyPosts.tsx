@@ -12,15 +12,22 @@ const MyPosts = (props: MyPostMessageType) => {
 
     let post = props.state.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
 
+    let newPostElement: any = React.createRef() // need change this string
+
+    let addPost = () => {
+        let text = newPostElement.current.value
+        alert(text)
+    }
+
     return (
         <div className={c.myPosts}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}/>
                 </div>
                 <div>
-                    <button>Add</button>
+                    <button onClick={addPost}>Add</button>
                 </div>
             </div>
             <div className={c.posts}>
