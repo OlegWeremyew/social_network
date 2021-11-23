@@ -1,6 +1,6 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 2fr 6fr;
+    grid-template-columns: 1fr 1fr 14fr;
     padding: 15px;
 }
 
@@ -19,6 +19,3 @@
     color: green;
 }
 
-.messages {
-
-}

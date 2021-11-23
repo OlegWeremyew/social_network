@@ -18,10 +18,16 @@ const Messages = (props: MessagesType) => {
             <div className={c.dialogItem}>
                 {dialogsItem}
             </div>
+            <div className={c.angel}></div>
             <div className={c.messages}>
                 {message}
+                <div>
+                    <textarea rows={10} cols={35}/>
+                </div>
+                <div>
+                    <button>Add message</button>
+                </div>
             </div>
-            <textarea> </textarea>
         </div>
     );
 }
