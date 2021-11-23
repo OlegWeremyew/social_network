@@ -28,7 +28,7 @@ const Messages = (props: MessagesType) => {
             <div className={c.messages}>
                 {message}
                 <div>
-                    <textarea ref={newMessageElement} rows={10} cols={35}/>
+                    <textarea ref={newMessageElement} rows={10} cols={44}/>
                 </div>
                 <div>
                     <button onClick={addMessage}>Add message</button>
