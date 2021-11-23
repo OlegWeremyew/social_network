@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {RefObject} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
@@ -10,10 +10,10 @@ type MessagesType = {
 
 const Messages = (props: MessagesType) => {
 
-    let newMessageElement: any = React.createRef()
+    let newMessageElement: RefObject<HTMLTextAreaElement> = React.createRef()
 
     let addMessage = () => {
-        let text = newMessageElement.current.value
+        let text = newMessageElement.current?.value
         alert(text)
     }
 
@@ -25,7 +25,6 @@ const Messages = (props: MessagesType) => {
             <div className={c.dialogItem}>
                 {dialogsItem}
             </div>
-            <div className={c.angel}></div>
             <div className={c.messages}>
                 {message}
                 <div>
