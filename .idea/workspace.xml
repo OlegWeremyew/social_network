@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="added props fol all types">
+    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="create rerenderEntireTree">
+      <change afterPath="$PROJECT_DIR$/src/render.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/Profile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
     </list>
@@ -39,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../class-before-courses/my-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -50,11 +48,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\myWayTypeScript\src" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Messages\DialogItem" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Messages\Message" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Profile\ProfileInfo" />
       <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Profile\MyPosts\Post" />
-      <recent name="D:\GitHub\myWayTypeScript\src\components\MainWindow\Profile\MyPosts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Oleg\GitHub\MyWayTypeScript\src" />
@@ -100,7 +98,7 @@
       <workItem from="1637556498890" duration="128000" />
       <workItem from="1637574026648" duration="608000" />
       <workItem from="1637642236510" duration="6854000" />
-      <workItem from="1637774687266" duration="2676000" />
+      <workItem from="1637774687266" duration="4106000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
@@ -277,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637648134400</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="create addPost">
+      <created>1637777520637</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1637777520637</updated>
+    </task>
+    <task id="LOCAL-00027" summary="create rerenderEntireTree">
+      <created>1637777729674</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1637777729674</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +329,8 @@
     <MESSAGE value="added avatar in &quot;DialogsItem&quot;" />
     <MESSAGE value="added img and style in &quot;Message&quot;" />
     <MESSAGE value="added unction onClick in &quot;Messages&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added unction onClick in &quot;Messages&quot;" />
+    <MESSAGE value="create addPost" />
+    <MESSAGE value="create rerenderEntireTree" />
+    <option name="LAST_COMMIT_MESSAGE" value="create rerenderEntireTree" />
   </component>
 </project>
