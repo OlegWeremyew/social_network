@@ -17,7 +17,8 @@ const MyPosts = (props: MyPostMessageType) => {
 
     let addPost = () => {
         let text = newPostElement.current?.value
-        if(text) props.addPost(text)
+        if (text) props.addPost(text)
+        /*newPostElement.current?.value = ""*/
     }
 
     return (

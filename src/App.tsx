@@ -10,11 +10,12 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
-import {addPost, RootStateType} from "./redux/state";
+import {addMessage, addPost, RootStateType} from "./redux/state";
 
 type AppStateType = {
     state: RootStateType
     addPost: (postMessage: string) => void
+    addMessage: (AddNewMessage: string) => void
 }
 
 function App(props: AppStateType) {
@@ -27,7 +28,7 @@ function App(props: AppStateType) {
                 <Routes>
                     <Route path="/profile/*"
                            element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
-                    <Route path="/messages/*" element={<Messages state={props.state.messagesPage}/>}/>
+                    <Route path="/messages/*" element={<Messages state={props.state.messagesPage} addMessage={props.addMessage}/>}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>
