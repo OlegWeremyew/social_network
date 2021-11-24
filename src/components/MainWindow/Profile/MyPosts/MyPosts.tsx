@@ -1,10 +1,11 @@
 import React, {RefObject} from 'react';
 import c from "./MyPosts.module.css"
-import {ProfilePageType} from "../../../../redux/state";
+import {addPost, ProfilePageType} from "../../../../redux/state";
 import Post from "./Post/Post";
 
 export type MyPostMessageType = {
     state: ProfilePageType
+    addPost: (postMessage: string) => void
 }
 
 
@@ -16,7 +17,7 @@ const MyPosts = (props: MyPostMessageType) => {
 
     let addPost = () => {
         let text = newPostElement.current?.value
-        alert(text)
+        if(text) props.addPost(text)
     }
 
     return (
