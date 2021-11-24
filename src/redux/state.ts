@@ -60,6 +60,7 @@ export let addPost = (postMessage: string) => {
     }
 
     state. profilePage.posts.push(newPost)
+
 }
 
 export default state;
