@@ -71,7 +71,7 @@ export let addMessage = (AddNewMessage: string) => {
         message: AddNewMessage,
     }
 
-    state. messagesPage.messages.push(newMessage)
+    state.messagesPage.messages.push(newMessage)
     rerenderEntireTree(state)
 }
 

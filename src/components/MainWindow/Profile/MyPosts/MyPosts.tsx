@@ -29,7 +29,7 @@ const MyPosts = (props: MyPostMessageType) => {
                     <textarea ref={newPostElement}/>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={c.posts}>
