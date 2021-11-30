@@ -1,4 +1,4 @@
-import React, {RefObject} from 'react';
+import React, {RefObject, useRef} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
@@ -11,11 +11,12 @@ type MessagesType = {
 
 const Messages = (props: MessagesType) => {
 
-    let newMessageElement = React.createRef<HTMLTextAreaElement>()
+    let newMessageElement = useRef<HTMLTextAreaElement>(null);
 
     let addMessage = () => {
         let text = newMessageElement.current?.value
         if (text) props.addMessage(text)
+        if (newMessageElement.current) newMessageElement.current.value = ''
     }
 
     let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)
