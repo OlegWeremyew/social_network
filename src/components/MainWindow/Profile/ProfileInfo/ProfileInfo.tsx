@@ -6,9 +6,6 @@ const ProfileInfo = () => {
         <div className={c.profile}>
             <img
                 src="https://img.lovepik.com/photo/50066/7884.jpg_wh860.jpg" alt="fone" title="fon image"/>
-            <div className={c.ava}>
-                ava
-            </div>
         </div>
     );
 }
