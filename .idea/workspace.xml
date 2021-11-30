@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="create render">
+    <list default="true" id="1376fbda-78b3-4ff6-9c63-d45468b8aabd" name="Changes" comment="small change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Messages/Messages.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainWindow/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/render.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,8 @@
       <workItem from="1637556498890" duration="128000" />
       <workItem from="1637574026648" duration="608000" />
       <workItem from="1637642236510" duration="6854000" />
-      <workItem from="1637774687266" duration="5188000" />
+      <workItem from="1637774687266" duration="5647000" />
+      <workItem from="1638291780244" duration="1229000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1636655892115</created>
@@ -298,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637779143532</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="create addMessage">
+      <created>1637780126488</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1637780126488</updated>
+    </task>
+    <task id="LOCAL-00030" summary="small change">
+      <created>1637780422045</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1637780422045</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +329,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="push" />
     <MESSAGE value="change" />
     <MESSAGE value="second Push" />
     <MESSAGE value="Folders" />
@@ -341,6 +352,8 @@
     <MESSAGE value="create addPost" />
     <MESSAGE value="create rerenderEntireTree" />
     <MESSAGE value="create render" />
-    <option name="LAST_COMMIT_MESSAGE" value="create render" />
+    <MESSAGE value="create addMessage" />
+    <MESSAGE value="small change" />
+    <option name="LAST_COMMIT_MESSAGE" value="small change" />
   </component>
 </project>

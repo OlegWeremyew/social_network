@@ -11,7 +11,7 @@ type MessagesType = {
 
 const Messages = (props: MessagesType) => {
 
-    let newMessageElement: RefObject<HTMLTextAreaElement> = React.createRef()
+    let newMessageElement = React.createRef<HTMLTextAreaElement>()
 
     let addMessage = () => {
         let text = newMessageElement.current?.value

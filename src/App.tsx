@@ -10,7 +10,7 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
-import {addMessage, addPost, RootStateType} from "./redux/state";
+import {RootStateType} from "./redux/state";
 
 type AppStateType = {
     state: RootStateType

@@ -1,6 +1,6 @@
 import React, {RefObject} from 'react';
 import c from "./MyPosts.module.css"
-import {addPost, ProfilePageType} from "../../../../redux/state";
+import {ProfilePageType} from "../../../../redux/state";
 import Post from "./Post/Post";
 
 export type MyPostMessageType = {
