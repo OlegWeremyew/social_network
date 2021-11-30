@@ -26,7 +26,7 @@ const MyPosts = (props: MyPostMessageType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement}/>
+                    <textarea ref={newPostElement} placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
