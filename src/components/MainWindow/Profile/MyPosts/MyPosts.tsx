@@ -1,4 +1,4 @@
-import React, {RefObject, useRef} from 'react';
+import React, {ChangeEvent, RefObject, useRef} from 'react';
 import c from "./MyPosts.module.css"
 import {ProfilePageType} from "../../../../redux/state";
 import Post from "./Post/Post";
@@ -24,6 +24,7 @@ const MyPosts = (props: MyPostMessageType) => {
 
     const onPostChange = () => {
         let text = newPostElement.current?.value
+        text ? props.updateNewPostText(text) : props.updateNewPostText('')
     }
 
     return (
