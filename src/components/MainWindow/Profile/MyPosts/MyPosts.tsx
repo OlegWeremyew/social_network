@@ -4,14 +4,14 @@ import {ProfilePageType} from "../../../../redux/state";
 import Post from "./Post/Post";
 
 export type MyPostMessageType = {
-    state: ProfilePageType
+    profilePage: ProfilePageType
     addPost: (postMessage: string) => void
 }
 
 
 const MyPosts = (props: MyPostMessageType) => {
 
-    let post = props.state.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
+    let post = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
 
     let newPostElement = useRef<HTMLTextAreaElement>(null);
 
@@ -30,7 +30,7 @@ const MyPosts = (props: MyPostMessageType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement} value={newPostText} placeholder={'Write your message'}/>
+                    <textarea ref={newPostElement} value={props.profilePage.newPostText} placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>

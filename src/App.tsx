@@ -27,7 +27,7 @@ function App(props: AppStateType) {
             <div className={c.appContentWindow}>
                 <Routes>
                     <Route path="/profile/*"
-                           element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                           element={<Profile profilePage={props.state.profilePage} addPost={props.addPost}/>}/>
                     <Route path="/messages/*" element={<Messages state={props.state.messagesPage} addMessage={props.addMessage}/>}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
