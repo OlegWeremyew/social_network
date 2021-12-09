@@ -16,6 +16,7 @@ type AppStateType = {
     state: RootStateType
     addPost: (postMessage: string) => void
     addMessage: (AddNewMessage: string) => void
+    updateNewPostText: (newText: string) => void
 }
 
 function App(props: AppStateType) {
@@ -32,16 +33,13 @@ function App(props: AppStateType) {
                                    profilePage={props.state.profilePage}
                                    addPost={props.addPost}
                                    updateNewPostText={props.updateNewPostText}
-                               />}
-
-                    />
+                               />}/>
                     <Route path="/messages/*"
                            element={
                                <Messages
                                    state={props.state.messagesPage}
                                    addMessage={props.addMessage}
-                               />}
-                    />
+                               />}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>

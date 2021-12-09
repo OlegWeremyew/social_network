@@ -6,6 +6,7 @@ import Post from "./Post/Post";
 export type MyPostMessageType = {
     profilePage: ProfilePageType
     addPost: (postMessage: string) => void
+    updateNewPostText: (newText: string) => void
 }
 
 
