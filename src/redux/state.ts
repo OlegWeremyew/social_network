@@ -19,8 +19,9 @@ export type ProfilePageType = {
     newPostText: string
 }
 export type MessagesPageType = {
-    messages: Array<MessageType>
     users: Array<UserType>
+    messages: Array<MessageType>
+    newMessageText: string
 }
 
 export type RootStateType = {
@@ -52,7 +53,8 @@ let state: RootStateType = {
             {message: "Hu", id: 4},
             {message: "Hio", id: 5},
             {message: "Hia", id: 6},
-        ]
+        ],
+        newMessageText: ""
     }
 }
 
@@ -79,6 +81,11 @@ export let addMessage = (AddNewMessage: string) => {
     }
 
     state.messagesPage.messages.push(newMessage)
+    rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (newMessageText: string) => {
+    state.messagesPage.newMessageText = newMessageText
     rerenderEntireTree(state)
 }
 

@@ -7,7 +7,14 @@ import {updateNewPostText, addMessage, addPost, RootStateType} from "./redux/sta
 export let rerenderEntireTree = (state: RootStateType) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} addPost={addPost} addMessage={addMessage} updateNewPostText={updateNewPostText}/>
+
+            <App
+                state={state}
+                addPost={addPost}
+                addMessage={addMessage}
+                updateNewPostText={updateNewPostText}
+            />
+
         </BrowserRouter>,
         document.getElementById('root')
     );
