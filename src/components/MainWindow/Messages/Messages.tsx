@@ -22,7 +22,7 @@ const Messages = (props: MessagesType) => {
 
     let onMessagePost = () => {
         let text = newMessageElement.current?.value
-        text? props.updateNewMessageText(text) : props.updateNewMessageText("")
+        text? props.updateNewMessageText(text) : props.updateNewMessageText("");
     }
 
     let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)

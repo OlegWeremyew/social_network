@@ -35,7 +35,7 @@ let state: RootStateType = {
             {message: "Hello", likesCount: 12, id: 1},
             {message: "Dinosaurus are great", likesCount: 17, id: 2}
         ],
-        newPostText: "it-camasutra"
+        newPostText: ""
     },
     messagesPage: {
         users: [
