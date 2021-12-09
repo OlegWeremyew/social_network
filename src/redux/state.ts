@@ -67,6 +67,11 @@ export let addPost = (postMessage: string) => {
     rerenderEntireTree(state)
 }
 
+export let updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
 export let addMessage = (AddNewMessage: string) => {
     let newMessage = {
         id: 5,

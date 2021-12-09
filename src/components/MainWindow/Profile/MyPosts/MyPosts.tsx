@@ -22,7 +22,7 @@ const MyPosts = (props: MyPostMessageType) => {
     }
 
     const onPostChange = () => {
-
+        let text = newPostElement.current?.value
     }
 
     return (
@@ -30,7 +30,7 @@ const MyPosts = (props: MyPostMessageType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement} value={props.profilePage.newPostText} placeholder={'Write your message'}/>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText} placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
