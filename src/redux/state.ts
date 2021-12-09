@@ -26,7 +26,7 @@ export type MessagesPageType = {
     messages: Array<MessageType>
     newMessageText: string
 }
-export type SubscribeType = (observer: RootStateType)=>void
+export type SubscribeType = (state: RootStateType)=>void
 
 export type RootStateType = {
     profilePage: ProfilePageType
@@ -112,7 +112,7 @@ export const updateNewMessageText = (newMessageText: string) => {
 }
 
 export const subscribe = (observer: SubscribeType) => {
-    rerenderEntireTree = observer
+    rerenderEntireTree = observer // наблюдатель
 }
 
 export default state;
