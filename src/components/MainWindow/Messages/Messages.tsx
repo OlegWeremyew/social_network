@@ -7,6 +7,7 @@ import {MessagesPageType} from "../../../redux/state";
 type MessagesType = {
     state: MessagesPageType
     addMessage: (AddNewMessage: string) => void
+    updateNewMessageText: (newMessageText: string) => void
 }
 
 const Messages = (props: MessagesType) => {
@@ -17,6 +18,11 @@ const Messages = (props: MessagesType) => {
         let text = newMessageElement.current?.value
         if (text) props.addMessage(text)
         if (newMessageElement.current) newMessageElement.current.value = ''
+    }
+
+    let onMessagePost = () => {
+        let text = newMessageElement.current?.value
+        text? props.updateNewMessageText(text) : props.updateNewMessageText("")
     }
 
     let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)
@@ -30,7 +36,7 @@ const Messages = (props: MessagesType) => {
             <div className={c.messages}>
                 {message}
                 <div>
-                    <textarea ref={newMessageElement} rows={10} cols={44} placeholder={'Write your message'}/>
+                    <textarea onChange={onMessagePost} value={props.state.newMessageText} ref={newMessageElement} rows={10} cols={44} placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addMessage}>Add message</button>

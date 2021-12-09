@@ -17,6 +17,7 @@ type AppStateType = {
     addPost: (postMessage: string) => void
     addMessage: (AddNewMessage: string) => void
     updateNewPostText: (newText: string) => void
+    updateNewMessageText: (newMessageText: string) => void
 }
 
 function App(props: AppStateType) {
@@ -27,6 +28,7 @@ function App(props: AppStateType) {
             <Navbar/>
             <div className={c.appContentWindow}>
                 <Routes>
+
                     <Route path="/profile/*"
                            element={
                                <Profile
@@ -34,16 +36,20 @@ function App(props: AppStateType) {
                                    addPost={props.addPost}
                                    updateNewPostText={props.updateNewPostText}
                                />}/>
+
                     <Route path="/messages/*"
                            element={
                                <Messages
                                    state={props.state.messagesPage}
                                    addMessage={props.addMessage}
+                                   updateNewMessageText={props.updateNewMessageText}
                                />}/>
+
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>
                     <Route path="/friends/*" element={<Friends/>}/>
+
                 </Routes>
             </div>
             <Footer/>
