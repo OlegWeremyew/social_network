@@ -21,12 +21,16 @@ const MyPosts = (props: MyPostMessageType) => {
         if (newPostElement.current) newPostElement.current.value = ''
     }
 
+    const onPostChange = () => {
+
+    }
+
     return (
         <div className={c.myPosts}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement} placeholder={'Write your message'}/>
+                    <textarea ref={newPostElement} value={newPostText} placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
