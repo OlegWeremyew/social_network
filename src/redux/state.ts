@@ -1,25 +1,11 @@
-const ADD_POST: string = "ADD_POST"
-const UPDATE_NEW_POST_TEXT: string = "UPDATE_NEW_POST_TEXT"
-export const ADD_MESSAGE: string = "ADD_MESSAGE"
-export const UPDATE_NEW_MESSAGE_TEXT: string = "UPDATE_NEW_MESSAGE_TEXT"
 
 //types ===================================================================
 
-/*export type AddPostActionType = {
-    type: 'ADD-POST'
-}*/
-/*export type UpdateNewPostText = {
-    type: "UPDATE_NEW_POST_TEXT"
-    newText: string
-}*/
-/*export type AddMessageActionType = {
-    type: "ADD_MESSAGE"
-}*/
-/*export type UpdateNewMessageText = {
-    type:"UPDATE_NEW_MESSAGE_TEXT"
-    newMessage: string
-}*/
-/*export type ActionTypes = AddPostActionType | UpdateNewPostText | AddMessageActionType | UpdateNewMessageText*/
+/*export type ActionTypes = ReturnType<typeof addPostCreater> |
+    ReturnType<typeof udateNewPostTextCreater> |
+    ReturnType<typeof addMessageCreator> |
+    ReturnType<typeof onMessagePostCreator>*/
+
 
 export type PostType = {
     message: string
@@ -67,15 +53,31 @@ export type StoreType = {
 
 //functions=======================================================================
 
-export const addPostCreater = () => ({type: ADD_POST})
+export const addPostCreater = () => {
+    return {
+        type: "ADD_POST"
+    } as const
+}
 
-export const udateNewPostTextCreater = (text: string | undefined) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const udateNewPostTextCreater = (text: string | undefined) => {
+    return {
+        type: "UPDATE_NEW_POST_TEXT",
+        newText: text
+    } as const
+}
 
-export const addMessageCreator = () => ({type: ADD_MESSAGE})
+export const addMessageCreator = () => {
+    return {
+        type: "ADD_MESSAGE"
+    } as const
+}
 
-export const onMessagePostCreator = (text: string | undefined) =>
-    ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text})
+export const onMessagePostCreator = (text: string | undefined) =>{
+    return {
+        type: "UPDATE_NEW_MESSAGE_TEXT",
+        newMessage: text
+    } as const
+}
 
 //store =======================================================================
 
@@ -138,38 +140,8 @@ export let store: StoreType = {
     subscribe(observer: SubscribeType) {
         this._callSubscriber = observer // наблюдатель
     },
-
-    /* addPost(postMessage: string) {
-         let newPost = {
-             id: 5,
-             message: postMessage,
-             likesCount: 12
-         }
-
-         this._state.profilePage.posts.push(newPost)
-         this._state.profilePage.newPostText = ""
-         this._callSubscriber(this._state)
-     },*/
-    /* updateNewPostText(newText: string) {
-         this._state.profilePage.newPostText = newText
-         this._callSubscriber(this._state)
-     },*/
-    /* addMessage(AddNewMessage: string) {
-         let newMessage = {
-             id: 5,
-             message: AddNewMessage,
-         }
-
-         this._state.messagesPage.messages.push(newMessage)
-         this._state.messagesPage.newMessageText = ""
-         this._callSubscriber(this._state)
-     },*/
-    /* updateNewMessageText(newMessageText: string) {
-         this._state.messagesPage.newMessageText = newMessageText
-         this._callSubscriber(this._state)
-     },*/
     dispatch(action: any) {
-        if (action.type === ADD_POST) {
+        if (action.type === "ADD_POST") {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -178,10 +150,10 @@ export let store: StoreType = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ""
             this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+        } else if (action.type === "UPDATE_NEW_POST_TEXT") {
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
-        } else if (action.type === ADD_MESSAGE) {
+        } else if (action.type === "ADD_MESSAGE") {
             let newMessage = {
                 id: 5,
                 message: this._state.messagesPage.newMessageText,
@@ -189,7 +161,7 @@ export let store: StoreType = {
             this._state.messagesPage.messages.push(newMessage)
             this._state.messagesPage.newMessageText = ""
             this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+        } else if (action.type === "UPDATE_NEW_MESSAGE_TEXT") {
             this._state.messagesPage.newMessageText = action.newMessage
             this._callSubscriber(this._state)
         }
