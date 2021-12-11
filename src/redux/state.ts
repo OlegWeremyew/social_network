@@ -68,8 +68,14 @@ export type StoreType = {
 //functions=======================================================================
 
 export const addPostCreater = () => ({type: ADD_POST})
-export const udateNewPostTextActionCreater = (text: string | undefined) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
+export const udateNewPostTextCreater = (text: string | undefined) =>
+    ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+export const addMessageCreator = () => ({type: ADD_MESSAGE})
+
+export const onMessagePostCreator = (text: string | undefined) =>
+    ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text})
 
 //store =======================================================================
 

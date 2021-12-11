@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import c from "./MyPosts.module.css"
-import {addPostCreater, ProfilePageType, udateNewPostTextActionCreater} from "../../../../redux/state";
+import {addPostCreater, ProfilePageType, udateNewPostTextCreater} from "../../../../redux/state";
 import Post from "./Post/Post";
 
 export type MyPostMessageType = {
@@ -23,7 +23,7 @@ const MyPosts = (props: MyPostMessageType) => {
 
     const onPostChange = () => {
         let text = newPostElement.current?.value
-        const action = udateNewPostTextActionCreater(text);
+        const action = udateNewPostTextCreater(text);
         text ? props.dispatch(action) : props.dispatch({type: ''})
     }
 
