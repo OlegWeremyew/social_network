@@ -1,9 +1,26 @@
-export const ADD_POST = "ADD_POST"
-export const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
-export const ADD_MESSAGE = "ADD_MESSAGE"
-export const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT"
+const ADD_POST: string = "ADD_POST"
+const UPDATE_NEW_POST_TEXT: string = "UPDATE_NEW_POST_TEXT"
+export const ADD_MESSAGE: string = "ADD_MESSAGE"
+export const UPDATE_NEW_MESSAGE_TEXT: string = "UPDATE_NEW_MESSAGE_TEXT"
 
-//types==========================================
+//types ===================================================================
+
+/*export type AddPostActionType = {
+    type: 'ADD-POST'
+}*/
+/*export type UpdateNewPostText = {
+    type: "UPDATE_NEW_POST_TEXT"
+    newText: string
+}*/
+/*export type AddMessageActionType = {
+    type: "ADD_MESSAGE"
+}*/
+/*export type UpdateNewMessageText = {
+    type:"UPDATE_NEW_MESSAGE_TEXT"
+    newMessage: string
+}*/
+/*export type ActionTypes = AddPostActionType | UpdateNewPostText | AddMessageActionType | UpdateNewMessageText*/
+
 export type PostType = {
     message: string
     likesCount: number
@@ -34,8 +51,6 @@ export type RootStateType = {
 
 export type SubscribeType = (state: RootStateType) => void
 
-//store==========================================
-
 export type StoreType = {
     _state: RootStateType
     _callSubscriber: (state: RootStateType) => void
@@ -49,6 +64,14 @@ export type StoreType = {
     updateNewMessageText: (newMessageText: string) => void*/
     dispatch: (action: any) => void
 }
+
+//functions=======================================================================
+
+export const addPostCreater = () => ({type: ADD_POST})
+export const udateNewPostTextActionCreater = (text: string | undefined) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+
+//store =======================================================================
 
 export let store: StoreType = {
     _state: {

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import c from "./MyPosts.module.css"
-import {ADD_POST, ProfilePageType, UPDATE_NEW_POST_TEXT} from "../../../../redux/state";
+import {addPostCreater, ProfilePageType, udateNewPostTextActionCreater} from "../../../../redux/state";
 import Post from "./Post/Post";
 
 export type MyPostMessageType = {
@@ -17,14 +17,14 @@ const MyPosts = (props: MyPostMessageType) => {
 
     let addPost = () => {
         let text = newPostElement.current?.value
-        if (text) props.dispatch({type: ADD_POST})
+        if (text) props.dispatch(addPostCreater())
         if (newPostElement.current) newPostElement.current.value = ''
     }
 
     const onPostChange = () => {
         let text = newPostElement.current?.value
-        const action = {type: UPDATE_NEW_POST_TEXT, newText: text};
-        text ? props.dispatch(action) : props.dispatch({type:''})
+        const action = udateNewPostTextActionCreater(text);
+        text ? props.dispatch(action) : props.dispatch({type: ''})
     }
 
     return (
@@ -32,7 +32,8 @@ const MyPosts = (props: MyPostMessageType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText} placeholder={'Write your message'}/>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText}
+                              placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
