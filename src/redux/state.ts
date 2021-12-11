@@ -1,7 +1,9 @@
-let rerenderEntireTree = (state: RootStateType) => {
-    console.log("state changed")
-}
+const ADD_POST = "ADD_POST"
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
+const ADD_MESSAGE = "ADD_MESSAGE"
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT"
 
+//types==========================================
 export type PostType = {
     message: string
     likesCount: number
@@ -25,19 +27,27 @@ export type MessagesPageType = {
     messages: Array<MessageType>
     newMessageText: string
 }
-export type SubscribeType = (state: RootStateType) => void
 export type RootStateType = {
     profilePage: ProfilePageType
     messagesPage: MessagesPageType
 }
+
+export type SubscribeType = (state: RootStateType) => void
+
+//store==========================================
+
 export type StoreType = {
     _state: RootStateType
+    _callSubscriber: (state: RootStateType) => void
+
     getState: () => RootStateType
     subscribe: (observer: SubscribeType) => void
-    addPost: (postMessage: string) => void
+
+    /*addPost: (postMessage: string) => void
     updateNewPostText: (newText: string) => void
     addMessage: (AddNewMessage: string) => void
-    updateNewMessageText: (newMessageText: string) => void
+    updateNewMessageText: (newMessageText: string) => void*/
+    dispatch: (action: any) => void
 }
 
 export let store: StoreType = {
@@ -89,41 +99,70 @@ export let store: StoreType = {
             newMessageText: ""
         }
     },
+    _callSubscriber: (state: RootStateType) => {
+        console.log("state changed")
+    },
+
     getState() {
         return this._state
     },
-
     subscribe(observer: SubscribeType) {
-        rerenderEntireTree = observer // наблюдатель
+        this._callSubscriber = observer // наблюдатель
     },
 
-    addPost(postMessage: string) {
-        let newPost = {
-            id: 5,
-            message: postMessage,
-            likesCount: 12
+    /* addPost(postMessage: string) {
+         let newPost = {
+             id: 5,
+             message: postMessage,
+             likesCount: 12
+         }
+
+         this._state.profilePage.posts.push(newPost)
+         this._state.profilePage.newPostText = ""
+         this._callSubscriber(this._state)
+     },*/
+    /* updateNewPostText(newText: string) {
+         this._state.profilePage.newPostText = newText
+         this._callSubscriber(this._state)
+     },*/
+    /* addMessage(AddNewMessage: string) {
+         let newMessage = {
+             id: 5,
+             message: AddNewMessage,
+         }
+
+         this._state.messagesPage.messages.push(newMessage)
+         this._state.messagesPage.newMessageText = ""
+         this._callSubscriber(this._state)
+     },*/
+    /* updateNewMessageText(newMessageText: string) {
+         this._state.messagesPage.newMessageText = newMessageText
+         this._callSubscriber(this._state)
+     },*/
+    dispatch(action: any) {
+        if (action.type === ADD_POST) {
+            let newPost = {
+                id: 5,
+                message: postMessage,
+                likesCount: 12
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ""
+            this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = newText
+            this._callSubscriber(this._state)
+        } else if (action.type === ADD_MESSAGE) {
+            let newMessage = {
+                id: 5,
+                message: AddNewMessage,
+            }
+            this._state.messagesPage.messages.push(newMessage)
+            this._state.messagesPage.newMessageText = ""
+            this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.messagesPage.newMessageText = newMessageText
+            this._callSubscriber(this._state)
         }
-
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ""
-        rerenderEntireTree(this._state)
-    },
-    updateNewPostText(newText: string) {
-        this._state.profilePage.newPostText = newText
-        rerenderEntireTree(this._state)
-    },
-    addMessage(AddNewMessage: string) {
-        let newMessage = {
-            id: 5,
-            message: AddNewMessage,
-        }
-
-        this._state.messagesPage.messages.push(newMessage)
-        this._state.messagesPage.newMessageText = ""
-        rerenderEntireTree(this._state)
-    },
-    updateNewMessageText(newMessageText: string) {
-        this._state.messagesPage.newMessageText = newMessageText
-        rerenderEntireTree(this._state)
-    },
+    }
 }

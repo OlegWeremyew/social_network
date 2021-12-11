@@ -18,7 +18,7 @@ type AppStateType = {
 
 function App(props: AppStateType) {
 
-    const state = props.store._state
+    const state = props.store.getState()
 
     return (
         <main className={c.appContent}>
@@ -34,12 +34,12 @@ function App(props: AppStateType) {
                                    updateNewPostText={props.store.updateNewPostText.bind(props.store)}
                                />}/>
 
-                    *<Route path="/messages/*" element={
+                    <Route path="/messages/*" element={
                                <Messages
                                    state={state.messagesPage}
                                    addMessage={props.store.addMessage.bind(props.store)}
                                    updateNewMessageText={props.store.updateNewMessageText.bind(props.store)}
-                               />}/>*
+                               />}/>
 
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>

@@ -8,11 +8,9 @@ import {BrowserRouter} from "react-router-dom";
 let rerenderEntireTree = (state: RootStateType) => {
     ReactDOM.render(
         <BrowserRouter>
-
             <App
                 store={store}
             />
-
         </BrowserRouter>,
         document.getElementById('root')
     );
