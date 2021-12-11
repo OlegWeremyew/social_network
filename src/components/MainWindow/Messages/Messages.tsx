@@ -1,8 +1,8 @@
-import React, {RefObject, useRef} from 'react';
+import React, {useRef} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
-import {MessagesPageType} from "../../../redux/state";
+import {ADD_MESSAGE, MessagesPageType, UPDATE_NEW_MESSAGE_TEXT} from "../../../redux/state";
 
 type MessagesType = {
     state: MessagesPageType
@@ -15,13 +15,14 @@ const Messages = (props: MessagesType) => {
 
     let addMessage = () => {
         let text = newMessageElement.current?.value
-        if (text) props.dispatch(text)
+        if (text) props.dispatch({type: ADD_MESSAGE})
         if (newMessageElement.current) newMessageElement.current.value = ''
     }
 
     let onMessagePost = () => {
         let text = newMessageElement.current?.value
-        text? props.dispatch(text) : props.dispatch("");
+        const action = {type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text};
+        text ? props.dispatch(action) : props.dispatch({type:''});
     }
 
     let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)
@@ -35,7 +36,8 @@ const Messages = (props: MessagesType) => {
             <div className={c.messages}>
                 {message}
                 <div>
-                    <textarea onChange={onMessagePost} value={props.state.newMessageText} ref={newMessageElement} rows={10} cols={44} placeholder={'Write your message'}/>
+                    <textarea onChange={onMessagePost} value={props.state.newMessageText} ref={newMessageElement}
+                              rows={10} cols={44} placeholder={'Write your message'}/>
                 </div>
                 <div>
                     <button onClick={addMessage}>Add message</button>

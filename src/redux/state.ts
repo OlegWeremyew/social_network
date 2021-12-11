@@ -143,7 +143,7 @@ export let store: StoreType = {
         if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
-                message: postMessage,
+                message: this._state.profilePage.newPostText,
                 likesCount: 12
             }
             this._state.profilePage.posts.push(newPost)
@@ -155,13 +155,13 @@ export let store: StoreType = {
         } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 5,
-                message: AddNewMessage,
+                message: this._state.messagesPage.newMessageText,
             }
             this._state.messagesPage.messages.push(newMessage)
             this._state.messagesPage.newMessageText = ""
             this._callSubscriber(this._state)
         } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.messagesPage.newMessageText = action.newMessageText
+            this._state.messagesPage.newMessageText = action.newMessage
             this._callSubscriber(this._state)
         }
     }
