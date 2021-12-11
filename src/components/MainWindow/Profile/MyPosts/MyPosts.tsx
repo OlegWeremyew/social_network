@@ -5,8 +5,7 @@ import Post from "./Post/Post";
 
 export type MyPostMessageType = {
     profilePage: ProfilePageType
-    addPost: (postMessage: string) => void
-    updateNewPostText: (newText: string) => void
+    dispatch: (action: any) => void
 }
 
 
@@ -18,13 +17,13 @@ const MyPosts = (props: MyPostMessageType) => {
 
     let addPost = () => {
         let text = newPostElement.current?.value
-        if (text) props.addPost(text)
+        if (text) props.dispatch({type: ""})
         if (newPostElement.current) newPostElement.current.value = ''
     }
 
     const onPostChange = () => {
         let text = newPostElement.current?.value
-        text ? props.updateNewPostText(text) : props.updateNewPostText('')
+        text ? props.dispatch({type: ""}) : props.dispatch('')
     }
 
     return (

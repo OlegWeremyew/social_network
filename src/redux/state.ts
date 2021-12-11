@@ -1,7 +1,7 @@
-const ADD_POST = "ADD_POST"
-const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
-const ADD_MESSAGE = "ADD_MESSAGE"
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT"
+export const ADD_POST = "ADD_POST"
+export const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
+export const ADD_MESSAGE = "ADD_MESSAGE"
+export const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT"
 
 //types==========================================
 export type PostType = {
@@ -150,7 +150,7 @@ export let store: StoreType = {
             this._state.profilePage.newPostText = ""
             this._callSubscriber(this._state)
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = newText
+            this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
         } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
@@ -161,7 +161,7 @@ export let store: StoreType = {
             this._state.messagesPage.newMessageText = ""
             this._callSubscriber(this._state)
         } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.messagesPage.newMessageText = newMessageText
+            this._state.messagesPage.newMessageText = action.newMessageText
             this._callSubscriber(this._state)
         }
     }

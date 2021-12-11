@@ -6,8 +6,7 @@ import {MessagesPageType} from "../../../redux/state";
 
 type MessagesType = {
     state: MessagesPageType
-    addMessage: (AddNewMessage: string) => void
-    updateNewMessageText: (newMessageText: string) => void
+    dispatch: (action: any) => void
 }
 
 const Messages = (props: MessagesType) => {
@@ -16,13 +15,13 @@ const Messages = (props: MessagesType) => {
 
     let addMessage = () => {
         let text = newMessageElement.current?.value
-        if (text) props.addMessage(text)
+        if (text) props.dispatch(text)
         if (newMessageElement.current) newMessageElement.current.value = ''
     }
 
     let onMessagePost = () => {
         let text = newMessageElement.current?.value
-        text? props.updateNewMessageText(text) : props.updateNewMessageText("");
+        text? props.dispatch(text) : props.dispatch("");
     }
 
     let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)
