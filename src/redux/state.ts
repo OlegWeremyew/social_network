@@ -1,10 +1,10 @@
 
 //types ===================================================================
 
-/*export type ActionTypes = ReturnType<typeof addPostCreater> |
+export type ActionTypes = ReturnType<typeof addPostCreater> |
     ReturnType<typeof udateNewPostTextCreater> |
     ReturnType<typeof addMessageCreator> |
-    ReturnType<typeof onMessagePostCreator>*/
+    ReturnType<typeof onMessagePostCreator>
 
 
 export type PostType = {
@@ -142,7 +142,7 @@ export let store: StoreType = {
     },
     dispatch(action: any) {
         if (action.type === "ADD_POST") {
-            let newPost = {
+            let newPost: PostType = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
                 likesCount: 12
@@ -154,7 +154,7 @@ export let store: StoreType = {
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
         } else if (action.type === "ADD_MESSAGE") {
-            let newMessage = {
+            let newMessage: MessageType = {
                 id: 5,
                 message: this._state.messagesPage.newMessageText,
             }
