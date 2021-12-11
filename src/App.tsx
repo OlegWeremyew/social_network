@@ -29,16 +29,14 @@ function App(props: AppStateType) {
             <div className={c.appContentWindow}>
                 <Routes>
 
-                    <Route path="/profile/*"
-                           element={
+                    <Route path="/profile/*" element={
                                <Profile
                                    profilePage={props.state.profilePage}
                                    addPost={props.addPost}
                                    updateNewPostText={props.updateNewPostText}
                                />}/>
 
-                    <Route path="/messages/*"
-                           element={
+                    <Route path="/messages/*" element={
                                <Messages
                                    state={props.state.messagesPage}
                                    addMessage={props.addMessage}
