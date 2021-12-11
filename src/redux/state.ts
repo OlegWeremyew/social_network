@@ -40,7 +40,7 @@ export type StoreType = {
     getState: ()=>void
 }
 
-let store: StoreType = {
+export let store: StoreType = {
     _state:  {
     profilePage: {
         posts: [
@@ -121,6 +121,3 @@ let store: StoreType = {
         return this._state
     }
 }
-
-
-export default store;

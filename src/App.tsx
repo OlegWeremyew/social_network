@@ -10,17 +10,15 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
-import {RootStateType} from "./redux/state";
+import {RootStateType, StoreType} from "./redux/state";
 
 type AppStateType = {
-    state: RootStateType
-    addPost: (postMessage: string) => void
-    addMessage: (AddNewMessage: string) => void
-    updateNewPostText: (newText: string) => void
-    updateNewMessageText: (newMessageText: string) => void
+    store: StoreType
 }
 
 function App(props: AppStateType) {
+
+    const state = props.store._state
 
     return (
         <main className={c.appContent}>
@@ -31,17 +29,17 @@ function App(props: AppStateType) {
 
                     <Route path="/profile/*" element={
                                <Profile
-                                   profilePage={props.state.profilePage}
-                                   addPost={props.addPost}
-                                   updateNewPostText={props.updateNewPostText}
+                                   profilePage={state.profilePage}
+                                   addPost={props.store.addPost.bind(props.store)}
+                                   updateNewPostText={props.store.updateNewPostText.bind(props.store)}
                                />}/>
 
-                    <Route path="/messages/*" element={
+                    *<Route path="/messages/*" element={
                                <Messages
-                                   state={props.state.messagesPage}
-                                   addMessage={props.addMessage}
-                                   updateNewMessageText={props.updateNewMessageText}
-                               />}/>
+                                   state={state.messagesPage}
+                                   addMessage={props.store.addMessage.bind(props.store)}
+                                   updateNewMessageText={props.store.updateNewMessageText.bind(props.store)}
+                               />}/>*
 
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
