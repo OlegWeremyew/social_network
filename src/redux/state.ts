@@ -119,5 +119,6 @@ export let store: StoreType = {
     },
     getState() {
         return this._state
-    }
+    },
+
 }
