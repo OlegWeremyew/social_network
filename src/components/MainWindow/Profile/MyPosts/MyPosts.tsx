@@ -1,7 +1,8 @@
 import React, {useRef} from 'react';
 import c from "./MyPosts.module.css"
-import {ActionTypes, addPostCreator, ProfilePageType, udateNewPostTextCreator} from "../../../../redux/state";
+import {ActionTypes, ProfilePageType} from "../../../../redux/state";
 import Post from "./Post/Post";
+import {addPostCreator, updateNewPostTextCreator} from "../../../../redux/profileReducer";
 
 export type MyPostMessageType = {
     profilePage: ProfilePageType
@@ -11,7 +12,7 @@ export type MyPostMessageType = {
 
 const MyPosts = (props: MyPostMessageType) => {
 
-    let post = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
+    let post = props.profilePage.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} id={p.id}/>)
 
     let newPostElement = useRef<HTMLTextAreaElement>(null);
 
@@ -23,8 +24,8 @@ const MyPosts = (props: MyPostMessageType) => {
 
     const onPostChange = () => {
         let newText = newPostElement.current?.value
-        newText ? props.dispatch(udateNewPostTextCreator(newText)) :
-            props.dispatch(udateNewPostTextCreator(""))
+        newText ? props.dispatch(updateNewPostTextCreator(newText)) :
+            props.dispatch(updateNewPostTextCreator(""))
     }
 
     return (

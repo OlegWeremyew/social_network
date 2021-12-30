@@ -1,7 +1,11 @@
 //types ===================================================================
 
+import {addPostCreatorType, profileReducer, updateNewPostTextCreatorType} from "./profileReducer";
+import {addMessageCreatorType, messagesReducer, onMessagePostCreatorType} from "./messagesReducer";
+import {sidebarReducer} from "./sidebarPageReducer";
+
 export type ActionTypes = addPostCreatorType
-    | udateNewPostTextCreatorType
+    | updateNewPostTextCreatorType
     | addMessageCreatorType
     | onMessagePostCreatorType
 
@@ -50,37 +54,6 @@ export type StoreType = {
     addMessage: (AddNewMessage: string) => void
     updateNewMessageText: (newMessageText: string) => void*/
     dispatch: (action: any) => void
-}
-
-//action creators =======================================================================
-
-export type addPostCreatorType = ReturnType<typeof addPostCreator>
-export const addPostCreator = (newText: string) => {
-    return {
-        type: "ADD_POST",
-        newText: newText
-    } as const
-}
-export type udateNewPostTextCreatorType = ReturnType<typeof udateNewPostTextCreator>
-export const udateNewPostTextCreator = (newText: string) => {
-    return {
-        type: "UPDATE_NEW_POST_TEXT",
-        newText: newText
-    } as const
-}
-export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
-export const addMessageCreator = (newMessage: string) => {
-    return {
-        type: "ADD_MESSAGE",
-        newMessage: newMessage
-    } as const
-}
-export type onMessagePostCreatorType = ReturnType<typeof onMessagePostCreator>
-export const onMessagePostCreator = (newMessage: string) => {
-    return {
-        type: "UPDATE_NEW_MESSAGE_TEXT",
-        newMessage: newMessage
-    } as const
 }
 
 //store =======================================================================
@@ -146,29 +119,13 @@ export let store: StoreType = {
         this._callSubscriber = observer // наблюдатель //у димыча callback называется
     },
     dispatch(action: ActionTypes) {
-        if (action.type === "ADD_POST") {
-            let newPost: PostType = {
-                id: new Date().getTime(),
-                message: action.newText,
-                likesCount: 12
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ""
-            this._callSubscriber(this._state)
-        } else if (action.type === "UPDATE_NEW_POST_TEXT") {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber(this._state)
-        } else if (action.type === "ADD_MESSAGE") {
-            let newMessage: MessageType = {
-                id: new Date().getTime(),
-                message: action.newMessage,
-            }
-            this._state.messagesPage.messages.push(newMessage)
-            this._state.messagesPage.newMessageText = ""
-            this._callSubscriber(this._state)
-        } else if (action.type === "UPDATE_NEW_MESSAGE_TEXT") {
-            this._state.messagesPage.newMessageText = action.newMessage
-            this._callSubscriber(this._state)
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+        //sidebarReducer({}, action)
+
+        this._callSubscriber(this._state)
+
     }
+
 }

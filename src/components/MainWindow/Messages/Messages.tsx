@@ -2,7 +2,8 @@ import React, {useRef} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
-import {ActionTypes, addMessageCreator, MessagesPageType, onMessagePostCreator} from "../../../redux/state";
+import {ActionTypes, MessagesPageType} from "../../../redux/state";
+import {addMessageCreator, onMessagePostCreator} from "../../../redux/messagesReducer";
 
 type MessagesType = {
     state: MessagesPageType
@@ -25,8 +26,8 @@ const Messages = (props: MessagesType) => {
             props.dispatch(onMessagePostCreator(""));
     }
 
-    let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)
-    let message = props.state.messages.map(m => <Message message={m.message} id={m.id}/>)
+    let dialogsItem = props.state.users.map(u => <DialogsItem key={u.id} name={u.name} id={u.id} img={u.img}/>)
+    let message = props.state.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
     return (
         <div className={c.dialogs}>
