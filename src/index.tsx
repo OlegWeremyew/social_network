@@ -5,7 +5,7 @@ import {RootStateType} from "./redux/store";
 import {store} from "./redux/reduxStore";
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
 let rerenderEntireTree = (state: RootStateType) => {
     ReactDOM.render(

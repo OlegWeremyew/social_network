@@ -1,41 +1,27 @@
 import React from 'react';
-import {ActionTypes, ProfilePageType, StoreType} from "../../../../redux/store";
+import {RootStateType} from "../../../../redux/store";
 import {addPostCreator, updateNewPostTextCreator} from "../../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
-import {StoreContext} from "../../../../StoreContext";
+import {connect} from "react-redux";
 
 
-const MyPostsContainer = () => {
-
-    return (
-        <StoreContext.Consumer>
-            {
-                (store: StoreType) => {
-
-                    let state = store.getState()
-
-                    let addPost = () => {
-                        store.dispatch(addPostCreator())
-                    }
-
-                    const onPostChange = (newText: string) => {
-                        newText ? store.dispatch(updateNewPostTextCreator(newText)) :
-                            store.dispatch(updateNewPostTextCreator(""))
-                    }
-
-                    return (
-                        <MyPosts
-                            updateNewPostText={onPostChange}
-                            onAddPost={addPost}
-                            posts={state.profilePage.posts}
-                            newPostText={state.profilePage.newPostText}
-                        />
-                    )
-                }
-
-            }
-        </StoreContext.Consumer>
-    );
+let mapStateToProps = (state: RootStateType) => {
+    return {
+        posts: state.profilePage.posts,
+        newPostText: state.profilePage.newPostText,
+    }
 }
 
-export default MyPostsContainer;
+let mapDispatchToProps = (dispatch: any) => {
+    return {
+        onAddPost: () => {
+            dispatch(addPostCreator())
+        },
+        updateNewPostText: (newText: string) => {
+            newText ? dispatch(updateNewPostTextCreator(newText)) :
+                dispatch(updateNewPostTextCreator(""))
+        },
+    }
+}
+
+export let MyPostsContainer: any = connect(mapStateToProps, mapDispatchToProps)(MyPosts)

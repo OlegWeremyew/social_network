@@ -1,40 +1,25 @@
 import React from 'react';
-import {MessagesPageType, StoreType} from "../../../redux/store";
+import {RootStateType} from "../../../redux/store";
 import {addMessageCreator, onMessagePostCreator} from "../../../redux/messagesReducer";
 import Messages from "./Messages";
-import {StoreContext} from '../../../StoreContext';
+import {connect} from "react-redux";
 
-
-const MessagesContainer = () => {
-
-    return (
-        <StoreContext.Consumer>
-            {
-                (store: StoreType) => {
-
-                    let state: MessagesPageType = store.getState().messagesPage
-
-                    let addMessage = () => {
-                        store.dispatch(addMessageCreator())
-                    }
-
-                    let onMessagePost = (text: string) => {
-                        text ? store.dispatch(onMessagePostCreator(text)) :
-                            store.dispatch(onMessagePostCreator(""));
-                    }
-
-                    return (
-                        <Messages
-                            addMessage={addMessage}
-                            onMessagePost={onMessagePost}
-                            store={state}
-                        />
-                    );
-                }
-            }
-        </StoreContext.Consumer>
-    )
-
+let mapStateToProps = (state: RootStateType) => {
+    return {
+        messagesPage: state.messagesPage
+    }
 }
 
-export default MessagesContainer;
+let mapDispatchToProps = (dispatch: any) => {
+    return {
+        addMessage: () => {
+            dispatch(addMessageCreator())
+        },
+        onMessagePost: (text: string) => {
+            text ? dispatch(onMessagePostCreator(text)) :
+                dispatch(onMessagePostCreator(""));
+        },
+    }
+}
+
+export let MessagesContainer: any = connect(mapStateToProps, mapDispatchToProps)(Messages)
