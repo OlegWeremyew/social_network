@@ -23,8 +23,8 @@ const MyPosts = (props: MyPostMessageType) => {
 
     const onPostChange = () => {
         let text = newPostElement.current?.value
-        const action = udateNewPostTextCreater(text);
-        text ? props.dispatch(action) : props.dispatch({type: ''})
+        text ? props.dispatch(udateNewPostTextCreater(text)) :
+            props.dispatch(udateNewPostTextCreater(""))
     }
 
     return (

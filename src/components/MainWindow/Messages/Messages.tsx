@@ -21,8 +21,8 @@ const Messages = (props: MessagesType) => {
 
     let onMessagePost = () => {
         let text = newMessageElement.current?.value
-        const action = onMessagePostCreator(text);
-        text ? props.dispatch(action) : props.dispatch({type: ''});
+        text ? props.dispatch(onMessagePostCreator(text)) :
+            props.dispatch(onMessagePostCreator(""));
     }
 
     let dialogsItem = props.state.users.map(u => <DialogsItem name={u.name} id={u.id} img={u.img}/>)

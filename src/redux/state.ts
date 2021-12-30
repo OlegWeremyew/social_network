@@ -1,10 +1,10 @@
 
 //types ===================================================================
 
-export type ActionTypes = ReturnType<typeof addPostCreater> |
-    ReturnType<typeof udateNewPostTextCreater> |
-    ReturnType<typeof addMessageCreator> |
-    ReturnType<typeof onMessagePostCreator>
+export type ActionTypes = addPostCreaterType
+    | udateNewPostTextCreaterType
+    | addMessageCreatorType
+    | onMessagePostCreatorType
 
 
 export type PostType = {
@@ -53,26 +53,27 @@ export type StoreType = {
 
 //functions=======================================================================
 
+export type addPostCreaterType = ReturnType<typeof addPostCreater>
 export const addPostCreater = () => {
     return {
         type: "ADD_POST"
     } as const
 }
-
-export const udateNewPostTextCreater = (text: string | undefined) => {
+export type udateNewPostTextCreaterType = ReturnType<typeof udateNewPostTextCreater>
+export const udateNewPostTextCreater = (text: string) => {
     return {
         type: "UPDATE_NEW_POST_TEXT",
         newText: text
     } as const
 }
-
+export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
 export const addMessageCreator = () => {
     return {
         type: "ADD_MESSAGE"
     } as const
 }
-
-export const onMessagePostCreator = (text: string | undefined) =>{
+export type onMessagePostCreatorType = ReturnType<typeof onMessagePostCreator>
+export const onMessagePostCreator = (text: string) =>{
     return {
         type: "UPDATE_NEW_MESSAGE_TEXT",
         newMessage: text
@@ -140,7 +141,7 @@ export let store: StoreType = {
     subscribe(observer: SubscribeType) {
         this._callSubscriber = observer // наблюдатель
     },
-    dispatch(action: any) {
+    dispatch(action: ActionTypes) {
         if (action.type === "ADD_POST") {
             let newPost: PostType = {
                 id: 5,
