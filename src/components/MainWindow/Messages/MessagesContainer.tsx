@@ -1,10 +1,10 @@
 import React from 'react';
-import {MessagesPageType} from "../../../redux/store";
+import {MessagesPageType, StoreType} from "../../../redux/store";
 import {addMessageCreator, onMessagePostCreator} from "../../../redux/messagesReducer";
 import Messages from "./Messages";
 
 type MessagesType = {
-    store: any
+    store: StoreType
 }
 
 const MessagesContainer = (props: MessagesType) => {

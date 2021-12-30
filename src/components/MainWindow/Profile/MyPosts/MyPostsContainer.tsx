@@ -1,10 +1,10 @@
 import React from 'react';
-import {ActionTypes, ProfilePageType} from "../../../../redux/store";
+import {ActionTypes, ProfilePageType, StoreType} from "../../../../redux/store";
 import {addPostCreator, updateNewPostTextCreator} from "../../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
 
 export type MyPostMessageType = {
-    store: any
+    store: StoreType
 }
 
 

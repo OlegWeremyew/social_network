@@ -10,7 +10,6 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import Profile from "./components/MainWindow/Profile/Profile";
 import MessagesContainer from "./components/MainWindow/Messages/MessagesContainer";
-import {StoreType} from "./redux/store";
 
 type AppStateType = {
     store: any
