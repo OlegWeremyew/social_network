@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
-import {ActionTypes, MessagesPageType} from "../../../redux/state";
+import {ActionTypes, MessagesPageType} from "../../../redux/store";
 import {addMessageCreator, onMessagePostCreator} from "../../../redux/messagesReducer";
 
 type MessagesType = {

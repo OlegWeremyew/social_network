@@ -1,7 +1,7 @@
 import React from 'react';
 import c from "./DialogsItem.module.css"
 import {NavLink} from "react-router-dom";
-import {UserType} from "../../../../redux/state";
+import {UserType} from "../../../../redux/store";
 
 const DialogsItem = (props: UserType) => {
 

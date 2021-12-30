@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import c from "./MyPosts.module.css"
-import {ActionTypes, ProfilePageType} from "../../../../redux/state";
+import {ActionTypes, ProfilePageType} from "../../../../redux/store";
 import Post from "./Post/Post";
 import {addPostCreator, updateNewPostTextCreator} from "../../../../redux/profileReducer";
 
