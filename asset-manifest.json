@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/myWayTypeScript/static/css/main.7c2caeec.chunk.css",
-    "main.js": "/myWayTypeScript/static/js/main.91e3331a.chunk.js",
-    "main.js.map": "/myWayTypeScript/static/js/main.91e3331a.chunk.js.map",
+    "main.js": "/myWayTypeScript/static/js/main.d1683008.chunk.js",
+    "main.js.map": "/myWayTypeScript/static/js/main.d1683008.chunk.js.map",
     "runtime-main.js": "/myWayTypeScript/static/js/runtime-main.5c68e207.js",
     "runtime-main.js.map": "/myWayTypeScript/static/js/runtime-main.5c68e207.js.map",
     "static/js/2.0f0b2f68.chunk.js": "/myWayTypeScript/static/js/2.0f0b2f68.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.5c68e207.js",
     "static/js/2.0f0b2f68.chunk.js",
     "static/css/main.7c2caeec.chunk.css",
-    "static/js/main.91e3331a.chunk.js"
+    "static/js/main.d1683008.chunk.js"
   ]
 }
