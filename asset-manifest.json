@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/myWayTypeScript/static/css/main.7c2caeec.chunk.css",
-    "main.js": "/myWayTypeScript/static/js/main.d1683008.chunk.js",
-    "main.js.map": "/myWayTypeScript/static/js/main.d1683008.chunk.js.map",
+    "main.js": "/myWayTypeScript/static/js/main.342baecd.chunk.js",
+    "main.js.map": "/myWayTypeScript/static/js/main.342baecd.chunk.js.map",
     "runtime-main.js": "/myWayTypeScript/static/js/runtime-main.5c68e207.js",
     "runtime-main.js.map": "/myWayTypeScript/static/js/runtime-main.5c68e207.js.map",
-    "static/js/2.0f0b2f68.chunk.js": "/myWayTypeScript/static/js/2.0f0b2f68.chunk.js",
-    "static/js/2.0f0b2f68.chunk.js.map": "/myWayTypeScript/static/js/2.0f0b2f68.chunk.js.map",
+    "static/js/2.540a5db6.chunk.js": "/myWayTypeScript/static/js/2.540a5db6.chunk.js",
+    "static/js/2.540a5db6.chunk.js.map": "/myWayTypeScript/static/js/2.540a5db6.chunk.js.map",
     "index.html": "/myWayTypeScript/index.html",
     "static/css/main.7c2caeec.chunk.css.map": "/myWayTypeScript/static/css/main.7c2caeec.chunk.css.map",
-    "static/js/2.0f0b2f68.chunk.js.LICENSE.txt": "/myWayTypeScript/static/js/2.0f0b2f68.chunk.js.LICENSE.txt",
+    "static/js/2.540a5db6.chunk.js.LICENSE.txt": "/myWayTypeScript/static/js/2.540a5db6.chunk.js.LICENSE.txt",
     "static/media/logo.cbfad428.png": "/myWayTypeScript/static/media/logo.cbfad428.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5c68e207.js",
-    "static/js/2.0f0b2f68.chunk.js",
+    "static/js/2.540a5db6.chunk.js",
     "static/css/main.7c2caeec.chunk.css",
-    "static/js/main.d1683008.chunk.js"
+    "static/js/main.342baecd.chunk.js"
   ]
 }
