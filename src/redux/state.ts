@@ -1,8 +1,7 @@
-
 //types ===================================================================
 
-export type ActionTypes = addPostCreaterType
-    | udateNewPostTextCreaterType
+export type ActionTypes = addPostCreatorType
+    | udateNewPostTextCreatorType
     | addMessageCreatorType
     | onMessagePostCreatorType
 
@@ -30,9 +29,11 @@ export type MessagesPageType = {
     messages: Array<MessageType>
     newMessageText: string
 }
+export type sidebarType = any
 export type RootStateType = {
     profilePage: ProfilePageType
     messagesPage: MessagesPageType
+    sidebar: sidebarType
 }
 
 export type SubscribeType = (state: RootStateType) => void
@@ -51,32 +52,34 @@ export type StoreType = {
     dispatch: (action: any) => void
 }
 
-//functions=======================================================================
+//action creators =======================================================================
 
-export type addPostCreaterType = ReturnType<typeof addPostCreater>
-export const addPostCreater = () => {
+export type addPostCreatorType = ReturnType<typeof addPostCreator>
+export const addPostCreator = (newText: string) => {
     return {
-        type: "ADD_POST"
+        type: "ADD_POST",
+        newText: newText
     } as const
 }
-export type udateNewPostTextCreaterType = ReturnType<typeof udateNewPostTextCreater>
-export const udateNewPostTextCreater = (text: string) => {
+export type udateNewPostTextCreatorType = ReturnType<typeof udateNewPostTextCreator>
+export const udateNewPostTextCreator = (newText: string) => {
     return {
         type: "UPDATE_NEW_POST_TEXT",
-        newText: text
+        newText: newText
     } as const
 }
 export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
-export const addMessageCreator = () => {
+export const addMessageCreator = (newMessage: string) => {
     return {
-        type: "ADD_MESSAGE"
+        type: "ADD_MESSAGE",
+        newMessage: newMessage
     } as const
 }
 export type onMessagePostCreatorType = ReturnType<typeof onMessagePostCreator>
-export const onMessagePostCreator = (text: string) =>{
+export const onMessagePostCreator = (newMessage: string) => {
     return {
         type: "UPDATE_NEW_MESSAGE_TEXT",
-        newMessage: text
+        newMessage: newMessage
     } as const
 }
 
@@ -129,23 +132,24 @@ export let store: StoreType = {
                 {message: "Hia", id: 6},
             ],
             newMessageText: ""
-        }
+        },
+        sidebar: {}
     },
     _callSubscriber: (state: RootStateType) => {
         console.log("state changed")
-    },
+    }, //у димыча onChange называется
 
     getState() {
         return this._state
     },
     subscribe(observer: SubscribeType) {
-        this._callSubscriber = observer // наблюдатель
+        this._callSubscriber = observer // наблюдатель //у димыча callback называется
     },
     dispatch(action: ActionTypes) {
         if (action.type === "ADD_POST") {
             let newPost: PostType = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
+                id: new Date().getTime(),
+                message: action.newText,
                 likesCount: 12
             }
             this._state.profilePage.posts.push(newPost)
@@ -156,8 +160,8 @@ export let store: StoreType = {
             this._callSubscriber(this._state)
         } else if (action.type === "ADD_MESSAGE") {
             let newMessage: MessageType = {
-                id: 5,
-                message: this._state.messagesPage.newMessageText,
+                id: new Date().getTime(),
+                message: action.newMessage,
             }
             this._state.messagesPage.messages.push(newMessage)
             this._state.messagesPage.newMessageText = ""

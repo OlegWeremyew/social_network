@@ -2,11 +2,11 @@ import React, {useRef} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
-import {addMessageCreator, MessagesPageType, onMessagePostCreator} from "../../../redux/state";
+import {ActionTypes, addMessageCreator, MessagesPageType, onMessagePostCreator} from "../../../redux/state";
 
 type MessagesType = {
     state: MessagesPageType
-    dispatch: (action: any) => void
+    dispatch: (action: ActionTypes) => void
 }
 
 const Messages = (props: MessagesType) => {
@@ -14,8 +14,8 @@ const Messages = (props: MessagesType) => {
     let newMessageElement = useRef<HTMLTextAreaElement>(null);
 
     let addMessage = () => {
-        let text = newMessageElement.current?.value
-        if (text) props.dispatch(addMessageCreator())
+        let newMessage = newMessageElement.current?.value
+        if (newMessage) props.dispatch(addMessageCreator(newMessage))
         if (newMessageElement.current) newMessageElement.current.value = ''
     }
 

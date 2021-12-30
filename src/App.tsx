@@ -10,11 +10,11 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
-import {RootStateType} from "./redux/state";
+import {ActionTypes, RootStateType} from "./redux/state";
 
 type AppStateType = {
     state: RootStateType
-    dispatch: (action: any) => void
+    dispatch: (action: ActionTypes) => void
 }
 
 function App(props: AppStateType) {
