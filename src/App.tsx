@@ -11,34 +11,20 @@ import Settings from "./components/MainWindow/Settings/Settings";
 import Profile from "./components/MainWindow/Profile/Profile";
 import MessagesContainer from "./components/MainWindow/Messages/MessagesContainer";
 
-type AppStateType = {
-    store: any
-}
 
-function App(props: AppStateType) {
-
+function App() {
     return (
         <main className={c.appContent}>
             <Header/>
             <Navbar/>
             <div className={c.appContentWindow}>
                 <Routes>
-
-                    <Route path="/profile/*" element={
-                        <Profile
-                            store={props.store}
-                        />}/>
-
-                    <Route path="/messages/*" element={
-                        <MessagesContainer
-                            store={props.store}
-                        />}/>
-
+                    <Route path="/profile/*" element={<Profile/>}/>
+                    <Route path="/messages/*" element={<MessagesContainer/>}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>
                     <Route path="/friends/*" element={<Friends/>}/>
-
                 </Routes>
             </div>
             <Footer/>
