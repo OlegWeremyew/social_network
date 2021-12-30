@@ -1,39 +1,37 @@
-import React, {useRef} from 'react';
+import React, {ChangeEvent} from 'react';
 import c from "./MyPosts.module.css"
-import {ActionTypes, ProfilePageType} from "../../../../redux/store";
+import {PostType, ProfilePageType} from "../../../../redux/store";
 import Post from "./Post/Post";
-import {addPostCreator, updateNewPostTextCreator} from "../../../../redux/profileReducer";
 
 export type MyPostMessageType = {
-    profilePage: ProfilePageType
-    dispatch: (action: ActionTypes) => void
+    posts: Array<PostType>
+    newPostText: string
+    updateNewPostText: (newText: string) => void
+    onAddPost: () => void
 }
 
 
 const MyPosts = (props: MyPostMessageType) => {
 
-    let post = props.profilePage.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} id={p.id}/>)
-
-    let newPostElement = useRef<HTMLTextAreaElement>(null);
+    let post = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}
+                                                      id={p.id}/>)
 
     let addPost = () => {
-        let newText = newPostElement.current?.value
-        if (newText) props.dispatch(addPostCreator(newText))
-        if (newPostElement.current) newPostElement.current.value = ''
+        props.onAddPost()
     }
 
-    const onPostChange = () => {
-        let newText = newPostElement.current?.value
-        newText ? props.dispatch(updateNewPostTextCreator(newText)) :
-            props.dispatch(updateNewPostTextCreator(""))
+    const onPostChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
+        let newText = e.currentTarget.value
+        props.updateNewPostText(newText)
     }
+
 
     return (
         <div className={c.myPosts}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText}
+                    <textarea onChange={onPostChange} value={props.newPostText}
                               placeholder={'Write your message'}/>
                 </div>
                 <div>

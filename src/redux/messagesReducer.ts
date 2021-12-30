@@ -64,10 +64,9 @@ export const messagesReducer = (state: MessagesPageType  = initialState, action:
 /*type ActionType = addMessageCreatorType | onMessagePostCreatorType*/
 
 export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
-export const addMessageCreator = (newMessage: string) => {
+export const addMessageCreator = () => {
     return {
         type: "ADD_MESSAGE",
-        newMessage: newMessage
     } as const
 }
 export type onMessagePostCreatorType = ReturnType<typeof onMessagePostCreator>

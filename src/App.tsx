@@ -8,18 +8,15 @@ import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
-import Messages from "./components/MainWindow/Messages/Messages";
 import Profile from "./components/MainWindow/Profile/Profile";
-import {ActionTypes, RootStateType} from "./redux/store";
+import MessagesContainer from "./components/MainWindow/Messages/MessagesContainer";
+import {StoreType} from "./redux/store";
 
 type AppStateType = {
-    state: RootStateType
-    dispatch: (action: ActionTypes) => void
+    store: any
 }
 
 function App(props: AppStateType) {
-
-    const state = props.state
 
     return (
         <main className={c.appContent}>
@@ -29,16 +26,14 @@ function App(props: AppStateType) {
                 <Routes>
 
                     <Route path="/profile/*" element={
-                               <Profile
-                                   profilePage={state.profilePage}
-                                   dispatch={props.dispatch}
-                               />}/>
+                        <Profile
+                            store={props.store}
+                        />}/>
 
                     <Route path="/messages/*" element={
-                               <Messages
-                                   state={state.messagesPage}
-                                   dispatch={props.dispatch}
-                               />}/>
+                        <MessagesContainer
+                            store={props.store}
+                        />}/>
 
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
@@ -51,6 +46,5 @@ function App(props: AppStateType) {
         </main>
     );
 }
-
 
 export default App;
