@@ -4,7 +4,7 @@ import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
 import {MessagesPageType} from "../../../redux/store";
 
-type MessagesType = {
+export type MessagesType = {
     messagesPage: MessagesPageType
     addMessage: () => void
     onMessagePost: (newText: string) => void

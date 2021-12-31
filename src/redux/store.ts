@@ -9,16 +9,16 @@ export type ActionTypes = addPostCreatorType
     | addMessageCreatorType
     | onMessagePostCreatorType
 
-export type PostType = {
+type PostType = {
     message: string
     likesCount: number
     id: number
 }
-export type MessageType = {
+type MessageType = {
     message: string
     id: number
 }
-export type UserType = {
+type UserType = {
     name: string
     id: number
     img: string

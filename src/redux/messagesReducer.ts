@@ -1,4 +1,15 @@
-import {ActionTypes, MessagesPageType, MessageType} from "./store";
+import {ActionTypes} from "./store";
+
+export type UserType = {
+    name: string
+    id: number
+    img: string
+}
+
+export type MessageType = {
+    message: string
+    id: number
+}
 
 const initialState = {
     users: [
@@ -28,7 +39,7 @@ const initialState = {
             id: 6,
             img: "https://avatars.mds.yandex.net/i?id=55d09aa1629f72a149098b2c3127e039-5222024-images-thumbs&ref=rim&n=33&w=150&h=150"
         },
-    ],
+    ] as Array<UserType>,
     messages: [
         {message: "Hi", id: 1},
         {message: "Ho", id: 2},
@@ -36,11 +47,13 @@ const initialState = {
         {message: "Hu", id: 4},
         {message: "Hio", id: 5},
         {message: "Hia", id: 6},
-    ],
-    newMessageText: ""
+    ] as Array<MessageType>,
+    newMessageText: "" as string
 }
 
-export const messagesReducer = (state: MessagesPageType  = initialState, action: ActionTypes): MessagesPageType => {
+export type initialStateType = typeof initialState
+
+export const messagesReducer = (state: initialStateType  = initialState, action: ActionTypes): initialStateType => {
 
     switch (action.type) {
         case "ADD_MESSAGE": {

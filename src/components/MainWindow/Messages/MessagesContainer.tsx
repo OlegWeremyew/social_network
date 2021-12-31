@@ -1,16 +1,26 @@
 import React from 'react';
-import {RootStateType} from "../../../redux/store";
-import {addMessageCreator, onMessagePostCreator} from "../../../redux/messagesReducer";
+import {addMessageCreator, initialStateType, onMessagePostCreator} from "../../../redux/messagesReducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
+import {AppStateType} from "../../../redux/reduxStore";
+import {Dispatch} from "redux";
 
-let mapStateToProps = (state: RootStateType) => {
+type MapStateToPropsType = {
+    messagesPage: initialStateType
+}
+
+type MapDispatchToPropsType = {
+    addMessage: () => void
+    onMessagePost: (text: string) => void
+}
+
+let mapStateToProps = (state: AppStateType) : MapStateToPropsType => {
     return {
         messagesPage: state.messagesPage
     }
 }
 
-let mapDispatchToProps = (dispatch: any) => {
+let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {
         addMessage: () => {
             dispatch(addMessageCreator())

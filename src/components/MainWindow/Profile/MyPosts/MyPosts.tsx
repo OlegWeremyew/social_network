@@ -1,11 +1,10 @@
 import React, {ChangeEvent} from 'react';
 import c from "./MyPosts.module.css"
-import {PostType, ProfilePageType} from "../../../../redux/store";
 import Post from "./Post/Post";
+import {ProfilePageType} from "../../../../redux/store";
 
 export type MyPostMessageType = {
-    posts: Array<PostType>
-    newPostText: string
+    profilePage: ProfilePageType
     updateNewPostText: (newText: string) => void
     onAddPost: () => void
 }
@@ -13,7 +12,7 @@ export type MyPostMessageType = {
 
 const MyPosts = (props: MyPostMessageType) => {
 
-    let post = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}
+    let post = props.profilePage.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}
                                                       id={p.id}/>)
 
     let addPost = () => {
@@ -31,7 +30,7 @@ const MyPosts = (props: MyPostMessageType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} value={props.newPostText}
+                    <textarea onChange={onPostChange} value={props.profilePage.newPostText}
                               placeholder={'Write your message'}/>
                 </div>
                 <div>
