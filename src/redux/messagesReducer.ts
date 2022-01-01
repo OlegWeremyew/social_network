@@ -53,7 +53,7 @@ const initialState = {
 
 export type initialStateType = typeof initialState
 
-export const messagesReducer = (state: initialStateType  = initialState, action: ActionTypes): initialStateType => {
+export const messagesReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
 
     switch (action.type) {
         case "ADD_MESSAGE": {
@@ -61,20 +61,22 @@ export const messagesReducer = (state: initialStateType  = initialState, action:
                 id: new Date().getTime(),
                 message: state.newMessageText,
             }
-            state.messages.push(newMessage)
-            state.newMessageText = ""
-            return state
+            return {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageText: ""
+            }
         }
         case "UPDATE_NEW_MESSAGE_TEXT": {
-            state.newMessageText = action.newMessage
-            return state
+            return {
+                ...state,
+                newMessageText: action.newMessage
+            }
         }
         default:
             return state
     }
 }
-
-/*type ActionType = addMessageCreatorType | onMessagePostCreatorType*/
 
 export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
 export const addMessageCreator = () => {
