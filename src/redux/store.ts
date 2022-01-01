@@ -27,7 +27,7 @@ type UserType = {
     id: number
     img: string
 }
-type locationType = {
+type UsersLocationType = {
     city: string,
     country: string
 }
@@ -37,7 +37,7 @@ type usersType = {
     followed: boolean
     fullName: string
     status:  string
-    location: locationType
+    location: UsersLocationType
 }
 export type ProfilePageType = {
     posts: Array<PostType>

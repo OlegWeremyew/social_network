@@ -14,6 +14,8 @@ type MapDispatchToProps = {
     updateNewPostText: (newText: string) => void
 }
 
+export type UsersPropsType = MapStateToPropsType & MapDispatchToProps
+
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         profilePage: state.profilePage

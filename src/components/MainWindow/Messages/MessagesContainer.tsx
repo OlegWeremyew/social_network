@@ -14,6 +14,8 @@ type MapDispatchToPropsType = {
     onMessagePost: (text: string) => void
 }
 
+export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
+
 let mapStateToProps = (state: AppStateType) : MapStateToPropsType => {
     return {
         messagesPage: state.messagesPage

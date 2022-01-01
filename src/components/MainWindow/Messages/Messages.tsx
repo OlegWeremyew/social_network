@@ -2,15 +2,9 @@ import React, {ChangeEvent} from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
-import {MessagesPageType} from "../../../redux/store";
+import {UsersPropsType} from "./MessagesContainer";
 
-export type MessagesType = {
-    messagesPage: MessagesPageType
-    addMessage: () => void
-    onMessagePost: (newText: string) => void
-}
-
-const Messages = (props: MessagesType) => {
+const Messages = (props: UsersPropsType) => {
 
     let addMessage = () => {
         props.addMessage()

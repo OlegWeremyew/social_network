@@ -1,16 +1,9 @@
 import React from 'react';
-import {userType} from "../../../redux/usersReducer";
 import c from "./Users.module.css"
-
-type UsersPropsType = {
-    usersPage: Array<userType>
-    follow: (userID: number) => void
-    unfollow: (userID: number) => void
-    setUsers: (usersPage: any) => void
-}
+import {UsersPropsType} from "./UsersContainer";
 
 const Users = (props: UsersPropsType) => {
-    if (props.usersPage.length === 0) {
+    if (props.usersPage.users.length === 0) {
         props.setUsers(
             [
                 {
@@ -52,7 +45,7 @@ const Users = (props: UsersPropsType) => {
     return (
         <div>
             {
-                props.usersPage.map(m => <div key={m.id}>
+                props.usersPage.users.map(m => <div key={m.id}>
                     <span>
                         <div>
                             <img src={m.photoUrl} className={c.userPhoto} alt="photo"/>

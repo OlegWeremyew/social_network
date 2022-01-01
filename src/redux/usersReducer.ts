@@ -1,22 +1,22 @@
 import {ActionTypes} from "./store";
 
-export type userType = {
+export type UsersLocationType = {
+    city: string,
+    country: string
+}
+
+export type UserType = {
     id: number
     photoUrl: string
     followed: boolean
     fullName: string
     status: string
-    location: locationType
+    location: UsersLocationType
 }
 
-export type locationType = {
-    city: string,
-    country: string
-}
-
-const initialState = {
+const initialState: initialStateType = {
     users: [
-        {
+ /*       {
             id: 1,
             photoUrl: "data:image/jpeg;base64,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",
             followed: false,
@@ -47,11 +47,13 @@ const initialState = {
             fullName: "Sahra",
             status: "great idea",
             location: {city: "LA", country: "USA"}
-        },
-    ] as Array<userType>,
+        },*/
+    ]
 }
 
-export type initialStateType = typeof initialState
+export type initialStateType = {
+    users: Array<UserType>
+}
 
 export const usersReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
     switch (action.type) {
@@ -69,7 +71,7 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
         }
         case "SET-USERS": {
             return {
-                ...state, users: [...state.users, action.users]
+                ...state, users: [...state.users, ...action.users]
             }
         }
         default:
@@ -95,7 +97,7 @@ export const unFollowAC = (userID: number) => {
 }
 
 export type setUsersACType = ReturnType<typeof setUsersAC>
-export const setUsersAC = (users: userType) => {
+export const setUsersAC = (users: Array<UserType>) => {
     return {
         type: "SET-USERS",
         users: users
