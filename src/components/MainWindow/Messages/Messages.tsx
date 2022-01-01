@@ -37,7 +37,7 @@ const Messages = (props: MessagesType) => {
                               rows={10} cols={44} placeholder={'Write your message'}/>
                 </div>
                 <div>
-                    <button onClick={addMessage}>Add message</button>
+                    <button disabled={props.messagesPage.newMessageText.trim()===''} onClick={addMessage}>Add message</button>
                 </div>
             </div>
         </div>

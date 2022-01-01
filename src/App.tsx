@@ -10,6 +10,7 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import Profile from "./components/MainWindow/Profile/Profile";
 import {MessagesContainer} from "./components/MainWindow/Messages/MessagesContainer";
+import Users from "./components/MainWindow/Users/Users";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Routes>
                     <Route path="/profile/*" element={<Profile/>}/>
                     <Route path="/messages/*" element={<MessagesContainer/>}/>
+                    <Route path="/users/*" element={<Users/>}/>
                     <Route path="/news/*" element={<News/>}/>
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>

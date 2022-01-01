@@ -19,7 +19,7 @@ const MyPosts = (props: MyPostMessageType) => {
         props.onAddPost()
     }
 
-    const onPostChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
+    const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let newText = e.currentTarget.value
         props.updateNewPostText(newText)
     }
@@ -34,7 +34,7 @@ const MyPosts = (props: MyPostMessageType) => {
                               placeholder={'Write your message'}/>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button disabled={props.profilePage.newPostText.trim() === ''} onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={c.posts}>

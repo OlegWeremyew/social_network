@@ -1,6 +1,7 @@
 import {addPostCreatorType, profileReducer, updateNewPostTextCreatorType} from "./profileReducer";
 import {addMessageCreatorType, messagesReducer, onMessagePostCreatorType} from "./messagesReducer";
 import {sidebarReducer} from "./sidebarPageReducer";
+import {followACType, setUsersACType, unFollowACType} from "./usersReducer";
 
 //types ===================================================================
 
@@ -8,6 +9,9 @@ export type ActionTypes = addPostCreatorType
     | updateNewPostTextCreatorType
     | addMessageCreatorType
     | onMessagePostCreatorType
+    | followACType
+    | unFollowACType
+    | setUsersACType
 
 type PostType = {
     message: string
@@ -23,6 +27,17 @@ type UserType = {
     id: number
     img: string
 }
+type locationType = {
+    city: string,
+    country: string
+}
+type usersType = {
+    id: number,
+    followed: boolean,
+    fullName: string,
+    status:  string,
+    location: locationType
+}
 export type ProfilePageType = {
     posts: Array<PostType>
     newPostText: string
@@ -33,10 +48,14 @@ export type MessagesPageType = {
     newMessageText: string
 }
 export type sidebarType = any
+type usersPageType = {
+    users: Array<usersType>
+}
 export type RootStateType = {
     profilePage: ProfilePageType
     messagesPage: MessagesPageType
     sidebar: sidebarType
+    usersPage: usersPageType
 }
 
 export type SubscribeType = (state: RootStateType) => void
@@ -101,7 +120,33 @@ export let store: StoreType = {
             ],
             newMessageText: ""
         },
-        sidebar: {}
+        sidebar: {},
+        usersPage: {
+            users: [
+                {
+                    id: 1,
+                    followed: false,
+                    fullName: "Oleg",
+                    status: "i bacame frontend-devoloper!",
+                    location: {city: "Minsk", country: "Belarus"}
+                },
+                {
+                    id: 2,
+                    followed: true,
+                    fullName: "Diana",
+                    status: "i am 'Jinka' Olega",
+                    location: {city: "Minsk", country: "Belarus"}
+                },
+                {
+                    id: 3,
+                    followed: false,
+                    fullName: "Cavin",
+                    status: "i want to sleep",
+                    location: {city: "Toronto", country: "Canada"}
+                },
+                {id: 4, followed: true, fullName: "Sahra", status: "great idea", location: {city: "LA", country: "USA"}},
+            ]
+        }
     },
     _callSubscriber: (state: RootStateType) => {
         console.log("state changed")
@@ -118,7 +163,7 @@ export let store: StoreType = {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
-        this._state.sidebar =  sidebarReducer({}, action)
+        this._state.sidebar = sidebarReducer({}, action)
 
         this._callSubscriber(this._state)
 
