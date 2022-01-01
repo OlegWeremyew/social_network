@@ -5,11 +5,6 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../../../redux/reduxStore";
 import {Dispatch} from "redux";
 
-/*type mapStateToPropsType ={
-    profilePage: InitialProfileStateType
-}*/
-
-
 type MapStateToPropsType = {
     profilePage: initialStateType
 }
