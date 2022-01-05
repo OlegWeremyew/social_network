@@ -1,16 +1,11 @@
 
-export type UsersLocationType = {
-    city: string,
-    country: string
-}
-
 export type UserType = {
     id: number
     photoUrl: string
     followed: boolean
     fullName: string
     status: string
-    location: UsersLocationType
+    location: {city: string, country: string}
 }
 
 const initialState: initialStateType = {
@@ -29,6 +24,12 @@ const initialState: initialStateType = {
 export type initialStateType = {
     users: Array<UserType>
 }
+
+/*export type initialStateType = {
+    items: Array<itemsType>
+    totalCount: any
+    error: string
+}*/
 
 export const usersReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
     switch (action.type) {

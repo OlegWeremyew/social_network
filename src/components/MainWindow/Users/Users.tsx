@@ -4,24 +4,25 @@ import {UsersPropsType} from "./UsersContainer";
 import axios from "axios";
 import user from "../../../assets/images/user.png"
 
-class Users extends React.Component {
+class Users extends React.Component<any, any> {
 
-    constructor(props: any) {
+    /*    export const instance = axios.create({
+            withCredentials: true,
+            baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+            headers:     {
+                "API-KEY": "f5a121b3-d5d2-4866-a73a-ab1418f0e4d8"
+            }
+        });*/
+
+    constructor(props: UsersPropsType) {
         super(props);
-
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    this.props.setUsers(response.data.items)
-                })
     }
-    getUsers = () => {
-        if (this.props.usersPage.users.length === 0) {
 
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    this.props.setUsers(response.data.items)
-                })
-        }
+    componentDidMount() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                this.props.setUsers(response.data.items)
+            })
     }
 
     render() {
