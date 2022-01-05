@@ -1,17 +1,8 @@
-import {addPostCreatorType, profileReducer, updateNewPostTextCreatorType} from "./profileReducer";
-import {addMessageCreatorType, messagesReducer, onMessagePostCreatorType} from "./messagesReducer";
+import { profileReducer} from "./profileReducer";
+import { messagesReducer} from "./messagesReducer";
 import {sidebarReducer} from "./sidebarPageReducer";
-import {followACType, setUsersACType, unFollowACType} from "./usersReducer";
 
 //types ===================================================================
-
-export type ActionTypes = addPostCreatorType
-    | updateNewPostTextCreatorType
-    | addMessageCreatorType
-    | onMessagePostCreatorType
-    | followACType
-    | unFollowACType
-    | setUsersACType
 
 type PostType = {
     message: string
@@ -68,7 +59,7 @@ export type StoreType = {
     getState: () => RootStateType
     subscribe: (observer: SubscribeType) => void
 
-    dispatch: (action: ActionTypes) => void
+    dispatch: (action: any) => void
 }
 
 //store =======================================================================
@@ -170,7 +161,7 @@ export let store: StoreType = {
         this._callSubscriber = observer // наблюдатель //у димыча callback называется
     },
 
-    dispatch(action: ActionTypes) {
+    dispatch(action: any) {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.messagesPage = messagesReducer(this._state.messagesPage, action)

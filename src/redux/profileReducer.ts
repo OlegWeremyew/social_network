@@ -1,4 +1,3 @@
-import {ActionTypes} from "./store";
 
 export type PostType = {
     message: string
@@ -42,6 +41,8 @@ export const profileReducer = (state: initialStateType = initialState, action: A
     }
 
 }
+
+type ActionTypes = addPostCreatorType | updateNewPostTextCreatorType
 
 export type addPostCreatorType = ReturnType<typeof addPostCreator>
 export const addPostCreator = () => {

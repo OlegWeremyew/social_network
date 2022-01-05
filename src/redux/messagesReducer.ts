@@ -1,4 +1,3 @@
-import {ActionTypes} from "./store";
 
 export type UserType = {
     name: string
@@ -77,6 +76,8 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
             return state
     }
 }
+
+type ActionTypes = addMessageCreatorType | onMessagePostCreatorType
 
 export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
 export const addMessageCreator = () => {

@@ -1,4 +1,3 @@
-import {ActionTypes} from "./store";
 
 export type UsersLocationType = {
     city: string,
@@ -17,6 +16,15 @@ export type UserType = {
 const initialState: initialStateType = {
     users: []
 }
+
+/*type itemsType = {
+    name: string
+    id: number
+    uniqueUrlName: any
+    photos: {small: any, large: any}
+    status: any
+    followed: boolean
+}*/
 
 export type initialStateType = {
     users: Array<UserType>
@@ -46,6 +54,8 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
     }
 }
 
+
+type ActionTypes = followACType | unFollowACType | setUsersACType
 
 export type followACType = ReturnType<typeof followAC>
 export const followAC = (userID: number) => {
