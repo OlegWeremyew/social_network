@@ -13,7 +13,7 @@ const Users = (props: any) => {
                 "API-KEY": "f5a121b3-d5d2-4866-a73a-ab1418f0e4d8"
             }
         })*/
-
+let getUsers = () => {
     if (props.usersPage.users.length === 0) {
 
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
@@ -21,8 +21,11 @@ const Users = (props: any) => {
                 props.setUsers(response.data.items)
             })
     }
+}
+
     return (
         <div>
+            <button onClick={getUsers}>get users</button>
             {
                 props.usersPage.users.map(m => <div key={m.id}>
                     <span>
