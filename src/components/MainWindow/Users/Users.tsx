@@ -1,33 +1,34 @@
 import React from 'react';
 import c from "./Users.module.css"
-/*import {UsersPropsType} from "./UsersContainer";*/
+import {UsersPropsType} from "./UsersContainer";
 import axios from "axios";
 import user from "../../../assets/images/user.png"
 
-const Users = (props: any) => {
+class Users extends React.Component {
 
-    /*  const instance = axios.create({
-            withCredentials: true,
-            baseURL: 'https://social-network.samuraijs.com/api/1./users',
-            headers: {
-                "API-KEY": "f5a121b3-d5d2-4866-a73a-ab1418f0e4d8"
-            }
-        })*/
-let getUsers = () => {
-    if (props.usersPage.users.length === 0) {
+    constructor(props: any) {
+        super(props);
 
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-                props.setUsers(response.data.items)
-            })
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    this.props.setUsers(response.data.items)
+                })
     }
-}
+    getUsers = () => {
+        if (this.props.usersPage.users.length === 0) {
 
-    return (
-        <div>
-            <button onClick={getUsers}>get users</button>
-            {
-                props.usersPage.users.map(m => <div key={m.id}>
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    this.props.setUsers(response.data.items)
+                })
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                {
+                    this.props.usersPage.users.map(m => <div key={m.id}>
                     <span>
                         <div>
                             <img src={m.photos.small !== null ? m.photos.small : user} className={c.userPhoto}
@@ -36,12 +37,12 @@ let getUsers = () => {
                         <div>
                             {
                                 m.followed
-                                    ? <button onClick={() => props.unfollow(m.id)}>Unfollow</button>
-                                    : <button onClick={() => props.follow(m.id)}>Follow</button>
+                                    ? <button onClick={() => this.props.unfollow(m.id)}>Unfollow</button>
+                                    : <button onClick={() => this.props.follow(m.id)}>Follow</button>
                             }
                         </div>
                     </span>
-                    <span>
+                        <span>
                         <span>
                             <div>{m.name}</div>
                             <div>{m.status}</div>
@@ -51,11 +52,13 @@ let getUsers = () => {
                             <div>{"m.location.city"}</div>
                         </span>
                     </span>
-                </div>)
-            }
-        </div>
-    );
-};
+                    </div>)
+                }
+            </div>
+        );
+    }
+}
+
 
 export default Users;
 
