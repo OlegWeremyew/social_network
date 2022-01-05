@@ -5,7 +5,7 @@ import axios from "axios";
 import user from "../../../assets/images/user.png"
 
 
-class Users extends React.Component<any> {
+class Users extends React.Component<UsersPropsType> {
 
     constructor(props: any) {
         super(props);
@@ -22,7 +22,7 @@ class Users extends React.Component<any> {
         return (
             <div>
                 {
-                    this.props.users.map.map(m => <div key={m.id}>
+                    this.props.users.users.map(m => <div key={m.id}>
                     <span>
                         <div>
                             <img src={m.photos.small !== null ? m.photos.small : user} className={c.userPhoto}
