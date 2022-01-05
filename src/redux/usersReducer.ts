@@ -1,4 +1,7 @@
+import {PostType} from "./profileReducer";
+import React from "react";
 
+/*
 export type UserType = {
     id: number
     photoUrl: string
@@ -7,29 +10,38 @@ export type UserType = {
     status: string
     location: {city: string, country: string}
 }
+*/
+
+
+/*const initialState: initialStateType = {
+    users: [],
+}*/
+
+/*export type initialStateType = {
+    users: Array<UserType>
+}*/
 
 const initialState: initialStateType = {
-    users: []
+    users: [],
+/*    totalCount: 16669,
+    error: null,*/
 }
 
-/*type itemsType = {
+export type UserType = {
     name: string
     id: number
-    uniqueUrlName: any
+    uniqueUrlName: string
     photos: {small: any, large: any}
-    status: any
+    status: string
     followed: boolean
-}*/
+}
 
 export type initialStateType = {
     users: Array<UserType>
+/*    totalCount: number
+    error: any*/
 }
 
-/*export type initialStateType = {
-    items: Array<itemsType>
-    totalCount: any
-    error: string
-}*/
 
 export const usersReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
     switch (action.type) {

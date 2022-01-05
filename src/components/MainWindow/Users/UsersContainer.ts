@@ -6,7 +6,7 @@ import {followAC, initialStateType, setUsersAC, unFollowAC, UserType} from "../.
 import Users from "./Users";
 
 type MapStateToPropsType = {
-    usersPage: initialStateType
+    users: initialStateType
 }
 
 type MapDispatchToProps = {
@@ -19,7 +19,7 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToProps
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        usersPage: state.users
+        users: state.users
     }
 }
 
