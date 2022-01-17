@@ -8,9 +8,9 @@ import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
-import Profile from "./components/MainWindow/Profile/Profile";
 import {MessagesContainer} from "./components/MainWindow/Messages/MessagesContainer";
 import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
+import ProfileContainer from "./components/MainWindow/Profile/ProfileContaeiner";
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <Navbar/>
             <div className={c.appContentWindow}>
                 <Routes>
-                    <Route path="/profile/*" element={<Profile/>}/>
+                    <Route path="/profile/*" element={<ProfileContainer/>}/>
                     <Route path="/messages/*" element={<MessagesContainer/>}/>
                     <Route path="/users/*" element={<UsersContainer/>}/>
                     <Route path="/news/*" element={<News/>}/>

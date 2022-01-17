@@ -1,12 +1,15 @@
-.profile {
-    grid-area: p;
-}
-
-.profile img {
+.ground {
     width: 100%;
     height: 400px;
+    padding-top: 0;
 }
 
 .ava {
     padding: 10px;
+}
+
+.avatar{
+    width: 450px;
+    height: 400px;
+    padding-bottom: 0;
 }

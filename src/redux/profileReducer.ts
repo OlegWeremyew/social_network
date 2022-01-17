@@ -1,20 +1,42 @@
-
 export type PostType = {
     message: string
     likesCount: number
     id: number
 }
 
+export type ProfileType = {
+    "aboutMe": string,
+    "contacts": {
+        "facebook": string,
+        "website": string,
+        "vk": string,
+        "twitter": string,
+        "instagram": string,
+        "youtube": string,
+        "github": string,
+        "mainLink": string
+    },
+    "lookingForAJob": string,
+    "lookingForAJobDescription": string,
+    "fullName": string,
+    "userId": number,
+    "photos": {
+        "small": string,
+        "large": string
+    }
+} | null
+
 const initialState = {
     posts: [
         {message: "Hello", likesCount: 12, id: 1},
         {message: "Dinosaurus are great", likesCount: 17, id: 2}
     ] as Array<PostType>,
-    newPostText: "" as string
+    newPostText: "" as string,
+    profile: null as ProfileType,
 }
 export type initialStateType = typeof initialState
 
-export const profileReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
+export const profileReducer = (state = initialState, action: ActionTypes): initialStateType => {
 
     switch (action.type) {
         case "ADD_POST": {
@@ -29,11 +51,16 @@ export const profileReducer = (state: initialStateType = initialState, action: A
                 newPostText: ""
             }
         }
-
         case "UPDATE_NEW_POST_TEXT": {
             return {
                 ...state,
                 newPostText: action.newText
+            }
+        }
+        case "SET-USER-PROFILE": {
+            return {
+                ...state,
+                profile: action.profile
             }
         }
         default:
@@ -42,7 +69,9 @@ export const profileReducer = (state: initialStateType = initialState, action: A
 
 }
 
-type ActionTypes = addPostCreatorType | updateNewPostTextCreatorType
+type ActionTypes = addPostCreatorType
+    | updateNewPostTextCreatorType
+    | setUserProfileType
 
 export type addPostCreatorType = ReturnType<typeof addPostCreator>
 export const addPostCreator = () => {
@@ -50,11 +79,20 @@ export const addPostCreator = () => {
         type: "ADD_POST",
     } as const
 }
+
 export type updateNewPostTextCreatorType = ReturnType<typeof updateNewPostTextCreator>
 export const updateNewPostTextCreator = (newText: string) => {
     return {
         type: "UPDATE_NEW_POST_TEXT",
         newText: newText
+    } as const
+}
+
+export type setUserProfileType = ReturnType<typeof setUserProfile>
+export const setUserProfile = (profile: ProfileType) => {
+    return {
+        type: "SET-USER-PROFILE",
+        profile,
     } as const
 }
 

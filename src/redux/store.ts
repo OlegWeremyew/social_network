@@ -1,5 +1,5 @@
-import { profileReducer} from "./profileReducer";
-import { messagesReducer} from "./messagesReducer";
+import {profileReducer} from "./profileReducer";
+import {messagesReducer} from "./messagesReducer";
 import {sidebarReducer} from "./sidebarPageReducer";
 
 //types ===================================================================
@@ -27,7 +27,7 @@ type usersType = {
     photoUrl: string
     followed: boolean
     fullName: string
-    status:  string
+    status: string
     location: UsersLocationType
 }
 export type ProfilePageType = {
@@ -163,7 +163,7 @@ export let store: StoreType = {
 
     dispatch(action: any) {
 
-        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        /*this._state.profilePage = profileReducer(this._state.profilePage, action)*/
         this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
         this._state.sidebar = sidebarReducer({}, action)
 
