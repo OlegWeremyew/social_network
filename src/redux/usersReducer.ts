@@ -78,15 +78,15 @@ export type followType = ReturnType<typeof follow>
 export const follow = (userID: number) => {
     return {
         type: "FOLLOW",
-        userID: userID,
+        userID,
     } as const
 }
 
-export type unFollowType = ReturnType<typeof unFollow>
-export const unFollow = (userID: number) => {
+export type unFollowType = ReturnType<typeof unfollow>
+export const unfollow = (userID: number) => {
     return {
         type: "UNFOLLOW",
-        userID: userID,
+        userID,
     } as const
 }
 
@@ -94,7 +94,7 @@ export type setUsersType = ReturnType<typeof setUsers>
 export const setUsers = (users: Array<UserType>) => {
     return {
         type: "SET-USERS",
-        users: users,
+        users,
     } as const
 }
 
@@ -102,7 +102,7 @@ export type setCurrentPageType = ReturnType<typeof setCurrentPage>
 export const setCurrentPage = (currentPage: number) => {
     return {
         type: "SET-CURRENT-PAGE",
-        currentPage: currentPage,
+        currentPage,
     } as const
 }
 
@@ -118,6 +118,6 @@ export type setIsFetchingType = ReturnType<typeof toggleIsFetching>
 export const toggleIsFetching = (isFetching: boolean) => {
     return {
         type: "TOGGLE-IS-FETCHING",
-        isFetching: isFetching,
+        isFetching,
     } as const
 }

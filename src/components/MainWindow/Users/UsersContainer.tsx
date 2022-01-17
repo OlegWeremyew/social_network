@@ -1,19 +1,16 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
-import {Dispatch} from "redux";
-import c from "./Users.module.css";
 import {
     follow,
     setCurrentPage,
     setTotalUsersCount,
     setUsers, toggleIsFetching,
-    unFollow,
+    unfollow,
     UserType
 } from "../../../redux/usersReducer";
 import axios from "axios";
 import Users from './Users';
-import preloader from "../../../assets/images/preloader.gif";
 import Preloader from "../../../common/Preloader/Preloader";
 
 type MapStateToPropsType = {
@@ -71,9 +68,7 @@ class UsersAPIComponent extends React.Component<UsersPropsType> {
                 unfollow={this.props.unfollow}
             />
             </>
-        )
-            ;
-    }
+        )}
 }
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
@@ -86,27 +81,11 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToProps => {
-    return {
-        follow: (userID: number) => {
-            dispatch(follow(userID))
-        },
-        unfollow: (userID: number) => {
-            dispatch(unFollow(userID))
-        },
-        setUsers: (users: Array<UserType>) => {
-            dispatch(setUsers(users))
-        },
-        setCurrentPage: (currentPage: number) => {
-            dispatch(setCurrentPage(currentPage))
-        },
-        setTotalUsersCount: (totalCount: number) => {
-            dispatch(setTotalUsersCount(totalCount))
-        },
-        toggleIsFetching: (isFetching: boolean) => {
-            dispatch(toggleIsFetching(isFetching))
-        },
-    }
-}
-
-export let UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+export let UsersContainer = connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching,
+})(UsersAPIComponent)
