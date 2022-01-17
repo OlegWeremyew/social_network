@@ -1,30 +1,12 @@
 import {PostType} from "./profileReducer";
 import React from "react";
 
-/*
-export type UserType = {
-    id: number
-    photoUrl: string
-    followed: boolean
-    fullName: string
-    status: string
-    location: {city: string, country: string}
-}
-*/
-
-
-/*const initialState: initialStateType = {
-    users: [],
-}*/
-
-/*export type initialStateType = {
-    users: Array<UserType>
-}*/
-
 const initialState: initialStateType = {
     users: [],
-/*    totalCount: 16669,
-    error: null,*/
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 2,
+
 }
 
 export type UserType = {
@@ -38,8 +20,9 @@ export type UserType = {
 
 export type initialStateType = {
     users: Array<UserType>
-/*    totalCount: number
-    error: any*/
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 
 
@@ -59,7 +42,17 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
         }
         case "SET-USERS": {
             return {
-                ...state, users: [...state.users, ...action.users]
+                ...state, users: [...action.users]
+            }
+        }
+        case "SET-CURRENT-PAGE": {
+            return {
+                ...state, currentPage: action.currentPage
+            }
+        }
+        case "SET-TOTAL-USERS-COUNT": {
+            return {
+                ...state, totalUsersCount: action.count
             }
         }
         default:
@@ -68,28 +61,44 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
 }
 
 
-type ActionTypes = followACType | unFollowACType | setUsersACType
+type ActionTypes = followType | unFollowType | setUsersType | setCurrentPageType | setTotalUsersCountType
 
-export type followACType = ReturnType<typeof followAC>
-export const followAC = (userID: number) => {
+export type followType = ReturnType<typeof follow>
+export const follow = (userID: number) => {
     return {
         type: "FOLLOW",
         userID: userID,
     } as const
 }
 
-export type unFollowACType = ReturnType<typeof unFollowAC>
-export const unFollowAC = (userID: number) => {
+export type unFollowType = ReturnType<typeof unFollow>
+export const unFollow = (userID: number) => {
     return {
         type: "UNFOLLOW",
         userID: userID,
     } as const
 }
 
-export type setUsersACType = ReturnType<typeof setUsersAC>
-export const setUsersAC = (users: Array<UserType>) => {
+export type setUsersType = ReturnType<typeof setUsers>
+export const setUsers = (users: Array<UserType>) => {
     return {
         type: "SET-USERS",
-        users: users
+        users: users,
+    } as const
+}
+
+export type setCurrentPageType = ReturnType<typeof setCurrentPage>
+export const setCurrentPage = (currentPage: number) => {
+    return {
+        type: "SET-CURRENT-PAGE",
+        currentPage: currentPage,
+    } as const
+}
+
+export type setTotalUsersCountType = ReturnType<typeof setTotalUsersCount>
+export const setTotalUsersCount = (totalCount: number) => {
+    return {
+        type: "SET-TOTAL-USERS-COUNT",
+        count: totalCount,
     } as const
 }
