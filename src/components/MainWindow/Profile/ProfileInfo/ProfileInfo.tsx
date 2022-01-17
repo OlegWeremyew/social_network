@@ -1,8 +1,13 @@
 import React from 'react';
 import c from "./ProfileInfo.module.css"
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
+import {ProfileType} from "../../../../redux/profileReducer";
 
-const ProfileInfo = (props: any) => {
+type ProfileInfoPropsType = {
+    profile: ProfileType
+}
+
+const ProfileInfo = (props: ProfileInfoPropsType) => {
 
     return (
         <div className={c.profile}>

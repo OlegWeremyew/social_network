@@ -16,7 +16,7 @@ type UsersPropsType = {
 
 const Users = (props: UsersPropsType) => {
 
-    let pagesCount = (Math.ceil(props.totalUsersCount / props.pageSize)) / 450
+    let pagesCount = (Math.ceil(props.totalUsersCount / props.pageSize)) / 200
 
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {

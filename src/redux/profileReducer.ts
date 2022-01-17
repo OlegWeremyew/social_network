@@ -69,19 +69,19 @@ export const profileReducer = (state = initialState, action: ActionTypes): initi
 
 }
 
-type ActionTypes = addPostCreatorType
-    | updateNewPostTextCreatorType
+type ActionTypes = addPostType
+    | updateNewPostTextType
     | setUserProfileType
 
-export type addPostCreatorType = ReturnType<typeof addPostCreator>
-export const addPostCreator = () => {
+export type addPostType = ReturnType<typeof addPost>
+export const addPost = () => {
     return {
         type: "ADD_POST",
     } as const
 }
 
-export type updateNewPostTextCreatorType = ReturnType<typeof updateNewPostTextCreator>
-export const updateNewPostTextCreator = (newText: string) => {
+export type updateNewPostTextType = ReturnType<typeof updateNewPostText>
+export const updateNewPostText = (newText: string) => {
     return {
         type: "UPDATE_NEW_POST_TEXT",
         newText: newText
