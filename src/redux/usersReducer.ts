@@ -2,19 +2,19 @@ import {Dispatch} from "redux";
 import {usersAPI} from "../Api/api";
 
 const initialState: initialStateType = {
-    users: [],
+    users: [] as UserType[],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: [],
+    followingInProgress: [] as number[],
 }
 
 export type UserType = {
     name: string
     id: number
     uniqueUrlName: string
-    photos: { small: any, large: any }
+    photos: { small: string, large: string }
     status: string
     followed: boolean
 }
@@ -25,7 +25,7 @@ export type initialStateType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: any[]
+    followingInProgress: number[]
 }
 
 

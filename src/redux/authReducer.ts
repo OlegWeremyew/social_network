@@ -28,7 +28,12 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
         case "SET-USER-DATA" : {
             return {
                 ...state,
-                ...action.data,
+                data: {
+                    ...state.data,
+                    email: action.data.email,
+                    login: action.data.login,
+                    userId: action.data.userId
+                },
                 isAuth: true,
             }
         }
