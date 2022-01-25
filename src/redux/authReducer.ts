@@ -25,12 +25,8 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
         case "SET-USER-DATA" : {
             return {
                 ...state,
-                data: {
-                    ...state.data,
-/*                    usersId: action.data.usersId,
-                    email: action.data.email,
-                    login: action.data.login,*/
-                },
+                ...action.data,
+                isAuth: true,
             }
         }
         case 'TOGGLE-IS-FETCHING':

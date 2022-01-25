@@ -11,7 +11,7 @@ import {
 } from "../../../redux/usersReducer";
 import Users from './Users';
 import Preloader from "../../../common/Preloader/Preloader";
-import {usersAPI} from "../../../common/api";
+import {usersAPI} from "../../../Api/api";
 
 type MapStateToPropsType = {
     users: Array<UserType>
@@ -27,7 +27,7 @@ type MapDispatchToProps = {
     setUsers: (users: Array<UserType>) => void
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (currentPage: number) => void
-    toggleIsFetching: (isFetching: boolean)  => void
+    toggleIsFetching: (isFetching: boolean) => void
 }
 
 export type UsersPropsType = MapStateToPropsType & MapDispatchToProps
@@ -35,40 +35,43 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToProps
 
 class UsersAPIComponent extends React.Component<UsersPropsType> {
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-        usersAPI.getUsers(1, this.props.pageSize)
-            .then(response => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(response.items)
-                this.props.setTotalUsersCount(response.totalCount)
-            })
+
+         this.props.toggleIsFetching(true)
+         usersAPI.getUsers(1, this.props.pageSize)
+             .then(data => {
+                 this.props.toggleIsFetching(false)
+                 this.props.setUsers(data.items)
+                 this.props.setTotalUsersCount(data.totalCount)
+             })
+
     }
 
-    onPageChanged = (pageNumber: number) => {
-        this.props.setCurrentPage(pageNumber)
-        this.props.toggleIsFetching(true)
-        usersAPI.getUsers(pageNumber, this.props.pageSize)
-            .then(response => {
-                this.props.setUsers(response.items)
-                this.props.toggleIsFetching(false)
-            })
-    }
+     onPageChanged = (pageNumber: number) => {
+         this.props.setCurrentPage(pageNumber)
+         this.props.toggleIsFetching(true)
+         usersAPI.getUsers(pageNumber, this.props.pageSize)
+             .then(data => {
+                 this.props.setUsers(data.items)
+                 this.props.toggleIsFetching(false)
+             })
+     }
 
     render() {
         return (
             <>
-                {this.props.isFetching ? <Preloader/>: null}
+                {this.props.isFetching ? <Preloader/> : null}
                 <Users
-                totalUsersCount={this.props.totalUsersCount}
-                pageSize={this.props.pageSize}
-                currentPage={this.props.currentPage}
-                onPageChanged={this.onPageChanged}
-                users={this.props.users}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
-            />
+                    totalUsersCount={this.props.totalUsersCount}
+                    pageSize={this.props.pageSize}
+                    currentPage={this.props.currentPage}
+                    onPageChanged={this.onPageChanged}
+                    users={this.props.users}
+                    follow={this.props.follow}
+                    unfollow={this.props.unfollow}
+                />
             </>
-        )}
+        )
+    }
 }
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
