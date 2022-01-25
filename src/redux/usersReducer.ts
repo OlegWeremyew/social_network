@@ -1,12 +1,10 @@
-import {PostType} from "./profileReducer";
-import React from "react";
-
 const initialState: initialStateType = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    followingInProgress: [],
 }
 
 export type UserType = {
@@ -24,6 +22,7 @@ export type initialStateType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress: any[]
 }
 
 
@@ -61,6 +60,13 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
                 ...state, isFetching: action.isFetching
             }
         }
+        case "TOGGLE-IS-FOLLOWING-IN-PROGRESS": {
+            return {
+                ...state, followingInProgress: action.followingInProgress
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
+            }
+        }
         default:
             return state
     }
@@ -73,6 +79,7 @@ type ActionTypes = followType
     | setCurrentPageType
     | setTotalUsersCountType
     | setIsFetchingType
+    | toggleFollowingProgressType
 
 export type followType = ReturnType<typeof follow>
 export const follow = (userID: number) => {
@@ -119,5 +126,14 @@ export const toggleIsFetching = (isFetching: boolean) => {
     return {
         type: "TOGGLE-IS-FETCHING",
         isFetching,
+    } as const
+}
+
+export type toggleFollowingProgressType = ReturnType<typeof toggleFollowingProgress>
+export const toggleFollowingProgress = (followingInProgress: boolean, userId: number) => {
+    return {
+        type: "TOGGLE-IS-FOLLOWING-IN-PROGRESS",
+        followingInProgress,
+        userId,
     } as const
 }
