@@ -9,6 +9,7 @@ type HeaderPropsType = {
 }
 
 const Header = (props: HeaderPropsType) => {
+
     return (
         <header className={c.header}>
             <img src={logo} alt='logo' title="image logo"/>

@@ -1,3 +1,6 @@
+import {authApi} from "../Api/api";
+import {Dispatch} from "redux";
+
 export type initialStateType = {
     data: dataType
     isFetching: boolean
@@ -66,4 +69,14 @@ export const setToggleIsAuth = (isAuth: boolean) => {
         type: 'TOGGLE-IS-AUTH',
         isAuth: isAuth
     } as const
+}
+
+export const getAuthUserData = () => (dispatch: Dispatch) => {
+    authApi.getAuth()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                let {id, email, login} = response.data.data
+                dispatch(setAuthUserData(id, email, login))
+            }
+        })
 }
