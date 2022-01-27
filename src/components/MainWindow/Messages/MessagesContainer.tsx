@@ -7,6 +7,7 @@ import {Dispatch} from "redux";
 
 type MapStateToPropsType = {
     messagesPage: initialStateType
+    isAuth: boolean
 }
 
 type MapDispatchToPropsType = {
@@ -18,7 +19,8 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
 
 let mapStateToProps = (state: AppStateType) : MapStateToPropsType => {
     return {
-        messagesPage: state.messagesPage
+        messagesPage: state.messagesPage,
+        isAuth: state.auth.isAuth,
     }
 }
 
@@ -34,4 +36,4 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     }
 }
 
-export let MessagesContainer: any = connect(mapStateToProps, mapDispatchToProps)(Messages)
+export let MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)

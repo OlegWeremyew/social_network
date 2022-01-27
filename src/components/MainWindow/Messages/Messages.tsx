@@ -3,8 +3,14 @@ import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
 import {UsersPropsType} from "./MessagesContainer";
+import {Navigate} from "react-router-dom";
 
 const Messages = (props: UsersPropsType) => {
+
+    let dialogsItem = props.messagesPage.users
+        .map(u => <DialogsItem key={u.id} name={u.name} id={u.id} img={u.img}/>)
+    let message = props.messagesPage.messages
+        .map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
     let addMessage = () => {
         props.addMessage()
@@ -15,9 +21,9 @@ const Messages = (props: UsersPropsType) => {
         props.onMessagePost(newText)
     }
 
-    let dialogsItem = props.messagesPage.users.map(u => <DialogsItem key={u.id} name={u.name} id={u.id}
-                                                                           img={u.img}/>)
-    let message = props.messagesPage.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
+    if (!props.isAuth) {
+        return <Navigate to={'/login'}/>
+    }
 
     return (
         <div className={c.dialogs}>
@@ -31,7 +37,9 @@ const Messages = (props: UsersPropsType) => {
                               rows={10} cols={44} placeholder={'Write your message'}/>
                 </div>
                 <div>
-                    <button disabled={props.messagesPage.newMessageText.trim()===''} onClick={addMessage}>Add message</button>
+                    <button disabled={props.messagesPage.newMessageText.trim() === ''} onClick={addMessage}>Add
+                        message
+                    </button>
                 </div>
             </div>
         </div>

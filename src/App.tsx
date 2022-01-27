@@ -11,6 +11,7 @@ import {MessagesContainer} from "./components/MainWindow/Messages/MessagesContai
 import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
 import {ProfileContainer} from "./components/MainWindow/Profile/ProfileContaeiner";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import {Login} from "./components/Login/Login";
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
                     <Route path="/music/*" element={<Music/>}/>
                     <Route path="/settings/*" element={<Settings/>}/>
                     <Route path="/friends/*" element={<Friends/>}/>
+
+                    <Route path="/login" element={<Login/>}/>
+
                 </Routes>
             </div>
             <Footer/>
