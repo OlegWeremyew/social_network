@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {ComponentType} from 'react';
 import {addMessageCreator, initialStateType, onMessagePostCreator} from "../../../redux/messagesReducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
-import {Dispatch} from "redux";
+import {compose, Dispatch} from "redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 
 type MapStateToPropsType = {
     messagesPage: initialStateType
-    isAuth: boolean
 }
 
 type MapDispatchToPropsType = {
@@ -20,7 +20,6 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
 let mapStateToProps = (state: AppStateType) : MapStateToPropsType => {
     return {
         messagesPage: state.messagesPage,
-        isAuth: state.auth.isAuth,
     }
 }
 
@@ -36,4 +35,4 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     }
 }
 
-export let MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
+export let MessagesContainer = compose<ComponentType>(connect(mapStateToProps, mapDispatchToProps),withAuthRedirect)(Messages)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ComponentType} from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {
@@ -11,6 +11,8 @@ import {
 } from "../../../redux/usersReducer";
 import Users from './Users';
 import Preloader from "../../../common/Preloader/Preloader";
+import {compose} from "redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 
 type MapStateToPropsType = {
     users: Array<UserType>
@@ -72,10 +74,11 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export let UsersContainer = connect(mapStateToProps, {
-    followSuccess,
-    unfollowSuccess,
-    setCurrentPage,
-    toggleFollowingProgress,
-    getUsers,
-})(UsersAPIComponent)
+export let UsersContainer = compose<ComponentType>(
+    connect(mapStateToProps, {
+        followSuccess,
+        unfollowSuccess,
+        setCurrentPage,
+        toggleFollowingProgress,
+        getUsers,
+    }), withAuthRedirect)(UsersAPIComponent)

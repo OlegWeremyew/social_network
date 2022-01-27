@@ -3,7 +3,6 @@ import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
 import {UsersPropsType} from "./MessagesContainer";
-import {Navigate} from "react-router-dom";
 
 const Messages = (props: UsersPropsType) => {
 
@@ -19,10 +18,6 @@ const Messages = (props: UsersPropsType) => {
     let onMessagePost = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let newText = e.currentTarget.value
         props.onMessagePost(newText)
-    }
-
-    if (!props.isAuth) {
-        return <Navigate to={'/login'}/>
     }
 
     return (
