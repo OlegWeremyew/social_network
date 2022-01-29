@@ -51,5 +51,5 @@ export const ProfileContainer = compose<ComponentType>(
         getUserProfile,
     }),
     withRouter2,
-    withAuthRedirect
+    //withAuthRedirect
 )(ProfileAPIContainer);
