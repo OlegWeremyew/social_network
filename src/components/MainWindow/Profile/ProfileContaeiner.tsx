@@ -10,6 +10,7 @@ import {
 import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
 import {InjectedProps, withRouter2} from "../../../hoc/withRouter/withRouter";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 
 type MapStateToPropsType = {
     profile: ProfileType
@@ -64,5 +65,5 @@ export const ProfileContainer = compose<ComponentType>(
         updateUserStatus,
     }),
     withRouter2,
-    //withAuthRedirect
+    withAuthRedirect
 )(ProfileAPIContainer);
