@@ -1,5 +1,7 @@
 import {authApi} from "../Api/api";
 import {Dispatch} from "redux";
+import {stopSubmit} from "redux-form";
+import {ActionAllType, AppThunkType} from "./reduxStore";
 
 export type initialStateType = {
     data: dataType
@@ -61,7 +63,8 @@ export const setAuthUserData = (userId: string, email: string, login: string, is
             userId,
             email,
             login,
-            isAuth},
+            isAuth
+        },
     } as const
 }
 
@@ -81,7 +84,7 @@ export const setToggleIsAuth = (isAuth: boolean) => {
     } as const
 }
 
-export const getAuthUserData = () => (dispatch: any) => {
+export const getAuthUserData = (): AppThunkType => (dispatch: Dispatch<ActionAllType>) => {
     authApi.getAuth()
         .then(response => {
             if (response.data.resultCode === 0) {
@@ -91,20 +94,25 @@ export const getAuthUserData = () => (dispatch: any) => {
         })
 }
 
-export const login = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
+export const login = (email: string, password: string, rememberMe: boolean): AppThunkType => (dispatch: any) => {
     authApi.login(email, password, rememberMe)
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(getAuthUserData())
+            } else {
+                let message = response.data.messages.length > 0
+                    ? response.data.messages[0]
+                    : "Some error"
+                dispatch(stopSubmit("Login", {_error: message}))
             }
         })
 }
 
-export const logout = () => (dispatch: any) => {
+export const logout = () => (dispatch: Dispatch<ActionAllType>) => {
     authApi.logout()
         .then(response => {
             if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData( "", "", "", false))
+                dispatch(setAuthUserData("", "", "", false))
             }
         })
 }

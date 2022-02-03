@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
+import {ActionAllType} from "./reduxStore";
 
 export type ActionProfileTypes = addPostType
     | setUserProfileType
@@ -102,21 +103,21 @@ const setStatus = (status: string) => {
 }
 
 // thunks -----------------------------------------------
-export const getUserProfile = (userId: string) => (dispatch: Dispatch) => {
+export const getUserProfile = (userId: string) => (dispatch: Dispatch<ActionAllType>) => {
     profileAPI.getProfile(userId)
         .then(response => {
             dispatch(setUserProfile(response.data))
         })
 }
 
-export const getUserStatus = (userId: string) => (dispatch: Dispatch) => {
+export const getUserStatus = (userId: string) => (dispatch: Dispatch<ActionAllType>) => {
     profileAPI.getStatus(userId)
         .then(response => {
             dispatch(setStatus(response.data))
         })
 }
 
-export const updateUserStatus = (status: string) => (dispatch: Dispatch) => {
+export const updateUserStatus = (status: string) => (dispatch: Dispatch<ActionAllType>) => {
     profileAPI.updateStatus(status)
         .then(response => {
             if (response.data.resultCode === 0) {

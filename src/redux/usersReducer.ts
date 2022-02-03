@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
 import {usersAPI} from "../Api/api";
+import {ActionAllType} from "./reduxStore";
 
 export type ActionUsersTypes = followType
     | unFollowType
@@ -143,7 +144,7 @@ export const toggleFollowingProgress = (followingInProgress: boolean, userId: st
 
 export const getUsers = (currentPage: number, pageSize: number) => {
 
-    return (dispatch: Dispatch) => {
+    return (dispatch: Dispatch<ActionAllType>) => {
 
         dispatch(toggleIsFetching(true))
         usersAPI.getUsers(currentPage, pageSize)
@@ -158,7 +159,7 @@ export const getUsers = (currentPage: number, pageSize: number) => {
 
 export const follow = (userId: string) => {
 
-    return (dispatch: Dispatch) => {
+    return (dispatch: Dispatch<ActionAllType>) => {
 
         dispatch(toggleFollowingProgress(true, userId))
         usersAPI.unfollow(userId)
@@ -173,7 +174,7 @@ export const follow = (userId: string) => {
 
 export const unFollow = (userId: string) => {
 
-    return (dispatch: Dispatch) => {
+    return (dispatch: Dispatch<ActionAllType>) => {
 
         dispatch(toggleFollowingProgress(true, userId))
         usersAPI.follow(userId)
