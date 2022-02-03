@@ -2,20 +2,20 @@ import {authApi} from "../Api/api";
 import {Dispatch} from "redux";
 
 export type initialStateType = {
-    payload: payloadType
+    data: dataType
     isFetching: boolean
     isAuth: boolean
 }
 
-type payloadType = {
-    userId: string | null
-    email: string | null
-    login: string | null
+type dataType = {
+    userId: string
+    email: string
+    login: string
     isAuth: boolean
 }
 
 let initialState = {
-    payload: {} as payloadType,
+    data: {} as dataType,
     isFetching: true,
     isAuth: false,
 }
@@ -29,13 +29,13 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
         case "SET-USER-DATA" : {
             return {
                 ...state,
-                payload: {
-                    ...state.payload,
+                data: {
+                    ...state.data,
                     email: action.payload.email,
                     login: action.payload.login,
                     userId: action.payload.userId,
-                    //isAuth: action.payload.isAuth,
                 },
+                isAuth: action.payload.isAuth
             }
         }
         case 'TOGGLE-IS-FETCHING':
@@ -54,7 +54,7 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
 }
 
 type setUserDataType = ReturnType<typeof setAuthUserData>
-export const setAuthUserData = (userId: string  | null, email: string | null, login: string  | null, isAuth: boolean) => {
+export const setAuthUserData = (userId: string, email: string, login: string, isAuth: boolean) => {
     return {
         type: "SET-USER-DATA",
         payload: {
@@ -104,7 +104,7 @@ export const logout = () => (dispatch: any) => {
     authApi.logout()
         .then(response => {
             if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData( null, null, null, false))
+                dispatch(setAuthUserData( "", "", "", false))
             }
         })
 }

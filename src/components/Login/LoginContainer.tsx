@@ -11,17 +11,16 @@ type mapDispatchToPropsType = {
     login: (email: string, password: string, rememberMe: boolean) => void
 }
 
-type LoginContainerType = mapDispatchToPropsType & mapDispatchToPropsType
+type LoginContainerType = mapStateToPropsType & mapDispatchToPropsType
 
-class LoginAPIContainer extends React.Component<LoginContainerType> {
-
-    // componentDidMount() {
-    //     this.props.getAuthUserData()
-    // }
+class LoginAPIContainer extends React.Component<LoginContainerType, LoginContainerType> {
 
     render() {
         return (
-            <Login {...this.props}/>
+            <Login
+            isAuth={this.props.isAuth}
+            login={this.props.login}
+            />
         )
     }
 }
