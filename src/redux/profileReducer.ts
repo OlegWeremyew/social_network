@@ -34,7 +34,6 @@ const initialState = {
         {message: "Hello", likesCount: 12, id: 1},
         {message: "Dinosaurs are great", likesCount: 17, id: 2}
     ] as Array<PostType>,
-    newPostText: "" as string,
     profile: null as ProfileType,
     status: "",
 }
@@ -46,19 +45,12 @@ export const profileReducer = (state = initialState, action: ActionTypes): initi
         case "ADD_POST": {
             let newPost: PostType = {
                 id: new Date().getTime(),
-                message: state.newPostText,
+                message: action.newPostText,
                 likesCount: 12
             }
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                newPostText: ""
-            }
-        }
-        case "UPDATE_NEW_POST_TEXT": {
-            return {
-                ...state,
-                newPostText: action.newText
             }
         }
         case "SET-USER-PROFILE": {
@@ -80,24 +72,17 @@ export const profileReducer = (state = initialState, action: ActionTypes): initi
 }
 
 type ActionTypes = addPostType
-    | updateNewPostTextType
     | setUserProfileType
     | setProfileStatusType
 
 export type addPostType = ReturnType<typeof addPost>
-export const addPost = () => {
+export const addPost = (newPostText: string) => {
     return {
         type: "ADD_POST",
+        newPostText,
     } as const
 }
 
-export type updateNewPostTextType = ReturnType<typeof updateNewPostText>
-export const updateNewPostText = (newText: string) => {
-    return {
-        type: "UPDATE_NEW_POST_TEXT",
-        newText: newText
-    } as const
-}
 
 export type setUserProfileType = ReturnType<typeof setUserProfile>
 const setUserProfile = (profile: ProfileType) => {

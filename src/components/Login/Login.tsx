@@ -21,17 +21,30 @@ export const Login = () => {
     );
 };
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props: any) => {
+const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={"input"} name={"login"} placeholder={"Login"}/>
+                <Field
+                    component={"input"}
+                    name={"login"}
+                    placeholder={"Login"}
+                />
             </div>
             <div>
-                <Field component={"input"} name={"password"} type={"password"} placeholder={"Password"}/>
+                <Field
+                    component={"input"}
+                    name={"password"}
+                    type={"password"}
+                    placeholder={"Password"}
+                />
             </div>
             <div>
-                <Field component={"checkbox"} name={"rememberMe"} type={"checkbox"}/> Remember me
+                <Field
+                    component={"checkbox"}
+                    name={"rememberMe"}
+                    type={"checkbox"}
+                /> Remember me
             </div>
             <div>
                 <button>Login</button>

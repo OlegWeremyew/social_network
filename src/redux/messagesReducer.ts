@@ -1,4 +1,3 @@
-
 export type UserType = {
     name: string
     id: number
@@ -47,7 +46,6 @@ const initialState = {
         {message: "Hio", id: 5},
         {message: "Hia", id: 6},
     ] as Array<MessageType>,
-    newMessageText: "" as string
 }
 
 export type initialStateType = typeof initialState
@@ -58,18 +56,11 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
         case "ADD_MESSAGE": {
             let newMessage: MessageType = {
                 id: new Date().getTime(),
-                message: state.newMessageText,
+                message: action.newMessageText,
             }
             return {
                 ...state,
                 messages: [...state.messages, newMessage],
-                newMessageText: ""
-            }
-        }
-        case "UPDATE_NEW_MESSAGE_TEXT": {
-            return {
-                ...state,
-                newMessageText: action.newMessage
             }
         }
         default:
@@ -77,20 +68,13 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
     }
 }
 
-type ActionTypes = addMessageCreatorType | onMessagePostCreatorType
+type ActionTypes = addMessageCreatorType
 
 export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
-export const addMessageCreator = () => {
+export const addMessageCreator = (newMessageText: string) => {
     return {
         type: "ADD_MESSAGE",
+        newMessageText
     } as const
 }
-export type onMessagePostCreatorType = ReturnType<typeof onMessagePostCreator>
-export const onMessagePostCreator = (newMessage: string) => {
-    return {
-        type: "UPDATE_NEW_MESSAGE_TEXT",
-        newMessage: newMessage
-    } as const
-}
-
 

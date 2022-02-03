@@ -58,8 +58,6 @@ export type StoreType = {
 
     getState: () => RootStateType
     subscribe: (observer: SubscribeType) => void
-
-    dispatch: (action: any) => void
 }
 
 //store =======================================================================
@@ -160,15 +158,4 @@ export let store: StoreType = {
     subscribe(observer: SubscribeType) {
         this._callSubscriber = observer // наблюдатель //у димыча callback называется
     },
-
-    dispatch(action: any) {
-
-        /*this._state.profilePage = profileReducer(this._state.profilePage, action)*/
-        this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
-        this._state.sidebar = sidebarReducer({}, action)
-
-        this._callSubscriber(this._state)
-
-    }
-
 }
