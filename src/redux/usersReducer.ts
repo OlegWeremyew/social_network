@@ -1,14 +1,13 @@
 import {Dispatch} from "redux";
 import {usersAPI} from "../Api/api";
 
-const initialState: initialStateType = {
-    users: [] as UserType[],
-    pageSize: 5,
-    totalUsersCount: 0,
-    currentPage: 1,
-    isFetching: false,
-    followingInProgress: [] as string[],
-}
+export type ActionUsersTypes = followType
+    | unFollowType
+    | setUsersType
+    | setCurrentPageType
+    | setTotalUsersCountType
+    | setIsFetchingType
+    | toggleFollowingProgressType
 
 export type UserType = {
     name: string
@@ -28,8 +27,16 @@ export type initialStateType = {
     followingInProgress: string[]
 }
 
+const initialState: initialStateType = {
+    users: [] as UserType[],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1,
+    isFetching: false,
+    followingInProgress: [] as string[],
+}
 
-export const usersReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
+export const usersReducer = (state: initialStateType = initialState, action: ActionUsersTypes): initialStateType => {
     switch (action.type) {
         case "FOLLOW": {
             return {
@@ -74,15 +81,6 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
             return state
     }
 }
-
-
-type ActionTypes = followType
-    | unFollowType
-    | setUsersType
-    | setCurrentPageType
-    | setTotalUsersCountType
-    | setIsFetchingType
-    | toggleFollowingProgressType
 
 export type followType = ReturnType<typeof followSuccess>
 export const followSuccess = (userID: string) => {

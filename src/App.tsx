@@ -11,7 +11,7 @@ import {MessagesContainer} from "./components/MainWindow/Messages/MessagesContai
 import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
 import {ProfileContainer} from "./components/MainWindow/Profile/ProfileContaeiner";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import {Login} from "./components/Login/Login";
+import {LoginContainer} from "./components/Login/LoginContainer";
 
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
                     <Route path="/settings/*" element={<Settings/>}/>
                     <Route path="/friends/*" element={<Friends/>}/>
 
-                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/login" element={<LoginContainer/>}/>
 
                 </Routes>
             </div>

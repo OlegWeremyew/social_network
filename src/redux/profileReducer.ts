@@ -1,6 +1,11 @@
 import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
 
+export type ActionProfileTypes = addPostType
+    | setUserProfileType
+    | setProfileStatusType
+
+
 export type PostType = {
     message: string
     likesCount: number
@@ -39,7 +44,7 @@ const initialState = {
 }
 export type initialStateType = typeof initialState
 
-export const profileReducer = (state = initialState, action: ActionTypes): initialStateType => {
+export const profileReducer = (state = initialState, action: ActionProfileTypes): initialStateType => {
 
     switch (action.type) {
         case "ADD_POST": {
@@ -70,10 +75,6 @@ export const profileReducer = (state = initialState, action: ActionTypes): initi
     }
 
 }
-
-type ActionTypes = addPostType
-    | setUserProfileType
-    | setProfileStatusType
 
 export type addPostType = ReturnType<typeof addPost>
 export const addPost = (newPostText: string) => {

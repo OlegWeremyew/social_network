@@ -2,39 +2,40 @@ import {authApi} from "../Api/api";
 import {Dispatch} from "redux";
 
 export type initialStateType = {
-    data: dataType
+    payload: payloadType
     isFetching: boolean
     isAuth: boolean
 }
 
-type dataType = {
-    userId: string
-    email: string
-    login: string
+type payloadType = {
+    userId: string | null
+    email: string | null
+    login: string | null
+    isAuth: boolean
 }
 
 let initialState = {
-    data: {} as dataType,
+    payload: {} as payloadType,
     isFetching: true,
     isAuth: false,
 }
 
-export type ActionType = setUserDataType
+export type ActionAuthReducerType = setUserDataType
     | setToggleIsFetchingType
     | setToggleIsAuthType
 
-export const authReducer = (state: initialStateType = initialState, action: ActionType): initialStateType => {
+export const authReducer = (state: initialStateType = initialState, action: ActionAuthReducerType): initialStateType => {
     switch (action.type) {
         case "SET-USER-DATA" : {
             return {
                 ...state,
-                data: {
-                    ...state.data,
-                    email: action.data.email,
-                    login: action.data.login,
-                    userId: action.data.userId
+                payload: {
+                    ...state.payload,
+                    email: action.payload.email,
+                    login: action.payload.login,
+                    userId: action.payload.userId,
+                    //isAuth: action.payload.isAuth,
                 },
-                isAuth: true,
             }
         }
         case 'TOGGLE-IS-FETCHING':
@@ -53,10 +54,14 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
 }
 
 type setUserDataType = ReturnType<typeof setAuthUserData>
-export const setAuthUserData = (userId: string, email: string, login: string) => {
+export const setAuthUserData = (userId: string  | null, email: string | null, login: string  | null, isAuth: boolean) => {
     return {
         type: "SET-USER-DATA",
-        data: {userId, email, login},
+        payload: {
+            userId,
+            email,
+            login,
+            isAuth},
     } as const
 }
 
@@ -76,12 +81,30 @@ export const setToggleIsAuth = (isAuth: boolean) => {
     } as const
 }
 
-export const getAuthUserData = () => (dispatch: Dispatch) => {
+export const getAuthUserData = () => (dispatch: any) => {
     authApi.getAuth()
         .then(response => {
             if (response.data.resultCode === 0) {
                 let {id, email, login} = response.data.data
-                dispatch(setAuthUserData(id, email, login))
+                dispatch(setAuthUserData(id, email, login, true))
+            }
+        })
+}
+
+export const login = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
+    authApi.login(email, password, rememberMe)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(getAuthUserData())
+            }
+        })
+}
+
+export const logout = () => (dispatch: any) => {
+    authApi.logout()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setAuthUserData( null, null, null, false))
             }
         })
 }

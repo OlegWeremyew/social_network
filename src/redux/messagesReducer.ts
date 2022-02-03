@@ -1,3 +1,5 @@
+export type ActionMessageTypes = addMessageCreatorType
+
 export type UserType = {
     name: string
     id: number
@@ -50,7 +52,7 @@ const initialState = {
 
 export type initialStateType = typeof initialState
 
-export const messagesReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {
+export const messagesReducer = (state: initialStateType = initialState, action: ActionMessageTypes): initialStateType => {
 
     switch (action.type) {
         case "ADD_MESSAGE": {
@@ -67,8 +69,6 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
             return state
     }
 }
-
-type ActionTypes = addMessageCreatorType
 
 export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
 export const addMessageCreator = (newMessageText: string) => {

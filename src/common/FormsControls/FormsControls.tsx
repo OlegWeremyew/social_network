@@ -11,17 +11,19 @@ const FormControl = ({input, meta, child, element, ...props}: any) => {
             <div>
                 {props.children}
             </div>
-            {hasError && <span>{meta.error}</span>}
+            <div>
+                {hasError && <span>{meta.error}</span>}
+            </div>
         </div>
     )
 }
 
 export const Textarea = (props: any) => {
     const {input, meta, child, element, ...restProps} = props
-    return <FormControl {...props}><textarea  {...restProps}/></FormControl>
+    return <FormControl {...props}><textarea {...input} {...restProps}/></FormControl>
 }
 
 export const Input = (props: any) => {
     const {input, meta, child, element, ...restProps} = props
-    return <FormControl {...props}><input  {...restProps}/></FormControl>
+    return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
 }

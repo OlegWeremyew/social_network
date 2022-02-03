@@ -31,7 +31,7 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
 
         let userId: string = this.props.userId
         if (!userId) {
-            userId = "2";
+            userId = "1049";
         }
         this.props.getUserProfile(userId)
         this.props.getUserStatus(userId)
