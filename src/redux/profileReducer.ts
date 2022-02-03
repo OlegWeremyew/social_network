@@ -32,7 +32,7 @@ export type ProfileType = {
 const initialState = {
     posts: [
         {message: "Hello", likesCount: 12, id: 1},
-        {message: "Dinosaurus are great", likesCount: 17, id: 2}
+        {message: "Dinosaurs are great", likesCount: 17, id: 2}
     ] as Array<PostType>,
     newPostText: "" as string,
     profile: null as ProfileType,
@@ -116,14 +116,14 @@ const setStatus = (status: string) => {
 }
 
 // thunks -----------------------------------------------
-export const getUserProfile = (userId: number) => (dispatch: Dispatch) => {
+export const getUserProfile = (userId: string) => (dispatch: Dispatch) => {
     profileAPI.getProfile(userId)
         .then(response => {
             dispatch(setUserProfile(response.data))
         })
 }
 
-export const getUserStatus = (userId: number) => (dispatch: Dispatch) => {
+export const getUserStatus = (userId: string) => (dispatch: Dispatch) => {
     profileAPI.getStatus(userId)
         .then(response => {
             dispatch(setStatus(response.data))

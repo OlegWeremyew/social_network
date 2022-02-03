@@ -17,8 +17,8 @@ type MapStateToPropsType = {
     status: string
 }
 type MapDispatchToProps = {
-    getUserProfile: (userId: number) => void
-    getUserStatus: (userId: number) => void
+    getUserProfile: (userId: string) => void
+    getUserStatus: (userId: string) => void
     updateUserStatus: (status: string) => void
 }
 
@@ -32,8 +32,8 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
         if (!userId) {
             userId = "2";
         }
-        this.props.getUserProfile(+userId)
-        this.props.getUserStatus(+userId)
+        this.props.getUserProfile(userId)
+        this.props.getUserStatus(userId)
     }
 
     render() {

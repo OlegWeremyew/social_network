@@ -7,12 +7,12 @@ const initialState: initialStateType = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: [] as number[],
+    followingInProgress: [] as string[],
 }
 
 export type UserType = {
     name: string
-    id: number
+    id: string
     uniqueUrlName: string
     photos: { small: string, large: string }
     status: string
@@ -25,7 +25,7 @@ export type initialStateType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: number[]
+    followingInProgress: string[]
 }
 
 
@@ -85,7 +85,7 @@ type ActionTypes = followType
     | toggleFollowingProgressType
 
 export type followType = ReturnType<typeof followSuccess>
-export const followSuccess = (userID: number) => {
+export const followSuccess = (userID: string) => {
     return {
         type: "FOLLOW",
         userID,
@@ -93,7 +93,7 @@ export const followSuccess = (userID: number) => {
 }
 
 export type unFollowType = ReturnType<typeof unfollowSuccess>
-export const unfollowSuccess = (userID: number) => {
+export const unfollowSuccess = (userID: string) => {
     return {
         type: "UNFOLLOW",
         userID,
@@ -133,7 +133,7 @@ export const toggleIsFetching = (isFetching: boolean) => {
 }
 
 export type toggleFollowingProgressType = ReturnType<typeof toggleFollowingProgress>
-export const toggleFollowingProgress = (followingInProgress: boolean, userId: number) => {
+export const toggleFollowingProgress = (followingInProgress: boolean, userId: string) => {
     return {
         type: "TOGGLE-IS-FOLLOWING-IN-PROGRESS",
         followingInProgress,
@@ -158,7 +158,7 @@ export const getUsers = (currentPage: number, pageSize: number) => {
     }
 }
 
-export const follow = (userId: number) => {
+export const follow = (userId: string) => {
 
     return (dispatch: Dispatch) => {
 
@@ -173,7 +173,7 @@ export const follow = (userId: number) => {
     }
 }
 
-export const unFollow = (userId: number) => {
+export const unFollow = (userId: string) => {
 
     return (dispatch: Dispatch) => {
 
