@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/myWayTypeScript/static/css/main.17b6ac05.chunk.css",
-    "main.js": "/myWayTypeScript/static/js/main.27a2b347.chunk.js",
-    "main.js.map": "/myWayTypeScript/static/js/main.27a2b347.chunk.js.map",
+    "main.js": "/myWayTypeScript/static/js/main.845fec7a.chunk.js",
+    "main.js.map": "/myWayTypeScript/static/js/main.845fec7a.chunk.js.map",
     "runtime-main.js": "/myWayTypeScript/static/js/runtime-main.5c68e207.js",
     "runtime-main.js.map": "/myWayTypeScript/static/js/runtime-main.5c68e207.js.map",
-    "static/js/2.c2d2a314.chunk.js": "/myWayTypeScript/static/js/2.c2d2a314.chunk.js",
-    "static/js/2.c2d2a314.chunk.js.map": "/myWayTypeScript/static/js/2.c2d2a314.chunk.js.map",
+    "static/js/2.d02cf6c4.chunk.js": "/myWayTypeScript/static/js/2.d02cf6c4.chunk.js",
+    "static/js/2.d02cf6c4.chunk.js.map": "/myWayTypeScript/static/js/2.d02cf6c4.chunk.js.map",
     "index.html": "/myWayTypeScript/index.html",
     "static/css/main.17b6ac05.chunk.css.map": "/myWayTypeScript/static/css/main.17b6ac05.chunk.css.map",
-    "static/js/2.c2d2a314.chunk.js.LICENSE.txt": "/myWayTypeScript/static/js/2.c2d2a314.chunk.js.LICENSE.txt",
+    "static/js/2.d02cf6c4.chunk.js.LICENSE.txt": "/myWayTypeScript/static/js/2.d02cf6c4.chunk.js.LICENSE.txt",
     "static/media/avatar_for_profile.e4c1e159.jpg": "/myWayTypeScript/static/media/avatar_for_profile.e4c1e159.jpg",
     "static/media/logo.cbfad428.png": "/myWayTypeScript/static/media/logo.cbfad428.png",
     "static/media/preloader.1952935e.gif": "/myWayTypeScript/static/media/preloader.1952935e.gif",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5c68e207.js",
-    "static/js/2.c2d2a314.chunk.js",
+    "static/js/2.d02cf6c4.chunk.js",
     "static/css/main.17b6ac05.chunk.css",
-    "static/js/main.27a2b347.chunk.js"
+    "static/js/main.845fec7a.chunk.js"
   ]
 }
