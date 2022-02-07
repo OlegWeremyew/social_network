@@ -12,7 +12,7 @@ type AddNewPostFormType = {
 
 const maxLength = maxLengthCreator(10)
 
-export const MyPosts = (props: UsersPropsType) => {
+export const MyPosts = React.memo((props: UsersPropsType) => {
 
     let post = props.profilePage.posts.map(p => <Post key={p.id}
                                                       message={p.message}
@@ -32,7 +32,7 @@ export const MyPosts = (props: UsersPropsType) => {
             </div>
         </div>
     );
-}
+})
 
 const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = (props) => {
     return (
