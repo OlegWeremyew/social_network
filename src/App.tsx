@@ -12,36 +12,67 @@ import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
 import {ProfileContainer} from "./components/MainWindow/Profile/ProfileContaeiner";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {LoginContainer} from "./components/Login/LoginContainer";
+import {connect} from "react-redux";
+import {initializeApp} from "./redux/AppReducer";
+import {AppStateType} from "./redux/reduxStore";
+import Preloader from "./common/Preloader/Preloader";
 
-
-function App() {
-    return (
-        <main className={c.appContent}>
-            <HeaderContainer/>
-            <Navbar/>
-            <div className={c.appContentWindow}>
-                <Routes>
-                    <Route path="/profile/" element={<ProfileContainer/>}>
-                        <Route path=":userId" element={<ProfileContainer/>}/>
-                    </Route>
-
-                    <Route path="/messages/" element={<MessagesContainer/>}>
-                        <Route path=":userId" element={<MessagesContainer/>}/>
-                    </Route>
-
-                    <Route path="/users/*" element={<UsersContainer/>}/>
-                    <Route path="/news/*" element={<News/>}/>
-                    <Route path="/music/*" element={<Music/>}/>
-                    <Route path="/settings/*" element={<Settings/>}/>
-                    <Route path="/friends/*" element={<Friends/>}/>
-
-                    <Route path="/login" element={<LoginContainer/>}/>
-
-                </Routes>
-            </div>
-            <Footer/>
-        </main>
-    );
+type mapStateToPropsType = {
+    initialized: boolean
 }
 
-export default App;
+type mapDispatchToPropsType = {
+    initializeApp: () => void
+}
+
+type AppContainerType = mapStateToPropsType & mapDispatchToPropsType
+
+
+class App extends React.Component<AppContainerType, AppContainerType> {
+
+    componentDidMount() {
+        this.props.initializeApp()
+    }
+
+    render() {
+        if (!this.props.initialized) {
+            return <Preloader/>
+        }
+        return (
+            <main className={c.appContent}>
+                <HeaderContainer/>
+                <Navbar/>
+                <div className={c.appContentWindow}>
+                    <Routes>
+                        <Route path="/profile/" element={<ProfileContainer/>}>
+                            <Route path=":userId" element={<ProfileContainer/>}/>
+                        </Route>
+
+                        <Route path="/messages/" element={<MessagesContainer/>}>
+                            <Route path=":userId" element={<MessagesContainer/>}/>
+                        </Route>
+
+                        <Route path="/users/*" element={<UsersContainer/>}/>
+                        <Route path="/news/*" element={<News/>}/>
+                        <Route path="/music/*" element={<Music/>}/>
+                        <Route path="/settings/*" element={<Settings/>}/>
+                        <Route path="/friends/*" element={<Friends/>}/>
+
+                        <Route path="/login" element={<LoginContainer/>}/>
+
+                    </Routes>
+                </div>
+                <Footer/>
+            </main>
+        );
+
+    }
+}
+
+const mapStateToProps = (state: AppStateType) => ({
+    initialized: state.app.initialized
+})
+
+export const AppContainer = connect(mapStateToProps, {
+    initializeApp,
+})(App);

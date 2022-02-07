@@ -81,4 +81,5 @@ export let UsersContainer = compose<ComponentType>(
         setCurrentPage,
         toggleFollowingProgress,
         getUsers,
-    }), withAuthRedirect)(UsersAPIComponent)
+    })
+)(UsersAPIComponent)
