@@ -5,6 +5,7 @@ import {ActionAllType} from "./reduxStore";
 export type ActionProfileTypes = addPostType
     | setUserProfileType
     | setProfileStatusType
+    | deletePostType
 
 
 export type PostType = {
@@ -59,6 +60,13 @@ export const profileReducer = (state = initialState, action: ActionProfileTypes)
                 posts: [...state.posts, newPost],
             }
         }
+        case "DELETED_POST": {
+            return {
+                ...state,
+                posts: state.posts.filter(f=>f.id !== action.postId),
+            }
+        }
+
         case "SET-USER-PROFILE": {
             return {
                 ...state,
@@ -82,6 +90,14 @@ export const addPost = (newPostText: string) => {
     return {
         type: "ADD_POST",
         newPostText,
+    } as const
+}
+
+export type deletePostType = ReturnType<typeof deletePost>
+export const deletePost = (postId: number) => {
+    return {
+        type: "DELETED_POST",
+        postId,
     } as const
 }
 
