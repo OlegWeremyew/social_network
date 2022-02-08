@@ -3,6 +3,10 @@ import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 import {ActionAllType, AppThunkType} from "./reduxStore";
 
+const SET_USER_DATA = "SET-USER-DATA"
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
+const TOGGLE_IS_AUTH = 'TOGGLE-IS-AUTH'
+
 export type initialStateType = {
     data: dataType
     isFetching: boolean
@@ -28,7 +32,7 @@ export type ActionAuthReducerType = setUserDataType
 
 export const authReducer = (state: initialStateType = initialState, action: ActionAuthReducerType): initialStateType => {
     switch (action.type) {
-        case "SET-USER-DATA" : {
+        case SET_USER_DATA : {
             return {
                 ...state,
                 data: {
@@ -40,15 +44,15 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
                 isAuth: action.payload.isAuth
             }
         }
-        case 'TOGGLE-IS-FETCHING':
+        case TOGGLE_IS_FETCHING:
             return {
                 ...state,
-                isFetching: action.isFetching,
+                isFetching: action.payload.isFetching,
             }
-        case 'TOGGLE-IS-AUTH':
+        case TOGGLE_IS_AUTH:
             return {
                 ...state,
-                isAuth: action.isAuth,
+                isAuth: action.payload.isAuth,
             }
         default:
             return state
@@ -58,7 +62,7 @@ export const authReducer = (state: initialStateType = initialState, action: Acti
 type setUserDataType = ReturnType<typeof setAuthUserData>
 export const setAuthUserData = (userId: string, email: string, login: string, isAuth: boolean) => {
     return {
-        type: "SET-USER-DATA",
+        type: SET_USER_DATA,
         payload: {
             userId,
             email,
@@ -71,16 +75,20 @@ export const setAuthUserData = (userId: string, email: string, login: string, is
 type setToggleIsFetchingType = ReturnType<typeof setToggleIsFetching>
 export const setToggleIsFetching = (isFetching: boolean) => {
     return {
-        type: 'TOGGLE-IS-FETCHING',
-        isFetching: isFetching
+        type: TOGGLE_IS_FETCHING,
+        payload: {
+            isFetching,
+        },
     } as const
 }
 
 type setToggleIsAuthType = ReturnType<typeof setToggleIsAuth>
 export const setToggleIsAuth = (isAuth: boolean) => {
     return {
-        type: 'TOGGLE-IS-AUTH',
-        isAuth: isAuth
+        type: TOGGLE_IS_AUTH,
+        payload:  {
+            isAuth,
+        },
     } as const
 }
 

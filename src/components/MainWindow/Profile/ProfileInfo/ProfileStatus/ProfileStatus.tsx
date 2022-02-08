@@ -55,7 +55,8 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
                 <div>
                     <input
                         onChange={this.onStatusChange}
-                        autoFocus value={this.state.status}
+                        autoFocus
+                        value={this.state.status}
                         onBlur={this.deactivateEditMode}
                     />
                 </div>}

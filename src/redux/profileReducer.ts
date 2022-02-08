@@ -2,6 +2,11 @@ import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
 import {ActionAllType} from "./reduxStore";
 
+const ADD_POST = "ADD_POST"
+const DELETED_POST = "DELETED_POST"
+const SET_USER_PROFILE = "SET-USER-PROFILE"
+const SET_STATUS = "SET-STATUS"
+
 export type ActionProfileTypes = addPostType
     | setUserProfileType
     | setProfileStatusType
@@ -15,24 +20,24 @@ export type PostType = {
 }
 
 export type ProfileType = {
-    "aboutMe": string,
-    "contacts": {
-        "facebook": string,
-        "website": string,
-        "vk": string,
-        "twitter": string,
-        "instagram": string,
-        "youtube": string,
-        "github": string,
-        "mainLink": string
+    aboutMe: string
+    contacts: {
+        facebook: string
+        website: string
+        vk: string
+        twitter: string
+        instagram: string
+        youtube: string
+        github: string
+        mainLink: string
     },
-    "lookingForAJob": string,
-    "lookingForAJobDescription": string,
-    "fullName": string,
-    "userId": number,
-    "photos": {
-        "small": string,
-        "large": string
+    lookingForAJob: string
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number
+    photos: {
+        small: string
+        large: string
     }
 } | null
 
@@ -49,10 +54,10 @@ export type initialStateType = typeof initialState
 export const profileReducer = (state = initialState, action: ActionProfileTypes): initialStateType => {
 
     switch (action.type) {
-        case "ADD_POST": {
+        case ADD_POST: {
             let newPost: PostType = {
                 id: new Date().getTime(),
-                message: action.newPostText,
+                message: action.payload.newPostText,
                 likesCount: 12
             }
             return {
@@ -60,44 +65,46 @@ export const profileReducer = (state = initialState, action: ActionProfileTypes)
                 posts: [...state.posts, newPost],
             }
         }
-        case "DELETED_POST": {
+        case DELETED_POST: {
             return {
                 ...state,
-                posts: state.posts.filter(f=>f.id !== action.postId),
+                posts: state.posts.filter(f => f.id !== action.payload.postId),
             }
         }
-
-        case "SET-USER-PROFILE": {
+        case SET_USER_PROFILE: {
             return {
                 ...state,
-                profile: action.profile
+                profile: action.payload.profile
             }
         }
-        case "SET-STATUS": {
+        case SET_STATUS: {
             return {
                 ...state,
-                status: action.status
+                status: action.payload.status
             }
         }
         default:
             return state
     }
-
 }
 
 export type addPostType = ReturnType<typeof addPost>
 export const addPost = (newPostText: string) => {
     return {
-        type: "ADD_POST",
-        newPostText,
+        type: ADD_POST,
+        payload: {
+            newPostText
+        },
     } as const
 }
 
 export type deletePostType = ReturnType<typeof deletePost>
 export const deletePost = (postId: number) => {
     return {
-        type: "DELETED_POST",
-        postId,
+        type: DELETED_POST,
+        payload: {
+            postId,
+        },
     } as const
 }
 
@@ -105,18 +112,23 @@ export const deletePost = (postId: number) => {
 export type setUserProfileType = ReturnType<typeof setUserProfile>
 const setUserProfile = (profile: ProfileType) => {
     return {
-        type: "SET-USER-PROFILE",
-        profile,
+        type: SET_USER_PROFILE,
+        payload: {
+            profile,
+        },
     } as const
 }
 
 export type setProfileStatusType = ReturnType<typeof setStatus>
 const setStatus = (status: string) => {
     return {
-        type: "SET-STATUS",
-        status,
+        type: SET_STATUS,
+        payload: {
+            status,
+        },
     } as const
 }
+
 
 // thunks -----------------------------------------------
 export const getUserProfile = (userId: string) => (dispatch: Dispatch<ActionAllType>) => {
