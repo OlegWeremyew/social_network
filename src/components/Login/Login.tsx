@@ -5,17 +5,6 @@ import {required} from "../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
 
-type FormDataType = {
-    email: string
-    password: string
-    rememberMe: boolean
-}
-
-type LoginPropsType = {
-    isAuth?: boolean
-    login: (email: string, password: string, rememberMe: boolean) => void
-}
-
 export const Login = ({isAuth, login, ...restProps}: LoginPropsType) => {
 
     const onSubmit = (formData: FormDataType) => {
@@ -34,9 +23,9 @@ export const Login = ({isAuth, login, ...restProps}: LoginPropsType) => {
     );
 };
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
+const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit,error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field
                     placeholder={"Email"}
@@ -62,8 +51,8 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
                 /> Remember me
             </div>
             {
-                props.error &&
-                <div className={style.formSummuryError}>{props.error}</div>
+                error &&
+                <div className={style.formSummaryError}>{error}</div>
             }
             <div>
                 <button>Login</button>
@@ -73,4 +62,18 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
 }
 
 const LoginReduxForm = reduxForm<FormDataType>({form: "Login"})(LoginForm)
+
+
+//Types==============================================
+
+type FormDataType = {
+    email: string
+    password: string
+    rememberMe: boolean
+}
+
+type LoginPropsType = {
+    isAuth?: boolean
+    login: (email: string, password: string, rememberMe: boolean) => void
+}
 

@@ -1,4 +1,4 @@
-const ADD_MESSAGE = "ADD_MESSAGE"
+const ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE"
 
 export type ActionMessageTypes = addMessageCreatorType
 

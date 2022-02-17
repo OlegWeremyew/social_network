@@ -4,15 +4,6 @@ import {login} from "../../redux/authReducer";
 import {AppStateType} from "../../redux/reduxStore";
 import {Login} from "./Login";
 
-type mapStateToPropsType = {
-    isAuth: boolean
-}
-type mapDispatchToPropsType = {
-    login: (email: string, password: string, rememberMe: boolean) => void
-}
-
-type LoginContainerType = mapStateToPropsType & mapDispatchToPropsType
-
 class LoginAPIContainer extends React.Component<LoginContainerType, LoginContainerType> {
 
     render() {
@@ -32,3 +23,15 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
 export const LoginContainer = connect(mapStateToProps, {
     login
 })(LoginAPIContainer)
+
+
+//Types================================================================
+
+type mapStateToPropsType = {
+    isAuth: boolean
+}
+type mapDispatchToPropsType = {
+    login: (email: string, password: string, rememberMe: boolean) => void
+}
+
+type LoginContainerType = mapStateToPropsType & mapDispatchToPropsType

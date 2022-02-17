@@ -2,44 +2,12 @@ import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
 import {ActionAllType} from "./reduxStore";
 
-const ADD_POST = "ADD_POST"
-const DELETED_POST = "DELETED_POST"
-const SET_USER_PROFILE = "SET-USER-PROFILE"
-const SET_STATUS = "SET-STATUS"
+const ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST"
+const DELETED_POST = "SOCIAL_NETWORK/PROFILE/DELETED_POST"
+const SET_USER_PROFILE = "SOCIAL_NETWORK/PROFILE/SET-USER-PROFILE"
+const SET_STATUS = "SOCIAL_NETWORK/PROFILE/SET-STATUS"
 
-export type ActionProfileTypes = addPostType
-    | setUserProfileType
-    | setProfileStatusType
-    | deletePostType
-
-
-export type PostType = {
-    message: string
-    likesCount: number
-    id: number
-}
-
-export type ProfileType = {
-    aboutMe: string
-    contacts: {
-        facebook: string
-        website: string
-        vk: string
-        twitter: string
-        instagram: string
-        youtube: string
-        github: string
-        mainLink: string
-    },
-    lookingForAJob: string
-    lookingForAJobDescription: string
-    fullName: string
-    userId: number
-    photos: {
-        small: string
-        large: string
-    }
-} | null
+export type initialStateType = typeof initialState
 
 const initialState = {
     posts: [
@@ -49,7 +17,6 @@ const initialState = {
     profile: null as ProfileType,
     status: "",
 }
-export type initialStateType = typeof initialState
 
 export const profileReducer = (state = initialState, action: ActionProfileTypes): initialStateType => {
 
@@ -93,8 +60,8 @@ export const addPost = (newPostText: string) => {
     return {
         type: ADD_POST,
         payload: {
-            newPostText
-        },
+            newPostText,
+        }
     } as const
 }
 
@@ -104,7 +71,7 @@ export const deletePost = (postId: number) => {
         type: DELETED_POST,
         payload: {
             postId,
-        },
+        }
     } as const
 }
 
@@ -115,7 +82,7 @@ const setUserProfile = (profile: ProfileType) => {
         type: SET_USER_PROFILE,
         payload: {
             profile,
-        },
+        }
     } as const
 }
 
@@ -125,32 +92,61 @@ const setStatus = (status: string) => {
         type: SET_STATUS,
         payload: {
             status,
-        },
+        }
     } as const
 }
 
 
-// thunks -----------------------------------------------
-export const getUserProfile = (userId: string) => (dispatch: Dispatch<ActionAllType>) => {
-    profileAPI.getProfile(userId)
-        .then(response => {
-            dispatch(setUserProfile(response.data))
-        })
+// thunks=========================================================
+export const getUserProfile = (userId: string) => async (dispatch: Dispatch<ActionAllType>) => {
+    const response = await profileAPI.getProfile(userId)
+    dispatch(setUserProfile(response.data))
 }
 
-export const getUserStatus = (userId: string) => (dispatch: Dispatch<ActionAllType>) => {
-    profileAPI.getStatus(userId)
-        .then(response => {
-            dispatch(setStatus(response.data))
-        })
+export const getUserStatus = (userId: string) => async (dispatch: Dispatch<ActionAllType>) => {
+    const response = await profileAPI.getStatus(userId)
+    dispatch(setStatus(response.data))
 }
 
-export const updateUserStatus = (status: string) => (dispatch: Dispatch<ActionAllType>) => {
-    profileAPI.updateStatus(status)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setStatus(status))
-            }
-        })
+export const updateUserStatus = (status: string) => async (dispatch: Dispatch<ActionAllType>) => {
+    const response = await profileAPI.updateStatus(status)
+    if (response.data.resultCode === 0) {
+        dispatch(setStatus(status))
+    }
 }
 
+
+//Types=========================================================
+export type ActionProfileTypes = addPostType
+    | setUserProfileType
+    | setProfileStatusType
+    | deletePostType
+
+
+export type PostType = {
+    message: string
+    likesCount: number
+    id: number
+}
+
+export type ProfileType = {
+    aboutMe: string
+    contacts: {
+        facebook: string
+        website: string
+        vk: string
+        twitter: string
+        instagram: string
+        youtube: string
+        github: string
+        mainLink: string
+    },
+    lookingForAJob: string
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number
+    photos: {
+        small: string
+        large: string
+    }
+} | null

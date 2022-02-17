@@ -17,17 +17,6 @@ import {initializeApp} from "./redux/AppReducer";
 import {AppStateType} from "./redux/reduxStore";
 import Preloader from "./common/Preloader/Preloader";
 
-type mapStateToPropsType = {
-    initialized: boolean
-}
-
-type mapDispatchToPropsType = {
-    initializeApp: () => void
-}
-
-type AppContainerType = mapStateToPropsType & mapDispatchToPropsType
-
-
 class App extends React.Component<AppContainerType, AppContainerType> {
 
     componentDidMount() {
@@ -76,3 +65,16 @@ const mapStateToProps = (state: AppStateType) => ({
 export const AppContainer = connect(mapStateToProps, {
     initializeApp,
 })(App);
+
+
+//Types=====================================================================
+
+type mapStateToPropsType = {
+    initialized: boolean
+}
+
+type mapDispatchToPropsType = {
+    initializeApp: () => void
+}
+
+type AppContainerType = mapStateToPropsType & mapDispatchToPropsType

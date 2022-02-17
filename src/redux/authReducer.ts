@@ -3,32 +3,9 @@ import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 import {ActionAllType, AppThunkType} from "./reduxStore";
 
-const SET_USER_DATA = "SET-USER-DATA"
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
-const TOGGLE_IS_AUTH = 'TOGGLE-IS-AUTH'
-
-export type initialStateType = {
-    data: dataType
-    isFetching: boolean
-    isAuth: boolean
-}
-
-type dataType = {
-    userId: string
-    email: string
-    login: string
-    isAuth: boolean
-}
-
-let initialState = {
-    data: {} as dataType,
-    isFetching: true,
-    isAuth: false,
-}
-
-export type ActionAuthReducerType = setUserDataType
-    | setToggleIsFetchingType
-    | setToggleIsAuthType
+const SET_USER_DATA = "SOCIAL_NETWORK/AUTH/SET-USER-DATA"
+const TOGGLE_IS_FETCHING = 'SOCIAL_NETWORK/AUTH/TOGGLE-IS-FETCHING'
+const TOGGLE_IS_AUTH = 'SOCIAL_NETWORK/AUTH/TOGGLE-IS-AUTH'
 
 export const authReducer = (state: initialStateType = initialState, action: ActionAuthReducerType): initialStateType => {
     switch (action.type) {
@@ -86,41 +63,61 @@ type setToggleIsAuthType = ReturnType<typeof setToggleIsAuth>
 export const setToggleIsAuth = (isAuth: boolean) => {
     return {
         type: TOGGLE_IS_AUTH,
-        payload:  {
+        payload: {
             isAuth,
         },
     } as const
 }
 
-export const getAuthUserData = (): AppThunkType => (dispatch: Dispatch<ActionAllType>) => {
-    return authApi.getAuth()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                let {id, email, login} = response.data.data
-                dispatch(setAuthUserData(id, email, login, true))
-            }
-        })
+export const getAuthUserData = (): AppThunkType => async (dispatch: Dispatch<ActionAllType>) => {
+    const response = await authApi.getAuth()
+    if (response.data.resultCode === 0) {
+        let {id, email, login} = response.data.data
+        dispatch(setAuthUserData(id, email, login, true))
+    }
 }
 
-export const login = (email: string, password: string, rememberMe: boolean): AppThunkType => (dispatch: any) => {
-    authApi.login(email, password, rememberMe)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(getAuthUserData())
-            } else {
-                let message = response.data.messages.length > 0
-                    ? response.data.messages[0]
-                    : "Some error"
-                dispatch(stopSubmit("Login", {_error: message}))
-            }
-        })
+export const login = (email: string, password: string, rememberMe: boolean): AppThunkType => async (dispatch: any) => {
+    const response = await authApi.login(email, password, rememberMe)
+    if (response.data.resultCode === 0) {
+        dispatch(getAuthUserData())
+    } else {
+        let message = response.data.messages.length > 0
+            ? response.data.messages[0]
+            : "Some error"
+        dispatch(stopSubmit("Login", {_error: message}))
+    }
 }
 
-export const logout = () => (dispatch: Dispatch<ActionAllType>) => {
-    authApi.logout()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData("", "", "", false))
-            }
-        })
+export const logout = () => async (dispatch: Dispatch<ActionAllType>) => {
+    const response = await authApi.logout()
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData("", "", "", false))
+    }
 }
+
+
+//Types========================================
+
+export type initialStateType = {
+    data: dataType
+    isFetching: boolean
+    isAuth: boolean
+}
+
+type dataType = {
+    userId: string
+    email: string
+    login: string
+    isAuth: boolean
+}
+
+let initialState = {
+    data: {} as dataType,
+    isFetching: true,
+    isAuth: false,
+}
+
+export type ActionAuthReducerType = setUserDataType
+    | setToggleIsFetchingType
+    | setToggleIsAuthType

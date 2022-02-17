@@ -1,15 +1,7 @@
 import {getAuthUserData} from "./authReducer";
 import {AppThunkType} from "./reduxStore";
 
-const SET_INITIALIZED = "SET-INITIALIZED"
-
-export type initialStateType = {
-    initialized: boolean
-}
-
-let initialState = {
-    initialized: false
-}
+const SET_INITIALIZED = "SOCIAL_NETWORK/APP/SET-INITIALIZED"
 
 export type ActionAppReducerType = initializedSuccessType
 
@@ -39,5 +31,15 @@ export const initializeApp = (): AppThunkType => (dispatch: any) => {
         .then(() => {
             dispatch(initializedSuccess())
         })
+}
 
+
+//Types======================================
+
+export type initialStateType = {
+    initialized: boolean
+}
+
+let initialState = {
+    initialized: false
 }
