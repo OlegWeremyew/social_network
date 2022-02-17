@@ -2,7 +2,7 @@ import React from 'react';
 import c from "./ProfileInfo.module.css"
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
-import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHooks";
+import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 
 type ProfileInfoPropsType = {
     profile: ProfileType
@@ -19,7 +19,7 @@ const ProfileInfo = ({profile, status, updateUserStatus}: ProfileInfoPropsType) 
                     <img alt='ava'
                          src={profile && profile.photos.large !== null ? profile.photos.large : avatarDefault}/>
                 </div>
-                <ProfileStatusWithHooks
+                <ProfileStatus
                     status={status}
                     updateUserStatus={updateUserStatus}
                 />

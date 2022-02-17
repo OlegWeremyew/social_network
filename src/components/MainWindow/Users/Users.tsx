@@ -1,8 +1,5 @@
 import React from 'react';
-import c from "./Users.module.css";
-import user from "../../../assets/images/user.png";
 import {UserType} from "../../../redux/usersReducer";
-import {NavLink} from "react-router-dom";
 import {Paginator} from "../../../common/Paginator/Paginator";
 import {User} from "./User";
 
@@ -23,7 +20,7 @@ export const Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, ..
     return (
         <div>
             <Paginator
-                totalUsersCount={totalUsersCount}
+                totalItemsCount={totalUsersCount}
                 pageSize={pageSize}
                 currentPage={currentPage}
                 onPageChanged={onPageChanged}

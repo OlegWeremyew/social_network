@@ -2,7 +2,7 @@ import React from 'react';
 import c from './App.module.css';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
@@ -12,9 +12,9 @@ import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
 import {ProfileContainer} from "./components/MainWindow/Profile/ProfileContaeiner";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {LoginContainer} from "./components/Login/LoginContainer";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
-import {AppStateType} from "./redux/reduxStore";
+import {AppStateType, store} from "./redux/reduxStore";
 import {Preloader} from "./common/Preloader/Preloader";
 
 class App extends React.Component<AppContainerType, AppContainerType> {
@@ -62,9 +62,19 @@ const mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized
 })
 
-export const AppContainer = connect(mapStateToProps, {
+const AppContainer = connect(mapStateToProps, {
     initializeApp,
 })(App);
+
+export const MainApp = () => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </BrowserRouter>
+    )
+}
 
 
 //Types=====================================================================
