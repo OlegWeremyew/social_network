@@ -45,7 +45,7 @@ export const setAuthUserData = (userId: string, email: string, login: string, is
             email,
             login,
             isAuth
-        },
+        }
     } as const
 }
 
@@ -55,7 +55,7 @@ export const setToggleIsFetching = (isFetching: boolean) => {
         type: TOGGLE_IS_FETCHING,
         payload: {
             isFetching,
-        },
+        }
     } as const
 }
 
@@ -65,7 +65,7 @@ export const setToggleIsAuth = (isAuth: boolean) => {
         type: TOGGLE_IS_AUTH,
         payload: {
             isAuth,
-        },
+        }
     } as const
 }
 

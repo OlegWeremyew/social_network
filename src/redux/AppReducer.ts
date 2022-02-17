@@ -3,8 +3,6 @@ import {AppThunkType} from "./reduxStore";
 
 const SET_INITIALIZED = "SOCIAL_NETWORK/APP/SET-INITIALIZED"
 
-export type ActionAppReducerType = initializedSuccessType
-
 export const appReducer = (state: initialStateType = initialState, action: ActionAppReducerType): initialStateType => {
     switch (action.type) {
         case SET_INITIALIZED : {
@@ -35,6 +33,10 @@ export const initializeApp = (): AppThunkType => (dispatch: any) => {
 
 
 //Types======================================
+
+
+export type ActionAppReducerType = initializedSuccessType
+
 
 export type initialStateType = {
     initialized: boolean

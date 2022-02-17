@@ -1,18 +1,5 @@
 const ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE"
 
-export type ActionMessageTypes = addMessageCreatorType
-
-export type UserType = {
-    name: string
-    id: number
-    img: string
-}
-
-export type MessageType = {
-    message: string
-    id: number
-}
-
 const initialState = {
     users: [
         {
@@ -78,7 +65,21 @@ export const addMessageCreator = (newMessageText: string) => {
         type: ADD_MESSAGE,
         payload: {
             newMessageText,
-        },
+        }
     } as const
 }
 
+//Types ======================================
+
+export type ActionMessageTypes = addMessageCreatorType
+
+export type UserType = {
+    name: string
+    id: number
+    img: string
+}
+
+export type MessageType = {
+    message: string
+    id: number
+}
