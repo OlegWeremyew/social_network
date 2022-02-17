@@ -9,13 +9,16 @@ import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import {MessagesContainer} from "./components/MainWindow/Messages/MessagesContainer";
 import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
-import {ProfileContainer} from "./components/MainWindow/Profile/ProfileContaeiner";
+import {ProfileContainer} from "./components/MainWindow/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {LoginContainer} from "./components/Login/LoginContainer";
 import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import {AppStateType, store} from "./redux/reduxStore";
 import {Preloader} from "./common/Preloader/Preloader";
+
+//const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'));
+//const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'));
 
 class App extends React.Component<AppContainerType, AppContainerType> {
 
@@ -33,6 +36,10 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                 <Navbar/>
                 <div className={c.appContentWindow}>
                     <Routes>
+                        <Route path="/profile/" element={<ProfileContainer/>}>
+                            <Route path=":userId" element={<ProfileContainer/>}/>
+                        </Route>
+
                         <Route path="/profile/" element={<ProfileContainer/>}>
                             <Route path=":userId" element={<ProfileContainer/>}/>
                         </Route>
