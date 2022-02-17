@@ -15,7 +15,7 @@ import {LoginContainer} from "./components/Login/LoginContainer";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import {AppStateType} from "./redux/reduxStore";
-import Preloader from "./common/Preloader/Preloader";
+import {Preloader} from "./common/Preloader/Preloader";
 
 class App extends React.Component<AppContainerType, AppContainerType> {
 

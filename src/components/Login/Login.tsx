@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {Input} from "../../common/FormsControls/FormsControls";
+import {createField, Input} from "../../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
@@ -26,30 +26,9 @@ export const Login = ({isAuth, login, ...restProps}: LoginPropsType) => {
 const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit,error}) => {
     return (
         <form onSubmit={handleSubmit}>
-            <div>
-                <Field
-                    placeholder={"Email"}
-                    name={"email"}
-                    component={Input}
-                    validate={[required]}
-                />
-            </div>
-            <div>
-                <Field
-                    placeholder={"Password"}
-                    name={"password"}
-                    type={"password"}
-                    component={Input}
-                    validate={[required]}
-                />
-            </div>
-            <div>
-                <Field
-                    component={"input"}
-                    name={"rememberMe"}
-                    type="checkbox"
-                /> Remember me
-            </div>
+                {createField("Email", "email", [required], Input, {type: "text"}, "")}
+                {createField("Password", "password", [required], Input, {type: "password"}, "")}
+                {createField(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
             {
                 error &&
                 <div className={style.formSummaryError}>{error}</div>

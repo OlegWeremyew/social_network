@@ -10,22 +10,18 @@ type ProfileInfoPropsType = {
     updateUserStatus: (status: string) => void
 }
 
-const ProfileInfo = (props: ProfileInfoPropsType) => {
+const ProfileInfo = ({profile, status, updateUserStatus}: ProfileInfoPropsType) => {
 
     return (
         <div className={c.profile}>
-{/*            <div className={c.ground}>
-                <img
-                    src="https://img.lovepik.com/photo/50066/7884.jpg_wh860.jpg" alt="fon image" title="fon image"/>
-            </div>*/}
             <div className={c.avatarBlock}>
                 <div className={c.avatar}>
                     <img alt='ava'
-                         src={props.profile && props.profile.photos.large !== null ? props.profile.photos.large : avatarDefault}/>
+                         src={profile && profile.photos.large !== null ? profile.photos.large : avatarDefault}/>
                 </div>
                 <ProfileStatusWithHooks
-                    status={props.status}
-                    updateUserStatus={props.updateUserStatus}
+                    status={status}
+                    updateUserStatus={updateUserStatus}
                 />
             </div>
         </div>

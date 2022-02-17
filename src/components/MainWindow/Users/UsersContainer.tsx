@@ -5,12 +5,11 @@ import {
     followSuccess,
     requestUsers,
     setCurrentPage,
-    toggleFollowingProgress,
     unfollowSuccess,
     UserType
 } from "../../../redux/usersReducer";
-import Users from './Users';
-import Preloader from "../../../common/Preloader/Preloader";
+import {Users} from './Users';
+import {Preloader} from "../../../common/Preloader/Preloader";
 import {compose} from "redux";
 import {
     getCurrentPage,
@@ -33,7 +32,6 @@ type MapDispatchToProps = {
     followSuccess: (userID: string) => void
     unfollowSuccess: (userID: string) => void
     setCurrentPage: (currentPage: number) => void
-    toggleFollowingProgress: (followingInProgress: boolean, userId: number) => void
     requestUsers: (currentPage: number, pageSize: number) => void
 }
 
@@ -42,11 +40,13 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToProps
 
 class UsersAPIComponent extends React.Component<UsersPropsType> {
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize} = this.props
+        this.props.requestUsers(currentPage, pageSize)
     }
 
     onPageChanged = (pageNumber: number) => {
-        this.props.requestUsers(pageNumber, this.props.pageSize)
+        const {pageSize} = this.props
+        this.props.requestUsers(pageNumber, pageSize)
     }
 
     render() {
@@ -62,7 +62,6 @@ class UsersAPIComponent extends React.Component<UsersPropsType> {
                     follow={this.props.followSuccess}
                     unfollow={this.props.unfollowSuccess}
                     followingInProgress={this.props.followingInProgress}
-                    toggleFollowingProgress={this.props.toggleFollowingProgress}
                 />
             </>
         )
@@ -85,7 +84,6 @@ export let UsersContainer = compose<ComponentType>(
         followSuccess,
         unfollowSuccess,
         setCurrentPage,
-        toggleFollowingProgress,
         requestUsers,
     })
 )(UsersAPIComponent)
