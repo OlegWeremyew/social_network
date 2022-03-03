@@ -5,7 +5,7 @@ import {
     getUserStatus,
     getUserProfile,
     ProfileType,
-    updateUserStatus
+    updateUserStatus, savePhoto
 } from "../../../redux/profileReducer";
 import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
@@ -22,18 +22,18 @@ type MapDispatchToProps = {
     getUserProfile: (userId: string) => void
     getUserStatus: (userId: string) => void
     updateUserStatus: (status: string) => void
+    savePhoto: (file: any) => void
 }
 
 export type UsersPropsType = MapStateToPropsType & MapDispatchToProps & InjectedProps
 
 class ProfileAPIContainer extends React.Component<UsersPropsType> {
 
-    componentDidMount() {
-
+    refreshProfile() {
         let userId: string = this.props.userId
         if (!userId) {
             userId = this.props.authorizedUserID;
-            if(!userId){
+            if (!userId) {
                 //@ts-ignore
                 this.props.history.push("/login")
             }
@@ -42,13 +42,25 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
         this.props.getUserStatus(userId)
     }
 
+    componentDidMount() {
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps: Readonly<UsersPropsType>, prevState: Readonly<{}>, snapshot?: any) {
+        if (this.props.userId !== prevProps.userId) {
+            this.refreshProfile()
+        }
+    }
+
     render() {
 
         return (
             <Profile
+                isOwner={!this.props.userId}
                 profile={this.props.profile}
                 status={this.props.status}
                 updateUserStatus={this.props.updateUserStatus}
+                savePhoto={this.props.savePhoto}
 
             />
         );
@@ -64,12 +76,15 @@ let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export const ProfileContainer = compose<ComponentType>(
+const ProfileContainer = compose<ComponentType>(
     connect(mapStateToProps, {
         getUserProfile,
         getUserStatus,
         updateUserStatus,
+        savePhoto,
     }),
     withRouter2,
     withAuthRedirect
 )(ProfileAPIContainer);
+
+export default ProfileContainer

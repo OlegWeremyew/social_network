@@ -30,4 +30,6 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     }
 }
 
-export let MessagesContainer = compose<ComponentType>(connect(mapStateToProps, mapDispatchToProps),withAuthRedirect)(Messages)
+let MessagesContainer = compose<ComponentType>(connect(mapStateToProps, mapDispatchToProps),withAuthRedirect)(Messages)
+
+export default MessagesContainer

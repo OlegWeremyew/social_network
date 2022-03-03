@@ -8,6 +8,8 @@ type ProfilePropsType = {
     profile: ProfileType
     status: string
     updateUserStatus: (status: string) => void
+    savePhoto: (file: any) => void
+    isOwner: boolean
 }
 
 const Profile = (props: ProfilePropsType) => {
@@ -18,6 +20,8 @@ const Profile = (props: ProfilePropsType) => {
                 profile={props.profile}
                 status={props.status}
                 updateUserStatus={props.updateUserStatus}
+                isOwner={props.isOwner}
+                savePhoto={props.savePhoto}
             />
             <MyPostsContainer/>
         </div>

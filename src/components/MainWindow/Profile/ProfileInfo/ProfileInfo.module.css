@@ -8,8 +8,14 @@
     padding: 10px;
 }
 
-.avatar{
-    width: 450px;
-    height: 400px;
-    padding-bottom: 0;
+
+.avatar {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.mainPhoto {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 50%;
 }

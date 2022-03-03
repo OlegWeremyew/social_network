@@ -6,6 +6,7 @@ const ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST"
 const DELETED_POST = "SOCIAL_NETWORK/PROFILE/DELETED_POST"
 const SET_USER_PROFILE = "SOCIAL_NETWORK/PROFILE/SET-USER-PROFILE"
 const SET_STATUS = "SOCIAL_NETWORK/PROFILE/SET-STATUS"
+const SAVE_PHOTO = "SOCIAL_NETWORK/PROFILE/SAVE_PHOTO_SUCCESS"
 
 export type initialStateType = typeof initialState
 
@@ -48,6 +49,12 @@ export const profileReducer = (state = initialState, action: ActionProfileTypes)
             return {
                 ...state,
                 status: action.payload.status
+            }
+        }
+        case SAVE_PHOTO: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.payload.photos} as ProfileType
             }
         }
         default:
@@ -96,6 +103,16 @@ const setStatus = (status: string) => {
     } as const
 }
 
+export type savePhotoSuccessType = ReturnType<typeof savePhotoSuccess>
+const savePhotoSuccess = (photos: PhotosType) => {
+    return {
+        type: SAVE_PHOTO,
+        payload: {
+            photos,
+        },
+    } as const
+}
+
 
 // thunks=========================================================
 export const getUserProfile = (userId: string) => async (dispatch: Dispatch<ActionAllType>) => {
@@ -115,12 +132,22 @@ export const updateUserStatus = (status: string) => async (dispatch: Dispatch<Ac
     }
 }
 
+export const savePhoto = (file: File) => (dispatch: Dispatch<ActionAllType>) => {
+    profileAPI.savePhoto(file)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(savePhotoSuccess(response.data.data.photos))
+            }
+        })
+}
+
 
 //Types=========================================================
 export type ActionProfileTypes = addPostType
     | setUserProfileType
     | setProfileStatusType
     | deletePostType
+    | savePhotoSuccessType
 
 
 export type PostType = {
@@ -145,8 +172,10 @@ export type ProfileType = {
     lookingForAJobDescription: string
     fullName: string
     userId: number
-    photos: {
-        small: string
-        large: string
-    }
+    photos: PhotosType
 } | null
+
+type PhotosType = {
+    small: string
+    large: string
+}
