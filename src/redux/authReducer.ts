@@ -1,11 +1,10 @@
-import {authApi} from "../Api/api";
+import {authApi, securityApi} from "../Api/api";
 import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 import {ActionAllType, AppThunkType} from "./reduxStore";
 
 const SET_USER_DATA = "SOCIAL_NETWORK/AUTH/SET-USER-DATA"
-const TOGGLE_IS_FETCHING = 'SOCIAL_NETWORK/AUTH/TOGGLE-IS-FETCHING'
-const TOGGLE_IS_AUTH = 'SOCIAL_NETWORK/AUTH/TOGGLE-IS-AUTH'
+const GET_CAPTCHA_URL_SUCCESS = "GET_CAPTCHA_URL_SUCCESS"
 
 let initialState = {
     data: {} as dataType,
@@ -14,6 +13,7 @@ let initialState = {
     userID: null as (string | null),
     email: null as (string | null),
     login: null as (string | null),
+    captchaUrl: null as (string | null),
 }
 
 export const authReducer = (state: initialAuthStateType = initialState, action: ActionAuthReducerType): initialAuthStateType => {
@@ -28,19 +28,15 @@ export const authReducer = (state: initialAuthStateType = initialState, action: 
                     userId: action.payload.userId,
                 },
                 userID: action.payload.userId,
-                isAuth: action.payload.isAuth
-            }
-        }
-        case TOGGLE_IS_FETCHING:
-            return {
-                ...state,
-                isFetching: action.payload.isFetching,
-            }
-        case TOGGLE_IS_AUTH:
-            return {
-                ...state,
                 isAuth: action.payload.isAuth,
             }
+        }
+        case GET_CAPTCHA_URL_SUCCESS : {
+            return {
+                ...state,
+                ...action.payload,
+            }
+        }
         default:
             return state
     }
@@ -59,22 +55,12 @@ export const setAuthUserData = (userId: string, email: string, login: string, is
     } as const
 }
 
-type setToggleIsFetchingType = ReturnType<typeof setToggleIsFetching>
-export const setToggleIsFetching = (isFetching: boolean) => {
+type getCaptchaUrlSuccessType = ReturnType<typeof getCaptchaUrlSuccess>
+export const getCaptchaUrlSuccess = (captchaUrl: string) => {
     return {
-        type: TOGGLE_IS_FETCHING,
+        type: GET_CAPTCHA_URL_SUCCESS,
         payload: {
-            isFetching,
-        }
-    } as const
-}
-
-type setToggleIsAuthType = ReturnType<typeof setToggleIsAuth>
-export const setToggleIsAuth = (isAuth: boolean) => {
-    return {
-        type: TOGGLE_IS_AUTH,
-        payload: {
-            isAuth,
+            captchaUrl
         }
     } as const
 }
@@ -87,16 +73,26 @@ export const getAuthUserData = (): AppThunkType => async (dispatch: Dispatch<Act
     }
 }
 
-export const login = (email: string, password: string, rememberMe: boolean): AppThunkType => async (dispatch: any) => {
-    const response = await authApi.login(email, password, rememberMe)
+export const login = (email: string, password: string, rememberMe: boolean, captcha: string): AppThunkType => async (dispatch: any) => {
+    const response = await authApi.login(email, password, rememberMe, captcha)
     if (response.data.resultCode === 0) {
         dispatch(getAuthUserData())
     } else {
+        if (response.data.resultCode === 1) {
+            dispatch(getCaptchaUrl())
+        }
         let message = response.data.messages.length > 0
             ? response.data.messages[0]
             : "Some error"
         dispatch(stopSubmit("Login", {_error: message}))
     }
+}
+
+export const getCaptchaUrl = () => async (dispatch: Dispatch) => {
+    const response = await securityApi.getCaptchaUrl()
+    const captchaUrl = response.data.url
+    debugger
+    dispatch(getCaptchaUrlSuccess(captchaUrl))
 }
 
 export const logout = () => async (dispatch: Dispatch<ActionAllType>) => {
@@ -117,6 +113,4 @@ type dataType = {
     login: string
 }
 
-export type ActionAuthReducerType = setUserDataType
-    | setToggleIsFetchingType
-    | setToggleIsAuthType
+export type ActionAuthReducerType = setUserDataType | getCaptchaUrlSuccessType

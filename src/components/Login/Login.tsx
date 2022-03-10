@@ -5,10 +5,10 @@ import {required} from "../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
 
-export const Login = ({isAuth, login, ...restProps}: LoginPropsType) => {
+export const Login = ({isAuth, login, captchaUrl}: LoginPropsType) => {
 
     const onSubmit = (formData: FormDataType) => {
-        login(formData.email, formData.password, formData.rememberMe)
+        login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
     if (isAuth) {
@@ -18,21 +18,30 @@ export const Login = ({isAuth, login, ...restProps}: LoginPropsType) => {
     return (
         <div>
             <h1>LOGIN</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm
+                onSubmit={onSubmit}
+                captchaUrl={captchaUrl}
+            />
         </div>
     );
 };
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit,error}) => {
+const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & LoginFormOwnProps> = ({
+                                                                                                         handleSubmit,
+                                                                                                         error,
+                                                                                                         captchaUrl
+                                                                                                     }) => {
     return (
         <form onSubmit={handleSubmit}>
-                {createField("Email", "email", [required], Input, {type: "text"}, "")}
-                {createField("Password", "password", [required], Input, {type: "password"}, "")}
-                {createField(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
-            {
-                error &&
-                <div className={style.formSummaryError}>{error}</div>
-            }
+            {createField("Email", "email", [required], Input, {type: "text"}, "")}
+            {createField("Password", "password", [required], Input, {type: "password"}, "")}
+            {createField(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
+
+            {captchaUrl && <img src={captchaUrl} alt='captchaUrl'/>}
+            {error && <div className={style.formSummaryError}>{error}</div>}
+
+            {captchaUrl && createField('Symbols from image', 'captcha', [required], Input, {type: "text"}, "")}
+            {captchaUrl && <button type={'submit'}>Get Started</button>}
             <div>
                 <button>Login</button>
             </div>
@@ -40,7 +49,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit,erro
     );
 }
 
-const LoginReduxForm = reduxForm<FormDataType>({form: "Login"})(LoginForm)
+const LoginReduxForm = reduxForm<FormDataType, LoginFormOwnProps>({form: "Login"})(LoginForm)
 
 
 //Types==============================================
@@ -49,10 +58,16 @@ type FormDataType = {
     email: string
     password: string
     rememberMe: boolean
+    captcha: string
+}
+
+type LoginFormOwnProps = {
+    captchaUrl: string | null
 }
 
 type LoginPropsType = {
     isAuth?: boolean
-    login: (email: string, password: string, rememberMe: boolean) => void
+    login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
+    captchaUrl: string | null
 }
 
