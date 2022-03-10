@@ -8,8 +8,8 @@ type ProfilePropsType = {
     profile: ProfileType
     status: string
     updateUserStatus: (status: string) => void
-    savePhoto: (file: any) => void
     isOwner: boolean
+    savePhoto: (file: File) => void
 }
 
 const Profile = (props: ProfilePropsType) => {

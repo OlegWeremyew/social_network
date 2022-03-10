@@ -54,8 +54,11 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
 
     render() {
 
+        console.log(this.props.profile)
+
         return (
             <Profile
+                {...this.props}
                 isOwner={!this.props.userId}
                 profile={this.props.profile}
                 status={this.props.status}

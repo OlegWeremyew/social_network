@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
 import {ActionAllType} from "./reduxStore";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST"
 const DELETED_POST = "SOCIAL_NETWORK/PROFILE/DELETED_POST"
@@ -15,7 +16,7 @@ const initialState = {
         {message: "Hello", likesCount: 12, id: 1},
         {message: "Dinosaurs are great", likesCount: 17, id: 2}
     ] as Array<PostType>,
-    profile: null as ProfileType,
+    profile: null as ProfileType | null,
     status: "",
 }
 
@@ -129,6 +130,8 @@ export const updateUserStatus = (status: string) => async (dispatch: Dispatch<Ac
     const response = await profileAPI.updateStatus(status)
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status))
+    } else {
+        console.log('resultCode < 0')
     }
 }
 
@@ -140,6 +143,25 @@ export const savePhoto = (file: File) => (dispatch: Dispatch<ActionAllType>) => 
             }
         })
 }
+
+/*
+export const saveProfile = (profile: ProfileType): any => async (dispatch, getState) => {
+    const userId = getState().auth.userID
+
+    const data = await profileAPI.saveProfile(profile)
+
+    if (data.resultCode === 0) {
+        if (userId != null) {
+            dispatch(getUserProfile(userId))
+        } else {
+            throw new Error("userId can't be null")
+        }
+    } else {
+        dispatch(stopSubmit("edit-profile", {_error: data.messages[0] }))
+        return Promise.reject(data.messages[0])
+    }
+}
+*/
 
 
 //Types=========================================================
@@ -156,19 +178,21 @@ export type PostType = {
     id: number
 }
 
+export type ContactsType = {
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
+}
+
 export type ProfileType = {
     aboutMe: string
-    contacts: {
-        facebook: string
-        website: string
-        vk: string
-        twitter: string
-        instagram: string
-        youtube: string
-        github: string
-        mainLink: string
-    },
-    lookingForAJob: string
+    contacts: ContactsType
+    lookingForAJob: boolean
     lookingForAJobDescription: string
     fullName: string
     userId: number
