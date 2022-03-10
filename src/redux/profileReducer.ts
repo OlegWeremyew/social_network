@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
-import {ActionAllType, AppStateType, AppThunkType} from "./reduxStore";
+import {ActionAllType, AppThunkType} from "./reduxStore";
 import {stopSubmit} from "redux-form";
 
 const ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST"
@@ -8,8 +8,6 @@ const DELETED_POST = "SOCIAL_NETWORK/PROFILE/DELETED_POST"
 const SET_USER_PROFILE = "SOCIAL_NETWORK/PROFILE/SET-USER-PROFILE"
 const SET_STATUS = "SOCIAL_NETWORK/PROFILE/SET-STATUS"
 const SAVE_PHOTO = "SOCIAL_NETWORK/PROFILE/SAVE_PHOTO_SUCCESS"
-
-export type initialStateType = typeof initialState
 
 const initialState = {
     posts: [
@@ -83,7 +81,6 @@ export const deletePost = (postId: number) => {
     } as const
 }
 
-
 export type setUserProfileType = ReturnType<typeof setUserProfile>
 const setUserProfile = (profile: ProfileType) => {
     return {
@@ -114,7 +111,6 @@ const savePhotoSuccess = (photos: PhotosType) => {
     } as const
 }
 
-
 // thunks=========================================================
 export const getUserProfile = (userId: string) => async (dispatch: Dispatch<ActionAllType>) => {
     const response = await profileAPI.getProfile(userId)
@@ -144,16 +140,12 @@ export const savePhoto = (file: File) => (dispatch: Dispatch<ActionAllType>) => 
         })
 }
 
-export const saveProfile = (profile: ProfileType): AppThunkType => async (dispatch, getState: any) => {
+export const saveProfile = (profile: ProfileType): AppThunkType => async (dispatch: Dispatch<any>, getState: any) => {
     const userId = getState().auth.userID
     const data = await profileAPI.saveProfile(profile)
 
     if (data.resultCode === 0) {
-        if (userId !== null) {
-            dispatch(getUserProfile(userId))
-        } else {
-            throw new Error("userId can't be null")
-        }
+        dispatch(getUserProfile(userId))
     } else {
         dispatch(stopSubmit("edit-profile", {_error: data.messages[0]}))
         return Promise.reject(data.messages[0])
@@ -162,6 +154,8 @@ export const saveProfile = (profile: ProfileType): AppThunkType => async (dispat
 
 
 //Types=========================================================
+export type initialStateType = typeof initialState
+
 export type ActionProfileTypes = addPostType
     | setUserProfileType
     | setProfileStatusType

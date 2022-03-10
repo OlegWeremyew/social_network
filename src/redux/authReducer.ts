@@ -11,7 +11,7 @@ let initialState = {
     data: {} as dataType,
     isFetching: true,
     isAuth: false,
-    userID: null as (string | null | number),
+    userID: null as (string | null),
     email: null as (string | null),
     login: null as (string | null),
 }
@@ -27,6 +27,7 @@ export const authReducer = (state: initialAuthStateType = initialState, action: 
                     login: action.payload.login,
                     userId: action.payload.userId,
                 },
+                userID: action.payload.userId,
                 isAuth: action.payload.isAuth
             }
         }
@@ -114,7 +115,6 @@ type dataType = {
     userId: string
     email: string
     login: string
-    isAuth: boolean
 }
 
 export type ActionAuthReducerType = setUserDataType
