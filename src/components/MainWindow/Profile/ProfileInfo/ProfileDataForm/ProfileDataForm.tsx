@@ -1,52 +1,61 @@
-import React from "react";
-import Contact from "../ProfileData/Contact/Contact";
-import {ContactsType, ProfileType} from "../../../../../redux/profileReducer";
+import React, {FC} from "react";
+import {ProfileType} from "../../../../../redux/profileReducer";
 import {Preloader} from "../../../../../common/Preloader/Preloader";
-import {createField, Input} from "../../../../../common/FormsControls/FormsControls";
-import {reduxForm} from "redux-form";
+import {createField, Input, Textarea} from "../../../../../common/FormsControls/FormsControls";
+import {InjectedFormProps, reduxForm} from "redux-form";
 
 export type ProfileDataFormPropsType = {
     profile: ProfileType
 }
 
-const ProfileDataForm = ({profile}: ProfileDataFormPropsType) => {
+const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType> = ({
+                                                                                                                      profile,
+                                                                                                                      handleSubmit,
+                                                                                                                      error
+                                                                                                                  }) => {
 
     if (!profile) {
         return <Preloader/>
     }
 
     return (
-        <form>
-                <div><button onClick={()=>{}}>Save</button></div>
+        <form onSubmit={handleSubmit}>
             <div>
-                <b>Full name</b>: {createField("Full name", "fullname", [], Input, {type: "text"}, "")}
+                <button>Save</button>
+                {error && <div>{error}</div>}
             </div>
             <div>
-                <b>Looking for a job</b>: {createField("", "lookingForAJob", [], Input, {type: "checkbox"}, "")}
+                <b>Full name</b>:
+                {createField("Full name", "fullname", [], Input, {type: "text"}, "")}
             </div>
-            {profile.lookingForAJob &&
             <div>
-                <b>My professional skills</b>: {profile.lookingForAJobDescription}
-            </div>}
+                <b>Looking for a job</b>:
+                {createField("", "lookingForAJob", [], Input, {type: "checkbox"}, "")}
+            </div>
             <div>
-                <b>About me</b>: {profile.aboutMe}
+                <b>My professional skills</b>:
+                {createField("My professional skills", "lookingForAJobDescription", [], Textarea, {type: "textarea"}, "")}
+            </div>
+            <div>
+                <b>About me</b>:
+                {createField("About me", "aboutMe", [], Textarea, {type: "textarea"}, "")}
             </div>
             <div>
                 <b>Contacts</b>: {
                 Object
                     .keys(profile.contacts)
                     .map(key => {
-                        return <Contact
-                            key={key}
-                            contactTitle={key}
-                            contactValue={profile.contacts[key as keyof ContactsType]}
-                        />
+                        return (
+                            <div key={key}>
+                                <b>{key} :{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</b>
+                            </div>
+                        )
                     })}
             </div>
         </form>
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm<ProfileType, ProfileDataFormPropsType>({form:'edit-profile'})(ProfileDataForm)
+const ProfileDataFormReduxForm = reduxForm<ProfileType, ProfileDataFormPropsType>({form: 'edit-profile'})(ProfileDataForm)
 
 export default ProfileDataFormReduxForm

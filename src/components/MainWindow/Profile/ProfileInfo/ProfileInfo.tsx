@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import c from "./ProfileInfo.module.css"
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
-import {ContactsType, ProfileType} from "../../../../redux/profileReducer";
+import {ProfileType} from "../../../../redux/profileReducer";
 import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHooks";
 import {Preloader} from "../../../../common/Preloader/Preloader";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
@@ -13,9 +13,10 @@ export type ProfileInfoPropsType = {
     updateUserStatus: (status: string) => void
     isOwner: boolean
     savePhoto: (file: File) => void
+    saveProfile: (formData: ProfileType) => Promise<any>
 }
 
-const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner}: ProfileInfoPropsType) => {
+const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, saveProfile}: ProfileInfoPropsType) => {
 
     const [editMode, setEditMode] = useState<boolean>(false);
 
@@ -31,11 +32,11 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner}: Pr
 
     const onSubmit = (formData: ProfileType) => {
         console.log(formData)
-        // saveProfile(formData).then(
-        //     () => {
-        //         setEditMode(false);
-        //     }
-        // );
+        saveProfile(formData)
+            .then(() => {
+                    setEditMode(false);
+                }
+            );
     }
 
     return (
@@ -50,9 +51,9 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner}: Pr
                 </div>
                 {editMode
                     ? <ProfileDataForm
+                        initialValues={profile}
                         profile={profile}
                         onSubmit={onSubmit}
-
                     />
                     : <ProfileData
                         profile={profile}

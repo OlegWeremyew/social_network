@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {profileAPI} from "../Api/api";
-import {ActionAllType} from "./reduxStore";
+import {ActionAllType, AppStateType, AppThunkType} from "./reduxStore";
 import {stopSubmit} from "redux-form";
 
 const ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST"
@@ -144,24 +144,21 @@ export const savePhoto = (file: File) => (dispatch: Dispatch<ActionAllType>) => 
         })
 }
 
-/*
-export const saveProfile = (profile: ProfileType): any => async (dispatch, getState) => {
+export const saveProfile = (profile: ProfileType): AppThunkType => async (dispatch, getState: any) => {
     const userId = getState().auth.userID
-
     const data = await profileAPI.saveProfile(profile)
 
     if (data.resultCode === 0) {
-        if (userId != null) {
+        if (userId !== null) {
             dispatch(getUserProfile(userId))
         } else {
             throw new Error("userId can't be null")
         }
     } else {
-        dispatch(stopSubmit("edit-profile", {_error: data.messages[0] }))
+        dispatch(stopSubmit("edit-profile", {_error: data.messages[0]}))
         return Promise.reject(data.messages[0])
     }
 }
-*/
 
 
 //Types=========================================================

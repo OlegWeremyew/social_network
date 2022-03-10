@@ -5,7 +5,7 @@ import {
     getUserStatus,
     getUserProfile,
     ProfileType,
-    updateUserStatus, savePhoto
+    updateUserStatus, savePhoto, saveProfile
 } from "../../../redux/profileReducer";
 import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
@@ -22,7 +22,8 @@ type MapDispatchToProps = {
     getUserProfile: (userId: string) => void
     getUserStatus: (userId: string) => void
     updateUserStatus: (status: string) => void
-    savePhoto: (file: any) => void
+    savePhoto: (file: File) => void
+    saveProfile: (formData: ProfileType) => Promise<any>
 }
 
 export type UsersPropsType = MapStateToPropsType & MapDispatchToProps & InjectedProps
@@ -64,6 +65,7 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
                 status={this.props.status}
                 updateUserStatus={this.props.updateUserStatus}
                 savePhoto={this.props.savePhoto}
+                saveProfile={this.props.saveProfile}
 
             />
         );
@@ -85,6 +87,7 @@ const ProfileContainer = compose<ComponentType>(
         getUserStatus,
         updateUserStatus,
         savePhoto,
+        saveProfile,
     }),
     withRouter2,
     withAuthRedirect

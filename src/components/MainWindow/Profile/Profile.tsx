@@ -10,6 +10,7 @@ type ProfilePropsType = {
     updateUserStatus: (status: string) => void
     isOwner: boolean
     savePhoto: (file: File) => void
+    saveProfile: (formData: ProfileType) => Promise<any>
 }
 
 const Profile = (props: ProfilePropsType) => {
@@ -22,6 +23,7 @@ const Profile = (props: ProfilePropsType) => {
                 updateUserStatus={props.updateUserStatus}
                 isOwner={props.isOwner}
                 savePhoto={props.savePhoto}
+                saveProfile={props.saveProfile}
             />
             <MyPostsContainer/>
         </div>

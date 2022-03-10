@@ -7,7 +7,16 @@ const SET_USER_DATA = "SOCIAL_NETWORK/AUTH/SET-USER-DATA"
 const TOGGLE_IS_FETCHING = 'SOCIAL_NETWORK/AUTH/TOGGLE-IS-FETCHING'
 const TOGGLE_IS_AUTH = 'SOCIAL_NETWORK/AUTH/TOGGLE-IS-AUTH'
 
-export const authReducer = (state: initialStateType = initialState, action: ActionAuthReducerType): initialStateType => {
+let initialState = {
+    data: {} as dataType,
+    isFetching: true,
+    isAuth: false,
+    userID: null as (string | null | number),
+    email: null as (string | null),
+    login: null as (string | null),
+}
+
+export const authReducer = (state: initialAuthStateType = initialState, action: ActionAuthReducerType): initialAuthStateType => {
     switch (action.type) {
         case SET_USER_DATA : {
             return {
@@ -99,23 +108,13 @@ export const logout = () => async (dispatch: Dispatch<ActionAllType>) => {
 
 //Types========================================
 
-export type initialStateType = {
-    data: dataType
-    isFetching: boolean
-    isAuth: boolean
-}
+export type initialAuthStateType = typeof initialState;
 
 type dataType = {
     userId: string
     email: string
     login: string
     isAuth: boolean
-}
-
-let initialState = {
-    data: {} as dataType,
-    isFetching: true,
-    isAuth: false,
 }
 
 export type ActionAuthReducerType = setUserDataType
