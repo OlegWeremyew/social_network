@@ -25,7 +25,7 @@ type MapStateToPropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: Array<any>
+    followingInProgress: Array<string>
 }
 
 type MapDispatchToProps = {
@@ -80,7 +80,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 }
 
 export let UsersContainer = compose<ComponentType>(
-    connect(mapStateToProps, {
+    connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, {
         followSuccess,
         unfollowSuccess,
         setCurrentPage,

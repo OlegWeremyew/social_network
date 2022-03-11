@@ -12,10 +12,10 @@ type UsersPropsType = {
     users: Array<UserType>
     follow: (userID: string) => void
     unfollow: (userID: string) => void
-    followingInProgress: Array<any>
+    followingInProgress: Array<string>
 }
 
-export const Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, ...props}: UsersPropsType) => {
+export const Users: React.FC<UsersPropsType> = ({totalUsersCount, pageSize, currentPage, onPageChanged,users,follow,unfollow,followingInProgress}) => {
 
     return (
         <div>
@@ -26,12 +26,12 @@ export const Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, ..
                 onPageChanged={onPageChanged}
             />
             {
-                props.users.map(u => <User
+                users.map(u => <User
                         key={u.id}
                         user={u}
-                        follow={props.follow}
-                        unfollow={props.unfollow}
-                        followingInProgress={props.followingInProgress}
+                        follow={follow}
+                        unfollow={unfollow}
+                        followingInProgress={followingInProgress}
                     />
                 )}
         </div>

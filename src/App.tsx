@@ -64,7 +64,7 @@ const mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized
 })
 
-const AppContainer = connect(mapStateToProps, {
+const AppContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
     initializeApp,
 })(App);
 

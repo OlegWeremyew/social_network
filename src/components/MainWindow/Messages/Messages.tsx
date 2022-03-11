@@ -11,9 +11,9 @@ export type FormMessagesType = {
 
 export const Messages = (props: UsersPropsType) => {
 
-    let dialogsItem = props.messagesPage.users
+    const dialogsItem = props.messagesPage.users
         .map(u => <DialogsItem key={u.id} name={u.name} id={u.id} img={u.img}/>)
-    let message = props.messagesPage.messages
+    const message = props.messagesPage.messages
         .map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
     const addMessage = (values: FormMessagesType) => {

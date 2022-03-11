@@ -14,12 +14,12 @@ const maxLength = maxLengthCreator(10)
 
 export const MyPosts = React.memo((props: UsersPropsType) => {
 
-    let post = props.profilePage.posts.map(p => <Post key={p.id}
+    const post = props.profilePage.posts.map(p => <Post key={p.id}
                                                       message={p.message}
                                                       likesCount={p.likesCount}
                                                       id={p.id}/>)
 
-    let addPost = (values: AddNewPostFormType) => {
+    const addPost = (values: AddNewPostFormType) => {
         props.onAddPost(values.AddNewPost)
     }
 

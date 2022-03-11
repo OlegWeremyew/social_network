@@ -5,7 +5,7 @@ import {UserType} from "../../../../redux/messagesReducer";
 
 const DialogsItem = (props: UserType) => {
 
-    let path = "/messages/" + props.id;
+    const path = "/messages/" + props.id;
 
     return (
         <div className={c.dialog}>

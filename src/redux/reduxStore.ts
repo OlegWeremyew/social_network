@@ -20,7 +20,7 @@ export const rootReducer = combineReducers({
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
-export let store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 
 export type ActionAllType = ActionProfileTypes
     | ActionMessageTypes
@@ -28,5 +28,7 @@ export type ActionAllType = ActionProfileTypes
     | ActionAuthReducerType
     | ActionAppReducerType
 
-
 export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, ActionAllType>
+
+//@ts-ignore
+window.store = store
