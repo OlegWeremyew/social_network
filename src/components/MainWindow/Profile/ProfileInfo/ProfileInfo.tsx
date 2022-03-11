@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import c from "./ProfileInfo.module.css"
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
@@ -30,7 +30,7 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
         }
     }
 
-    const onSubmit = async (formData: ProfileType) : Promise<any> => {
+    const onSubmit = async (formData: ProfileType): Promise<any> => {
         await saveProfile(formData)
         setEditMode(false);
     }
@@ -46,18 +46,16 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
                     {isOwner && <input type={"file"} onChange={(e) => onMainPhotoSelected(e)}/>}
                 </div>
                 {editMode
-                    ? <ProfileDataForm
-                        initialValues={profile}
-                        profile={profile}
-                        onSubmit={onSubmit}
-                    />
-                    : <ProfileData
+                    ? (<ProfileDataForm
+                            initialValues={profile}
+                            profile={profile}
+                            onSubmit={onSubmit}
+                        />
+                    ) : (<ProfileData
                         profile={profile}
                         isOwner={isOwner}
-                        goToEditMode={() => {
-                            setEditMode(true)
-                        }}
-                    />}
+                        goToEditMode={() => setEditMode(true)}
+                    />)}
                 <ProfileStatusWithHooks
                     status={status}
                     updateUserStatus={updateUserStatus}

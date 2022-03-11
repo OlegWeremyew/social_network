@@ -16,11 +16,11 @@ type MapStateToPropsType = {
     profile: ProfileType
     isAuth: boolean
     status: string
-    authorizedUserID: string
+    authorizedUserID: string | null
 }
 type MapDispatchToProps = {
-    getUserProfile: (userId: string) => void
-    getUserStatus: (userId: string) => void
+    getUserProfile: (userId: string | null) => void
+    getUserStatus: (userId: string| null) => void
     updateUserStatus: (status: string) => void
     savePhoto: (file: File) => void
     saveProfile: (formData: ProfileType) => Promise<any>
@@ -31,7 +31,7 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToProps & Injected
 class ProfileAPIContainer extends React.Component<UsersPropsType> {
 
     refreshProfile() {
-        let userId: string = this.props.userId
+        let userId: string | null = this.props.userId
         if (!userId) {
             userId = this.props.authorizedUserID;
             if (!userId) {
@@ -64,7 +64,6 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
                 updateUserStatus={this.props.updateUserStatus}
                 savePhoto={this.props.savePhoto}
                 saveProfile={this.props.saveProfile}
-
             />
         );
     }

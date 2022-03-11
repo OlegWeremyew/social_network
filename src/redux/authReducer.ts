@@ -43,7 +43,7 @@ export const authReducer = (state: initialAuthStateType = initialState, action: 
 }
 
 type setUserDataType = ReturnType<typeof setAuthUserData>
-export const setAuthUserData = (userId: string, email: string, login: string, isAuth: boolean) => {
+export const setAuthUserData = (userId: string | null, email: string | null, login: string | null, isAuth: boolean) => {
     return {
         type: SET_USER_DATA,
         payload: {
@@ -98,7 +98,7 @@ export const getCaptchaUrl = () => async (dispatch: Dispatch) => {
 export const logout = () => async (dispatch: Dispatch<ActionAllType>) => {
     const response = await authApi.logout()
     if (response.data.resultCode === 0) {
-        dispatch(setAuthUserData("", "", "", false))
+        dispatch(setAuthUserData(null, null, null, false))
     }
 }
 
@@ -108,9 +108,9 @@ export const logout = () => async (dispatch: Dispatch<ActionAllType>) => {
 export type initialAuthStateType = typeof initialState;
 
 type dataType = {
-    userId: string
-    email: string
-    login: string
+    userId: string | null
+    email: string | null
+    login: string | null
 }
 
 export type ActionAuthReducerType = setUserDataType | getCaptchaUrlSuccessType

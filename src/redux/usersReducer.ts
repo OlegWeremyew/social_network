@@ -150,7 +150,7 @@ export const requestUsers = (page: number, pageSize: number) => async (dispatch:
     dispatch(setTotalUsersCount(data.totalCount))
 }
 
-export const followUnfollowFlow = async (dispatch: any, userId: string, apiMethod: any, actionCreator: any) => {
+export const followUnfollowFlow = async (dispatch: Dispatch<ActionAllType>, userId: string, apiMethod: Function, actionCreator: Function) => {
     dispatch(toggleFollowingProgress(true, userId))
     const response = await apiMethod(userId)
 
