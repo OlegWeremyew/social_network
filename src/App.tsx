@@ -39,10 +39,6 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                             <Route path=":userId" element={<ProfileContainer/>}/>
                         </Route>
 
-                        <Route path="/profile/" element={<ProfileContainer/>}>
-                            <Route path=":userId" element={<ProfileContainer/>}/>
-                        </Route>
-
                         <Route path="/messages/" element={<MessagesContainer/>}>
                             <Route path=":userId" element={<MessagesContainer/>}/>
                         </Route>
@@ -52,8 +48,8 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                         <Route path="/music/*" element={<Music/>}/>
                         <Route path="/settings/*" element={<Settings/>}/>
                         <Route path="/friends/*" element={<Friends/>}/>
-
                         <Route path="/login" element={<LoginContainer/>}/>
+                        <Route path="*" element={<h1>404. Page not found</h1>}/>
 
                     </Routes>
                 </div>

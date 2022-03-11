@@ -55,8 +55,6 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
 
     render() {
 
-        console.log(this.props.profile)
-
         return (
             <Profile
                 {...this.props}

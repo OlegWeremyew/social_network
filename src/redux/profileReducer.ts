@@ -107,7 +107,7 @@ const savePhotoSuccess = (photos: PhotosType) => {
         type: SAVE_PHOTO,
         payload: {
             photos,
-        },
+        }
     } as const
 }
 
@@ -123,11 +123,15 @@ export const getUserStatus = (userId: string) => async (dispatch: Dispatch<Actio
 }
 
 export const updateUserStatus = (status: string) => async (dispatch: Dispatch<ActionAllType>) => {
-    const response = await profileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
-        dispatch(setStatus(status))
-    } else {
-        console.log('resultCode < 0')
+    try {
+        const response = await profileAPI.updateStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status))
+        } else {
+            console.log('resultCode < 0')
+        }
+    } catch (error) {
+        //alert("error")
     }
 }
 

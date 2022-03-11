@@ -10,7 +10,13 @@ type UsersPropsType = {
     portionSize?: number
 }
 
-export const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}: UsersPropsType) => {
+export const Paginator = ({
+                              totalItemsCount,
+                              pageSize,
+                              currentPage,
+                              onPageChanged,
+                              portionSize = 10
+                          }: UsersPropsType) => {
 
     const pagesCount = (Math.ceil(totalItemsCount / pageSize))
     const pages = []
@@ -39,7 +45,7 @@ export const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged
                     return (
                         <span className={cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber)}
                               key={p}
-                              onClick={(e) => onPageChanged(p)}>
+                              onClick={() => onPageChanged(p)}>
                             {p}
                         </span>
                     )
