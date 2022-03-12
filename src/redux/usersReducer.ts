@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {usersAPI} from "../Api/api";
+import {ResultCodesEnum, usersAPI} from "../Api/api";
 import {ActionAllType} from "./reduxStore";
 import {updateObjectInArray} from "../utils/objectsHellper";
 
@@ -143,18 +143,18 @@ export const requestUsers = (page: number, pageSize: number) => async (dispatch:
     dispatch(toggleIsFetching(true))
     dispatch(setCurrentPage(page))
 
-    const data = await usersAPI.getUsers(page, pageSize)
+    const getUsersData = await usersAPI.getUsers(page, pageSize)
 
     dispatch(toggleIsFetching(false))
-    dispatch(setUsers(data.items))
-    dispatch(setTotalUsersCount(data.totalCount))
+    dispatch(setUsers(getUsersData.items))
+    dispatch(setTotalUsersCount(getUsersData.totalCount))
 }
 
 export const followUnfollowFlow = async (dispatch: Dispatch<ActionAllType>, userId: string, apiMethod: Function, actionCreator: Function) => {
     dispatch(toggleFollowingProgress(true, userId))
     const response = await apiMethod(userId)
 
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodesEnum.Success) {
         dispatch(actionCreator(userId))
     }
     dispatch(toggleFollowingProgress(false, userId))
