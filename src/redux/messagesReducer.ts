@@ -1,4 +1,9 @@
-const ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE"
+import {InferActionTypes} from "./reduxStore";
+import {UserActions} from "./usersReducer";
+
+export enum UserReducerEnum {
+    ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE"
+}
 
 const initialState = {
     users: [
@@ -44,7 +49,7 @@ export type initialStateType = typeof initialState
 export const messagesReducer = (state: initialStateType = initialState, action: ActionMessageTypes): initialStateType => {
 
     switch (action.type) {
-        case ADD_MESSAGE: {
+        case UserReducerEnum.ADD_MESSAGE: {
             let newMessage: MessageType = {
                 id: new Date().getTime(),
                 message: action.payload.newMessageText,
@@ -59,19 +64,15 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
     }
 }
 
-export type addMessageCreatorType = ReturnType<typeof addMessageCreator>
-export const addMessageCreator = (newMessageText: string) => {
-    return {
-        type: ADD_MESSAGE,
-        payload: {
-            newMessageText,
-        }
-    } as const
+export const MessageActions = {
+    addMessageCreator : (newMessageText: string) => {
+        return {type: UserReducerEnum.ADD_MESSAGE, payload: {newMessageText,}} as const
+    }
 }
 
 //Types ======================================
 
-export type ActionMessageTypes = addMessageCreatorType
+export type ActionMessageTypes = InferActionTypes<typeof MessageActions>
 
 export type UserType = {
     name: string

@@ -2,10 +2,7 @@ import React, {ComponentType} from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {
-    followSuccess,
-    requestUsers,
-    setCurrentPage,
-    unfollowSuccess,
+    requestUsers, UserActions,
     UserType
 } from "../../../redux/usersReducer";
 import {Users} from './Users';
@@ -81,9 +78,9 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 export let UsersContainer = compose<ComponentType>(
     connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, {
-        followSuccess,
-        unfollowSuccess,
-        setCurrentPage,
+        followSuccess: UserActions.followSuccess,
+        unfollowSuccess: UserActions.unfollowSuccess,
+        setCurrentPage: UserActions.setCurrentPage,
         requestUsers,
     })
 )(UsersAPIComponent)

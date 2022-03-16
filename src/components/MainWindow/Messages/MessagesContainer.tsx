@@ -1,5 +1,5 @@
 import React, {ComponentType} from 'react';
-import {addMessageCreator, initialStateType} from "../../../redux/messagesReducer";
+import {initialStateType, MessageActions} from "../../../redux/messagesReducer";
 import {Messages} from "./Messages";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
@@ -25,7 +25,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {
         addMessage: (newMessageText: string) => {
-            dispatch(addMessageCreator(newMessageText))
+            dispatch(MessageActions.addMessageCreator(newMessageText))
         },
     }
 }

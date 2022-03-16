@@ -1,11 +1,13 @@
 import {getAuthUserData} from "./authReducer";
-import {AppThunkType} from "./reduxStore";
+import {AppThunkType, InferActionTypes} from "./reduxStore";
 
-const SET_INITIALIZED = "SOCIAL_NETWORK/APP/SET-INITIALIZED"
+export enum UserReducerEnum {
+    SET_INITIALIZED = "SOCIAL_NETWORK/APP/SET-INITIALIZED",
+}
 
 export const appReducer = (state: initialStateAppType = initialAppState, action: ActionAppReducerType): initialStateAppType => {
     switch (action.type) {
-        case SET_INITIALIZED : {
+        case UserReducerEnum.SET_INITIALIZED : {
             return {
                 ...state,
                 initialized: true,
@@ -16,22 +18,21 @@ export const appReducer = (state: initialStateAppType = initialAppState, action:
     }
 }
 
-type initializedSuccessType = ReturnType<typeof initializedSuccess>
-export const initializedSuccess = () => {
-    return {type: SET_INITIALIZED} as const
+const AppAction = {
+    initializedSuccess : () => {return {type: UserReducerEnum.SET_INITIALIZED} as const}
 }
 
 export const initializeApp = (): AppThunkType => (dispatch: any) => {
     const promise = dispatch(getAuthUserData())
     Promise.all([promise])
         .then(() => {
-            dispatch(initializedSuccess())
+            dispatch(AppAction.initializedSuccess())
         })
 }
 
 //Types======================================
 
-export type ActionAppReducerType = initializedSuccessType
+export type ActionAppReducerType = InferActionTypes<typeof AppAction>
 
 export type initialStateAppType = typeof initialAppState
 
