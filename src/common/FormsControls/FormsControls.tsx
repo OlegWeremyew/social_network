@@ -1,8 +1,10 @@
 import React, {ComponentType} from 'react';
 import styles from './FormsControls.module.css'
-import {Field, WrappedFieldProps} from "redux-form";
+import {Field, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
+import {Validator} from "redux-form/lib/Field";
+import {ProfileType} from "../../redux/profileReducer";
 
-const FormControl = ({meta: {touched, error}, children}: any) => {
+const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, error}, children}) => {
 
     const hasError = touched && error
     const styleError = hasError ? styles.error : ""
@@ -19,17 +21,25 @@ const FormControl = ({meta: {touched, error}, children}: any) => {
     )
 }
 
-export const Textarea = (props: any) => {
-    const {input, meta, child, element, ...restProps} = props
-    return <FormControl {...props}><textarea {...input} {...restProps}/></FormControl>
+export const Textarea: React.FC<WrappedFieldProps> = (props) => {
+    const {input, meta, ...restProps} = props
+    return (
+        <FormControl {...props}>
+            <textarea {...input} {...restProps}/>
+        </FormControl>
+    )
 }
 
-export const Input = (props: any) => {
-    const {input, meta, child, element, ...restProps} = props
-    return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
+export const Input: React.FC<WrappedFieldProps> = (props) => {
+    const {input, meta, ...restProps} = props
+    return (
+        <FormControl {...props}>
+            <input {...input} {...restProps}/>
+        </FormControl>
+    )
 }
 
-export const createField = (placeholder: string | null, name: string, validators: any[], component: componentType, props: { type: string }, text: string) => {
+export function createField<T extends string>(placeholder: string | null, name: T, validators: Validator | Validator[], component: componentType, props: { type: string }, text?: string) {
     return (
         <div>
             <Field
@@ -42,5 +52,19 @@ export const createField = (placeholder: string | null, name: string, validators
         </div>
     )
 }
+
+type FormControlPropsParamsType = {
+    meta: WrappedFieldMetaProps
+    children: React.ReactNode
+}
+
+export type LoginFormValuesType = {
+    email: string
+    password: string
+    rememberMe: boolean
+    captcha: string
+}
+
+export type  LoginFormValuesKeysType = Extract<keyof LoginFormValuesType, string>
 
 type componentType = "input" | "select" | "textarea" | ComponentType<WrappedFieldProps> | undefined

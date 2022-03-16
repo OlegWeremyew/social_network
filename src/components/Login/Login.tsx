@@ -1,6 +1,6 @@
 import React from 'react';
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Input} from "../../common/FormsControls/FormsControls";
+import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
@@ -33,14 +33,14 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
                                                                                                      }) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField("Email", "email", [required], Input, {type: "text"}, "")}
-            {createField("Password", "password", [required], Input, {type: "password"}, "")}
-            {createField(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
+            {createField<LoginFormValuesKeysType>("Email", "email", [required], Input, {type: "text"})}
+            {createField<LoginFormValuesKeysType>("Password", "password", [required], Input, {type: "password"})}
+            {createField<LoginFormValuesKeysType>(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
 
             {captchaUrl && <img src={captchaUrl} alt='captchaUrl'/>}
             {error && <div className={style.formSummaryError}>{error}</div>}
 
-            {captchaUrl && createField('Symbols from image', 'captcha', [required], Input, {type: "text"}, "")}
+            {captchaUrl && createField<LoginFormValuesKeysType>('Symbols from image', 'captcha', [required], Input, {type: "text"})}
             {captchaUrl && <button type={'submit'}>Get Started</button>}
             <div>
                 <button>Login</button>
@@ -54,11 +54,13 @@ const LoginReduxForm = reduxForm<FormDataType, LoginFormOwnProps>({form: "Login"
 
 //Types==============================================
 
+
 type FormDataType = {
     email: string
     password: string
     rememberMe: boolean
     captcha: string
+    checkbox: boolean
 }
 
 type LoginFormOwnProps = {
