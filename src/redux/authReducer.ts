@@ -1,7 +1,9 @@
-import {authApi, ResultCodesEnum, securityApi} from "../Api/api";
+import {ResultCodesEnum} from "../Api/api";
 import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 import {ActionAllType, AppThunkType, InferActionTypes} from "./reduxStore";
+import {authApi} from "../Api/authApi";
+import {securityApi} from "../Api/securityApi";
 
 export enum AuthReducerEnum {
     SET_USER_DATA = "SOCIAL_NETWORK/AUTH/SET-USER-DATA",

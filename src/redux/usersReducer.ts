@@ -1,7 +1,8 @@
 import {Dispatch} from "redux";
-import {ResultCodesEnum, usersAPI} from "../Api/api";
+import {ResultCodesEnum} from "../Api/api";
 import {ActionAllType, InferActionTypes} from "./reduxStore";
 import {updateObjectInArray} from "../utils/objectsHellper";
+import {usersAPI} from "../Api/usersAPI";
 
 export enum UserReducerEnum {
     FOLLOW = "SOCIAL_NETWORK/USERS/FOLLOW",

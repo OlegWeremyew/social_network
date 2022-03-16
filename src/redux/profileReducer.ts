@@ -1,7 +1,8 @@
 import {Dispatch} from "redux";
-import {profileAPI, ResultCodesEnum} from "../Api/api";
+import {ResultCodesEnum} from "../Api/api";
 import {ActionAllType, AppThunkType, InferActionTypes} from "./reduxStore";
 import {stopSubmit} from "redux-form";
+import {profileAPI} from "../Api/profileAPI";
 
 export enum ProfileReducerEnum {
     ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST",
@@ -109,8 +110,8 @@ export const updateUserStatus = (status: string) => async (dispatch: Dispatch<Ac
 export const savePhoto = (file: File) => (dispatch: Dispatch<ActionAllType>) => {
     profileAPI.savePhoto(file)
         .then(response => {
-            if (response.data.resultCode === ResultCodesEnum.Success) {
-                dispatch(ProfileActions.savePhotoSuccess(response.data.data.photos))
+            if (response.resultCode === ResultCodesEnum.Success) {
+                dispatch(ProfileActions.savePhotoSuccess(response.data.photos))
             }
         })
 }
@@ -160,7 +161,7 @@ export type ProfileType = {
     photos: PhotosType
 } | null
 
-type PhotosType = {
+export type PhotosType = {
     small: string
     large: string
 }

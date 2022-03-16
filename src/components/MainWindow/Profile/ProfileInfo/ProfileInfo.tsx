@@ -2,10 +2,10 @@ import React, {ChangeEvent, useState} from 'react';
 import c from "./ProfileInfo.module.css"
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
-import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHooks";
 import {Preloader} from "../../../../common/Preloader/Preloader";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
+import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 
 export type ProfileInfoPropsType = {
     profile: ProfileType
@@ -56,7 +56,7 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
                         isOwner={isOwner}
                         goToEditMode={() => setEditMode(true)}
                     />)}
-                <ProfileStatusWithHooks
+                <ProfileStatus
                     status={status}
                     updateUserStatus={updateUserStatus}
                 />
