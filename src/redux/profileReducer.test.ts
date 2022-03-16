@@ -1,4 +1,4 @@
-import {addPost, deletePost, PostType, profileReducer, ProfileType} from "./profileReducer";
+import {PostType, ProfileActions, profileReducer, ProfileType} from "./profileReducer";
 
 const initialState = {
     posts: [
@@ -11,7 +11,7 @@ const initialState = {
 
 test("length message should been increment", () => {
 
-    let newState = profileReducer(initialState, addPost("new post"))
+    let newState = profileReducer(initialState, ProfileActions.addPost("new post"))
 
     expect(newState.posts.length === 3).toBe(true)
 
@@ -19,7 +19,7 @@ test("length message should been increment", () => {
 
 test("title message should be correct", () => {
 
-    let newState = profileReducer(initialState, addPost("new post"))
+    let newState = profileReducer(initialState, ProfileActions.addPost("new post"))
 
     expect(newState.posts[2].message).toBe("new post")
 
@@ -27,7 +27,7 @@ test("title message should be correct", () => {
 
 test("after delete length should be decrement", () => {
 
-    let newState = profileReducer(initialState, deletePost(2))
+    let newState = profileReducer(initialState, ProfileActions.deletePost(2))
 
     expect(newState.posts.length === 1).toBe(true)
 
@@ -35,7 +35,7 @@ test("after delete length should be decrement", () => {
 
 test("after delete length should not be decrement", () => {
 
-    let newState = profileReducer(initialState, deletePost(4))
+    let newState = profileReducer(initialState, ProfileActions.deletePost(4))
 
     expect(newState.posts.length === 1).toBe(false)
 

@@ -1,5 +1,10 @@
 import {getAuthUserData} from "./authReducer";
-import {AppThunkType, InferActionTypes} from "./reduxStore";
+import {InferActionTypes} from "./reduxStore";
+import {Dispatch} from "redux";
+
+const initialAppState = {
+    initialized: false
+}
 
 export enum UserReducerEnum {
     SET_INITIALIZED = "SOCIAL_NETWORK/APP/SET-INITIALIZED",
@@ -22,7 +27,7 @@ const AppAction = {
     initializedSuccess : () => {return {type: UserReducerEnum.SET_INITIALIZED} as const}
 }
 
-export const initializeApp = (): AppThunkType => (dispatch: any) => {
+export const initializeApp = () => (dispatch: Dispatch<any>) => {
     const promise = dispatch(getAuthUserData())
     Promise.all([promise])
         .then(() => {
@@ -31,11 +36,6 @@ export const initializeApp = (): AppThunkType => (dispatch: any) => {
 }
 
 //Types======================================
-
 export type ActionAppReducerType = InferActionTypes<typeof AppAction>
 
 export type initialStateAppType = typeof initialAppState
-
-const initialAppState = {
-    initialized: false
-}

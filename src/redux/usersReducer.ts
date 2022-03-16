@@ -1,6 +1,5 @@
-import {Dispatch} from "redux";
 import {ResultCodesEnum} from "../Api/api";
-import {ActionAllType, InferActionTypes} from "./reduxStore";
+import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {updateObjectInArray} from "../utils/objectsHellper";
 import {usersAPI} from "../Api/usersAPI";
 
@@ -131,7 +130,7 @@ export const UserActions = {
 
 //=======================thunk
 
-export const requestUsers = (page: number, pageSize: number) => async (dispatch: Dispatch<ActionAllType>) => {
+export const requestUsers = (page: number, pageSize: number): ThunkType => async (dispatch) => {
     dispatch(UserActions.toggleIsFetching(true))
     dispatch(UserActions.setCurrentPage(page))
 
@@ -142,7 +141,7 @@ export const requestUsers = (page: number, pageSize: number) => async (dispatch:
     dispatch(UserActions.setTotalUsersCount(getUsersData.totalCount))
 }
 
-export const followUnfollowFlow = async (dispatch: Dispatch<ActionAllType>, userId: string, apiMethod: Function, actionCreator: Function) => {
+export const followUnfollowFlow = async (dispatch: any, userId: string, apiMethod: Function, actionCreator: Function) => {
     dispatch(UserActions.toggleFollowingProgress(true, userId))
     const response = await apiMethod(userId)
 
@@ -152,16 +151,25 @@ export const followUnfollowFlow = async (dispatch: Dispatch<ActionAllType>, user
     dispatch(UserActions.toggleFollowingProgress(false, userId))
 }
 
-export const follow = (userId: string) => async (dispatch: Dispatch<ActionAllType>) => {
+export const follow = (userId: string): ThunkType => async (dispatch) => {
     await followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), UserActions.followSuccess)
 }
 
-export const unFollow = (userId: string) => async (dispatch: Dispatch<ActionAllType>) => {
+export const unFollow = (userId: string): ThunkType => async (dispatch) => {
     await followUnfollowFlow(dispatch, userId, usersAPI.unfollow.bind(usersAPI), UserActions.unfollowSuccess)
 }
 
-
 //Types======================================================
+type ThunkType = BaseThunkType<ActionUsersTypes>
+
+export type initialStateType = {
+    users: Array<UserType>
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
+    isFetching: boolean
+    followingInProgress: string[]
+}
 
 export type ActionUsersTypes = InferActionTypes<typeof UserActions>
 
@@ -173,13 +181,3 @@ export type UserType = {
     status: string
     followed: boolean
 }
-
-export type initialStateType = {
-    users: Array<UserType>
-    pageSize: number
-    totalUsersCount: number
-    currentPage: number
-    isFetching: boolean
-    followingInProgress: string[]
-}
-

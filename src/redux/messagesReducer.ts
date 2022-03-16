@@ -1,5 +1,4 @@
 import {InferActionTypes} from "./reduxStore";
-import {UserActions} from "./usersReducer";
 
 export enum UserReducerEnum {
     ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE"
@@ -19,7 +18,7 @@ const initialState = {
         },
         {name: "Fat cat", id: 3, img: "https://data.whicdn.com/images/310252363/original.jpg"},
         {
-            name: "Dimka",
+            name: "Dmitriy",
             id: 4,
             img: "https://i.pinimg.com/originals/b7/44/46/b744464dd3d970ad96745be8de69d755.jpg"
         },
@@ -29,7 +28,7 @@ const initialState = {
             img: "https://st.depositphotos.com/1023162/5099/i/950/depositphotos_50991807-stock-photo-sexy-woman-in-fashion-sunglasses.jpg"
         },
         {
-            name: "Makar",
+            name: "Marat",
             id: 6,
             img: "https://avatars.mds.yandex.net/i?id=55d09aa1629f72a149098b2c3127e039-5222024-images-thumbs&ref=rim&n=33&w=150&h=150"
         },
@@ -71,7 +70,6 @@ export const MessageActions = {
 }
 
 //Types ======================================
-
 export type ActionMessageTypes = InferActionTypes<typeof MessageActions>
 
 export type UserType = {

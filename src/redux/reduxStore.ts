@@ -1,12 +1,12 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
-import {ActionProfileTypes, profileReducer} from "./profileReducer";
-import {ActionMessageTypes, messagesReducer} from "./messagesReducer";
+import {Action, applyMiddleware, combineReducers, createStore} from "redux";
+import {profileReducer} from "./profileReducer";
+import {messagesReducer} from "./messagesReducer";
 import {sidebarReducer} from "./sidebarPageReducer";
-import {ActionUsersTypes, usersReducer} from "./usersReducer";
-import {ActionAuthReducerType, authReducer} from "./authReducer";
+import {usersReducer} from "./usersReducer";
+import {authReducer} from "./authReducer";
 import thunkMiddleware, {ThunkAction} from "redux-thunk"
 import {reducer as formReducer} from "redux-form"
-import {ActionAppReducerType, appReducer} from "./AppReducer";
+import {appReducer} from "./AppReducer";
 
 export const rootReducer = combineReducers({
     profilePage: profileReducer,
@@ -26,13 +26,7 @@ export type PropertiesTypes<T> = T extends { [key: string]: infer U } ? U : neve
 
 export type InferActionTypes<T extends { [key: string]: (...args: any[]) => any }> = ReturnType<PropertiesTypes<T>>
 
-export type ActionAllType = ActionProfileTypes
-    | ActionMessageTypes
-    | ActionUsersTypes
-    | ActionAuthReducerType
-    | ActionAppReducerType
-
-export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, ActionAllType>
+export type BaseThunkType<A extends Action, RT = Promise<void>> = ThunkAction<RT, AppStateType, unknown, A>
 
 //@ts-ignore
 window.store = store
