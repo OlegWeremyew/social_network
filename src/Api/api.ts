@@ -15,7 +15,6 @@ export enum ResultCodesEnum {
     CaptchaIsRequired = 10,
 }
 
-
 //types==========================
 
 export type APIResponseType<D = {}, RC = ResultCodesEnum> = {

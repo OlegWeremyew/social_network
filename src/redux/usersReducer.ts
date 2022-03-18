@@ -1,7 +1,8 @@
-import {ResultCodesEnum} from "../Api/api";
+import {APIResponseType, ResultCodesEnum} from "../Api/api";
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {updateObjectInArray} from "../utils/objectsHellper";
 import {usersAPI} from "../Api/usersAPI";
+import {Dispatch} from "redux";
 
 export enum UserReducerEnum {
     FOLLOW = "SOCIAL_NETWORK/USERS/FOLLOW",
@@ -141,11 +142,11 @@ export const requestUsers = (page: number, pageSize: number): ThunkType => async
     dispatch(UserActions.setTotalUsersCount(getUsersData.totalCount))
 }
 
-export const followUnfollowFlow = async (dispatch: any, userId: string, apiMethod: Function, actionCreator: Function) => {
+export const followUnfollowFlow = async (dispatch: Dispatch<ActionUsersTypes>, userId: string, apiMethod: (userId: string)=> Promise<APIResponseType>, actionCreator: (userId: string) => ActionUsersTypes) => {
     dispatch(UserActions.toggleFollowingProgress(true, userId))
     const response = await apiMethod(userId)
 
-    if (response.data.resultCode === ResultCodesEnum.Success) {
+    if (response.resultCode === ResultCodesEnum.Success) {
         dispatch(actionCreator(userId))
     }
     dispatch(UserActions.toggleFollowingProgress(false, userId))
@@ -177,7 +178,7 @@ export type UserType = {
     name: string
     id: string
     uniqueUrlName: string
-    photos: { small: string, large: string }
+    photos: { small: string | null, large: string | null }
     status: string
     followed: boolean
 }

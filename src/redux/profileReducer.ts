@@ -102,7 +102,7 @@ export const updateUserStatus = (status: string): ThunkType => async (dispatch) 
             console.log('resultCode < 0')
         }
     } catch (error) {
-        throw new Error("error")
+        console.log('error')
     }
 }
 
