@@ -40,10 +40,11 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
             <div>
                 {!this.state.editMode &&
                 <div>
-                    <span onDoubleClick={this.activateEditMode}>{this.props.status || "------"}</span>
+                    <h3>Status:</h3> <span onDoubleClick={this.activateEditMode}>{this.props.status || "------"}</span>
                 </div>}
                 {this.state.editMode &&
                 <div>
+                    <h3>Status:</h3>
                     <input
                         onChange={this.onStatusChange}
                         autoFocus
@@ -62,6 +63,7 @@ type ProfileStatusType = {
     status: string
     updateUserStatus: (status: string) => void
 }
+
 type stateType = {
     editMode: boolean
     status: string

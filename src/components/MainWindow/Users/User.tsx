@@ -25,26 +25,18 @@ export const User = ({user,follow,unfollow,followingInProgress} : UsersPropsType
                             {
                                 user.followed
                                     ? <button disabled={followingInProgress.some(id => id === user.id)}
-                                              onClick={() => {
-                                                  unfollow(user.id)
-                                              }}>Unfollow</button>
+                                              onClick={() => unfollow(user.id)}>Unfollow</button>
                                     : <button disabled={followingInProgress.some(id => id === user.id)}
-                                              onClick={() => {
-                                                  follow(user.id)
-                                              }}>Follow</button>
+                                              onClick={() => follow(user.id)}>Follow</button>
                             }
                         </div>
                     </span>
                     <span>
                         <span>
                             <div>{user.name}</div>
-                            <div>{user.status}</div>
-                        </span>
-                        <span>
-                            <div>{"m.location.country"}</div>
-                            <div>{"m.location.city"}</div>
+                            <div>status: {user.status ? user.status : ""}</div>
                         </span>
                     </span>
         </div>
-    );
-};
+    )
+}

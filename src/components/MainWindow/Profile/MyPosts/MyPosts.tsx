@@ -8,9 +8,9 @@ import {Textarea} from "../../../../common/FormsControls/FormsControls";
 
 const maxLength = maxLengthCreator(10)
 
-export const MyPosts = React.memo((props: UsersPropsType) => {
+export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => {
 
-    const post = props.profilePage.posts
+    const post = profilePage.posts
         .map(p =>
             <Post
                 key={p.id}
@@ -20,7 +20,7 @@ export const MyPosts = React.memo((props: UsersPropsType) => {
             />)
 
     const addPost = (values: AddNewPostFormType) => {
-        props.onAddPost(values.AddNewPost)
+        onAddPost(values.AddNewPost)
     }
 
     return (
@@ -34,9 +34,9 @@ export const MyPosts = React.memo((props: UsersPropsType) => {
     )
 })
 
-const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = (props) => {
+const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field
                     component={Textarea}

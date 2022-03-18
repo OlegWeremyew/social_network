@@ -12,23 +12,7 @@ import {compose} from "redux";
 import {InjectedProps, withRouter2} from "../../../hoc/withRouter/withRouter";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 
-type MapStateToPropsType = {
-    profile: ProfileType
-    isAuth: boolean
-    status: string
-    authorizedUserID: string | null
-}
-type MapDispatchToProps = {
-    getUserProfile: (userId: string | null) => void
-    getUserStatus: (userId: string| null) => void
-    updateUserStatus: (status: string) => void
-    savePhoto: (file: File) => void
-    saveProfile: (formData: ProfileType) => Promise<any>
-}
-
-export type UsersPropsType = MapStateToPropsType & MapDispatchToProps & InjectedProps
-
-class ProfileAPIContainer extends React.Component<UsersPropsType> {
+class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 
     refreshProfile() {
         let userId: string | null = this.props.userId
@@ -39,15 +23,20 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
                 this.props.history.push("/login")
             }
         }
-        this.props.getUserProfile(userId)
-        this.props.getUserStatus(userId)
+
+        if (!userId) {
+            throw new Error("ID should be exists")
+        } else {
+            this.props.getUserProfile(userId)
+            this.props.getUserStatus(userId)
+        }
     }
 
     componentDidMount() {
         this.refreshProfile()
     }
 
-    componentDidUpdate(prevProps: Readonly<UsersPropsType>, prevState: Readonly<{}>, snapshot?: any) {
+    componentDidUpdate(prevProps: Readonly<ProfilePropsType>, prevState: Readonly<{}>, snapshot?: any) {
         if (this.props.userId !== prevProps.userId) {
             this.refreshProfile()
         }
@@ -91,3 +80,22 @@ const ProfileContainer = compose<ComponentType>(
 )(ProfileAPIContainer)
 
 export default ProfileContainer
+
+//types===
+
+type MapStateToPropsType = {
+    profile: ProfileType
+    isAuth: boolean
+    status: string
+    authorizedUserID: string | null
+}
+type MapDispatchToProps = {
+    getUserProfile: (userId: string | null) => void
+    getUserStatus: (userId: string | null) => void
+    updateUserStatus: (status: string) => void
+    savePhoto: (file: File) => void
+    saveProfile: (formData: ProfileType) => Promise<any>
+}
+
+export type ProfilePropsType = MapStateToPropsType & MapDispatchToProps & InjectedProps
+

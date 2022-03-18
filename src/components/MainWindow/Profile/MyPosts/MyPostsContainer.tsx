@@ -3,7 +3,6 @@ import {initialStateType, ProfileActions} from "../../../../redux/profileReducer
 import {MyPosts} from "./MyPosts";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../../redux/reduxStore";
-import {Dispatch} from "redux";
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
@@ -11,15 +10,9 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToProps => {
-    return {
-        onAddPost: (newPostText: string) => {
-            dispatch(ProfileActions.addPost(newPostText))
-        },
-    }
-}
-
-export const MyPostsContainer = connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, mapDispatchToProps)(MyPosts)
+export const MyPostsContainer = connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, {
+    onAddPost: ProfileActions.addPost
+})(MyPosts)
 
 //types=============
 

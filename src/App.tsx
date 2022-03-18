@@ -1,18 +1,19 @@
 import React from 'react';
 import style from './App.module.css';
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {connect, Provider} from "react-redux";
+import {AppStateType, store} from "./redux/reduxStore";
+
 import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
-import {AppStateType, store} from "./redux/reduxStore";
 import {Preloader} from "./common/Preloader/Preloader";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
@@ -51,7 +52,6 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                         <Route path="/friends/*" element={<Friends/>}/>
                         <Route path="/login" element={<LoginContainer/>}/>
                         <Route path="*" element={<PageNotFound/>}/>
-
                     </Routes>
                 </div>
                 <Footer/>
