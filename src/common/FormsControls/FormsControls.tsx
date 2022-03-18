@@ -2,7 +2,6 @@ import React, {ComponentType} from 'react';
 import styles from './FormsControls.module.css'
 import {Field, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
 import {Validator} from "redux-form/lib/Field";
-import {ProfileType} from "../../redux/profileReducer";
 
 const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, error}, children}) => {
 
@@ -52,6 +51,8 @@ export function createField<T extends string>(placeholder: string | null, name: 
         </div>
     )
 }
+
+//types====
 
 type FormControlPropsParamsType = {
     meta: WrappedFieldMetaProps

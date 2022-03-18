@@ -23,10 +23,11 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
     captchaUrl: state.auth.captchaUrl,
 })
 
-export const LoginContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
+const LoginContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
     login
 })(LoginAPIContainer)
 
+export default LoginContainer
 
 //Types================================================================
 

@@ -65,7 +65,7 @@ class ProfileAPIContainer extends React.Component<UsersPropsType> {
                 savePhoto={this.props.savePhoto}
                 saveProfile={this.props.saveProfile}
             />
-        );
+        )
     }
 }
 
@@ -88,6 +88,6 @@ const ProfileContainer = compose<ComponentType>(
     }),
     withRouter2,
     withAuthRedirect
-)(ProfileAPIContainer);
+)(ProfileAPIContainer)
 
 export default ProfileContainer

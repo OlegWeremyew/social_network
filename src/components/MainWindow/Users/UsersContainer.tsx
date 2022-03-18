@@ -57,7 +57,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export let UsersContainer = compose<ComponentType>(
+let UsersContainer = compose<ComponentType>(
     connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, {
         followSuccess: UserActions.followSuccess,
         unfollowSuccess: UserActions.unfollowSuccess,
@@ -65,6 +65,8 @@ export let UsersContainer = compose<ComponentType>(
         requestUsers,
     })
 )(UsersAPIComponent)
+
+export default UsersContainer
 
 //types==========
 type MapStateToPropsType = {

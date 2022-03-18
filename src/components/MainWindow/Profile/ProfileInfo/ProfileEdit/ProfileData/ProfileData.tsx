@@ -1,13 +1,7 @@
-import {Preloader} from "../../../../../common/Preloader/Preloader";
-import {ContactsType, ProfileType} from "../../../../../redux/profileReducer";
+import {Preloader} from "../../../../../../common/Preloader/Preloader";
+import {ContactsType, ProfileType} from "../../../../../../redux/profileReducer";
 import React from "react";
 import Contact from "./Contact/Contact";
-
-export type ProfileDataPropsType = {
-    profile: ProfileType
-    isOwner: boolean
-    goToEditMode?: () => void
-}
 
 const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => {
 
@@ -40,12 +34,16 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
                     Object
                         .keys(profile.contacts)
                         .map(key => {
-                            return <Contact
-                                key={key}
-                                contactTitle={key}
-                                contactValue={profile.contacts[key as keyof ContactsType]}
-                            />
-                        })}
+                                return (
+                                    <Contact
+                                        key={key}
+                                        contactTitle={key}
+                                        contactValue={profile.contacts[key as keyof ContactsType]}
+                                    />
+                                )
+                            }
+                        )
+                }
                 </div>
             </div>
         </>
@@ -53,3 +51,10 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
 }
 
 export default ProfileData
+
+//types====
+export type ProfileDataPropsType = {
+    profile: ProfileType
+    isOwner: boolean
+    goToEditMode?: () => void
+}

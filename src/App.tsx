@@ -1,5 +1,5 @@
 import React from 'react';
-import c from './App.module.css';
+import style from './App.module.css';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
@@ -7,17 +7,17 @@ import News from "./components/MainWindow/News/News";
 import Music from "./components/MainWindow/Music/Music";
 import Friends from "./components/MainWindow/Friends/Friends";
 import Settings from "./components/MainWindow/Settings/Settings";
-import {UsersContainer} from "./components/MainWindow/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import {LoginContainer} from "./components/Login/LoginContainer";
 import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import {AppStateType, store} from "./redux/reduxStore";
 import {Preloader} from "./common/Preloader/Preloader";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
-const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'));
-const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'));
+const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'))
+const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
+const UsersContainer = React.lazy(() => import('./components/MainWindow/Users/UsersContainer'))
+const LoginContainer = React.lazy(() => import('./components/Login/LoginContainer'))
 
 class App extends React.Component<AppContainerType, AppContainerType> {
 
@@ -30,10 +30,10 @@ class App extends React.Component<AppContainerType, AppContainerType> {
             return <Preloader/>
         }
         return (
-            <main className={c.appContent}>
+            <main className={style.appContent}>
                 <HeaderContainer/>
                 <Navbar/>
-                <div className={c.appContentWindow}>
+                <div className={style.appContentWindow}>
                     <Routes>
                         <Route path="/" element={<Navigate to="profile"/>}/>
                         <Route path="/profile/" element={<ProfileContainer/>}>
@@ -56,8 +56,7 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                 </div>
                 <Footer/>
             </main>
-        );
-
+        )
     }
 }
 

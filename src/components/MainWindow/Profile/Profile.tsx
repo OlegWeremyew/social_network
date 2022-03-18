@@ -18,10 +18,10 @@ const Profile = (props: ProfilePropsType) => {
             />
             <MyPostsContainer/>
         </div>
-    );
+    )
 }
 
-export default Profile;
+export default Profile
 
 //Types
 type ProfilePropsType = {

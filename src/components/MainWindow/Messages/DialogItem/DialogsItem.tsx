@@ -10,13 +10,13 @@ const DialogsItem = (props: UserType) => {
     return (
         <div className={c.dialog}>
             <div>
-                <img src={props.img}/>
+                <img src={props.img} alt="dialogs item"/>
             </div>
             <div>
                 <NavLink to={path}>{props.name}</NavLink>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default DialogsItem;

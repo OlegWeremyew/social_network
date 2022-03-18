@@ -15,7 +15,7 @@ export const authApi = {
     },
 }
 
-//types
+//types===
 
 type MeResponseType = {
     id: string

@@ -1,11 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
-import c from "./ProfileInfo.module.css"
+import style from "./ProfileInfo.module.css"
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
 import {Preloader} from "../../../../common/Preloader/Preloader";
-import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
-import ProfileData from "./ProfileData/ProfileData";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
+import ProfileEdit from "./ProfileEdit/ProfileEdit";
 
 export type ProfileInfoPropsType = {
     profile: ProfileType
@@ -18,7 +17,7 @@ export type ProfileInfoPropsType = {
 
 const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, saveProfile}: ProfileInfoPropsType) => {
 
-    const [editMode, setEditMode] = useState<boolean>(false);
+    const [editMode, setEditMode] = useState<boolean>(false)
 
     if (!profile) {
         return <Preloader/>
@@ -32,37 +31,39 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
 
     const onSubmit = async (formData: ProfileType): Promise<any> => {
         await saveProfile(formData)
-        setEditMode(false);
+        setEditMode(false)
+    }
+
+    const setEditModeHandler = () => {
+        setEditMode(true)
     }
 
     return (
-        <div className={c.profile}>
-            <div className={c.avatarBlock}>
-                <div className={c.avatar}>
+        <div className={style.profile}>
+            <div className={style.avatarBlock}>
+                <div className={style.avatar}>
                     <img
-                        className={c.mainPhoto}
-                        alt='ava'
-                        src={profile && profile.photos.large !== null ? profile.photos.large : avatarDefault}/>
-                    {isOwner && <input type={"file"} onChange={(e) => onMainPhotoSelected(e)}/>}
+                        className={style.mainPhoto}
+                        alt='main avatar'
+                        src={profile && (profile.photos.large !== null) ? profile.photos.large : avatarDefault}/>
+                    {
+                        isOwner && <input type={"file"} onChange={(e) => onMainPhotoSelected(e)}/>
+                    }
                 </div>
-                {editMode
-                    ? (<ProfileDataForm
-                            initialValues={profile}
-                            profile={profile}
-                            onSubmit={onSubmit}
-                        />
-                    ) : (<ProfileData
-                        profile={profile}
-                        isOwner={isOwner}
-                        goToEditMode={() => setEditMode(true)}
-                    />)}
+                <ProfileEdit
+                    editMode={editMode}
+                    profile={profile}
+                    onSubmit={onSubmit}
+                    isOwner={isOwner}
+                    setEditModeHandler={setEditModeHandler}
+                />
                 <ProfileStatus
                     status={status}
                     updateUserStatus={updateUserStatus}
                 />
             </div>
         </div>
-    );
+    )
 }
 
-export default ProfileInfo;
+export default ProfileInfo

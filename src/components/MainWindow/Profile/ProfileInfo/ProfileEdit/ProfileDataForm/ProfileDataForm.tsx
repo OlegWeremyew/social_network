@@ -1,12 +1,8 @@
 import React, {FC} from "react";
-import {ProfileType} from "../../../../../redux/profileReducer";
-import {Preloader} from "../../../../../common/Preloader/Preloader";
-import {createField, Input, Textarea} from "../../../../../common/FormsControls/FormsControls";
+import {ProfileType} from "../../../../../../redux/profileReducer";
+import {Preloader} from "../../../../../../common/Preloader/Preloader";
+import {createField, Input, Textarea} from "../../../../../../common/FormsControls/FormsControls";
 import {InjectedFormProps, reduxForm} from "redux-form";
-
-export type ProfileDataFormPropsType = {
-    profile: ProfileType
-}
 
 const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType> = ({
                                                                                                                       profile,
@@ -59,3 +55,8 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
 const ProfileDataFormReduxForm = reduxForm<ProfileType, ProfileDataFormPropsType>({form: 'edit-profile'})(ProfileDataForm)
 
 export default ProfileDataFormReduxForm
+
+//types======
+export type ProfileDataFormPropsType = {
+    profile: ProfileType
+}
