@@ -8,5 +8,4 @@ function withSuspense<WCP>(WrappedComponent: React.ComponentType<WCP>) {
     }
 }
 
-
 export default withSuspense;

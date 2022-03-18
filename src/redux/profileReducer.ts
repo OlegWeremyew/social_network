@@ -127,7 +127,6 @@ export const saveProfile = (profile: ProfileType): ThunkType => async (dispatch:
     }
 }
 
-
 //Types=========================================================
 type ThunkType = BaseThunkType<ActionProfileTypes | ReturnType<typeof stopSubmit>>
 

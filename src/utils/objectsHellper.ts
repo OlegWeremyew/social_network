@@ -1,4 +1,3 @@
-
 export const updateObjectInArray = (items: any[], itemId: string, objPropName: string, newObjProps: newObjPropsType) => {
     return items
         .map(m => {
@@ -8,6 +7,7 @@ export const updateObjectInArray = (items: any[], itemId: string, objPropName: s
             return m
         })
 }
+
 type newObjPropsType = {
     followed: boolean
 }

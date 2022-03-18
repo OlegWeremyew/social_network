@@ -1,13 +1,12 @@
 import React from 'react';
-import c from "./Settings.module.css"
+import style from "./Settings.module.css"
 
 const Settings = () => {
-    return(
-        <div className={c.settings}>
+    return (
+        <div className={style.settings}>
             Settings
         </div>
-
-    );
+    )
 }
 
-export default Settings;
+export default Settings

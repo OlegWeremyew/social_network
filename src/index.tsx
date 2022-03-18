@@ -6,4 +6,4 @@ import {MainApp} from './App';
 ReactDOM.render(
     <MainApp/>,
     document.getElementById('root')
-);
+)

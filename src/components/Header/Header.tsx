@@ -3,12 +3,6 @@ import c from "./Header.module.css"
 import logo from "../../assets/images/logo.png"
 import {NavLink} from "react-router-dom";
 
-type HeaderPropsType = {
-    isAuth: boolean
-    login: string | null
-    logout: () => void
-}
-
 const Header = (props: HeaderPropsType) => {
 
     return (
@@ -22,7 +16,15 @@ const Header = (props: HeaderPropsType) => {
                 }
             </div>
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header
+
+//types==========
+
+type HeaderPropsType = {
+    isAuth: boolean
+    login: string | null
+    logout: () => void
+}

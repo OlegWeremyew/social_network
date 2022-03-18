@@ -1,23 +1,19 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import c from "./Messages.module.css"
 import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
 import {UsersPropsType} from "./MessagesContainer";
 import {ReduxAddMessageForm} from "./AddMessageForm/AddMessageForm";
 
-export type FormMessagesType = {
-    newMessageText: string
-}
+export const Messages = ({messagesPage, addMessage}: UsersPropsType) => {
 
-export const Messages = (props: UsersPropsType) => {
-
-    const dialogsItem = props.messagesPage.users
+    const dialogsItem = messagesPage.users
         .map(u => <DialogsItem key={u.id} name={u.name} id={u.id} img={u.img}/>)
-    const message = props.messagesPage.messages
+    const message = messagesPage.messages
         .map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
-    const addMessage = (values: FormMessagesType) => {
-        props.addMessage(values.newMessageText)
+    const addNewMessage = (values: FormMessagesType) => {
+        addMessage(values.newMessageText)
     }
 
     return (
@@ -28,7 +24,11 @@ export const Messages = (props: UsersPropsType) => {
             <div className={c.messages}>
                 {message}
             </div>
-            <ReduxAddMessageForm onSubmit={addMessage}/>
+            <ReduxAddMessageForm onSubmit={addNewMessage}/>
         </div>
-    );
+    )
+}
+
+export type FormMessagesType = {
+    newMessageText: string
 }

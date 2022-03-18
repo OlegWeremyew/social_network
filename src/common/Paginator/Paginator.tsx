@@ -2,14 +2,6 @@ import React, {useEffect, useState} from 'react';
 import styles from "./Paginator.module.css"
 import cn from 'classnames'
 
-type UsersPropsType = {
-    totalItemsCount: number
-    pageSize: number
-    currentPage: number
-    onPageChanged: (pageNumber: number) => void
-    portionSize?: number
-}
-
 export const Paginator: React.FC<UsersPropsType> = ({
                                                         totalItemsCount,
                                                         pageSize,
@@ -57,4 +49,14 @@ export const Paginator: React.FC<UsersPropsType> = ({
             </button>}
         </div>
     )
-};
+}
+
+// types=========
+
+type UsersPropsType = {
+    totalItemsCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: (pageNumber: number) => void
+    portionSize?: number
+}

@@ -14,6 +14,7 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import {AppStateType, store} from "./redux/reduxStore";
 import {Preloader} from "./common/Preloader/Preloader";
+import PageNotFound from "./components/PageNotFound";
 
 const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'));
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'));
@@ -49,7 +50,7 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                         <Route path="/settings/*" element={<Settings/>}/>
                         <Route path="/friends/*" element={<Friends/>}/>
                         <Route path="/login" element={<LoginContainer/>}/>
-                        <Route path="*" element={<h1>404. Page not found</h1>}/>
+                        <Route path="*" element={<PageNotFound/>}/>
 
                     </Routes>
                 </div>
@@ -66,7 +67,7 @@ const mapStateToProps = (state: AppStateType) => ({
 
 const AppContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
     initializeApp,
-})(App);
+})(App)
 
 export const MainApp = () => {
     return (

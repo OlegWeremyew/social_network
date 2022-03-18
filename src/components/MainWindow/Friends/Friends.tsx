@@ -1,13 +1,12 @@
 import React from 'react';
-import c from "./Friends.module.css"
+import style from "./Friends.module.css"
 
 const Friends = () => {
-    return(
-        <div className={c.friends}>
+    return (
+        <div className={style.friends}>
             Friends
         </div>
-
-    );
+    )
 }
 
-export default Friends;
+export default Friends

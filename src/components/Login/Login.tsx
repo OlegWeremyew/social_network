@@ -23,8 +23,8 @@ export const Login = ({isAuth, login, captchaUrl}: LoginPropsType) => {
                 captchaUrl={captchaUrl}
             />
         </div>
-    );
-};
+    )
+}
 
 const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & LoginFormOwnProps> = ({
                                                                                                          handleSubmit,
@@ -46,7 +46,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
                 <button>Login</button>
             </div>
         </form>
-    );
+    )
 }
 
 const LoginReduxForm = reduxForm<FormDataType, LoginFormOwnProps>({form: "Login"})(LoginForm)

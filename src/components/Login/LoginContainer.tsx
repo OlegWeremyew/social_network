@@ -34,6 +34,7 @@ type mapStateToPropsType = {
     isAuth: boolean
     captchaUrl: string | null
 }
+
 type mapDispatchToPropsType = {
     login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
 }

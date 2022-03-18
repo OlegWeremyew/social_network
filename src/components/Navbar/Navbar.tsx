@@ -27,7 +27,7 @@ const Navbar = () => {
                 <NavLink className={ (navData) => navData.isActive? c.activeLink: ""} to="/friends">Friends</NavLink>
             </div>
         </nav>
-    );
+    )
 }
 
-export default Navbar;
+export default Navbar
