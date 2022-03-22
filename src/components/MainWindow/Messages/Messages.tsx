@@ -1,9 +1,9 @@
 import React from 'react';
 import c from "./Messages.module.css"
-import Message from "./Message/Message";
 import DialogsItem from "./DialogItem/DialogsItem";
 import {UsersPropsType} from "./MessagesContainer";
 import {ReduxAddMessageForm} from "./AddMessageForm/AddMessageForm";
+import Message from "./Message/Message";
 
 export const Messages = ({messagesPage, addMessage}: UsersPropsType) => {
 

@@ -1,4 +1,6 @@
 import React, {ChangeEvent} from 'react';
+import style from './ProfileStatus.module.css'
+
 
 export class ProfileStatus extends React.Component<ProfileStatusType> {
 
@@ -39,8 +41,9 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
         return (
             <div>
                 {!this.state.editMode &&
-                <div>
-                    <h3>Status:</h3> <span onDoubleClick={this.activateEditMode}>{this.props.status || "------"}</span>
+                <div className={style.statusText}>
+                    <h3>Status: </h3> <span onDoubleClick={this.activateEditMode}>{ this.props.status || "------"}
+                    <span>&nbsp;✎</span></span>
                 </div>}
                 {this.state.editMode &&
                 <div>

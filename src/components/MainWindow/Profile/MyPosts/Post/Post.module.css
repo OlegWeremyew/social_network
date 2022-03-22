@@ -1,19 +1,29 @@
 .item {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 6fr;
     border: dotted thin;
     border-radius: 5px;
     padding-left: 10px;
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 .itemText {
     margin-top: 20px;
 }
+
 .item img {
-    margin: 10px 0px;
+    margin: 10px 0;
     width: 70px;
     height: 70px;
     border-radius: 35px;
     border: solid 3px #41403c;
+}
+
+.likeCounter {
+    cursor: pointer;
+    color: #151313;
+}
+
+.active {
+    color: red;
 }

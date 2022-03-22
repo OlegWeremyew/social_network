@@ -4,7 +4,6 @@ import {updateObjectInArray} from "../utils/objectsHellper";
 import {usersAPI} from "../Api/usersAPI";
 import {Dispatch} from "redux";
 import {Nullable} from "../types/Nullable";
-import {ProfileType} from "./profileReducer";
 
 export enum UserReducerEnum {
     FOLLOW = "SOCIAL_NETWORK/USERS/FOLLOW",

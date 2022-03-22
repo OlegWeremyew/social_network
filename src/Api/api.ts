@@ -1,5 +1,6 @@
 import axios from "axios";
 import {UserType} from "../redux/usersReducer";
+import {Nullable} from "../types/Nullable";
 
 export const instance = axios.create({
     withCredentials: true,
@@ -26,5 +27,5 @@ export type APIResponseType<D = {}, RC = ResultCodesEnum> = {
 export type GetItemType = {
     items: Array<UserType>
     totalCount: number
-    error: string | null
+    error: Nullable<string>
 }

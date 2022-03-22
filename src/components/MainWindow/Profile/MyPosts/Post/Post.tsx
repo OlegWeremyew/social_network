@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import c from "./Post.module.css"
 import {PostType} from "../../../../../redux/profileReducer";
 
 const Post = (props: PostType) => {
+
+    const [editMode, setEditMode] = useState<boolean>(false)
+
+    let heart = editMode ? c.active : ""
+
+    const statusChangeHandler = () => {
+        setEditMode(!editMode)
+    }
 
     return (
         <div key={props.id} className={c.item}>
@@ -12,7 +20,12 @@ const Post = (props: PostType) => {
             <div className={c.itemText}>
                 {props.message}
                 <div>
-                    <span>like: {props.likesCount}</span>
+                    <span className={c.likeCounter} onClick={statusChangeHandler}>
+                        like: {editMode ? props.likesCount + 1 : props.likesCount }
+                        <span className={heart}>
+                            &#9829;
+                        </span>
+                    </span>
                 </div>
             </div>
         </div>
