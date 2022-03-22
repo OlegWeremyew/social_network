@@ -3,20 +3,20 @@ import c from "./DialogsItem.module.css"
 import {NavLink} from "react-router-dom";
 import {UserType} from "../../../../redux/messagesReducer";
 
-const DialogsItem = (props: UserType) => {
+const DialogsItem = ({id, img, name}: UserType) => {
 
-    const path = "/messages/" + props.id;
+    const path = `/messages/"${id}`
 
     return (
         <div className={c.dialog}>
             <div>
-                <img src={props.img} alt="dialogs item"/>
+                <img src={img} alt="dialogs item"/>
             </div>
             <div>
-                <NavLink to={path}>{props.name}</NavLink>
+                <NavLink to={path}>{name}</NavLink>
             </div>
         </div>
     )
 }
 
-export default DialogsItem;
+export default DialogsItem

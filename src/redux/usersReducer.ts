@@ -3,6 +3,8 @@ import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {updateObjectInArray} from "../utils/objectsHellper";
 import {usersAPI} from "../Api/usersAPI";
 import {Dispatch} from "redux";
+import {Nullable} from "../types/Nullable";
+import {ProfileType} from "./profileReducer";
 
 export enum UserReducerEnum {
     FOLLOW = "SOCIAL_NETWORK/USERS/FOLLOW",
@@ -178,7 +180,7 @@ export type UserType = {
     name: string
     id: string
     uniqueUrlName: string
-    photos: { small: string | null, large: string | null }
+    photos: { small: Nullable<string>, large: Nullable<string> }
     status: string
     followed: boolean
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import {useLocation, useParams} from "react-router-dom";
+import {Nullable} from "../../types/Nullable";
 
 export const withRouter = (WrappedComponent: typeof React.Component) => (props: WrappedComponentWithRouterPropsType) => {
 
@@ -36,7 +37,7 @@ export type locationType = {
     key: string
     pathname: string
     search: string
-    state: object | null
+    state: Nullable<object>
 }
 
 export type WrappedComponentWithRouterPropsType = {

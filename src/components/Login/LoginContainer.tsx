@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {login} from "../../redux/authReducer";
 import {AppStateType} from "../../redux/reduxStore";
 import {Login} from "./Login";
+import {Nullable} from "../../types/Nullable";
 
 class LoginAPIContainer extends React.Component<LoginContainerType, LoginContainerType> {
 
@@ -33,7 +34,7 @@ export default LoginContainer
 
 type mapStateToPropsType = {
     isAuth: boolean
-    captchaUrl: string | null
+    captchaUrl: Nullable<string>
 }
 
 type mapDispatchToPropsType = {

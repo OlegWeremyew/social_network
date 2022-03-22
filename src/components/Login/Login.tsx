@@ -4,6 +4,7 @@ import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsCon
 import {required} from "../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
+import {Nullable} from "../../types/Nullable";
 
 export const Login = ({isAuth, login, captchaUrl}: LoginPropsType) => {
 
@@ -64,12 +65,12 @@ type FormDataType = {
 }
 
 type LoginFormOwnProps = {
-    captchaUrl: string | null
+    captchaUrl: Nullable<string>
 }
 
 type LoginPropsType = {
     isAuth?: boolean
     login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
-    captchaUrl: string | null
+    captchaUrl: Nullable<string>
 }
 

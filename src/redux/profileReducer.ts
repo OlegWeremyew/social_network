@@ -3,6 +3,7 @@ import {ResultCodesEnum} from "../Api/api";
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {stopSubmit} from "redux-form";
 import {profileAPI} from "../Api/profileAPI";
+import {Nullable} from "../types/Nullable";
 
 export enum ProfileReducerEnum {
     ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST",
@@ -17,7 +18,7 @@ const initialState = {
         {message: "Hello", likesCount: 12, id: 1},
         {message: "Dinosaurs are great", likesCount: 17, id: 2}
     ] as Array<PostType>,
-    profile: null as ProfileType | null,
+    profile: null as Nullable<ProfileType>,
     status: "",
 }
 

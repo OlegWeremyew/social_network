@@ -3,6 +3,7 @@ import Header from "./Header";
 import {connect} from "react-redux";
 import {logout} from "../../redux/authReducer";
 import {AppStateType} from "../../redux/reduxStore";
+import {Nullable} from "../../types/Nullable";
 
 class HeaderContainer extends React.Component<HeaderContainerType> {
 
@@ -33,7 +34,7 @@ type HeaderContainerType = mapStateToPropsType & mapDispatchToPropsType
 
 type mapStateToPropsType = {
     isAuth: boolean
-    login: string | null
+    login: Nullable<string>
 }
 
 type mapDispatchToPropsType = {

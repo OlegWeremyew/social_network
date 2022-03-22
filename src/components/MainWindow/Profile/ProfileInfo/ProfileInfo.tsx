@@ -6,15 +6,6 @@ import {Preloader} from "../../../../common/Preloader/Preloader";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
 
-export type ProfileInfoPropsType = {
-    profile: ProfileType
-    status: string
-    updateUserStatus: (status: string) => void
-    isOwner: boolean
-    savePhoto: (file: File) => void
-    saveProfile: (formData: ProfileType) => Promise<any>
-}
-
 const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, saveProfile}: ProfileInfoPropsType) => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
@@ -67,3 +58,13 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
 }
 
 export default ProfileInfo
+
+//types
+export type ProfileInfoPropsType = {
+    profile: ProfileType
+    status: string
+    updateUserStatus: (status: string) => void
+    isOwner: boolean
+    savePhoto: (file: File) => void
+    saveProfile: (formData: ProfileType) => Promise<any>
+}

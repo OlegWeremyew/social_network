@@ -4,6 +4,7 @@ import {FormAction, stopSubmit} from "redux-form";
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {authApi} from "../Api/authApi";
 import {securityApi} from "../Api/securityApi";
+import {Nullable} from "../types/Nullable";
 
 export enum AuthReducerEnum {
     SET_USER_DATA = "SOCIAL_NETWORK/AUTH/SET-USER-DATA",
@@ -14,10 +15,10 @@ const initialState = {
     data: {} as dataType,
     isFetching: true,
     isAuth: false,
-    userID: null as (string | null),
-    email: null as (string | null),
-    login: null as (string | null),
-    captchaUrl: null as (string | null),
+    userID: null as Nullable<string>,
+    email: null as Nullable<string>,
+    login: null as Nullable<string>,
+    captchaUrl: null as Nullable<string>,
 }
 
 export const authReducer = (state: initialAuthStateType = initialState, action: ActionAuthReducerType): initialAuthStateType => {
@@ -47,7 +48,7 @@ export const authReducer = (state: initialAuthStateType = initialState, action: 
 }
 
 const AuthActions = {
-    setAuthUserData: (userId: string | null, email: string | null, login: string | null, isAuth: boolean) => {
+    setAuthUserData: (userId: Nullable<string>, email: Nullable<string>, login: Nullable<string>, isAuth: boolean) => {
         return {type: AuthReducerEnum.SET_USER_DATA, payload: {userId, email, login, isAuth}} as const
     },
     getCaptchaUrlSuccess: (captchaUrl: string) => {

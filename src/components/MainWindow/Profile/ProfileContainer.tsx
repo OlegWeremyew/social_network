@@ -11,6 +11,7 @@ import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
 import {InjectedProps, withRouter2} from "../../../hoc/withRouter/withRouter";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
+import {Nullable} from "../../../types/Nullable";
 
 class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 
@@ -87,11 +88,11 @@ type MapStateToPropsType = {
     profile: ProfileType
     isAuth: boolean
     status: string
-    authorizedUserID: string | null
+    authorizedUserID: Nullable<string>
 }
 type MapDispatchToProps = {
-    getUserProfile: (userId: string | null) => void
-    getUserStatus: (userId: string | null) => void
+    getUserProfile: (userId: Nullable<string>) => void
+    getUserStatus: (userId: Nullable<string>) => void
     updateUserStatus: (status: string) => void
     savePhoto: (file: File) => void
     saveProfile: (formData: ProfileType) => Promise<any>

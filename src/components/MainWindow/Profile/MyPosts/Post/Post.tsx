@@ -19,4 +19,4 @@ const Post = (props: PostType) => {
     );
 }
 
-export default Post;
+export default Post
