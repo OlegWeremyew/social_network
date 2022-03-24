@@ -2,6 +2,7 @@ import React, {ComponentType} from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {
+    FilterType,
     requestUsers, UserActions,
     UserType
 } from "../../../redux/usersReducer";
@@ -13,18 +14,24 @@ import {
     getFollowingInProgress,
     getIsFetching,
     getPageSize,
-    getTotalUsersCount, getUsers
+    getTotalUsersCount, getUsers, getUsersFilter
 } from "../../../redux/usersSelectors";
 
 class UsersAPIComponent extends React.Component<UsersPropsType> {
+
     componentDidMount() {
-        const {currentPage, pageSize} = this.props
-        this.props.requestUsers(currentPage, pageSize)
+        const {currentPage, pageSize, filter} = this.props
+        this.props.requestUsers(currentPage, pageSize, filter)
     }
 
     onPageChanged = (pageNumber: number) => {
+        const {pageSize, filter} = this.props
+        this.props.requestUsers(pageNumber, pageSize, filter)
+    }
+
+    onFilterChanged(filter: FilterType) {
         const {pageSize} = this.props
-        this.props.requestUsers(pageNumber, pageSize)
+        this.props.requestUsers(1, pageSize, filter)
     }
 
     render() {
@@ -40,6 +47,7 @@ class UsersAPIComponent extends React.Component<UsersPropsType> {
                     follow={this.props.followSuccess}
                     unfollow={this.props.unfollowSuccess}
                     followingInProgress={this.props.followingInProgress}
+                    onFilterChanged={this.onFilterChanged}
                 />
             </>
         )
@@ -54,6 +62,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
+        filter: getUsersFilter(state),
     }
 }
 
@@ -76,13 +85,14 @@ type MapStateToPropsType = {
     currentPage: number
     isFetching: boolean
     followingInProgress: Array<string>
+    filter: FilterType
 }
 
 type MapDispatchToProps = {
     followSuccess: (userID: string) => void
     unfollowSuccess: (userID: string) => void
     setCurrentPage: (currentPage: number) => void
-    requestUsers: (currentPage: number, pageSize: number) => void
+    requestUsers: (currentPage: number, pageSize: number, filter: FilterType) => void
 }
 
 export type UsersPropsType = MapStateToPropsType & MapDispatchToProps

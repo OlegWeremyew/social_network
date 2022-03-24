@@ -13,6 +13,7 @@ export enum UserReducerEnum {
     SET_TOTAL_USERS_COUNT = "SOCIAL_NETWORK/USERS/SET-TOTAL-USERS-COUNT",
     TOGGLE_IS_FETCHING = "SOCIAL_NETWORK/USERS/TOGGLE-IS-FETCHING",
     TOGGLE_IS_FOLLOWING_IN_PROGRESS = "SOCIAL_NETWORK/USERS/TOGGLE-IS-FOLLOWING-IN-PROGRESS",
+    SET_FILTER = "SOCIAL_NETWORK/USERS/SET_FILTER",
 }
 
 const initialState: initialStateType = {
@@ -22,6 +23,10 @@ const initialState: initialStateType = {
     currentPage: 1,
     isFetching: false,
     followingInProgress: [] as string[],
+    filter: {
+        term: '',
+        friend: null as null | boolean
+    },
 }
 
 export const usersReducer = (state: initialStateType = initialState, action: ActionUsersTypes): initialStateType => {
@@ -56,6 +61,11 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
         case UserReducerEnum.TOGGLE_IS_FETCHING: {
             return {
                 ...state, isFetching: action.payload.isFetching
+            }
+        }
+        case UserReducerEnum.SET_FILTER: {
+            return {
+                ...state, filter: action.payload
             }
         }
         case UserReducerEnum.TOGGLE_IS_FOLLOWING_IN_PROGRESS: {
@@ -103,6 +113,12 @@ export const UserActions = {
             }
         } as const
     },
+    setFilter: (filter: FilterType) => {
+        return {
+            type: UserReducerEnum.SET_FILTER,
+            payload: filter
+        } as const
+    },
     setTotalUsersCount: (totalCount: number) => {
         return {
             type: UserReducerEnum.SET_TOTAL_USERS_COUNT,
@@ -132,18 +148,19 @@ export const UserActions = {
 
 //=======================thunk
 
-export const requestUsers = (page: number, pageSize: number): ThunkType => async (dispatch) => {
+export const requestUsers = (page: number, pageSize: number, filter: FilterType): ThunkType => async (dispatch) => {
     dispatch(UserActions.toggleIsFetching(true))
     dispatch(UserActions.setCurrentPage(page))
+    dispatch(UserActions.setFilter(filter))
 
-    const getUsersData = await usersAPI.getUsers(page, pageSize)
+    const getUsersData = await usersAPI.getUsers(page, pageSize, filter.term, filter.friend)
 
     dispatch(UserActions.toggleIsFetching(false))
     dispatch(UserActions.setUsers(getUsersData.items))
     dispatch(UserActions.setTotalUsersCount(getUsersData.totalCount))
 }
 
-export const followUnfollowFlow = async (dispatch: Dispatch<ActionUsersTypes>, userId: string, apiMethod: (userId: string)=> Promise<APIResponseType>, actionCreator: (userId: string) => ActionUsersTypes) => {
+export const followUnfollowFlow = async (dispatch: Dispatch<ActionUsersTypes>, userId: string, apiMethod: (userId: string) => Promise<APIResponseType>, actionCreator: (userId: string) => ActionUsersTypes) => {
     dispatch(UserActions.toggleFollowingProgress(true, userId))
     const response = await apiMethod(userId)
 
@@ -171,9 +188,14 @@ export type initialStateType = {
     currentPage: number
     isFetching: boolean
     followingInProgress: string[]
+    filter: {
+        term: string
+        friend: null | boolean
+    }
 }
 
 export type ActionUsersTypes = InferActionTypes<typeof UserActions>
+export type FilterType = typeof initialState.filter
 
 export type UserType = {
     name: string
