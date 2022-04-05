@@ -17,8 +17,8 @@ import Footer from "./components/Footer/Footer";
 
 const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
-const UsersContainer = React.lazy(() => import('./components/MainWindow/Users/UsersContainer'))
-const LoginContainer = React.lazy(() => import('./components/Login/LoginContainer'))
+const UsersPage = React.lazy(() => import('./components/MainWindow/Users/UsersPage'))
+const Login = React.lazy(() => import('./components/Login/Login'))
 
 class App extends React.Component<AppContainerType, AppContainerType> {
 
@@ -45,12 +45,12 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                             <Route path=":userId" element={<MessagesContainer/>}/>
                         </Route>
 
-                        <Route path="/users/*" element={<UsersContainer/>}/>
+                        <Route path="/users/*" element={<UsersPage/>}/>
                         <Route path="/news/*" element={<News/>}/>
                         <Route path="/music/*" element={<Music/>}/>
                         <Route path="/settings/*" element={<Settings/>}/>
                         <Route path="/friends/*" element={<Friends/>}/>
-                        <Route path="/login" element={<LoginContainer/>}/>
+                        <Route path="/login" element={<Login/>}/>
                         <Route path="*" element={<PageNotFound/>}/>
                     </Routes>
                 </div>

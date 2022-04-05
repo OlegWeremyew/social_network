@@ -5,12 +5,21 @@ import {required} from "../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "../../redux/reduxStore";
+import {login} from "../../redux/authReducer";
 
-export const Login = ({isAuth, login, captchaUrl}: LoginPropsType) => {
+const Login: React.FC = () => {
+
+    const dispatch = useDispatch()
+
+    const captchaUrl = useSelector<AppStateType, Nullable<string>>(state => state.auth.captchaUrl)
+    const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
 
     const onSubmit = (formData: FormDataType) => {
-        login(formData.email, formData.password, formData.rememberMe, formData.captcha)
+        dispatch(login(formData.email, formData.password, formData.rememberMe, formData.captcha))
     }
+
 
     if (isAuth) {
         return <Navigate to={'/profile'}/>
@@ -26,6 +35,7 @@ export const Login = ({isAuth, login, captchaUrl}: LoginPropsType) => {
         </div>
     )
 }
+export  default Login
 
 const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & LoginFormOwnProps> = ({
                                                                                                          handleSubmit,
@@ -67,10 +77,3 @@ type FormDataType = {
 type LoginFormOwnProps = {
     captchaUrl: Nullable<string>
 }
-
-type LoginPropsType = {
-    isAuth?: boolean
-    login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
-    captchaUrl: Nullable<string>
-}
-
