@@ -64,6 +64,7 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
             }
         }
         case UserReducerEnum.SET_FILTER: {
+            debugger
             return {
                 ...state, filter: action.payload
             }

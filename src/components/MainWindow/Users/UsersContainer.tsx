@@ -29,7 +29,7 @@ class UsersAPIComponent extends React.Component<UsersPropsType> {
         this.props.requestUsers(pageNumber, pageSize, filter)
     }
 
-    onFilterChanged(filter: FilterType) {
+    onFilterChanged = (filter: FilterType) => {
         const {pageSize} = this.props
         this.props.requestUsers(1, pageSize, filter)
     }

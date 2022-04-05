@@ -7,15 +7,13 @@ const usersSearchFormValidate = (values: any) => {
     return errors
 }
 
-export const UsersSearchForm = React.memo(({onFilterChanged}: PropsType) => {
-
+export const UsersSearchForm: React.FC<PropsType> = React.memo(({onFilterChanged}) => {
+    debugger
     const submit = (values: FormType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }) => {
-
         const filter: FilterType = {
             term: values.term,
             friend: values.friend === 'null' ? null : values.friend === 'true' ? true : false
         }
-
         onFilterChanged(filter)
         setSubmitting(false)
     }
