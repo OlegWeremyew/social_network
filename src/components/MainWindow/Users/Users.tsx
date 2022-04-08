@@ -13,10 +13,18 @@ import {
     getUsers,
     getUsersFilter
 } from "../../../redux/usersSelectors";
+import {useNavigate, useSearchParams} from "react-router-dom";
+import * as queryString from "querystring";
 
 export const Users: React.FC = () => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const parsedPage = searchParams.get('page')
+    const parsedTerm = searchParams.get('term')
+    const parsedFriend = searchParams.get('friend')
 
     const totalUsersCount = useSelector<AppStateType, number>(getTotalUsersCount)
     const currentPage = useSelector<AppStateType, number>(getCurrentPage)
@@ -24,8 +32,6 @@ export const Users: React.FC = () => {
     const filter = useSelector<AppStateType, FilterType>(getUsersFilter)
     const users = useSelector<AppStateType, Array<UserType>>(getUsers)
     const followingInProgress = useSelector<AppStateType, Array<string>>(getFollowingInProgress)
-
-
 
     const onPageChanged = (pageNumber: number) => {
         dispatch(requestUsers(pageNumber, pageSize, filter))
@@ -36,7 +42,40 @@ export const Users: React.FC = () => {
     }
 
     useEffect(() => {
-        dispatch(requestUsers(currentPage, pageSize, filter))
+
+        const query = {} as queryObjType
+
+        if(!!parsedTerm) query.term = parsedTerm
+        if(currentPage !== 1) query.page = String(currentPage)
+        if(parsedFriend !== null) query.friends = String(parsedFriend)
+
+        navigate({
+            pathname: `/users`,
+            search: queryString.stringify(query),
+        })
+    }, [filter, currentPage])
+
+    useEffect(() => {
+        let actualPage = currentPage
+        let actualFilter = filter
+
+        if (!!parsedPage) actualPage = Number(parsedPage)
+
+        if (!!parsedTerm) actualFilter = {...actualFilter, term: parsedTerm as string}
+
+        switch (parsedFriend) {
+            case "null" :
+                actualFilter = {...actualFilter, friend: null}
+                break
+            case "true" :
+                actualFilter = {...actualFilter, friend: true}
+                break
+            case "false" :
+                actualFilter = {...actualFilter, friend: false}
+                break
+        }
+
+        dispatch(requestUsers(actualPage, pageSize, actualFilter))
     }, [])
 
     return (
@@ -61,4 +100,12 @@ export const Users: React.FC = () => {
             }
         </div>
     )
+}
+
+//types====
+
+type queryObjType = {
+    term: string
+    page: string
+    friends: string
 }
