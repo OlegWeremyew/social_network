@@ -1,13 +1,28 @@
-import React, {useState} from 'react';
-import {wsChanel} from "../../../../utils/wsChanel/wsChanel";
+import React, {useEffect, useState} from 'react';
+import {ChatWSType} from "../Chat";
 
-export const AddMessageForm: React.FC = () => {
+export const AddMessageForm: React.FC<ChatWSType> = ({wsChanel}) => {
 
     const [message, setMessage] = useState<string>("")
+    const [readyStatus, setReadyStatus] = useState<ReadyStatusType>('pending')
+
+    useEffect(() => {
+
+        const openHandler = () => {
+            setReadyStatus('ready')
+        }
+
+        wsChanel?.addEventListener('open', openHandler)
+
+        return () => {
+            wsChanel?.addEventListener('open', openHandler)
+        }
+
+    }, [wsChanel])
 
     const sendMessage = () => {
-        if (!message) return
-        wsChanel.send(message)
+        if (!message.trim()) return
+        wsChanel?.send(message)
         setMessage("")
     }
 
@@ -20,8 +35,16 @@ export const AddMessageForm: React.FC = () => {
             <textarea
                 placeholder={"write your message"}
                 value={message}
-                onChange={(e) => addMessageText(e.currentTarget.value)}/>
-            <button onClick={sendMessage}>Send</button>
+                onChange={(e) => addMessageText(e.currentTarget.value)}
+            />
+            <button
+                onClick={sendMessage}
+                disabled={wsChanel == null || readyStatus !== 'ready'}
+            >Send
+            </button>
         </div>
     )
 }
+
+//types
+type ReadyStatusType = 'pending' | 'ready'

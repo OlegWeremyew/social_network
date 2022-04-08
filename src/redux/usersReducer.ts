@@ -25,7 +25,7 @@ const initialState: initialStateType = {
     followingInProgress: [] as string[],
     filter: {
         term: '',
-        friend: null as null | boolean
+        friend: null as Nullable<boolean>,
     },
 }
 
@@ -64,7 +64,6 @@ export const usersReducer = (state: initialStateType = initialState, action: Act
             }
         }
         case UserReducerEnum.SET_FILTER: {
-            debugger
             return {
                 ...state, filter: action.payload
             }
@@ -191,7 +190,7 @@ export type initialStateType = {
     followingInProgress: string[]
     filter: {
         term: string
-        friend: null | boolean
+        friend: Nullable<boolean>
     }
 }
 

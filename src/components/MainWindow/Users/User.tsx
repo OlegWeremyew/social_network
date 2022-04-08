@@ -1,46 +1,43 @@
 import React from 'react';
 import c from "./Users.module.css";
 import userImage from "../../../assets/images/user.png";
-import {UserActions, UserType} from "../../../redux/usersReducer";
-import {NavLink} from "react-router-dom";
+import {follow, unFollow, UserType} from "../../../redux/usersReducer";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
-type UsersPropsType = {
-    user: UserType
-    followingInProgress: Array<any>
-}
-
-export const User = ({user, followingInProgress}: UsersPropsType) => {
+export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
 
     const dispatch = useDispatch()
 
-    const follow = (userID: string) => {
-        dispatch(UserActions.followSuccess(userID))
+    const followHandler = (userID: string) => {
+        dispatch(follow(userID))
     }
 
-    const unfollow = (userID: string) => {
-        dispatch(UserActions.unfollowSuccess(userID))
+    const unfollowHandler = (userID: string) => {
+        dispatch(unFollow(userID))
     }
 
     return (
         <div>
             <div>
                 <div>
-                    <NavLink to={"/profile/" + user.id}>
+                    <NavLink to={`/profile/${user.id}`}>
+                        {/*{navigate(`$/profile/${user.id}`)}*/}
                         <img
                             src={user.photos.small !== null ? user.photos.small : userImage}
                             className={c.userPhoto}
                             alt="photo"
-                            title={user.name}/>
+                            title={user.name}
+                        />
                     </NavLink>
                 </div>
                 <div>
                     {
                         user.followed
                             ? <button disabled={followingInProgress.some(id => id === user.id)}
-                                      onClick={() => unfollow(user.id)}>Unfollow</button>
+                                      onClick={() => unfollowHandler(user.id)}>Unfollow</button>
                             : <button disabled={followingInProgress.some(id => id === user.id)}
-                                      onClick={() => follow(user.id)}>Follow</button>
+                                      onClick={() => followHandler(user.id)}>Follow</button>
                     }
                 </div>
             </div>
@@ -52,4 +49,11 @@ export const User = ({user, followingInProgress}: UsersPropsType) => {
             </div>
         </div>
     )
+}
+
+//type
+
+type UsersPropsType = {
+    user: UserType
+    followingInProgress: string[]
 }

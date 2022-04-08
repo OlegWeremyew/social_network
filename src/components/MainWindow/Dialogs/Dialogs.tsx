@@ -8,7 +8,7 @@ import Dialog from "./Dialog/Dialog";
 export const Dialogs = ({messagesPage, addMessage}: UsersPropsType) => {
 
     const dialogsItem = messagesPage.users
-        .map(u => <DialogsItem key={u.id} name={u.name} id={u.id} img={u.img}/>)
+        .map(user => <DialogsItem key={user.id} name={user.name} id={user.id} img={user.img}/>)
     const message = messagesPage.messages
         .map(m => <Dialog key={m.id} message={m.message} id={m.id}/>)
 
