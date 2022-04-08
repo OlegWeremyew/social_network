@@ -102,7 +102,7 @@ export type initialAuthStateType = typeof initialState
 export type ActionAuthReducerType = InferActionTypes<typeof AuthActions>
 
 type dataType = {
-    userId: string | null
-    email: string | null
-    login: string | null
+    userId: Nullable<string>
+    email: Nullable<string>
+    login: Nullable<string>
 }

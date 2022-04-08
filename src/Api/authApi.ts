@@ -1,4 +1,5 @@
-import {instance, APIResponseType} from "./api";
+import {APIResponseType} from "./api";
+import {instance} from "./instance";
 
 export const authApi = {
     getAuth() {

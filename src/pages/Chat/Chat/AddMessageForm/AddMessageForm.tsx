@@ -1,28 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {ChatWSType} from "../Chat";
+import React, {useState} from 'react';
+import {useDispatch} from "react-redux";
+import {sendMessage} from "../../../../redux/chatReducer";
 
-export const AddMessageForm: React.FC<ChatWSType> = ({wsChanel}) => {
+export const AddMessageForm: React.FC = () => {
+
+    const dispatch = useDispatch()
 
     const [message, setMessage] = useState<string>("")
-    const [readyStatus, setReadyStatus] = useState<ReadyStatusType>('pending')
+    //const [readyStatus, setReadyStatus] = useState<ReadyStatusType>('pending')
 
-    useEffect(() => {
-
-        const openHandler = () => {
-            setReadyStatus('ready')
-        }
-
-        wsChanel?.addEventListener('open', openHandler)
-
-        return () => {
-            wsChanel?.addEventListener('open', openHandler)
-        }
-
-    }, [wsChanel])
-
-    const sendMessage = () => {
+    const sendMessageHandler = () => {
         if (!message.trim()) return
-        wsChanel?.send(message)
+        dispatch(sendMessage(message))
         setMessage("")
     }
 
@@ -38,9 +27,10 @@ export const AddMessageForm: React.FC<ChatWSType> = ({wsChanel}) => {
                 onChange={(e) => addMessageText(e.currentTarget.value)}
             />
             <button
-                onClick={sendMessage}
-                disabled={wsChanel == null || readyStatus !== 'ready'}
-            >Send
+                onClick={sendMessageHandler}
+                disabled={false}
+            >
+                Send
             </button>
         </div>
     )

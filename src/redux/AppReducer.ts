@@ -2,12 +2,12 @@ import {getAuthUserData} from "./authReducer";
 import {InferActionTypes} from "./reduxStore";
 import {Dispatch} from "redux";
 
-const initialAppState = {
-    initialized: false
-}
-
 export enum UserReducerEnum {
     SET_INITIALIZED = "SOCIAL_NETWORK/APP/SET-INITIALIZED",
+}
+
+const initialAppState = {
+    initialized: false
 }
 
 export const appReducer = (state: initialStateAppType = initialAppState, action: ActionAppReducerType): initialStateAppType => {

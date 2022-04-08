@@ -2,6 +2,7 @@ import React from 'react';
 import c from "./Header.module.css"
 import logo from "../../assets/images/logo.png"
 import {NavLink} from "react-router-dom";
+import {Nullable} from "../../types/Nullable";
 
 const Header = (props: HeaderPropsType) => {
 
@@ -25,6 +26,6 @@ export default Header
 
 type HeaderPropsType = {
     isAuth: boolean
-    login: string | null
+    login: Nullable<string>
     logout: () => void
 }

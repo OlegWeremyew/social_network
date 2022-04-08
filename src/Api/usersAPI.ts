@@ -1,4 +1,5 @@
-import {GetItemType, instance, APIResponseType} from "./api";
+import {GetItemType, APIResponseType} from "./api";
+import {instance} from "./instance";
 
 export const usersAPI = {
     getUsers(currentPage: number = 1, pageSize: number = 5, term: string = "", friend: null | boolean = null) {
