@@ -1,6 +1,6 @@
 import React, {ComponentType} from 'react';
 import {initialStateType, MessageActions} from "../../../redux/messagesReducer";
-import {Messages} from "./Messages";
+import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
@@ -12,13 +12,13 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-const MessagesContainer = compose<ComponentType>(
+const DialogsContainer = compose<ComponentType>(
     connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
         addMessage: MessageActions.addMessage
     }), withAuthRedirect
-)(Messages)
+)(Dialogs)
 
-export default MessagesContainer
+export default DialogsContainer
 
 //types===================
 type MapStateToPropsType = {

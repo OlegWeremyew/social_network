@@ -80,7 +80,6 @@ export const Users: React.FC = () => {
 
     return (
         <div>
-            <h2>Users</h2>
             <UsersSearchForm
                 onFilterChanged={onFilterChanged}
             />

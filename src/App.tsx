@@ -15,10 +15,11 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
-const MessagesContainer = React.lazy(() => import('./components/MainWindow/Messages/MessagesContainer'))
+const DialogsContainer = React.lazy(() => import('./components/MainWindow/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
 const UsersPage = React.lazy(() => import('./components/MainWindow/Users/UsersPage'))
 const Login = React.lazy(() => import('./components/Login/Login'))
+const ChatPage = React.lazy(() => import('./pages/Chat/ChatPage'))
 
 class App extends React.Component<AppContainerType, AppContainerType> {
 
@@ -30,6 +31,7 @@ class App extends React.Component<AppContainerType, AppContainerType> {
         if (!this.props.initialized) {
             return <Preloader/>
         }
+
         return (
             <main className={style.appContent}>
                 <HeaderContainer/>
@@ -41,8 +43,8 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                             <Route path=":userId" element={<ProfileContainer/>}/>
                         </Route>
 
-                        <Route path="/messages/" element={<MessagesContainer/>}>
-                            <Route path=":userId" element={<MessagesContainer/>}/>
+                        <Route path="/dialogs/" element={<DialogsContainer/>}>
+                            <Route path=":userId" element={<DialogsContainer/>}/>
                         </Route>
 
                         <Route path="/users/*" element={<UsersPage/>}/>
@@ -51,6 +53,7 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                         <Route path="/settings/*" element={<Settings/>}/>
                         <Route path="/friends/*" element={<Friends/>}/>
                         <Route path="/login" element={<Login/>}/>
+                        <Route path="/chat" element={<ChatPage/>}/>
                         <Route path="*" element={<PageNotFound/>}/>
                     </Routes>
                 </div>
