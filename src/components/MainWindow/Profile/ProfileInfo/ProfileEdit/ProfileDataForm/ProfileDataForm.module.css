@@ -1,0 +1,58 @@
+.saveEdit__btn {
+    display: flex;
+    justify-content: center;
+
+    margin: 10px auto 30px;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #601313;
+}
+
+.saveEdit__btn:hover {
+    opacity: .9;
+    color: #fff;
+}
+
+.saveEdit__btn button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.formContainer {
+    color: #601313;
+    font-size: 18px;
+}
+
+.formBlock {
+    display: flex;
+    padding: 3px 0;
+}
+
+.contactsBlock {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contacts__Title {
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contact__item {
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact__item input {
+    width: 100%
+}

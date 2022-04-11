@@ -40,21 +40,25 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
     render() {
         return (
             <div>
-                {!this.state.editMode &&
-                <div className={style.statusText}>
-                    <h3>Status: </h3> <span onDoubleClick={this.activateEditMode}>{ this.props.status || "------"}
-                    <span>&nbsp;✎</span></span>
-                </div>}
-                {this.state.editMode &&
-                <div>
-                    <h3>Status:</h3>
-                    <input
-                        onChange={this.onStatusChange}
-                        autoFocus
-                        value={this.state.status}
-                        onBlur={this.deactivateEditMode}
-                    />
-                </div>}
+                {
+                    !this.state.editMode
+                    && <div className={style.statusText}>
+                        <h3>Status: </h3> <span  className={style.status__text} onDoubleClick={this.activateEditMode}>{this.props.status || "------"}
+                        <span className={style.status__pencil}>&nbsp;✎</span></span>
+                    </div>
+                }
+                {
+                    this.state.editMode
+                    && <div className={style.activeInput}>
+                        <h3>Status:</h3>
+                        <input
+                            onChange={this.onStatusChange}
+                            autoFocus
+                            value={this.state.status}
+                            onBlur={this.deactivateEditMode}
+                        />
+                    </div>
+                }
             </div>
         )
     }

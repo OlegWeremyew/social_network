@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import style from "./ProfileInfo.module.css"
+
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
 import {Preloader} from "../../../../common/Preloader/Preloader";
@@ -36,23 +37,38 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
                     <img
                         className={style.mainPhoto}
                         alt='main avatar'
-                        src={profile && (profile.photos.large !== null) ? profile.photos.large : avatarDefault}/>
-                    {
-                        isOwner && <input type={"file"} onChange={(e) => onMainPhotoSelected(e)}/>
-                    }
+                        src={
+                            profile
+                            && (profile.photos.large !== null)
+                                ? profile.photos.large
+                                : avatarDefault
+                        }
+                    />
                 </div>
-                <ProfileEdit
-                    editMode={editMode}
-                    profile={profile}
-                    onSubmit={onSubmit}
-                    isOwner={isOwner}
-                    setEditModeHandler={setEditModeHandler}
-                />
-                <ProfileStatus
-                    status={status}
-                    updateUserStatus={updateUserStatus}
-                />
+                <div  className={style.profile__inner}>
+                    <ProfileStatus
+                        status={status}
+                        updateUserStatus={updateUserStatus}
+                    />
+                    <div className={style.addedPhoto__btn}>
+                        {
+                            isOwner
+                            && <input
+                                type={"file"}
+                                onChange={(e) => onMainPhotoSelected(e)}
+                            />
+                        }
+                    </div>
+                </div>
             </div>
+            <hr/>
+            <ProfileEdit
+                editMode={editMode}
+                profile={profile}
+                onSubmit={onSubmit}
+                isOwner={isOwner}
+                setEditModeHandler={setEditModeHandler}
+            />
         </div>
     )
 }

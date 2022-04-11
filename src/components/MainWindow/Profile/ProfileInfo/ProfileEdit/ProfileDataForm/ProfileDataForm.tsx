@@ -1,13 +1,17 @@
 import React, {FC} from "react";
+import style from './ProfileDataForm.module.css'
+
 import {ProfileType} from "../../../../../../redux/profileReducer";
 import {Preloader} from "../../../../../../common/Preloader/Preloader";
 import {createField, Input, Textarea} from "../../../../../../common/FormsControls/FormsControls";
 import {InjectedFormProps, reduxForm} from "redux-form";
 
+
 const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType> = ({
                                                                                                                       profile,
                                                                                                                       handleSubmit,
-                                                                                                                      error
+                                                                                                                      error,
+
                                                                                                                   }) => {
 
     if (!profile) {
@@ -15,38 +19,39 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form className={style.formContainer} onSubmit={handleSubmit}>
+            <div className={style.saveEdit__btn}>
                 <button>Save</button>
                 {error && <div>{error}</div>}
             </div>
-            <div>
-                <b>Full name</b>:
+            <div className={style.formBlock}>
+                <span>Full name</span> :
                 {createField("Full name", "fullname", [], Input, {type: "text"}, "")}
             </div>
-            <div>
-                <b>Looking for a job</b>:
+            <div className={style.formBlock}>
+                <span>Looking for a job</span>:
                 {createField("", "lookingForAJob", [], Input, {type: "checkbox"}, "")}
             </div>
-            <div>
-                <b>My professional skills</b>:
+            <div className={style.formBlock}>
+                <span>My professional skills</span>:
                 {createField("My professional skills", "lookingForAJobDescription", [], Textarea, {type: "textarea"}, "")}
             </div>
-            <div>
-                <b>About me</b>:
+            <div className={style.formBlock}>
+                <span>About me</span> :
                 {createField("About me", "aboutMe", [], Textarea, {type: "textarea"}, "")}
             </div>
             <div>
-                <b>Contacts</b>: {
+                <span className={style.contacts__Title}>Contacts:</span> <div  className={style.contactsBlock}>{
                 Object
                     .keys(profile.contacts)
                     .map(key => {
                         return (
-                            <div key={key}>
-                                <b>{key} :{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</b>
+                            <div className={style.contact__item} key={key}>
+                                <b>{key}:{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</b>
                             </div>
                         )
                     })}
+            </div>
             </div>
         </form>
     )
@@ -59,4 +64,5 @@ export default ProfileDataFormReduxForm
 //types======
 export type ProfileDataFormPropsType = {
     profile: ProfileType
+    goToEditMode?: () => void
 }

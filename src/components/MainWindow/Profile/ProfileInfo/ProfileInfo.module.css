@@ -1,25 +1,37 @@
-.ground {
+.profile {
     width: 100%;
-    height: 400px;
-    padding-top: 0;
 }
 
-.ava {
-    padding: 10px;
+.avatarBlock {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 250px;
 }
-
 
 .avatar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-left: 15px;
     padding-top: 15px;
 }
 
 .mainPhoto {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 200px;
+    max-height: 200px;
     border-radius: 50%;
+    border: 5px solid #601313;
 }
 
-.contacts {
-    padding-left: 15px;
+.profile__inner {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.addedPhoto__btn {
+    margin-top: 30px;
 }

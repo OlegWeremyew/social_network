@@ -2,6 +2,7 @@ import {Preloader} from "../../../../../../common/Preloader/Preloader";
 import {ContactsType, ProfileType} from "../../../../../../redux/profileReducer";
 import React from "react";
 import Contact from "./Contact/Contact";
+import style from "./ProfileData.module.css";
 
 const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => {
 
@@ -14,8 +15,8 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
             <div>
                 {
                     isOwner &&
-                    <div>
-                        <button onClick={goToEditMode}>Edit</button>
+                    <div  className={style.activateEdit__btn}  onClick={goToEditMode}>
+                        <button>Edit</button>
                     </div>
                 }
                 <div>
