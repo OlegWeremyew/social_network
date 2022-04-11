@@ -1,5 +1,6 @@
 .nav {
-    grid-area: n;
+    display: flex;
+    justify-content: space-between;
     background-color: #c9c9c9;
     padding: 15px;
     border: solid thin;
@@ -14,7 +15,7 @@
     font-size: 18px;
 }
 
-.item a{
+.item a {
     padding-left: 10px;
     color: #211d1c;
     text-decoration: none;

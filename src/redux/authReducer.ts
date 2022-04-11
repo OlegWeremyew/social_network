@@ -86,7 +86,7 @@ export const getCaptchaUrl = (): ThunkType => async (dispatch) => {
     dispatch(AuthActions.getCaptchaUrlSuccess(captchaUrl))
 }
 
-export const logout = (): ThunkType => async (dispatch: Dispatch<ActionAuthReducerType>) => {
+export const logout = (): ThunkType => async (dispatch) => {
     const logoutData = await authApi.logout()
     if (logoutData.resultCode === ResultCodesEnum.Success) {
         dispatch(AuthActions.setAuthUserData(null, null, null, false))

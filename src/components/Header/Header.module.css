@@ -1,17 +1,93 @@
 .header {
-    grid-area: h;
-    background-color: #c9c9c9;
-    border: solid thin;
-}
-
-.header img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
     height: 60px;
+    background-color: #601313;
+    padding: 10px 5px;
 }
 
-.loginBlock {
-    float: right;
+.header__logo {
+    width: 50px;
+    height: 50px;
 }
 
-.loginBlock a {
-    color: red;
+.header__logo:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.header__loginBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 5px;
+    color: #fff;
+}
+
+.login__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 360px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+
+    border-right: 3px solid #fff;
+    padding-right: 15px;
+    min-height: 60px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 24px;
+}
+
+.location:hover, .login__userName:hover {
+    color: #d2b438;
+    cursor: pointer;
+}
+
+.login__information {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+}
+
+.login__avatarPhoto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.login__avatarPhoto:hover {
+    border: 3px solid #d2b438;
+}
+
+.login__userName {
+    font-size: 24px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.login__exitBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.login__exitBlock:hover {
+    border-radius: 50%;
+    background-color: #a99340;
+    opacity: .6;
+}
+
+.exitIcon {
+    width: 30px;
+    cursor: pointer;
 }

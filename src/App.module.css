@@ -1,15 +1,11 @@
 .appContent {
-    display: grid;
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
-    grid-template-areas: "h h" "n p" "f f";
-    width: 1200px;
-    margin: 0px auto;
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .appContentWindow {
-    background-color: #c9c9c9;
-    border: solid thin;
+    background-color: #c06666;
 }
