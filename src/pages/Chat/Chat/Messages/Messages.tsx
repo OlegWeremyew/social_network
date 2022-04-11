@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Message} from "./Message/Message";
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../../../redux/reduxStore";
-import {ChatMessageType} from "../../ChatPage";
+import {ChatMessageType} from "../../../../redux/chatReducer";
 
 export const Messages: React.FC = () => {
 
@@ -31,10 +31,10 @@ export const Messages: React.FC = () => {
             onScroll={scrollHandler}
         >
             {
-                messages.map((message) => {
+                messages.map((message, index) => {
                     return (
                         <Message
-                            key={message.userId}
+                            key={message.id}
                             message={message}
                         />
                     )

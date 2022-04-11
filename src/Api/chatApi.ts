@@ -1,5 +1,5 @@
 import {Nullable} from "../types/Nullable";
-import {ChatMessageType} from "../pages/Chat/ChatPage";
+import {ChatMessageType} from "../redux/chatReducer";
 
 const subscribers = {
     'messages-received': [] as MessagesReceivedSubscriberType[],

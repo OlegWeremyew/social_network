@@ -1,7 +1,8 @@
 import {chatApi, ReadyStatusType} from "../Api/chatApi";
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
-import {ChatMessageType} from "../pages/Chat/ChatPage";
+import {ChatMessageAPIType} from "../pages/Chat/ChatPage";
 import {Dispatch} from "redux";
+import {v1} from "uuid";
 
 export enum ChatReducerEnum {
     MESSAGES_RECEIVED = "SOCIAL_NETWORK/CHAT/MESSAGES_RECEIVED",
@@ -18,7 +19,7 @@ export const chatReducer = (state: initialStateType = initialState, action: Acti
         case  ChatReducerEnum.MESSAGES_RECEIVED : {
             return {
                 ...state,
-                messages: [...state.messages, ...action.payload.messages]
+                messages: [...state.messages,  ...action.payload.messages.map( m => ({...m, id: v1() }))]
                     .filter((message, index, array) => index >= array.length - 100)
             }
         }
@@ -99,3 +100,5 @@ type ThunkType = BaseThunkType<ActionChatTypes>
 type initialStateType = typeof initialState
 
 export type ActionChatTypes = InferActionTypes<typeof chatActions>
+
+export type ChatMessageType = ChatMessageAPIType & {id: string}

@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './App.module.css';
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 import {AppStateType, store} from "./redux/reduxStore";
 
@@ -39,6 +39,7 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                 <div className={style.appContentWindow}>
                     <Routes>
                         <Route path="/" element={<Navigate to="profile"/>}/>
+
                         <Route path="/profile/" element={<ProfileContainer/>}>
                             <Route path=":userId" element={<ProfileContainer/>}/>
                         </Route>
@@ -52,8 +53,8 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                         <Route path="/music/*" element={<Music/>}/>
                         <Route path="/settings/*" element={<Settings/>}/>
                         <Route path="/friends/*" element={<Friends/>}/>
-                        <Route path="/login" element={<Login/>}/>
-                        <Route path="/chat" element={<ChatPage/>}/>
+                        <Route path="/login/*" element={<Login/>}/>
+                        <Route path="/chat/*" element={<ChatPage/>}/>
                         <Route path="*" element={<PageNotFound/>}/>
                     </Routes>
                 </div>
@@ -74,11 +75,11 @@ const AppContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, Ap
 export const MainApp = () => {
     return (
         <React.Suspense fallback={<div>Loading...</div>}>
-            <BrowserRouter>
+            <HashRouter>
                 <Provider store={store}>
                     <AppContainer/>
                 </Provider>
-            </BrowserRouter>
+            </HashRouter>
         </React.Suspense>
     )
 }

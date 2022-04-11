@@ -65,7 +65,7 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
 
 export const MessageActions = {
     addMessage : (newMessageText: string) => {
-        return {type: UserReducerEnum.ADD_MESSAGE, payload: {newMessageText,}} as const
+        return {type: UserReducerEnum.ADD_MESSAGE, payload: {newMessageText}} as const
     }
 }
 

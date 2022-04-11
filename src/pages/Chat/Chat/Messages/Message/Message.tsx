@@ -1,5 +1,5 @@
 import React from 'react';
-import {ChatMessageType} from "../../../ChatPage";
+import {ChatMessageType} from "../../../../../redux/chatReducer";
 
 export const Message: React.FC<MessageType> = React.memo(({message}) => {
         return (

@@ -7,7 +7,7 @@ export const getUsersSelector = (state: AppStateType) => {
 }
 
 export const getUsers = createSelector(getUsersSelector, (users: UserType[]) => {
-    return users.filter(u => true)
+    return users.filter(user => true)
 })
 
 export const getPageSize = (state: AppStateType) => {

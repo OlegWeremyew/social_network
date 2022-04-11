@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Messages} from "./Messages/Messages";
 import {AddMessageForm} from "./AddMessageForm/AddMessageForm";
 import {startMessagesListening, stopMessagesListening} from "../../../redux/chatReducer";

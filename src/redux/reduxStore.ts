@@ -4,10 +4,10 @@ import {messagesReducer} from "./messagesReducer";
 import {sidebarReducer} from "./sidebarPageReducer";
 import {usersReducer} from "./usersReducer";
 import {authReducer} from "./authReducer";
-import thunkMiddleware, {ThunkAction} from "redux-thunk"
-import {reducer as formReducer} from "redux-form"
 import {appReducer} from "./AppReducer";
 import {chatReducer} from "./chatReducer";
+import thunkMiddleware, {ThunkAction} from "redux-thunk"
+import {reducer as formReducer} from "redux-form"
 
 export const rootReducer = combineReducers({
     profilePage: profileReducer,
