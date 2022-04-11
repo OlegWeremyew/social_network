@@ -19,6 +19,7 @@ export const chatReducer = (state: initialStateType = initialState, action: Acti
             return {
                 ...state,
                 messages: [...state.messages, ...action.payload.messages]
+                    .filter((message, index, array) => index >= array.length - 100)
             }
         }
         case  ChatReducerEnum.STATUS_CHANGED : {
@@ -98,4 +99,3 @@ type ThunkType = BaseThunkType<ActionChatTypes>
 type initialStateType = typeof initialState
 
 export type ActionChatTypes = InferActionTypes<typeof chatActions>
-

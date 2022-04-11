@@ -1,5 +1,5 @@
-import {ChatMessageType} from "../pages/Chat/ChatPage";
 import {Nullable} from "../types/Nullable";
+import {ChatMessageType} from "../pages/Chat/ChatPage";
 
 const subscribers = {
     'messages-received': [] as MessagesReceivedSubscriberType[],

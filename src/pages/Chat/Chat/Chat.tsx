@@ -23,13 +23,12 @@ export const Chat: React.FC = () => {
         <>
             {
                 status === 'error'
-                    ? <div>Some error occurred. Please refresh this page</div>
-                    : <>
-                        <Messages/>
-                        <AddMessageForm/>
-                    </>
+                && <div>Some error occurred. Please refresh this page</div>
             }
-
+            <>
+                <Messages/>
+                <AddMessageForm/>
+            </>
         </>
     )
 }
