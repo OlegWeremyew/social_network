@@ -1,13 +1,16 @@
 import React from 'react';
+import style from "../../common/FormsControls/FormsControls.module.css"
+import s from "./Login.module.css"
+
 import {InjectedFormProps, reduxForm} from "redux-form";
 import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
-import style from "../../common/FormsControls/FormsControls.module.css"
 import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
 import {login} from "../../redux/authReducer";
+
 
 const Login: React.FC = () => {
 
@@ -26,8 +29,8 @@ const Login: React.FC = () => {
     }
 
     return (
-        <div>
-            <h1>LOGIN</h1>
+        <div className={s.login__block}>
+            <h1 className={s.login__title}>LOGIN</h1>
             <LoginReduxForm
                 onSubmit={onSubmit}
                 captchaUrl={captchaUrl}
@@ -35,7 +38,7 @@ const Login: React.FC = () => {
         </div>
     )
 }
-export  default Login
+export default Login
 
 const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & LoginFormOwnProps> = ({
                                                                                                          handleSubmit,
@@ -44,16 +47,22 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
                                                                                                      }) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField<LoginFormValuesKeysType>("Email", "email", [required], Input, {type: "text"})}
-            {createField<LoginFormValuesKeysType>("Password", "password", [required], Input, {type: "password"})}
-            {createField<LoginFormValuesKeysType>(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
+            <div className={s.input__form}>
+                {createField<LoginFormValuesKeysType>("Email", "email", [required], Input, {type: "text"})}
+            </div>
+            <div className={s.input__form}>
+                {createField<LoginFormValuesKeysType>("Password", "password", [required], Input, {type: "password"})}
+            </div>
+            <div className={s.checkbox__form}>
+                {createField<LoginFormValuesKeysType>(null, "rememberMe", [], Input, {type: "checkbox"}, "Remember me")}
+            </div>
 
             {captchaUrl && <img src={captchaUrl} alt='captchaUrl'/>}
             {error && <div className={style.formSummaryError}>{error}</div>}
 
             {captchaUrl && createField<LoginFormValuesKeysType>('Symbols from image', 'captcha', [required], Input, {type: "text"})}
             {captchaUrl && <button type={'submit'}>Get Started</button>}
-            <div>
+            <div className={s.form__btn}>
                 <button>Login</button>
             </div>
         </form>

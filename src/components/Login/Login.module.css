@@ -1,0 +1,58 @@
+.login__block {
+    width: 100%;
+}
+
+.login__title {
+    font-size: 60px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input__form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.input__form input {
+    width: 60%;
+    height: 25px;
+    margin-bottom: 3px;
+    border-radius: 4px;
+}
+
+.checkbox__form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.checkbox__form input {
+    height: 15px;
+    margin-bottom: 3px;
+}
+
+.form__btn {
+    display: flex;
+    justify-content: center;
+
+    margin: 10px auto;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #601313;
+}
+
+.form__btn:hover {
+    opacity: .9;
+    color: #fff;
+}
+
+.form__btn button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+

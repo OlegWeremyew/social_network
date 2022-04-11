@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
 import {logout} from "../../redux/authReducer";
 import avatarDefault from '../../assets/images/user.png'
+import loginImage from "../../assets/images/login/login.png"
 
 const Header = () => {
 
@@ -31,28 +32,32 @@ const Header = () => {
             <div className={style.header__loginBlock}>
                 {
                     isAuth
-                        ? <div className={style.login__item}>
-                            <div className={style.location}>
-                                {HeaderView()}
-                            </div>
-                            <div className={style.login__information}>
-                                <img
-                                    className={style.login__avatarPhoto}
-                                    alt='avatar'
-                                    src={userAvatar ? userAvatar : avatarDefault}/>
-                                <div className={style.login__userName}>
-                                    {login}
+                        ? (
+                            <div className={style.login__item}>
+                                <div className={style.location}>
+                                    {HeaderView()}
                                 </div>
-                                <div  className={style.login__exitBlock}>
-                                    <img onClick={logoutHandler} className={style.exitIcon} src={exit} alt="exit"/>
+                                <div className={style.login__information}>
+                                    <img
+                                        className={style.login__avatarPhoto}
+                                        alt='avatar'
+                                        src={userAvatar ? userAvatar : avatarDefault}/>
+                                    <div className={style.login__userName}>
+                                        {login}
+                                    </div>
+                                    <div className={style.login__exitBlock}>
+                                        <img onClick={logoutHandler} className={style.exitIcon} src={exit} alt="exit"
+                                             title="exit"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        : <NavLink to={'/login'}>
-                            <div>
-                                Login
-                            </div>
-                        </NavLink>
+                        ) : (
+                            <NavLink to={'/login'}>
+                                <div className={style.login__btn}>
+                                    <img className={style.login__image} src={loginImage} alt="login" title="login"/>
+                                </div>
+                            </NavLink>
+                        )
                 }
             </div>
         </header>

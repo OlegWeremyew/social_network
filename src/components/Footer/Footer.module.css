@@ -1,7 +1,21 @@
 .footer {
-    grid-area: f;
-    background-color: #c9c9c9;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    height: 60px;
+    background-color: #601313;
+    padding: 10px 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.copyright__text {
     text-align: center;
-    border: solid thin;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+.copyright__text .copyright__header {
+    color: #d32828;
 }

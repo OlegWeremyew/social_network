@@ -1,5 +1,12 @@
+.notFound__page {
+    display: flex;
+    justify-content: center;
+}
+
 .style {
-    font-size: 30px;
+    position: absolute;
+    z-index: 1;
+    font-size: 45px;
     color: black;
     font-weight: 700;
 }

@@ -6,6 +6,7 @@
     height: 60px;
     background-color: #601313;
     padding: 10px 5px;
+    border-radius: 0 0 5px 5px;
 }
 
 .header__logo {
@@ -90,4 +91,25 @@
 .exitIcon {
     width: 30px;
     cursor: pointer;
+}
+
+.login__btn {
+    display: flex;
+    align-items: center;
+
+    color: #fff;
+    text-decoration: none;
+    padding-right: 15px;
+    width: 50px;
+    height: 50px;
+}
+
+
+.login__image {
+    width: 45px;
+    height: 45px;
+}
+
+.login__image:hover {
+    opacity: .75;
 }
