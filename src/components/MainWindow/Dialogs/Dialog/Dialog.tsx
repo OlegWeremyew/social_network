@@ -6,7 +6,7 @@ const Dialog = (props: MessageType) => {
 
     return (
         <div className={c.message}>{props.message}</div>
-    );
-};
+    )
+}
 
 export default Dialog;

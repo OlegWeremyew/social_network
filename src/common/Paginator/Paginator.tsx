@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Paginator.module.css"
 import cn from 'classnames'
+import style from "../../components/MainWindow/Users/User/User.module.css";
 
 export const Paginator: React.FC<UsersPropsType> = ({
                                                         totalItemsCount,
@@ -27,26 +28,41 @@ export const Paginator: React.FC<UsersPropsType> = ({
 
     return (
         <div className={cn(styles.paginator)}>
-            {portionNumber > 1 &&
-            <button onClick={() => setPortionNumber(portionNumber - 1)}>
-                PREV
-            </button>}
-            {pages
-                .filter(p => (p >= leftPortionPageNumber) && (p <= rightPortionPageNumber))
-                .map(p => {
-                    return (
-                        <span className={cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber)}
-                              key={p}
-                              onClick={() => onPageChanged(p)}>
+            <div>
+                {
+                    portionNumber > 1
+                    && <div className={style.user__btn}>
+                        <button onClick={() => setPortionNumber(portionNumber - 1)}>
+                            PREV
+                        </button>
+                    </div>
+                }
+            </div>
+            <div>
+                {
+                    pages
+                        .filter(p => (p >= leftPortionPageNumber) && (p <= rightPortionPageNumber))
+                        .map(p => {
+                            return (
+                                <span className={cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber)}
+                                      key={p}
+                                      onClick={() => onPageChanged(p)}>
                             {p}
                         </span>
-                    )
-                })}
-            {portionCount > portionNumber &&
-            <button onClick={() => setPortionNumber(portionNumber + 1)
-            }>
-                NEXT
-            </button>}
+                            )
+                        })
+                }
+            </div>
+            <div>
+                {
+                    portionCount > portionNumber
+                    && <div className={style.user__btn}>
+                        <button onClick={() => setPortionNumber(portionNumber + 1)}>
+                            NEXT
+                        </button>
+                    </div>
+                }
+            </div>
         </div>
     )
 }

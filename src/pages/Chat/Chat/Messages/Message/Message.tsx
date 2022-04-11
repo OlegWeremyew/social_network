@@ -1,13 +1,24 @@
 import React from 'react';
+import style from './Message.module.css'
 import {ChatMessageType} from "../../../../../redux/chatReducer";
 
 export const Message: React.FC<MessageType> = React.memo(({message}) => {
         return (
-            <div>
-                <img style={{width: "30px"}} src={message.photo} alt="avatar"/> <b>{message.userName}</b> <br/>
-                {message.message}
+            <>
+                <div className={style.message}>
+                    <div className={style.message__item}>
+                        <img className={style.message__img} src={message.photo} alt="avatar"/>
+                        <div  className={style.message__userName}>
+                            {message.userName}
+                        </div>
+                        <br/>
+                    </div>
+                    <div  className={style.message__text}>
+                        {message.message}
+                    </div>
+                </div>
                 <hr/>
-            </div>
+            </>
         )
     }
 )

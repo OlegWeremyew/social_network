@@ -12,7 +12,6 @@ const UsersPage: React.FC = () => {
 
     return (
         <>
-            <h2>Users</h2>
             {isFetching ? <Preloader/> : null}
             <Users/>
         </>

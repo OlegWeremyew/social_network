@@ -1,4 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
+import style from './Messages.module.css'
+
 import {Message} from "./Message/Message";
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../../../redux/reduxStore";
@@ -11,12 +13,15 @@ export const Messages: React.FC = () => {
     const [isAutoScroll, setIsAutoScroll] = useState<boolean>(false)
 
     const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
+
         const element = e.currentTarget
+
         if (Math.abs(element.scrollHeight - element.scrollTop) - element.clientHeight < 300) {
             !isAutoScroll && setIsAutoScroll(true)
         } else {
             isAutoScroll && setIsAutoScroll(false)
         }
+
     }
 
     useEffect(() => {
@@ -26,12 +31,9 @@ export const Messages: React.FC = () => {
     }, [messages])
 
     return (
-        <div
-            style={{height: "400px", overflowY: 'auto'}}
-            onScroll={scrollHandler}
-        >
+        <div className={style.chat__item} onScroll={scrollHandler}>
             {
-                messages.map((message, index) => {
+                messages.map((message) => {
                     return (
                         <Message
                             key={message.id}
@@ -41,7 +43,6 @@ export const Messages: React.FC = () => {
                 })
             }
             <div ref={messagesAnchorRef}>
-
             </div>
         </div>
     )

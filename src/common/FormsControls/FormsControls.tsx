@@ -1,7 +1,9 @@
 import React, {ComponentType} from 'react';
 import styles from './FormsControls.module.css'
+
 import {Field, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
 import {Validator} from "redux-form/lib/Field";
+import {Nullable} from "../../types/Nullable";
 
 const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, error}, children}) => {
 
@@ -38,7 +40,7 @@ export const Input: React.FC<WrappedFieldProps> = (props) => {
     )
 }
 
-export function createField<T extends string>(placeholder: string | null, name: T, validators: Validator | Validator[], component: componentType, props: { type: string }, text?: string) {
+export function createField<T extends string>(placeholder: Nullable<string>, name: T, validators: Validator | Validator[], component: componentType, props: { type: string }, text?: string) {
     return (
         <div>
             <Field

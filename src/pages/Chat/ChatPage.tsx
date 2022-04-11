@@ -1,12 +1,12 @@
 import React from 'react';
 import {Chat} from "./Chat/Chat";
-
-
+import style from './ChatPage.module.css'
 
 const ChatPage: React.FC = () => {
     return (
-        <div>
-            <Chat />
+        <div className={style.chatPageBlock}>
+            <div  className={style.chatPage__title}>Common chat</div>
+            <Chat/>
         </div>
     )
 }

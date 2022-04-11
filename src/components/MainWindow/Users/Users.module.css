@@ -1,4 +1,13 @@
-.userPhoto {
-    width: 100px;
-    height: 100px;
+.users {
+    width: 80%;
+    text-align: center;
+}
+
+.searchResult {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 10px;
 }

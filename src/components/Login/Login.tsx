@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 
     return (
         <div className={s.login__block}>
-            <h1 className={s.login__title}>LOGIN</h1>
+            <h1 className={s.login__title}>Login</h1>
             <LoginReduxForm
                 onSubmit={onSubmit}
                 captchaUrl={captchaUrl}

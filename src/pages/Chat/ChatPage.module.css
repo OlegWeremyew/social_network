@@ -1,0 +1,12 @@
+.chatPageBlock {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chatPage__title {
+    font-size: 60px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    margin-bottom: 30px;
+}

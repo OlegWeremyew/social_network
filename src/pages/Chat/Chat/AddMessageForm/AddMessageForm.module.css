@@ -1,0 +1,33 @@
+.form__btn {
+    display: flex;
+    justify-content: center;
+
+    margin: 10px auto 30px;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #601313;
+}
+
+.form__btn:hover {
+    opacity: .9;
+    color: #fff;
+}
+
+.form__btn button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.textarea {
+    display: flex;
+    width: 100%;
+
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+}

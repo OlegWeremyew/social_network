@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
+import style from './Users.module.css'
+
 import {FilterType, requestUsers, UserType} from "../../../redux/usersReducer";
 import {Paginator} from "../../../common/Paginator/Paginator";
-import {User} from "./User";
+import {User} from "./User/User";
 import {UsersSearchForm} from "./UsersSearchForm/UsersSearchForm";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
@@ -75,29 +77,31 @@ export const Users: React.FC = () => {
     }, [filter, currentPage])
 
     return (
-        <div>
+        <div className={style.users}>
             <UsersSearchForm
                 onFilterChanged={onFilterChanged}
             />
+            <div  className={style.searchResult}>
+                {
+                    users.map(user => {
+                            return (
+                                <div key={user.id}>
+                                    <User
+                                        user={user}
+                                        followingInProgress={followingInProgress}
+                                    />
+                                </div>
+                            )
+                        }
+                    )
+                }
+            </div>
             <Paginator
                 totalItemsCount={totalUsersCount}
                 pageSize={pageSize}
                 currentPage={currentPage}
                 onPageChanged={onPageChanged}
             />
-            {
-                users.map(user => {
-                        return (
-                            <div key={user.id}>
-                                <User
-                                    user={user}
-                                    followingInProgress={followingInProgress}
-                                />
-                            </div>
-                        )
-                    }
-                )
-            }
         </div>
     )
 }

@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import style from './AddMessageForm.module.css'
+
 import {useDispatch, useSelector} from "react-redux";
 import {sendMessage} from "../../../../redux/chatReducer";
 import {AppStateType} from "../../../../redux/reduxStore";
@@ -25,16 +27,19 @@ export const AddMessageForm: React.FC = () => {
     return (
         <div>
             <textarea
+                className={style.textarea}
                 placeholder={"write your message"}
                 value={message}
                 onChange={(e) => addMessageText(e.currentTarget.value)}
             />
-            <button
-                onClick={sendMessageHandler}
-                disabled={status !== 'ready'}
-            >
-                Send
-            </button>
+            <div className={style.form__btn}>
+                <button
+                    onClick={sendMessageHandler}
+                    disabled={status !== 'ready'}
+                >
+                    Send
+                </button>
+            </div>
         </div>
     )
 }

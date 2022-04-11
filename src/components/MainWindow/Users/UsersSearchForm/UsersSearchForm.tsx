@@ -1,9 +1,12 @@
-import {Form, Formik, Field} from "formik";
 import React from "react";
+import {Form, Formik, Field} from "formik";
+import style from './UsersSearchForm.module.css'
+
 import {FilterType} from "../../../../redux/usersReducer";
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../../../redux/reduxStore";
 import {getUsersFilter} from "../../../../redux/usersSelectors";
+import s from "../../../Login/Login.module.css";
 
 const usersSearchFormValidate = (values: any) => {
     const errors = {}
@@ -24,25 +27,34 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo(({onFilterChanged
     }
 
     return (
-        <div>
+        <div className={style.search}>
             <Formik
                 enableReinitialize
-                initialValues={{term: filter.term , friend: String(filter.friend) as FriendFormType}}
+                initialValues={{term: filter.term, friend: String(filter.friend) as FriendFormType}}
                 validate={usersSearchFormValidate}
                 onSubmit={submit}
             >
                 {
                     ({isSubmitting}) => (
-                        <Form>
-                            <Field type="text" name="term"/>
-                            <Field name="friend" as="select">
-                                <option value="null">All</option>
-                                <option value="true">Only followed</option>
-                                <option value="false">Only unfollowed</option>
-                            </Field>
-                            <button type="submit" disabled={isSubmitting}>
-                                Find
-                            </button>
+                        <Form className={style.searchForm}>
+                            <div className={style.searchForm__block}>
+                                <Field
+                                    className={style.searchForm__item__input}
+                                    type="text"
+                                    name="term"
+                                    placeholder="write user name"
+                                />
+                                <Field className={style.searchForm__item__select} name="friend" as="select">
+                                    <option value="null">All</option>
+                                    <option value="true">Only followed</option>
+                                    <option value="false">Only unfollowed</option>
+                                </Field>
+                            </div>
+                            <div className={s.form__btn}>
+                                <button type="submit" disabled={isSubmitting}>
+                                    Find
+                                </button>
+                            </div>
                         </Form>
                     )
                 }

@@ -18,7 +18,7 @@ export enum UserReducerEnum {
 
 const initialState: initialStateType = {
     users: [] as UserType[],
-    pageSize: 5,
+    pageSize: 9,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,

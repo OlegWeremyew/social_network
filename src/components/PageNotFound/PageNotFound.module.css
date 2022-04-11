@@ -4,8 +4,6 @@
 }
 
 .style {
-    position: absolute;
-    z-index: 1;
     font-size: 45px;
     color: black;
     font-weight: 700;
