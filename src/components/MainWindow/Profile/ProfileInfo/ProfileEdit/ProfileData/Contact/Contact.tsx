@@ -1,10 +1,17 @@
 import React, {FC} from "react";
-import style from "../../../ProfileInfo.module.css";
+import style from "./Contact.module.css";
 
 const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
     return (
         <div className={style.formBlock}>
-            <b>{contactTitle} : </b> {contactValue ? <span>{contactValue}</span> : "Information is not provided"}
+            <b>
+                 <a href={contactValue ? contactValue : ''}>{contactTitle}</a>:
+            </b>
+            {
+                contactValue ?
+                    <span>{contactValue}</span>
+                    : "Information is not provided"
+            }
         </div>
     )
 }

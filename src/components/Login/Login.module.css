@@ -3,10 +3,16 @@
 }
 
 .login__title {
-    font-size: 60px;
-    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Luckiest Guy', cursive;
     text-align: center;
     margin-bottom: 20px;
+}
+
+.login__title:hover {
+    color: #fff;
+    text-shadow: 3px 2px 0 #030303;
 }
 
 .input__form {

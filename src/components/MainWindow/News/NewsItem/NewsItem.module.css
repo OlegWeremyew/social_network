@@ -1,0 +1,38 @@
+.newsBlock__item {
+    display: flex;
+    width: 90%;
+    background-color: #250202;
+    text-align: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.newsBlock__itemBlock {
+    width: 50%;
+    min-width: 100px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    padding: 20px 15px 0;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: #e8b564;
+}
+
+.main__title {
+    font-size: 24px;
+    padding-bottom: 20px;
+    font-weight: 700;
+}
+
+.main__text {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+}

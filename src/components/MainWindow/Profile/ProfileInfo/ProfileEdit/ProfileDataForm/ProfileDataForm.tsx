@@ -20,10 +20,6 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
 
     return (
         <form className={style.formContainer} onSubmit={handleSubmit}>
-            <div className={style.saveEdit__btn}>
-                <button>Save</button>
-                {error && <div>{error}</div>}
-            </div>
             <div className={style.formBlock}>
                 <span>Full name</span> :
                 {createField("Full name", "fullname", [], Input, {type: "text"}, "")}
@@ -55,6 +51,10 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
                             })
                     }
                 </div>
+            </div>
+            <div className={style.saveEdit__btn}>
+                <button>Save</button>
+                {error && <div>{error}</div>}
             </div>
         </form>
     )

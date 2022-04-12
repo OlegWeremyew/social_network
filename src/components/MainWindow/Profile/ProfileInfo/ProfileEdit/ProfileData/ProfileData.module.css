@@ -33,6 +33,7 @@
 
 .contacts__container {
     margin-top: 20px;
+    text-align: center;
 }
 
 .contacts__Title {
@@ -46,8 +47,7 @@
 }
 
 .contacts__Title:hover {
-    color: #fff;
-    text-shadow: 3px 1px 1px #030303;
+    color: #333;
 }
 
 .contact__item {
@@ -75,4 +75,15 @@
 .contactsBlock__item {
     width: 50%;
     margin-bottom: 20px;
+    display: flex;
+    font-size: 18px;
+}
+
+.formBlock b {
+    min-width: 180px;
+}
+
+.contacts__text {
+    padding-bottom: 20px;
+    font-size: 18px;
 }

@@ -12,6 +12,5 @@
 }
 
 .chatPage__title:hover {
-    color: #fff;
-    text-shadow: 3px 2px 0 #030303;
+    color: #333;
 }
