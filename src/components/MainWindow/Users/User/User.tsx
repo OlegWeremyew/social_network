@@ -4,6 +4,7 @@ import userImage from "../../../../assets/images/user.png";
 import {follow, unFollow, UserType} from "../../../../redux/usersReducer";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {PATH} from "../../../../common/RouterPath/RouterPath";
 
 export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
 
@@ -21,7 +22,7 @@ export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
         <div className={style.userBlock}>
             <div>
                 <div>
-                    <NavLink to={`/profile/${user.id}`}>
+                    <NavLink to={`${PATH.PROFILE}${user.id}`}>
                         <img
                             src={user.photos.small !== null ? user.photos.small : userImage}
                             className={style.userPhoto}

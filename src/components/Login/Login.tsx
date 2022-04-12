@@ -10,6 +10,7 @@ import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
 import {login} from "../../redux/authReducer";
+import {PATH} from "../../common/RouterPath/RouterPath";
 
 
 const Login: React.FC = () => {
@@ -25,7 +26,7 @@ const Login: React.FC = () => {
 
 
     if (isAuth) {
-        return <Navigate to={'/profile'}/>
+        return <Navigate to={PATH.PROFILE}/>
     }
 
     return (

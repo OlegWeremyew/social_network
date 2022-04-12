@@ -6,7 +6,12 @@
 }
 
 .chatPage__title {
-    font-size: 60px;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    margin-bottom: 30px;
+    font-size: 28px;
+    font-family: 'Luckiest Guy', cursive;
+    margin-bottom: 10px;
+}
+
+.chatPage__title:hover {
+    color: #fff;
+    text-shadow: 3px 2px 0 #030303;
 }

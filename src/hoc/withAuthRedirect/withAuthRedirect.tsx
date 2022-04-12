@@ -2,6 +2,7 @@ import React from "react";
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
+import {PATH} from "../../common/RouterPath/RouterPath";
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {
@@ -15,7 +16,7 @@ export function withAuthRedirect<T>(WrappedComponent: React.ComponentType<T>) {
         const {isAuth, ...restProps} = props
 
         if (!isAuth) {
-            return <Navigate to={'/login'}/>
+            return <Navigate to={PATH.LOGIN}/>
         }
         return <WrappedComponent {...restProps as T} />
     }

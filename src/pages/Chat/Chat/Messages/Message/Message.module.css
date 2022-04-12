@@ -5,6 +5,8 @@
     background-color: #dcb87e;
     padding: 10px;
     margin-bottom: 2px;
+    border: 3px outset;
+    border-radius: 10px;
 }
 
 .message__item {
@@ -16,11 +18,13 @@
 .message__userName {
     font-weight: 700;
     padding-top: 5px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
 }
 
 .message__img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     border: 2px solid #601313;
 }
@@ -30,5 +34,7 @@
     display: flex;
     justify-content: flex-start;
     padding-left: 15px;
-    font-size: 18px;
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
 }

@@ -21,7 +21,7 @@ class ProfileAPIContainer extends React.Component<ProfilePropsType> {
             userId = this.props.authorizedUserID;
             if (!userId) {
                 //@ts-ignore
-                this.props.history.push("/login")
+                this.props.history.push(PATH.LOGIN)
             }
         }
 

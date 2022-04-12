@@ -34,12 +34,12 @@ const initialState = {
         },
     ] as Array<UserType>,
     messages: [
-        {message: "Hi", id: 1},
-        {message: "Ho", id: 2},
-        {message: "He", id: 3},
-        {message: "Hu", id: 4},
-        {message: "Hio", id: 5},
-        {message: "Hia", id: 6},
+        {message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti, eos hic ipsam iusto officiis? Ea magnam quam quasi temporibus!", id: 1},
+        {message: "Lorem ipsum dolor sit amet, consectetur adipisicing", id: 2},
+        {message: "Atque deleniti, eos hic ipsam iusto officiis? Ea magnam quam quasi temporibus!", id: 3},
+        {message: "Lorem ipsum dolor sit amet? Ea magnam quam quasi temporibus!", id: 4},
+        {message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus!", id: 5},
+        {message: "Consectetur adipisicing elit. Atque deleniti, eos temporibus!", id: 6},
     ] as Array<MessageType>,
 }
 
@@ -62,7 +62,6 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
             return state
     }
 }
-
 export const MessageActions = {
     addMessage : (newMessageText: string) => {
         return {type: UserReducerEnum.ADD_MESSAGE, payload: {newMessageText}} as const

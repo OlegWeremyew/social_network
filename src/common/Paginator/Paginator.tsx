@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Paginator.module.css"
-import cn from 'classnames'
 import style from "../../components/MainWindow/Users/User/User.module.css";
+import cn from 'classnames'
 
 export const Paginator: React.FC<UsersPropsType> = ({
                                                         totalItemsCount,
@@ -41,13 +41,13 @@ export const Paginator: React.FC<UsersPropsType> = ({
             <div>
                 {
                     pages
-                        .filter(p => (p >= leftPortionPageNumber) && (p <= rightPortionPageNumber))
-                        .map(p => {
+                        .filter(page => (page >= leftPortionPageNumber) && (page <= rightPortionPageNumber))
+                        .map(page => {
                             return (
-                                <span className={cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber)}
-                                      key={p}
-                                      onClick={() => onPageChanged(p)}>
-                            {p}
+                                <span className={cn({[styles.selectedPage]: currentPage === page}, styles.pageNumber)}
+                                      key={page}
+                                      onClick={() => onPageChanged(page)}>
+                            {page}
                         </span>
                             )
                         })

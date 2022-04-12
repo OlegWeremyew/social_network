@@ -5,11 +5,16 @@ import {PostType} from "../../../../../redux/profileReducer";
 const Post = (props: PostType) => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
+    const [fingerUp, setFingerUp] = useState<boolean>(false)
 
     let heart = editMode ? style.active : ""
 
     const statusChangeHandler = () => {
         setEditMode(!editMode)
+    }
+
+    const fingerUpChangeHandler = () => {
+        setFingerUp(!fingerUp)
     }
 
     return (
@@ -21,12 +26,20 @@ const Post = (props: PostType) => {
             </div>
             <div className={style.itemText}>
                 {props.message}
-                <div>
+                <div className={style.activeBlock}>
                     <span className={style.likeCounter} onClick={statusChangeHandler}>
-                        like: {editMode ? props.likesCount + 1 : props.likesCount }
+                        like: {editMode ? props.likesCount + 1 : props.likesCount}
                         <span className={heart}>
                             &#9829;
                         </span>
+                    </span>
+                    <span className={style.likeCounter} onClick={fingerUpChangeHandler}>
+                        respect:
+                        {
+                            !fingerUp
+                                ? <span>&#128077;</span>
+                                : <span>&#128526;</span>
+                        }
                     </span>
                 </div>
             </div>

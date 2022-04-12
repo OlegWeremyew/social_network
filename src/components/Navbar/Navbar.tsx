@@ -38,27 +38,6 @@ const Navbar = () => {
                     <NavLink className={(navData) => navData.isActive ? c.activeLink : ""} to="/news">
                         <span className={c.nav__text}>
                         News
-                    </span>
-                    </NavLink>
-                </div>
-                <div className={c.item}>
-                    <NavLink className={(navData) => navData.isActive ? c.activeLink : ""} to="/music">
-                        <span className={c.nav__text}>
-                        Music
-                        </span>
-                    </NavLink>
-                </div>
-                <div className={c.item}>
-                    <NavLink className={(navData) => navData.isActive ? c.activeLink : ""} to="/settings">
-                        <span className={c.nav__text}>
-                        Settings
-                        </span>
-                    </NavLink>
-                </div>
-                <div className={c.item}>
-                    <NavLink className={(navData) => navData.isActive ? c.activeLink : ""} to="/friends">
-                        <span className={c.nav__text}>
-                        Friends
                         </span>
                     </NavLink>
                 </div>

@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: #dcb87e;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 3px outset;
     border-radius: 10px;
 }
@@ -14,6 +14,9 @@
     justify-content: center;
     width: 80%;
     text-align: left;
+    font-size: 26px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
 }
 
 .postAvatar {
@@ -30,10 +33,28 @@
 }
 
 .likeCounter {
-    cursor: pointer;
-    color: #151313;
+    font-size: 20px;
+}
+
+.likeCounter:hover {
+    color: #fff;
 }
 
 .active {
     color: red;
+}
+
+.activeBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    padding: 10px 0 0 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.fingerUp:hover {
+    color: #fff;
 }

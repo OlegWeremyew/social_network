@@ -15,8 +15,8 @@ export enum ProfileReducerEnum {
 
 const initialState = {
     posts: [
-        {message: "Hello", likesCount: 12, id: 1},
-        {message: "Dinosaurs are great", likesCount: 17, id: 2}
+        {message: "Hi all. My name is Oleg and. I am a front-end developer", likesCount: 12, id: 1},
+        {message: "Dinosaurs are great. I love them so much", likesCount: 17, id: 2}
     ] as Array<PostType>,
     profile: null as Nullable<ProfileType>,
     status: "",
@@ -29,7 +29,7 @@ export const profileReducer = (state = initialState, action: ActionProfileTypes)
             let newPost: PostType = {
                 id: new Date().getTime(),
                 message: action.payload.newPostText,
-                likesCount: 12
+                likesCount: 0,
             }
             return {
                 ...state,

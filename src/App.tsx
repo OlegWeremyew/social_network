@@ -5,15 +5,13 @@ import {connect, Provider} from "react-redux";
 import {AppStateType, store} from "./redux/reduxStore";
 
 import News from "./components/MainWindow/News/News";
-import Music from "./components/MainWindow/Music/Music";
-import Friends from "./components/MainWindow/Friends/Friends";
-import Settings from "./components/MainWindow/Settings/Settings";
 import {initializeApp} from "./redux/AppReducer";
 import {Preloader} from "./common/Preloader/Preloader";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import {PATH} from "./common/RouterPath/RouterPath";
 
 const DialogsContainer = React.lazy(() => import('./components/MainWindow/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
@@ -38,24 +36,21 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                 <Navbar/>
                 <div className={style.appContentWindow}>
                     <Routes>
-                        <Route path="/" element={<Navigate to="profile"/>}/>
+                        <Route path="/" element={<Navigate to={PATH.PROFILE}/>}/>
 
-                        <Route path="/profile/" element={<ProfileContainer/>}>
+                        <Route path={PATH.PROFILE} element={<ProfileContainer/>}>
                             <Route path=":userId" element={<ProfileContainer/>}/>
                         </Route>
 
-                        <Route path="/dialogs/" element={<DialogsContainer/>}>
+                        <Route path={PATH.DIALOGS} element={<DialogsContainer/>}>
                             <Route path=":userId" element={<DialogsContainer/>}/>
                         </Route>
 
-                        <Route path="/users/*" element={<UsersPage/>}/>
-                        <Route path="/news/*" element={<News/>}/>
-                        <Route path="/music/*" element={<Music/>}/>
-                        <Route path="/settings/*" element={<Settings/>}/>
-                        <Route path="/friends/*" element={<Friends/>}/>
-                        <Route path="/login/*" element={<Login/>}/>
-                        <Route path="/chat/*" element={<ChatPage/>}/>
-                        <Route path="*" element={<PageNotFound/>}/>
+                        <Route path={PATH.USERS} element={<UsersPage/>}/>
+                        <Route path={PATH.NEWS} element={<News/>}/>
+                        <Route path={PATH.LOGIN} element={<Login/>}/>
+                        <Route path={PATH.CHAT} element={<ChatPage/>}/>
+                        <Route path={PATH.PAGE_NOTE_FOUND} element={<PageNotFound/>}/>
                     </Routes>
                 </div>
                 <Footer/>

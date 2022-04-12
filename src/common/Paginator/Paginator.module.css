@@ -20,7 +20,8 @@
 
 .pageNumber:hover {
     cursor: pointer;
-    background-color: #e3c796;
+    background-color: #601313;
+    color: #fff;
 }
 
 .user__btn {

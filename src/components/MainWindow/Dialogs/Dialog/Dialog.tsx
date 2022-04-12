@@ -1,11 +1,14 @@
 import React from 'react';
-import c from "./Dialog.module.css"
+import style from "./Dialog.module.css"
 import {MessageType} from "../../../../redux/messagesReducer";
 
 const Dialog = (props: MessageType) => {
 
     return (
-        <div className={c.message}>{props.message}</div>
+        <div  className={style.message}>
+            <div className={style.message__item}>{props.message}</div>
+        </div>
+
     )
 }
 
