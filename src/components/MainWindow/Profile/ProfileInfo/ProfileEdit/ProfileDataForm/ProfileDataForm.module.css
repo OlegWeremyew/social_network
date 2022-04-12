@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
 
-    margin: 10px auto 30px;
+    margin: 10px auto 10px;
     text-align: center;
     width: 120px;
     height: 30px;
@@ -44,7 +44,8 @@
     font-weight: 700;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 .contact__item {

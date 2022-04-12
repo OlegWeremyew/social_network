@@ -11,14 +11,23 @@ export const Dialogs = ({messagesPage, addMessage}: UsersPropsType) => {
     const dialogsItem = messagesPage.users
         .map(user => {
             return (
-                <DialogsItem key={user.id} name={user.name} id={user.id} img={user.img}/>
+                <DialogsItem
+                    key={user.id}
+                    name={user.name}
+                    id={user.id}
+                    img={user.img}
+                />
             )
         })
 
     const message = messagesPage.messages
-        .map(m => {
+        .map(message => {
             return (
-                <Dialog key={m.id} message={m.message} id={m.id}/>
+                <Dialog
+                    key={message.id}
+                    message={message.message}
+                    id={message.id}
+                />
             )
         })
 

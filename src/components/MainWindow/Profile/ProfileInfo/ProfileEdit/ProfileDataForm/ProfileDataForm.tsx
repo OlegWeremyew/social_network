@@ -41,17 +41,20 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
                 {createField("About me", "aboutMe", [], Textarea, {type: "textarea"}, "")}
             </div>
             <div>
-                <span className={style.contacts__Title}>Contacts:</span> <div  className={style.contactsBlock}>{
-                Object
-                    .keys(profile.contacts)
-                    .map(key => {
-                        return (
-                            <div className={style.contact__item} key={key}>
-                                <b>{key}:{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</b>
-                            </div>
-                        )
-                    })}
-            </div>
+                <span className={style.contacts__Title}>Contacts:</span>
+                <div className={style.contactsBlock}>
+                    {
+                        Object
+                            .keys(profile.contacts)
+                            .map(key => {
+                                return (
+                                    <div className={style.contact__item} key={key}>
+                                        <b>{key}:{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</b>
+                                    </div>
+                                )
+                            })
+                    }
+                </div>
             </div>
         </form>
     )

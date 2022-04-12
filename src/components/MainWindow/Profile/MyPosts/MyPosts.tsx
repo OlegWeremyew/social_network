@@ -1,22 +1,24 @@
 import React from 'react';
-import c from "./MyPosts.module.css"
+import style from "./MyPosts.module.css"
+
 import Post from "./Post/Post";
 import {UsersPropsType} from "./MyPostsContainer";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../../utils/validators/validators";
 import {Textarea} from "../../../../common/FormsControls/FormsControls";
+import s from "../../../Login/Login.module.css";
 
 const maxLength = maxLengthCreator(10)
 
 export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => {
 
     const post = profilePage.posts
-        .map(p =>
+        .map(post =>
             <Post
-                key={p.id}
-                message={p.message}
-                likesCount={p.likesCount}
-                id={p.id}
+                key={post.id}
+                message={post.message}
+                likesCount={post.likesCount}
+                id={post.id}
             />)
 
     const addPost = (values: AddNewPostFormType) => {
@@ -24,10 +26,10 @@ export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => 
     }
 
     return (
-        <div className={c.myPosts}>
-            <h3>My posts</h3>
+        <div className={style.myPosts}>
+            <h3 className={style.post__title}>My posts :</h3>
             <ReduxAddNewPostForm onSubmit={addPost}/>
-            <div className={c.posts}>
+            <div className={style.posts}>
                 {post}
             </div>
         </div>
@@ -45,7 +47,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handle
                     validate={[required, maxLength]}
                 />
             </div>
-            <div>
+            <div  className={s.form__btn}>
                 <button>Add post</button>
             </div>
         </form>

@@ -69,6 +69,7 @@ const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, sav
                 isOwner={isOwner}
                 setEditModeHandler={setEditModeHandler}
             />
+            <hr/>
         </div>
     )
 }

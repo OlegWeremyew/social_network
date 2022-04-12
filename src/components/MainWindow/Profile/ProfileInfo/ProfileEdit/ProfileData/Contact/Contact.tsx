@@ -3,8 +3,8 @@ import style from "../../../ProfileInfo.module.css";
 
 const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
     return (
-        <div className={style.contacts}>
-            <b>{contactTitle}</b>: {contactValue}
+        <div className={style.formBlock}>
+            <b>{contactTitle} : </b> {contactValue ? <span>{contactValue}</span> : "Information is not provided"}
         </div>
     )
 }

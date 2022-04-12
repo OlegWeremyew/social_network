@@ -1,0 +1,14 @@
+.formBlock {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.formBlock a {
+    text-decoration: none;
+}
+
+.formBlock a.isActive {
+    color: #fff;
+}

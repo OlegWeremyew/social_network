@@ -1,26 +1,38 @@
+h3:hover {
+    color: #fff;
+    text-shadow: 3px 2px 0 #030303;
+}
+
 .statusText {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     width: 300px;
-    font-size: 22px;
-    color: #601313;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 .activeInput {
     width: 300px;
-    font-size: 22px;
-    color: #601313;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 .status__text {
     cursor: pointer;
     font-size: 18px;
+    font-family: 'Handlee', cursive;
+}
+
+.status__text:hover {
+    color: #fff;
 }
 
 .status__pencil:hover {
-    color: #905e1c;
+    color: #a8792f;
 }
 
 .activeInput input {

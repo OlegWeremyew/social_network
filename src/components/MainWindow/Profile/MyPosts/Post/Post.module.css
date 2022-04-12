@@ -1,22 +1,32 @@
 .item {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    border: dotted thin;
-    border-radius: 5px;
-    padding-left: 10px;
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #dcb87e;
+    margin-bottom: 10px;
+    border: 3px outset;
+    border-radius: 10px;
 }
 
 .itemText {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    text-align: left;
 }
 
-.item img {
+.postAvatar {
+    width: 15%;
+    min-width: 90px;
+}
+
+.postAvatar img {
     margin: 10px 0;
     width: 70px;
     height: 70px;
     border-radius: 35px;
-    border: solid 3px #41403c;
+    border: solid 3px #601313;
 }
 
 .likeCounter {
