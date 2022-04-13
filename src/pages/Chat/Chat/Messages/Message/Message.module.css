@@ -38,3 +38,36 @@
     font-family: 'Pangolin', cursive;
     font-weight: 700;
 }
+
+@media (max-width: 600px) {
+
+    .message__userName {
+        font-size: 18px;
+    }
+
+    .message__img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .message__text {
+        margin-left: 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .message__userName {
+        font-size: 16px;
+    }
+
+    .message__img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .message__text {
+        font-size: 14px;
+    }
+}

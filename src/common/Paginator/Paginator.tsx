@@ -13,6 +13,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
 
     const pagesCount = (Math.ceil(totalItemsCount / pageSize))
     const pages: number[] = []
+
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }

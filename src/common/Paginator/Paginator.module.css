@@ -14,13 +14,13 @@
 .pageNumber.selectedPage {
     font-weight: bold;
     border-color: black;
-    background-color: #dcb87e;
+    background-color: #601313;
     color: #fff;
 }
 
 .pageNumber:hover {
     cursor: pointer;
-    background-color: #601313;
+    background-color: #dcb87e;
     color: #fff;
 }
 
@@ -28,7 +28,7 @@
     display: flex;
     justify-content: center;
 
-    margin: -5px auto 20px;
+    margin: 0 auto 20px;
     text-align: center;
     width: 120px;
     height: 30px;
@@ -47,4 +47,11 @@
     background: none;
     color: #fff;
     cursor: pointer;
+}
+
+
+@media (max-width: 500px) {
+    .paginator {
+       flex-direction: column;
+    }
 }

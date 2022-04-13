@@ -112,3 +112,29 @@
 .login__image:hover {
     opacity: .75;
 }
+
+@media (max-width: 500px) {
+
+    .header__logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .login__information {
+        width: 200px;
+    }
+
+    .location {
+        font-size: 18px;
+    }
+
+    .login__avatarPhoto {
+        width: 30px;
+        height: 30px;
+    }
+
+    .login__userName {
+        font-size: 18px;
+    }
+
+}

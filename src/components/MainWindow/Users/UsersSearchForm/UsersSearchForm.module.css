@@ -50,3 +50,13 @@
     color: #fff;
     cursor: pointer;
 }
+
+@media (max-width: 800px) {
+    .searchForm__item__input {
+        width: 100%;
+    }
+
+    .searchForm__item__select {
+        width: 100%;
+    }
+}
