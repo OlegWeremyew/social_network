@@ -5,12 +5,12 @@ const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
     return (
         <div className={style.formBlock}>
             <b>
-                 <a href={contactValue ? contactValue : ''}>{contactTitle}</a>:
+                <a href={contactValue ? contactValue : ''}> {contactTitle}</a>:
             </b>
             {
                 contactValue ?
-                    <span>{contactValue}</span>
-                    : "Information is not provided"
+                    <span  className={style.address}>{contactValue}</span>
+                    : <span  className={style.address}>"Information is not provided"</span>
             }
         </div>
     )

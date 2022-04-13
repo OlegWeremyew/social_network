@@ -8,12 +8,15 @@ const ProfileEdit = ({editMode, profile, onSubmit, isOwner, setEditModeHandler}:
         <>
             {
                 editMode
-                    ? (
-                        <ProfileDataForm
-                            initialValues={profile}
-                            profile={profile}
-                            onSubmit={onSubmit}
-                        />
+                    ? (<>
+                            <ProfileDataForm
+                                initialValues={profile}
+                                profile={profile}
+                                onSubmit={onSubmit}
+                            />
+                        </>
+
+
                     ) : (
                         <ProfileData
                             profile={profile}

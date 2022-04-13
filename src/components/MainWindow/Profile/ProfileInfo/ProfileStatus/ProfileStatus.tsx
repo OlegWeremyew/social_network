@@ -1,7 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import style from './ProfileStatus.module.css'
 
-
 export class ProfileStatus extends React.Component<ProfileStatusType> {
 
     state: stateType = {
@@ -39,7 +38,7 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
 
     render() {
         return (
-            <div>
+            <div className={style.main}>
                 {
                     !this.state.editMode
                     && <div className={style.statusText}>

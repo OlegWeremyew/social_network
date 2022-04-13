@@ -43,3 +43,9 @@
     font-family: 'Patrick Hand', cursive;
     font-size: 20px;
 }
+
+@media (max-width: 500px) {
+    .nav__text {
+        font-size: 14px;
+    }
+}

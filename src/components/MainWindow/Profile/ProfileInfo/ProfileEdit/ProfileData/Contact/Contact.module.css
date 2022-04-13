@@ -16,3 +16,20 @@
     text-decoration: underline;
     color: #333;
 }
+
+@media (max-width: 1100px) {
+
+    .formBlock {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .formBlock {
+        min-width: 300px;
+        font-size: 14px;
+    }
+
+}

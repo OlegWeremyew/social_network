@@ -16,17 +16,40 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
             <div>
                 <span className={style.contacts__Title}>Little about me:</span>
                 <div className={style.formBlock}>
-                    <b>Full name: </b> {profile.fullName}
+                    <div className={style.formBlock__title}>
+                        Full name:
+                    </div>
+                    <div>
+                        {profile.fullName}
+                    </div>
                 </div>
                 <div className={style.formBlock}>
-                    <b>Looking for a
-                        job: </b> {profile.lookingForAJob ? "I'm looking for a job" : 'no, I\'m not looking for a job at the moment'}
+                    <div className={style.formBlock__title}>
+                        Looking for a job:
+                    </div>
+                    <div>
+                        {
+                            profile.lookingForAJob
+                                ? "I'm looking for a job"
+                                : 'no, I\'m not looking for a job at the moment'
+                        }
+                    </div>
                 </div>
                 <div className={style.formBlock}>
-                    <b>My professional skills: </b> {profile.lookingForAJobDescription}
+                    <div className={style.formBlock__title}>
+                        My professional skills:
+                    </div>
+                    <div>
+                        {profile.lookingForAJobDescription}
+                    </div>
                 </div>
                 <div className={style.formBlock}>
-                    <b>About me: </b> {profile.aboutMe}
+                    <div className={style.formBlock__title}>
+                        About me:
+                    </div>
+                    <div>
+                        {profile.aboutMe}
+                    </div>
                 </div>
                 <div className={style.contacts__container}>
                     <span className={style.contacts__Title}>My contacts:</span>
@@ -40,7 +63,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
                                 .map(key => {
                                         return (
                                             <div className={style.contactsBlock__item}>
-                                                <span>&#10003; </span>
+                                                <span className={style.icon}>&#10003; </span>
                                                 <Contact
                                                     key={key}
                                                     contactTitle={key}

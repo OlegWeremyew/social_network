@@ -14,6 +14,9 @@ h3:hover {
 }
 
 .activeInput {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     width: 300px;
     font-size: 28px;
     font-weight: 700;
@@ -24,6 +27,7 @@ h3:hover {
     cursor: pointer;
     font-size: 18px;
     font-family: 'Handlee', cursive;
+    text-align: left;
 }
 
 .status__text:hover {
@@ -37,4 +41,39 @@ h3:hover {
 .activeInput input {
     width: 300px;
     height: 30px;
+}
+
+@media (max-width: 800px) {
+
+    .activeInput input {
+        width: 240px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .activeInput input {
+        width: 240px;
+    }
+
+    .statusText {
+        width: 250px;
+        font-size: 22px;
+    }
+
+    .activeInput {
+        width: 250px;
+        font-size: 22px;
+    }
+
+    .status__text {
+        font-size: 16px;
+    }
+
+    .main {
+        display: flex;
+        justify-content: flex-start;
+    }
+
 }

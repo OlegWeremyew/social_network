@@ -16,7 +16,10 @@ const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, erro
                 {children}
             </div>
             <div>
-                {hasError && <span>{error}</span>}
+                {
+                    hasError
+                    && <span>{error}</span>
+                }
             </div>
         </div>
     )

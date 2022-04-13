@@ -7,16 +7,13 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 250px;
+    height: 220px;
+    text-align: center;
 }
 
 .avatar {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 15px;
-    padding-top: 15px;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .mainPhoto {
@@ -30,8 +27,38 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .addedPhoto__btn {
     margin-top: 30px;
+}
+
+
+@media (max-width: 850px) {
+
+    .avatarBlock {
+        height: 180px;
+    }
+
+    .mainPhoto {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .mainPhoto {
+        max-width: 120px;
+        max-height: 120px;
+    }
+
+    .avatarBlock {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 300px;
+    }
+
 }

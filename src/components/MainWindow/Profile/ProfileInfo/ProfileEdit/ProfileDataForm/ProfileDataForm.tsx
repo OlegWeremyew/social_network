@@ -22,12 +22,12 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
         <form className={style.formContainer} onSubmit={handleSubmit}>
             <span className={style.contacts__Title}>Little about me:</span>
 
-            <div  className={style.form_edit}>
+            <div className={style.form_edit}>
                 <div className={style.formBlock}>
                     <span>Full name:</span>
                     {createField("Full name", "fullname", [], Input, {type: "text"}, "")}
                 </div>
-                <div className={style.formBlock}>
+                <div className={style.formBlock__check}>
                     <span>Looking for a job:</span>
                     {createField("", "lookingForAJob", [], Input, {type: "checkbox"}, "")}
                 </div>
@@ -39,8 +39,6 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
                     <span>About me:</span>
                     {createField("About me", "aboutMe", [], Input, {type: "textarea"}, "")}
                 </div>
-                <div>
-            </div>
 
                 <span className={style.contacts__Title}>My contacts:</span>
                 <div className={style.contactsBlock}>
@@ -50,7 +48,7 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
                             .map(key => {
                                 return (
                                     <div className={style.contact__item} key={key}>
-                                        <b>{key}:{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</b>
+                                        <span>{key}:{createField(key, `contacts.${key}`, [], Input, {type: "text"}, "")}</span>
                                     </div>
                                 )
                             })
@@ -59,7 +57,10 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
             </div>
             <div className={style.saveEdit__btn}>
                 <button>Save</button>
-                {error && <div>{error}</div>}
+                {
+                    error
+                    && <div>{error}</div>
+                }
             </div>
         </form>
     )
