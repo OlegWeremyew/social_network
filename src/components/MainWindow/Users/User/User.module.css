@@ -50,4 +50,28 @@
     font-weight: 400;
 }
 
+@media (max-width: 1140px) {
+    .userBlock {
+        width: 250px;
+    }
+}
+
+@media (max-width: 950px) {
+    .userBlock {
+        width: 300px;
+    }
+}
+
+@media (max-width: 760px) {
+    .userBlock {
+        width: 250px;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .userBlock {
+        width: 300px;
+    }
+}
 

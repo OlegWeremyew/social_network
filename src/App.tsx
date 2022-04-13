@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import {PATH} from "./common/RouterPath/RouterPath";
+import Loading from "./components/Footer/loading";
 
 const DialogsContainer = React.lazy(() => import('./components/MainWindow/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
@@ -69,7 +70,7 @@ const AppContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, Ap
 
 export const MainApp = () => {
     return (
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense fallback={<Loading/>}>
             <HashRouter>
                 <Provider store={store}>
                     <AppContainer/>

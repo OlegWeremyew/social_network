@@ -1,5 +1,7 @@
 .addMessage {
-    width: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .addMessage input {
@@ -29,4 +31,15 @@
     background: none;
     color: #fff;
     cursor: pointer;
+}
+
+.textField {
+    background: #d32828;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #272729;
+    padding-left: 25px;
 }

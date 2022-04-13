@@ -32,9 +32,8 @@ export const AddMessageForm: React.FC = () => {
                 value={message}
                 onChange={(e) => addMessageText(e.currentTarget.value)}
             />
-            <div className={style.form__btn}>
+            <div className={style.form__btn} onClick={sendMessageHandler}>
                 <button
-                    onClick={sendMessageHandler}
                     disabled={status !== 'ready'}
                 >
                     Send

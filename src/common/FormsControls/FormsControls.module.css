@@ -17,3 +17,14 @@
     color: red;
     min-width: 150px;
 }
+
+.textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #272729;
+    padding-left: 25px;
+
+}
