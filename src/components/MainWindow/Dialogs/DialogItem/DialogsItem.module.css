@@ -3,17 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 150px;
+    height: 150px;
 }
 
-.dialog a {
+.dialog__name {
     color: #601313;
     text-decoration: none;
     font-weight: bold;
     font-family: "Century Gothic";
 }
 
-.dialog a:hover {
+.dialog__name:hover {
     text-decoration: underline;
 }
 

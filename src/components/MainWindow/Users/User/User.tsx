@@ -24,10 +24,9 @@ export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
                 <div>
                     <NavLink to={`${PATH.PROFILE}/${user.id}`}>
                         <img
-                            src={user.photos.small !== null ? user.photos.small : userImage}
                             className={style.userPhoto}
-                            alt="photo"
-                            title={user.name}
+                            src={user.photos.small !== null ? user.photos.small : userImage}
+                            alt={`${user.name} photo`}
                         />
                     </NavLink>
                 </div>

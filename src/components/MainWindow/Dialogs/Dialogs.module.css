@@ -2,31 +2,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 80%;
 }
 
 .dialogs__dialog {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     width: 80%;
-    min-height: 150px;
 }
 
 .dialogItem {
     width: 15%;
-    height: 100%;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
 }
 
 .messages {
-    width: 75%;
+    width: 80%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    min-height: 150px;
+    margin-left: 15px;
+}
+
+@media (max-width: 600px) {
+    .dialogItem {
+        display: none
+    }
+
+    .messages {
+        width: 100%;
+    }
 }

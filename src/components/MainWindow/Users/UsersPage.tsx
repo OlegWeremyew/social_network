@@ -1,4 +1,6 @@
 import React from 'react';
+import style from './Users.module.css'
+
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {Users} from './Users';
@@ -11,10 +13,10 @@ const UsersPage: React.FC = () => {
     const isFetching = useSelector<AppStateType, boolean>(getIsFetching)
 
     return (
-        <>
+        <div className={style.page}>
             {isFetching ? <Preloader/> : null}
             <Users/>
-        </>
+        </div>
     )
 }
 

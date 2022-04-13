@@ -21,6 +21,7 @@ export const Users: React.FC = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
     const [searchParams, setSearchParams] = useSearchParams()
 
     const parsedPage = searchParams.get('page')

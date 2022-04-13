@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
 
-    background-color: #dcb87e;
+    background: linear-gradient(#dcb87e, #b67e36);
     padding: 10px;
     margin-bottom: 2px;
     border: 3px outset;
@@ -26,7 +26,12 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 2px solid #601313;
+    border: 4px outset #fff;
+    cursor: pointer;
+}
+
+.message__img:hover {
+    border: 4px outset #905e1c;
 }
 
 .message__text {

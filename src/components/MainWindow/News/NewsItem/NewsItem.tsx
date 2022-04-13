@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import style from "./NewsItem.module.css";
-import {NewsType} from "../News";
+import {NewsType} from "../../../../redux/NewsReducer";
 
 export const NewsItem = ({news}: PropsType) => {
 
@@ -17,13 +17,22 @@ export const NewsItem = ({news}: PropsType) => {
             </div>
             <div className={style.main}>
                 <div className={style.main__title}>
-                    Title
+                    {news.title}
                 </div>
                 <div className={style.main__text}>
                     {text}
                 </div>
                 <button>
-                    Edit
+                    Edit Title
+                </button>
+                <button>
+                    Edit Text
+                </button>
+                <button>
+                    Delete
+                </button>
+                <button>
+                    Add news
                 </button>
             </div>
         </div>

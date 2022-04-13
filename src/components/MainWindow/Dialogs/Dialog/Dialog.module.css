@@ -1,14 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap');
+
 .message {
-    margin: 10px 0;
+    padding: 10px 0;
 }
 
 .message__item {
-    border: dotted 1px black;
+    display: flex;
+    align-items: center;
     width: 100%;
+    min-height: 130px;
+    font-style: italic;
+
+    border: outset 3px #fff;
     border-radius: 20px 20px 20px 0;
     padding: 15px 20px;
-    background-color: #f3ebe2;
-    font-size: 1.2em;
-    font-style: oblique;
-    min-height: 130px;
+    margin-left: 10px;
+
+    background: linear-gradient(#dcb87e, #b67e36);
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+@media (max-width: 900px){
+    .message__item {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 700px){
+    .message__item {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 550px){
+    .message__item {
+        font-size: 12px;
+    }
 }

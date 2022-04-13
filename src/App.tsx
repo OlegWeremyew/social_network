@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import {PATH} from "./common/RouterPath/RouterPath";
-import Loading from "./components/Footer/loading";
+import Loading from "./common/Loading/Loading";
 
 const DialogsContainer = React.lazy(() => import('./components/MainWindow/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
