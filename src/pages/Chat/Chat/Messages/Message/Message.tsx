@@ -8,8 +8,12 @@ export const Message: React.FC<MessageType> = React.memo(({message}) => {
             <>
                 <div className={style.message}>
                     <div className={style.message__item}>
-                        <img className={style.message__img} src={message.photo} alt="avatar"
-                             title={`avatar ${message.userName}`}/>
+                        <img
+                            className={style.message__img}
+                            src={message.photo}
+                            alt="avatar"
+                            title={`avatar ${message.userName}`}
+                        />
                         <div className={style.message__userName}>
                             {message.userName}
                         </div>

@@ -1,11 +1,35 @@
 import React, {useState} from 'react';
 import style from "./NewsItem.module.css";
-import {NewsType} from "../../../../redux/NewsReducer";
+
+import {NewsActions, NewsType} from "../../../../redux/NewsReducer";
+import {useDispatch} from "react-redux";
 
 export const NewsItem = ({news}: PropsType) => {
 
-    const [text, setText] = useState<string>(news.text)
-    const [editMode, setEditMode] = useState<boolean>(false)
+    const dispatch = useDispatch()
+
+    const [titleEditMode, setTitleEditMode] = useState<boolean>(false)
+    const [textEditMode, setTextEditMode] = useState<boolean>(false)
+
+    const titleChangeHandler = () => {
+        setTitleEditMode(!titleEditMode)
+    }
+
+    const textChangeHandler = () => {
+        setTextEditMode(!textEditMode)
+    }
+
+    const deleteNewsHandler = (newsId: string) => {
+        dispatch(NewsActions.deleteNews(newsId))
+    }
+
+    const changeTitle = (newsID: string, title: string) => {
+        dispatch(NewsActions.changeNewsTitle(newsID, title))
+    }
+
+    const changeText = (newsID: string, text: string) => {
+        dispatch(NewsActions.changeNewsText(newsID, text))
+    }
 
     return (
         <div className={style.newsBlock__item}>
@@ -16,24 +40,73 @@ export const NewsItem = ({news}: PropsType) => {
                 />
             </div>
             <div className={style.main}>
-                <div className={style.main__title}>
-                    {news.title}
+
+                <div>
+                    <div
+                        className={style.main__title}
+                        onDoubleClick={titleChangeHandler}
+                    >
+                        {
+                            titleEditMode
+                                ? (
+                                    <input
+                                        type="text"
+                                        autoFocus
+                                        value={news.title}
+                                        onChange={(e) => changeTitle(news.id, e.currentTarget.value)}
+                                    />
+                                ) : (
+                                    <span>{news.title}</span>
+                                )
+                        }
+                    </div>
+
+                    <div
+                        className={style.main__text}
+                        onDoubleClick={textChangeHandler}
+                    >
+                        {
+                            textEditMode
+                                ? <textarea
+                                    autoFocus
+                                    value={news.text}
+                                    onChange={(e) => changeText(news.id, e.currentTarget.value)}
+                                />
+                                : <span>{news.text}</span>
+                        }
+                    </div>
                 </div>
-                <div className={style.main__text}>
-                    {text}
+
+                <div className={style.button__group}>
+                    {
+                        titleEditMode
+                            ? (
+                                <div className={style.form__btn} onClick={titleChangeHandler}>
+                                    <button>Save</button>
+                                </div>
+                            ) : (
+                                <div className={style.form__btn} onClick={titleChangeHandler}>
+                                    <button>Edit title</button>
+                                </div>
+                            )
+                    }
+                    {
+                        textEditMode
+                            ? (
+                                <div className={style.form__btn} onClick={textChangeHandler}>
+                                    <button>Save</button>
+                                </div>
+                            ) : (
+                                <div className={style.form__btn} onClick={textChangeHandler}>
+                                    <button>Edit text</button>
+                                </div>
+                            )
+
+                    }
+                    <div className={style.form__btn} onClick={() => deleteNewsHandler(news.id)}>
+                        <button>Delete news</button>
+                    </div>
                 </div>
-                <button>
-                    Edit Title
-                </button>
-                <button>
-                    Edit Text
-                </button>
-                <button>
-                    Delete
-                </button>
-                <button>
-                    Add news
-                </button>
             </div>
         </div>
     )

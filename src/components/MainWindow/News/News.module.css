@@ -22,3 +22,36 @@
     width: 100%;
     align-items: center;
 }
+
+.button__group {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.form__btn {
+    display: flex;
+    justify-content: center;
+
+    margin: 10px auto 30px;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #601313;
+}
+
+.form__btn:hover {
+    opacity: .9;
+    color: #fff;
+}
+
+.form__btn button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+

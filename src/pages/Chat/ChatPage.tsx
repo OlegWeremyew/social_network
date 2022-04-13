@@ -5,7 +5,9 @@ import style from './ChatPage.module.css'
 const ChatPage: React.FC = () => {
     return (
         <div className={style.chatPageBlock}>
-            <div  className={style.chatPage__title}>Common chat</div>
+            <div className={style.chatPage__title}>
+                Common chat
+            </div>
             <Chat/>
         </div>
     )

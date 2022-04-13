@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, KeyboardEvent} from 'react';
 import style from './AddMessageForm.module.css'
 
 import {useDispatch, useSelector} from "react-redux";
@@ -20,6 +20,13 @@ export const AddMessageForm: React.FC = () => {
         setMessage("")
     }
 
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter") {
+            dispatch(sendMessage(message))
+            setMessage("")
+        }
+    }
+
     const addMessageText = (e: string) => {
         setMessage(e)
     }
@@ -31,6 +38,7 @@ export const AddMessageForm: React.FC = () => {
                 placeholder={"write your message"}
                 value={message}
                 onChange={(e) => addMessageText(e.currentTarget.value)}
+                onKeyPress={onKeyPressHandler}
             />
             <div className={style.form__btn} onClick={sendMessageHandler}>
                 <button
