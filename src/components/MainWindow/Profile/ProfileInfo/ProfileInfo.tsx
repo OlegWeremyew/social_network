@@ -7,7 +7,7 @@ import {Preloader} from "../../../../common/Preloader/Preloader";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
 
-const ProfileInfo = ({profile, status, updateUserStatus, savePhoto, isOwner, saveProfile}: ProfileInfoPropsType) => {
+const ProfileInfo:React.FC<ProfileInfoPropsType> = ({profile, status, updateUserStatus, savePhoto, isOwner, saveProfile}) => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
 

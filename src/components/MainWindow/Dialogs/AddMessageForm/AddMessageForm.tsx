@@ -1,4 +1,4 @@
-import React from "react";
+import React, {SyntheticEvent} from "react";
 import style from './AddMessageForm.module.css'
 
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
@@ -8,9 +8,15 @@ import {FormMessagesType} from "../Dialogs";
 
 const maxLength = maxLengthCreator(30)
 
-const AddMessageForm: React.FC<InjectedFormProps<FormMessagesType>> = (props) => {
+const AddMessageForm: React.FC<InjectedFormProps<FormMessagesType>> = ({handleSubmit, reset}) => {
+
+    const onSubmit = (values: SyntheticEvent<any, Event>) => {
+        handleSubmit(values)
+        reset()
+    }
+
     return (
-        <form  className={style.addMessage} onSubmit={props.handleSubmit}>
+        <form  className={style.addMessage} onSubmit={onSubmit}>
             <div>
                 <Field
                     component={Textarea}

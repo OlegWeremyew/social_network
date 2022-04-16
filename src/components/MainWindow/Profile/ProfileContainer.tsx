@@ -16,7 +16,7 @@ import {Nullable} from "../../../types/Nullable";
 class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 
     refreshProfile() {
-        let userId: string | null = this.props.userId
+        let userId: Nullable<string> = this.props.userId
         if (!userId) {
             userId = this.props.authorizedUserID;
             if (!userId) {
@@ -59,7 +59,7 @@ class ProfileAPIContainer extends React.Component<ProfilePropsType> {
     }
 }
 
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         profile: state.profilePage.profile,
         isAuth: state.auth.isAuth,

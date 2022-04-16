@@ -7,4 +7,5 @@ export enum PATH {
     LOGIN = '/login/*',
     CHAT = '/chat/*',
     PAGE_NOTE_FOUND = '/*',
+    MAIN_PAGE = '/',
 }

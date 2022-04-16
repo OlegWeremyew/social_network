@@ -20,7 +20,8 @@
     max-width: 200px;
     max-height: 200px;
     border-radius: 50%;
-    border: 5px solid #601313;
+    border: 6px outset #fff;
+    box-shadow: 3px 5px 10px 2px rgb(34 60 80 / 60%);
 }
 
 .profile__inner {
@@ -59,6 +60,10 @@
         flex-direction: column;
         flex-wrap: wrap;
         height: 300px;
+    }
+
+    .mainPhoto {
+        border: 4px outset #fff;
     }
 
 }

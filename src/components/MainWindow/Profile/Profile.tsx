@@ -5,19 +5,22 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 import {ProfileType} from "../../../redux/profileReducer";
 
-const Profile = (props: ProfilePropsType) => {
+const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus, isOwner, savePhoto, saveProfile}) => {
 
     return (
         <div className={style.profile}>
             <ProfileInfo
-                profile={props.profile}
-                status={props.status}
-                updateUserStatus={props.updateUserStatus}
-                isOwner={props.isOwner}
-                savePhoto={props.savePhoto}
-                saveProfile={props.saveProfile}
+                profile={profile}
+                status={status}
+                updateUserStatus={updateUserStatus}
+                isOwner={isOwner}
+                savePhoto={savePhoto}
+                saveProfile={saveProfile}
             />
-            <MyPostsContainer/>
+            {
+                isOwner
+                && <MyPostsContainer/>
+            }
         </div>
     )
 }

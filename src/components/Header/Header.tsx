@@ -18,7 +18,7 @@ const Header = () => {
 
     const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
     const login = useSelector<AppStateType, Nullable<string>>(state => state.auth.data.login)
-    const userAvatar = useSelector<AppStateType, any>(state => state.profilePage.profile?.photos.large)
+    const userAvatar = useSelector<AppStateType, Nullable<string | undefined>>(state => state.profilePage.profile?.photos.large)
 
     const logoutHandler = () => {
         dispatch(logout())
@@ -30,7 +30,12 @@ const Header = () => {
 
     return (
         <header className={style.header}>
-            <img className={style.header__logo} src={logo} alt='logo' title="image logo"/>
+            <img
+                className={style.header__logo}
+                src={logo}
+                alt='logo'
+                title="image logo"
+            />
             <div className={style.header__loginBlock}>
                 {
                     isAuth
@@ -48,15 +53,25 @@ const Header = () => {
                                         {login}
                                     </div>
                                     <div className={style.login__exitBlock}>
-                                        <img onClick={logoutHandler} className={style.exitIcon} src={exit} alt="exit"
-                                             title="exit"/>
+                                        <img
+                                            onClick={logoutHandler}
+                                            className={style.exitIcon}
+                                            src={exit}
+                                            alt="exit"
+                                            title="exit"
+                                        />
                                     </div>
                                 </div>
                             </div>
                         ) : (
                             <NavLink to={'/login'}>
                                 <div className={style.login__btn}>
-                                    <img className={style.login__image} src={loginImage} alt="login" title="login"/>
+                                    <img
+                                        className={style.login__image}
+                                        src={loginImage}
+                                        alt="login"
+                                        title="login"
+                                    />
                                 </div>
                             </NavLink>
                         )
@@ -67,11 +82,3 @@ const Header = () => {
 }
 
 export default Header
-
-//types==========
-
-type HeaderPropsType = {
-    isAuth: boolean
-    login: Nullable<string>
-    logout: () => void
-}

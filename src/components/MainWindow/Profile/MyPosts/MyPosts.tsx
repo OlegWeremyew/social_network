@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {SyntheticEvent} from 'react';
 import style from "./MyPosts.module.css"
 
 import Post from "./Post/Post";
@@ -36,9 +36,14 @@ export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => 
     )
 })
 
-const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handleSubmit}) => {
+const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handleSubmit, reset}) => {
+
+    const onSubmit = (values:SyntheticEvent<any, Event>) => {
+        handleSubmit(values)
+        reset()
+    }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
             <div>
                 <Field
                     component={Textarea}

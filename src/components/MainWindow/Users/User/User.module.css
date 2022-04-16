@@ -3,6 +3,7 @@
     height: 100px;
     border: 4px outset #fff;
     border-radius: 50%;
+    box-shadow: 3px 5px 10px 2px rgb(34 60 80 / 60%);
 }
 
 .userPhoto:hover {
@@ -16,6 +17,7 @@
     background-color: #dcb87e;
     border-radius: 20px;
     border: 3px outset;
+    box-shadow: 3px 5px 10px 2px rgb(34 60 80 / 20%);
 }
 
 .user__btn {

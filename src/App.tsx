@@ -37,7 +37,7 @@ class App extends React.Component<AppContainerType, AppContainerType> {
                 <Navbar/>
                 <div className={style.appContentWindow}>
                     <Routes>
-                        <Route path="/" element={<Navigate to={PATH.PROFILE}/>}/>
+                        <Route path={PATH.MAIN_PAGE} element={<Navigate to={PATH.PROFILE}/>}/>
 
                         <Route path={PATH.PROFILE} element={<ProfileContainer/>}>
                             <Route path=":userId" element={<ProfileContainer/>}/>
