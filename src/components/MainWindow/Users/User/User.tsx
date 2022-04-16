@@ -30,15 +30,22 @@ export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
                         />
                     </NavLink>
                 </div>
-                <div className={style.user__btn}>
-                    {
-                        user.followed
-                            ? <button disabled={followingInProgress.some(id => id === user.id)}
-                                      onClick={() => unfollowHandler(user.id)}>Unfollow</button>
-                            : <button disabled={followingInProgress.some(id => id === user.id)}
-                                      onClick={() => followHandler(user.id)}>Follow</button>
-                    }
-                </div>
+                {
+                    user.followed
+                        ? (
+                            <div className={style.user__btn}>
+                                <button disabled={followingInProgress.some(id => id === user.id)}
+                                        onClick={() => unfollowHandler(user.id)}>Unfollow
+                                </button>
+                            </div>
+                        ) : (
+                            <div className={style.user__btn_unFollow}>
+                                <button disabled={followingInProgress.some(id => id === user.id)}
+                                        onClick={() => followHandler(user.id)}>Follow
+                                </button>
+                            </div>
+                        )
+                }
             </div>
             <div>
                 <div className={style.userInfo}>

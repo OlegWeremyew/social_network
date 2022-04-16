@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Paginator.module.css"
-import style from "../../components/MainWindow/Users/User/User.module.css";
 import cn from 'classnames'
 
 export const Paginator: React.FC<UsersPropsType> = ({
@@ -29,12 +28,22 @@ export const Paginator: React.FC<UsersPropsType> = ({
 
     return (
         <div className={cn(styles.paginator)}>
-            <div>
+            <div  className={styles.DisplayNone}>
                 {
                     portionNumber > 1
-                    && <div className={style.user__btn} onClick={() => setPortionNumber(portionNumber - 1)}>
+                    && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber - 1)}>
                         <button>
-                            PREV
+                            &#10096;
+                        </button>
+                    </div>
+                }
+            </div>
+            <div  className={styles.DisplayBlock}>
+                {
+                    portionNumber > 1
+                    && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber - 1)}>
+                        <button>
+                            &#10096; &#10096; &#10096;
                         </button>
                     </div>
                 }
@@ -54,12 +63,22 @@ export const Paginator: React.FC<UsersPropsType> = ({
                         })
                 }
             </div>
-            <div>
+            <div  className={styles.DisplayNone}>
                 {
                     portionCount > portionNumber
-                    && <div className={style.user__btn} onClick={() => setPortionNumber(portionNumber + 1)}>
+                    && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber + 1)}>
                         <button>
-                            NEXT
+                            &#10097;
+                        </button>
+                    </div>
+                }
+            </div>
+            <div   className={styles.DisplayBlock}>
+                {
+                    portionCount > portionNumber
+                    && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber + 1)}>
+                        <button>
+                            &#10097; &#10097; &#10097;
                         </button>
                     </div>
                 }

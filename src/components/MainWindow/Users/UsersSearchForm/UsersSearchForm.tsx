@@ -8,7 +8,7 @@ import {AppStateType} from "../../../../redux/reduxStore";
 import {getUsersFilter} from "../../../../redux/usersSelectors";
 import s from "../../../Login/Login.module.css";
 
-const usersSearchFormValidate = (values: any) => {
+const usersSearchFormValidate = (values: { term: string; friend: FriendFormType }) => {
     const errors = {}
     return errors
 }
@@ -42,7 +42,7 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo(({onFilterChanged
                                     className={style.searchForm__item__input}
                                     type="text"
                                     name="term"
-                                    placeholder="write user name"
+                                    placeholder="Write user name 🔎"
                                 />
                                 <Field className={style.searchForm__item__select} name="friend" as="select">
                                     <option value="null">All</option>

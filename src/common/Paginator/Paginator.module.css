@@ -7,7 +7,7 @@
 .pageNumber {
     padding: 5px 8px;
     border: 1px solid #565454;
-    margin: 1px;
+    margin: 0 1px;
     border-radius: 4px;
 }
 
@@ -16,6 +16,10 @@
     border-color: black;
     background-color: #601313;
     color: #fff;
+}
+
+.DisplayNone {
+    display: none;
 }
 
 .pageNumber:hover {
@@ -28,9 +32,9 @@
     display: flex;
     justify-content: center;
 
-    margin: 0 auto 20px;
+    margin: 0 2px;
     text-align: center;
-    width: 120px;
+    width: 45px;
     height: 30px;
     border-radius: 3px;
     cursor: pointer;
@@ -51,7 +55,27 @@
 
 
 @media (max-width: 500px) {
-    .paginator {
-       flex-direction: column;
+
+    .pageNumber {
+        padding: 2px 4px;
+        font-size: 11px;
     }
+
+    .user__btn {
+        width: 25px;
+        height: 18px;
+    }
+
+    .user__btn button {
+        font-size: 12px;
+    }
+
+    .DisplayBlock {
+        display: none;
+    }
+
+    .DisplayNone {
+        display: block;
+    }
+
 }

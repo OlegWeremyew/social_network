@@ -45,6 +45,31 @@
     cursor: pointer;
 }
 
+.user__btn_unFollow {
+    display: flex;
+    justify-content: center;
+
+    margin: 10px auto 20px;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #417345;
+}
+
+.user__btn_unFollow:hover {
+    background-color: #2b522f;
+    color: #fff;
+}
+
+.user__btn_unFollow button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+
 .userInfo {
     font-size: 20px;
     font-family: 'Patrick Hand', cursive;

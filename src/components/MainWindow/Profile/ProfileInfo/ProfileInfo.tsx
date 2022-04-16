@@ -47,6 +47,7 @@ const ProfileInfo:React.FC<ProfileInfoPropsType> = ({profile, status, updateUser
                 </div>
                 <div  className={style.profile__inner}>
                     <ProfileStatus
+                        isOwner={isOwner}
                         status={status}
                         updateUserStatus={updateUserStatus}
                     />

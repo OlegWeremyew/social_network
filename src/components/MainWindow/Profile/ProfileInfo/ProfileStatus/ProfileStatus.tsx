@@ -5,13 +5,14 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
 
     state: stateType = {
         editMode: false,
-        status: this.props.status
+        status: this.props.status,
+        isOwner: this.props.isOwner,
     }
 
     activateEditMode = () => {
-        this.setState({
-            editMode: true
-        })
+        this.props.isOwner && this.setState(
+            {editMode: true}
+        )
     }
 
     deactivateEditMode = () => {
@@ -30,9 +31,8 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
     componentDidUpdate(prevProps: ProfileStatusType, prevState: boolean) {
         if (prevProps.status !== this.props.status) {
             this.setState({
-                    status: this.props.status,
-                }
-            )
+                status: this.props.status,
+            })
         }
     }
 
@@ -42,8 +42,16 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
                 {
                     !this.state.editMode
                     && <div className={style.statusText}>
-                        <h3>Status: </h3> <span  className={style.status__text} onDoubleClick={this.activateEditMode}>{this.props.status || "------"}
-                        <span className={style.status__pencil}>&nbsp;✎</span></span>
+                        <h3>Status: </h3>
+                        <span
+                            className={style.status__text}
+                            onDoubleClick={this.activateEditMode}
+                        >
+                            {this.props.status || "------"}
+                            <span className={style.status__pencil}>
+                                &nbsp;✎
+                            </span>
+                        </span>
                     </div>
                 }
                 {
@@ -68,9 +76,11 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
 type ProfileStatusType = {
     status: string
     updateUserStatus: (status: string) => void
+    isOwner: boolean
 }
 
 type stateType = {
     editMode: boolean
     status: string
+    isOwner: boolean
 }

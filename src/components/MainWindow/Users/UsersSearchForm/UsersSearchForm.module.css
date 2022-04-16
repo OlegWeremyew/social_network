@@ -18,12 +18,27 @@
 .searchForm__item__input {
     width: 50%;
     height: 30px;
-    border-radius: 3px;
+    outline: none;
+    border: outset;
+    border-radius: 5px;
+}
+
+.searchForm__item__input:hover {
+    background-color: #f5f5f5;
 }
 
 .searchForm__item__select {
-    width: 50%;
+    width: 48%;
     height: 30px;
+    outline: none;
+    border: outset;
+    border-radius: 5px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+.searchForm__item__select:hover {
+    background-color: #f5f5f5;
 }
 
 .form__btn {
