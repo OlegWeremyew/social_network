@@ -68,7 +68,7 @@
 }
 
 
-@media (max-width: 720px) {
+@media  screen and  (max-width: 720px) {
     .phoneBlock {
        flex-direction: column;
         align-items: center;

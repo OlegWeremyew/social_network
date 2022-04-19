@@ -67,7 +67,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 800px) {
+@media  screen and   (max-width: 800px) {
     .searchForm__item__input {
         width: 100%;
     }

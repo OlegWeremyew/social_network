@@ -27,7 +27,7 @@
     margin-left: 15px;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
 
     .dialogItem {
         display: none
@@ -45,7 +45,7 @@
 }
 
 
-@media (max-width: 320px) {
+@media screen and (max-width: 320px) {
     .dialogs {
         width: 100%;
     }

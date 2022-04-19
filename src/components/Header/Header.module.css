@@ -113,7 +113,7 @@
     opacity: .75;
 }
 
-@media (max-width: 500px) {
+@media screen and  (max-width: 500px) {
 
     .header__logo {
         width: 40px;

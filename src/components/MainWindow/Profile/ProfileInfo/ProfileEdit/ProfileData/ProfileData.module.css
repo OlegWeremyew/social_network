@@ -96,7 +96,7 @@
     font-weight: 700;
 }
 
-@media (max-width: 1100px) {
+@media screen and  (max-width: 1100px) {
 
     .contactsBlock {
         justify-content: center;
@@ -108,7 +108,7 @@
     }
 }
 
-@media (max-width: 625px) {
+@media screen and  (max-width: 625px) {
 
     .contacts__text {
         font-size: 16px;

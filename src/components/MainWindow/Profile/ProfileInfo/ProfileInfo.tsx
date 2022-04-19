@@ -66,10 +66,15 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                     <div className={style.addedPhoto__btn}>
                         {
                             isOwner
-                            && <input
-                                type={"file"}
-                                onChange={(e) => onMainPhotoSelected(e)}
-                            />
+                            && <div className={style.avatarEdit}>
+                                <input
+                                    type={"file"}
+                                    onChange={(e) => onMainPhotoSelected(e)}
+                                    id="imageUpload"
+                                    accept=".png, .jpg, .jpeg"
+                                />
+                                <label htmlFor="imageUpload"></label>
+                            </div>
                         }
                     </div>
                 </div>

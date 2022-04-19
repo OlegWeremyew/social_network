@@ -9,6 +9,7 @@
     justify-content: space-around;
     height: 220px;
     text-align: center;
+    position: relative;
 }
 
 .avatar {
@@ -60,8 +61,49 @@
     cursor: pointer;
 }
 
+.avatarEdit {
+    position: absolute;
+    right: 65%;
+    z-index: 1;
+    top: 155px;
+}
 
-@media (max-width: 850px) {
+.avatarEdit label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px outset #333;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+}
+
+.avatarEdit label:after {
+    content: "📷";
+    font-size: 30px;
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatarEdit input {
+    display: none;
+}
+
+.avatarEdit label:hover {
+    background: #d7c3c3;
+    border-color: #601313;
+    transition: all .4s ease-in-out;
+}
+
+@media screen and (max-width: 850px) {
 
     .avatarBlock {
         height: 180px;
@@ -74,7 +116,7 @@
 }
 
 
-@media (max-width: 500px) {
+@media screen and (max-width: 500px) {
 
     .mainPhoto {
         max-width: 120px;

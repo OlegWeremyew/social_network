@@ -81,7 +81,7 @@
 }
 
 
-@media (max-width: 960px) {
+@media  screen and  (max-width: 960px) {
     .newsBlock__itemBlock {
         flex-direction: column;
     }
@@ -95,7 +95,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media  screen and  (max-width: 480px) {
 
     .button__group {
         flex-direction: column;
