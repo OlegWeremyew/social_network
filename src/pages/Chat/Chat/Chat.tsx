@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Messages} from "./Messages/Messages";
 import {AddMessageForm} from "./AddMessageForm/AddMessageForm";
 import {startMessagesListening, stopMessagesListening} from "../../../redux/chatReducer";
-import style from './Chat.module.css'
+import style from './Chat.module.scss'
 
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./Header.module.css"
+import style from "./Header.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useLocation} from "react-router-dom";
 

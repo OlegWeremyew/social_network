@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../../common/FormsControls/FormsControls.module.css"
-import s from "./Login.module.css"
+import s from "./Login.module.scss"
 
 import {InjectedFormProps, reduxForm} from "redux-form";
 import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsControls/FormsControls";
@@ -39,6 +39,7 @@ const Login: React.FC = () => {
         </section>
     )
 }
+
 export default Login
 
 const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & LoginFormOwnProps> = ({

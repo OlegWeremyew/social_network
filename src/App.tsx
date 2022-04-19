@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './App.module.css';
+import style from './App.module.scss';
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 

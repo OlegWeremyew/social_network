@@ -1,0 +1,18 @@
+.chatPageBlock {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .chatPage__title {
+    font-size: 28px;
+    font-family: 'Luckiest Guy', cursive;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: #333;
+    }
+
+  }
+
+}

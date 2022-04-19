@@ -1,6 +1,6 @@
 import React from 'react';
 import {Chat} from "./Chat/Chat";
-import style from './ChatPage.module.css'
+import style from './ChatPage.module.scss'
 
 const ChatPage: React.FC = () => {
     return (

@@ -6,7 +6,7 @@ import {UsersPropsType} from "./MyPostsContainer";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../../utils/validators/validators";
 import {Textarea} from "../../../../common/FormsControls/FormsControls";
-import s from "../../../Login/Login.module.css";
+import s from "../../../Login/Login.module.scss";
 
 const maxLength = maxLengthCreator(10)
 

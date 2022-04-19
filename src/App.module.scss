@@ -1,0 +1,23 @@
+.appContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .appContentWindow {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+
+        width: 100%;
+        background-color: #e5cba1;
+        margin-bottom: 5px;
+        min-height: 750px;
+
+        border-right: 3px solid #dcb87e;
+        border-left: 3px solid #dcb87e;
+        border-bottom: 3px solid #dcb87e;
+    }
+
+}

@@ -19,10 +19,11 @@
         border: outset;
         border-radius: 5px;
         margin-left: 2px;
-      }
 
-      &:hover {
-        background-color: #f5f5f5;
+        &:hover {
+          background-color: #f5f5f5;
+        }
+
       }
 
       .searchForm__item__select {
@@ -33,10 +34,11 @@
         border-radius: 5px;
         margin-left: 2px;
         cursor: pointer;
-      }
 
-      &:hover {
-        background-color: #f5f5f5;
+        &:hover {
+          background-color: #f5f5f5;
+        }
+
       }
 
       @media screen and (max-width: 800px) {
@@ -62,18 +64,19 @@
       border-radius: 3px;
       cursor: pointer;
       background-color: #601313;
-    }
 
-    &:hover {
-      opacity: .8;
-      color: #fff;
-    }
+      &:hover {
+        opacity: .8;
+        color: #fff;
+      }
 
-    button {
-      border: none;
-      background: none;
-      color: #fff;
-      cursor: pointer;
+      button {
+        border: none;
+        background: none;
+        color: #fff;
+        cursor: pointer;
+      }
+
     }
 
   }

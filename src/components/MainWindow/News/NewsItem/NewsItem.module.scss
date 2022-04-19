@@ -16,6 +16,11 @@
       height: 100%;
     }
 
+    @media screen and (max-width: 960px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
   }
 
   .main {
@@ -25,6 +30,10 @@
     padding: 20px 15px 0;
     width: 50%;
     background-color: #e8b564;
+
+    @media screen and (max-width: 960px) {
+      width: 100%;
+    }
 
     .main__title {
       font-size: 24px;
@@ -55,6 +64,12 @@
       justify-content: space-around;
       padding-bottom: 15px;
 
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+
       .form__btn {
         display: flex;
         justify-content: center;
@@ -84,27 +99,5 @@
     }
 
   }
-
-  @media screen and (max-width: 960px) {
-    .newsBlock__itemBlock {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .main {
-      width: 100%;
-    }
-
-  }
-
-  @media screen and (max-width: 480px) {
-
-    .button__group {
-      flex-direction: column;
-      align-items: center;
-    }
-
-  }
-
 }
 

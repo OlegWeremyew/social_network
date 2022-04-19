@@ -6,7 +6,7 @@ import {FilterType} from "../../../../redux/usersReducer";
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../../../redux/reduxStore";
 import {getUsersFilter} from "../../../../selectors/usersSelectors";
-import s from "../../../Login/Login.module.css";
+import s from "../../../Login/Login.module.scss";
 
 const usersSearchFormValidate = (values: { term: string; friend: FriendFormType }) => {
     const errors = {}
