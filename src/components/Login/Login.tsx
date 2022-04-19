@@ -10,7 +10,7 @@ import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
 import {login} from "../../redux/authReducer";
-import {PATH} from "../../common/RouterPath/RouterPath";
+import {PATH} from "../../utils/RouterPath/RouterPath";
 import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
 
 

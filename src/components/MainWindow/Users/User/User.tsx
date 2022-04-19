@@ -1,10 +1,11 @@
 import React from 'react';
 import style from "./User.module.css";
+import {useDispatch} from "react-redux";
+import {NavLink} from "react-router-dom";
+
 import userImage from "../../../../assets/images/user.png";
 import {follow, unFollow, UserType} from "../../../../redux/usersReducer";
-import {NavLink} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {PATH} from "../../../../common/RouterPath/RouterPath";
+import {PATH} from "../../../../utils/RouterPath/RouterPath";
 
 export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
 

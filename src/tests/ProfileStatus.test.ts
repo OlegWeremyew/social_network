@@ -1,5 +1,5 @@
 import React from "react";
-import {ProfileStatus} from "./ProfileStatus";
+import {ProfileStatus} from "../components/MainWindow/Profile/ProfileInfo/ProfileStatus/ProfileStatus";
 import {create} from "react-test-renderer";
 
 

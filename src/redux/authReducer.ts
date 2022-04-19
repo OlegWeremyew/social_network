@@ -1,5 +1,4 @@
 import {ResultCodesEnum} from "../Api/api";
-import {Dispatch} from "redux";
 import {FormAction, stopSubmit} from "redux-form";
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {authApi} from "../Api/authApi";

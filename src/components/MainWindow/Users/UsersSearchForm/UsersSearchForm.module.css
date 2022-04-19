@@ -16,11 +16,12 @@
 }
 
 .searchForm__item__input {
-    width: 50%;
+    width: 48%;
     height: 30px;
     outline: none;
     border: outset;
     border-radius: 5px;
+    margin-left: 2px;
 }
 
 .searchForm__item__input:hover {

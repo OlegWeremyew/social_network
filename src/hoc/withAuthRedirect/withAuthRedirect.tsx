@@ -2,7 +2,7 @@ import React from "react";
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
-import {PATH} from "../../common/RouterPath/RouterPath";
+import {PATH} from "../../utils/RouterPath/RouterPath";
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {

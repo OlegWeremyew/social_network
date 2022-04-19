@@ -22,7 +22,7 @@ const initialState = {
     status: "",
 }
 
-export const profileReducer = (state = initialState, action: ActionProfileTypes): initialStateType => {
+export const profileReducer = (state = initialState, action: ActionProfileTypes): initialStateProfileType => {
 
     switch (action.type) {
         case ProfileReducerEnum.ADD_POST: {
@@ -131,7 +131,7 @@ export const saveProfile = (profile: ProfileType): ThunkType => async (dispatch:
 //Types=========================================================
 type ThunkType = BaseThunkType<ActionProfileTypes | ReturnType<typeof stopSubmit>>
 
-export type initialStateType = typeof initialState
+export type initialStateProfileType = typeof initialState
 
 export type ActionProfileTypes = InferActionTypes<typeof ProfileActions>
 

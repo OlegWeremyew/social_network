@@ -1,6 +1,8 @@
 import React, {ComponentType} from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
+import {compose} from "redux";
+
 import {
     getUserStatus,
     getUserProfile,
@@ -8,7 +10,6 @@ import {
     updateUserStatus, savePhoto, saveProfile
 } from "../../../redux/profileReducer";
 import {AppStateType} from "../../../redux/reduxStore";
-import {compose} from "redux";
 import {InjectedProps, withRouter2} from "../../../hoc/withRouter/withRouter";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 import {Nullable} from "../../../types/Nullable";

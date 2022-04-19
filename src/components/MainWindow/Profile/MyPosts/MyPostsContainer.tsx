@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import {initialStateType, ProfileActions} from "../../../../redux/profileReducer";
+import {initialStateProfileType, ProfileActions} from "../../../../redux/profileReducer";
 import {MyPosts} from "./MyPosts";
 import {AppStateType} from "../../../../redux/reduxStore";
 import {getProfilePageSelector} from "../../../../selectors/profileSelectors";
@@ -21,7 +21,7 @@ export const MyPostsContainer = connect<MapStateToPropsType, MapDispatchToProps,
 export type UsersPropsType = MapStateToPropsType & MapDispatchToProps
 
 type MapStateToPropsType = {
-    profilePage: initialStateType
+    profilePage: initialStateProfileType
 }
 
 type MapDispatchToProps = {

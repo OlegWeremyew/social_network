@@ -1,12 +1,13 @@
 import React from 'react';
 import style from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
-import {PATH} from "../../common/RouterPath/RouterPath";
+import {PATH} from "../../utils/RouterPath/RouterPath";
 
 const Navbar = () => {
     return (
         <nav className={style.nav}>
             <div className={style.nav__block}>
+
                 <div className={style.item}>
                     <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.PROFILE}>
                        <span className={style.nav__text}>
@@ -14,6 +15,7 @@ const Navbar = () => {
                        </span>
                     </NavLink>
                 </div>
+
                 <div className={`${style.item} ${style.active}`}>
                     <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.DIALOGS}>
                         <span className={style.nav__text}>
@@ -21,6 +23,7 @@ const Navbar = () => {
                         </span>
                     </NavLink>
                 </div>
+
                 <div className={`${style.item} ${style.active}`}>
                     <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.USERS}>
                         <span className={style.nav__text}>
@@ -28,6 +31,7 @@ const Navbar = () => {
                          </span>
                     </NavLink>
                 </div>
+
                 <div className={style.item}>
                     <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.CHAT}>
                         <span className={style.nav__text}>
@@ -35,6 +39,7 @@ const Navbar = () => {
                         </span>
                     </NavLink>
                 </div>
+
                 <div className={style.item}>
                     <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.NEWS}>
                         <span className={style.nav__text}>
@@ -42,8 +47,8 @@ const Navbar = () => {
                         </span>
                     </NavLink>
                 </div>
-            </div>
 
+            </div>
         </nav>
     )
 }
