@@ -2,12 +2,14 @@
 
 .message {
     padding: 10px 0;
+    display: flex;
+    align-items: center;
 }
 
 .message__item {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 85%;
     min-height: 130px;
     font-style: italic;
 
@@ -20,6 +22,21 @@
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+
+.delete__btn {
+    font-size: 30px;
+    margin-left: 20px;
+    background-color: #b2a583;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px outset #fff;
+}
+
+.delete__btn:hover {
+    background-color: #a69971;
+    border: 4px outset #a8792f;
 }
 
 @media (max-width: 900px){
@@ -36,6 +53,18 @@
 
 @media (max-width: 550px){
     .message__item {
-        font-size: 12px;
+        font-size: 10px;
+        min-width: 150px;
+    }
+
+    .delete__btn {
+        font-size: 17px;
+        margin-right: 10px;
+        border: 3px outset #ffffff;
+        margin-left: 6px;
+    }
+
+    .delete__btn:hover {
+        border: 3px outset #a8792f;
     }
 }

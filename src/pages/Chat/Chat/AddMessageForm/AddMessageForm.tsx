@@ -36,7 +36,7 @@ export const AddMessageForm: React.FC = () => {
         <div>
             <textarea
                 className={style.textarea}
-                placeholder={"write your message"}
+                placeholder={"write your message ✉"}
                 value={message}
                 onChange={(e) => addMessageText(e.currentTarget.value)}
                 onKeyPress={onKeyPressHandler}

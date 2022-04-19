@@ -1,15 +1,29 @@
 import React from 'react';
 import style from "./Dialog.module.css"
-import {MessageType} from "../../../../redux/messagesReducer";
+import {useDispatch} from "react-redux";
 
-const Dialog = (props: MessageType) => {
+import {MessageActions, MessageType} from "../../../../redux/messagesReducer";
+
+const Dialog:React.FC<MessageType> = ({message, id}) => {
+
+    const dispatch = useDispatch()
+
+    const deletePostHandler = (id: number) => {
+        dispatch(MessageActions.deleteMessage(id))
+    }
 
     return (
         <div  className={style.message}>
-            <div className={style.message__item}>{props.message}</div>
+            <div className={style.message__item}>{message}</div>
+            <div
+                onClick={() => deletePostHandler(id)}
+                className={style.delete__btn}
+            >
+                ❌
+            </div>
         </div>
 
     )
 }
 
-export default Dialog;
+export default Dialog

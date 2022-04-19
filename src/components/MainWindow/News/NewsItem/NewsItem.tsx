@@ -12,10 +12,12 @@ export const NewsItem:React.FC<PropsType> = ({news}) => {
 
     const titleChangeHandler = () => {
         setTitleEditMode(!titleEditMode)
+        setTextEditMode(false)
     }
 
     const textChangeHandler = () => {
         setTextEditMode(!textEditMode)
+        setTitleEditMode(false)
     }
 
     const deleteNewsHandler = (newsId: string) => {

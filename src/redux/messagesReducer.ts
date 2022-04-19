@@ -1,7 +1,9 @@
 import {InferActionTypes} from "./reduxStore";
+import {ProfileReducerEnum} from "./profileReducer";
 
 export enum UserReducerEnum {
-    ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE"
+    ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE",
+    DELETED_MESSAGE = "SOCIAL_NETWORK/MESSAGES/DELETED_MESSAGE",
 }
 
 const initialState = {
@@ -34,7 +36,10 @@ const initialState = {
         },
     ] as Array<UserType>,
     messages: [
-        {message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti, eos hic ipsam iusto officiis? Ea magnam quam quasi temporibus!", id: 1},
+        {
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti, eos hic ipsam iusto officiis? Ea magnam quam quasi temporibus!",
+            id: 1
+        },
         {message: "Lorem ipsum dolor sit amet, consectetur adipisicing", id: 2},
         {message: "Atque deleniti, eos hic ipsam iusto officiis? Ea magnam quam quasi temporibus!", id: 3},
         {message: "Lorem ipsum dolor sit amet? Ea magnam quam quasi temporibus!", id: 4},
@@ -58,14 +63,23 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
                 messages: [...state.messages, newMessage],
             }
         }
+        case UserReducerEnum.DELETED_MESSAGE: {
+            return {
+                ...state,
+                messages: state.messages.filter(f => f.id !== action.payload.messageId),
+            }
+        }
         default:
             return state
     }
 }
 export const MessageActions = {
-    addMessage : (newMessageText: string) => {
+    addMessage: (newMessageText: string) => {
         return {type: UserReducerEnum.ADD_MESSAGE, payload: {newMessageText}} as const
-    }
+    },
+    deleteMessage: (messageId: number) => {
+        return {type: UserReducerEnum.DELETED_MESSAGE, payload: {messageId}} as const
+    },
 }
 
 //Types ======================================

@@ -66,3 +66,17 @@
     background-color: #d2b438;
     border-radius: 50%;
 }
+
+
+@media (max-width: 720px) {
+    .phoneBlock {
+       flex-direction: column;
+        align-items: center;
+    }
+
+    .phone {
+        width: 300px;
+        margin-top: 5px;
+    }
+
+}

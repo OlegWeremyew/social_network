@@ -21,7 +21,7 @@ const AddMessageForm: React.FC<InjectedFormProps<FormMessagesType>> = ({handleSu
                 <Field
                     component={Textarea}
                     name={"newMessageText"}
-                    placeholder={"Write your message"}
+                    placeholder={"Write your message ✉"}
                     validate={[required, maxLength]}
                 />
             </div>

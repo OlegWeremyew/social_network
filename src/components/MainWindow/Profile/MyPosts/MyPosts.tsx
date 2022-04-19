@@ -49,7 +49,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handle
                 <Field
                     component={Textarea}
                     name={"AddNewPost"}
-                    placeholder={"Write your message"}
+                    placeholder={"Write your message ✉"}
                     validate={[required, maxLength]}
                 />
             </div>

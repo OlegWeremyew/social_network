@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import style from "./Post.module.css"
-import {PostType} from "../../../../../redux/profileReducer";
+import {PostType, ProfileActions} from "../../../../../redux/profileReducer";
+import {useDispatch} from "react-redux";
 
 const Post = (props: PostType) => {
+
+    const dispatch = useDispatch()
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [fingerUp, setFingerUp] = useState<boolean>(false)
@@ -15,6 +18,10 @@ const Post = (props: PostType) => {
 
     const fingerUpChangeHandler = () => {
         setFingerUp(!fingerUp)
+    }
+
+    const deletePostHandler = (id: number) => {
+        dispatch(ProfileActions.deletePost(id))
     }
 
     return (
@@ -44,6 +51,12 @@ const Post = (props: PostType) => {
                         }
                     </span>
                 </div>
+            </div>
+            <div
+                onClick={() => deletePostHandler(props.id)}
+                className={style.delete__btn}
+            >
+                ❌
             </div>
         </div>
     )

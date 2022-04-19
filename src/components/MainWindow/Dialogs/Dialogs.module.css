@@ -9,6 +9,7 @@
     display: flex;
     justify-content: flex-start;
     width: 80%;
+    margin-bottom: 20px;
 }
 
 .dialogItem {
@@ -27,11 +28,36 @@
 }
 
 @media (max-width: 600px) {
+
+    .dialogItem {
+        display: none
+    }
+
+    .dialogs__dialog {
+        width: 100%;
+    }
+
+    .messages {
+        width: 100%;
+        margin-left: 5px;
+    }
+
+}
+
+
+@media (max-width: 320px) {
+    .dialogs {
+        width: 100%;
+    }
+
+
     .dialogItem {
         display: none
     }
 
     .messages {
         width: 100%;
+        margin-left: 5px;
     }
+
 }
