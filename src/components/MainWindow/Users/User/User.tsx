@@ -33,15 +33,14 @@ export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
                 {
                     user.followed
                         ? (
-                            <div className={style.user__btn}>
-                                <button disabled={followingInProgress.some(id => id === user.id)}
-                                        onClick={() => unfollowHandler(user.id)}>Unfollow
+                            <div className={style.user__btn} onClick={() => unfollowHandler(user.id)}>
+                                <button disabled={followingInProgress.some(id => id === user.id)}>Unfollow
                                 </button>
                             </div>
                         ) : (
-                            <div className={style.user__btn_unFollow}>
-                                <button disabled={followingInProgress.some(id => id === user.id)}
-                                        onClick={() => followHandler(user.id)}>Follow
+                            <div className={style.user__btn_unFollow} onClick={() => followHandler(user.id)}>
+                                <button disabled={followingInProgress.some(id => id === user.id)}>
+                                    Follow
                                 </button>
                             </div>
                         )
@@ -49,8 +48,11 @@ export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
             </div>
             <div>
                 <div className={style.userInfo}>
-                    <div className={style.userName}>User name : <span className={style.user__text}>{user.name}</span>
-                    </div>
+                    <NavLink to={`${PATH.PROFILE}/${user.id}`}>
+                        <div className={style.userName}>
+                            User name : <span className={style.user__text}>{user.name}</span>
+                        </div>
+                    </NavLink>
                     <div className={style.userStatus}>User status :
                         <span className={style.user__text}>
                                 {

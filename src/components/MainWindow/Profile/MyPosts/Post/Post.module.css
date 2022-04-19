@@ -13,9 +13,10 @@
     flex-direction: column;
     justify-content: center;
     width: 80%;
+    padding-top: 8px;
     text-align: left;
-    font-size: 26px;
-    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    font-family: 'Pangolin', cursive;
     font-weight: 700;
 }
 
@@ -44,15 +45,21 @@
     color: #fff;
 }
 
+.notActive {
+    margin-left: 5px;
+    color: #fff;
+}
+
 .active {
     color: red;
+    margin-left: 5px;
 }
 
 .activeBlock {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 150px;
+    width: 200px;
     padding: 10px 0 0 0;
     cursor: pointer;
     font-size: 20px;
@@ -63,11 +70,16 @@
     color: #fff;
 }
 
+.reaction {
+    margin-left: 5px;
+}
+
 @media (max-width: 750px) {
 
     .postAvatar img {
         width: 60px;
         height: 60px;
+        border: outset 3px ;
     }
 
     .itemText {
@@ -77,6 +89,11 @@
     .likeCounter {
         font-size: 16px;
     }
+
+    .activeBlock {
+        width: 150px;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -90,16 +107,13 @@
         font-size: 14px;
     }
 
-    .activeBlock {
-        width: 120px;
-    }
 
     .likeCounter {
         font-size: 12px;
     }
 
     .activeBlock {
-        width: 80px;
+        width: 100px;
     }
 }
 
@@ -109,7 +123,4 @@
         font-size: 10px;
     }
 
-    .activeBlock {
-        width: 80px;
-    }
 }

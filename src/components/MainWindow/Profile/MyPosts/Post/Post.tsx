@@ -7,7 +7,7 @@ const Post = (props: PostType) => {
     const [editMode, setEditMode] = useState<boolean>(false)
     const [fingerUp, setFingerUp] = useState<boolean>(false)
 
-    let heart = editMode ? style.active : ""
+    let heart = editMode ? style.active : style.notActive
 
     const statusChangeHandler = () => {
         setEditMode(!editMode)
@@ -23,7 +23,8 @@ const Post = (props: PostType) => {
                 <img
                     src="https://slovami.net/wp-content/uploads/thumbs_dir/the-most-beautiful-guys-russia-4-1-nwkkkydf2f1mhw9a4ijzfs2ktasvevyjiyi4xibqis.jpg"
                     alt="ava"
-                    title="ava"/>
+                    title="ava"
+                />
             </div>
             <div className={style.itemText}>
                 {props.message}
@@ -38,8 +39,8 @@ const Post = (props: PostType) => {
                         respect:
                         {
                             !fingerUp
-                                ? <span>&#128077;</span>
-                                : <span>&#128526;</span>
+                                ? <span className={style.reaction}>&#128077;</span>
+                                : <span className={style.reaction}>&#128526;</span>
                         }
                     </span>
                 </div>

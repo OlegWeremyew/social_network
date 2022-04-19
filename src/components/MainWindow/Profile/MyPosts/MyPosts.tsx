@@ -38,10 +38,11 @@ export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => 
 
 const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handleSubmit, reset}) => {
 
-    const onSubmit = (values:SyntheticEvent<any, Event>) => {
-        handleSubmit(values)
-        reset()
+    const onSubmit = (values: SyntheticEvent<any, Event>) => {
+            handleSubmit(values)
+            reset()
     }
+
     return (
         <form onSubmit={onSubmit}>
             <div>
@@ -52,7 +53,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handle
                     validate={[required, maxLength]}
                 />
             </div>
-            <div  className={s.form__btn}>
+            <div className={s.form__btn}>
                 <button>Add post</button>
             </div>
         </form>

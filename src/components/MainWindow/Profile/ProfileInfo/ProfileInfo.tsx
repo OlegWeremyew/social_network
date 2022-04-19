@@ -7,9 +7,17 @@ import {Preloader} from "../../../../common/Preloader/Preloader";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
 
-const ProfileInfo:React.FC<ProfileInfoPropsType> = ({profile, status, updateUserStatus, savePhoto, isOwner, saveProfile}) => {
+const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
+                                                         profile,
+                                                         status,
+                                                         updateUserStatus,
+                                                         savePhoto,
+                                                         isOwner,
+                                                         saveProfile
+                                                     }) => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
+    const [viewMode, setViewMode] = useState<boolean>(false)
 
     if (!profile) {
         return <Preloader/>
@@ -30,6 +38,10 @@ const ProfileInfo:React.FC<ProfileInfoPropsType> = ({profile, status, updateUser
         setEditMode(true)
     }
 
+    const disableViewModeHandler = () => {
+        setViewMode(false)
+    }
+
     return (
         <div className={style.profile}>
             <div className={style.avatarBlock}>
@@ -45,7 +57,7 @@ const ProfileInfo:React.FC<ProfileInfoPropsType> = ({profile, status, updateUser
                         }
                     />
                 </div>
-                <div  className={style.profile__inner}>
+                <div className={style.profile__inner}>
                     <ProfileStatus
                         isOwner={isOwner}
                         status={status}
@@ -63,13 +75,24 @@ const ProfileInfo:React.FC<ProfileInfoPropsType> = ({profile, status, updateUser
                 </div>
             </div>
             <hr/>
-            <ProfileEdit
-                editMode={editMode}
-                profile={profile}
-                onSubmit={onSubmit}
-                isOwner={isOwner}
-                setEditModeHandler={setEditModeHandler}
-            />
+            {
+                !viewMode
+                    ? (
+                        <div className={style.view__btn} onClick={() => setViewMode(true)}>
+                            <button>View contacts</button>
+                        </div>
+
+                    ) : (
+                        <ProfileEdit
+                            editMode={editMode}
+                            profile={profile}
+                            onSubmit={onSubmit}
+                            isOwner={isOwner}
+                            setEditModeHandler={setEditModeHandler}
+                            disableViewMode={disableViewModeHandler}
+                        />
+                    )
+            }
             <hr/>
         </div>
     )

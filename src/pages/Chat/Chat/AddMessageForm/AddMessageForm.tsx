@@ -41,9 +41,7 @@ export const AddMessageForm: React.FC = () => {
                 onKeyPress={onKeyPressHandler}
             />
             <div className={style.form__btn} onClick={sendMessageHandler}>
-                <button
-                    disabled={status !== 'ready'}
-                >
+                <button disabled={status !== 'ready'}>
                     Send
                 </button>
             </div>

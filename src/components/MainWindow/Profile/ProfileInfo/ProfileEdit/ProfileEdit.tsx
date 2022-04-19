@@ -1,22 +1,32 @@
 import React from 'react';
+import style from "../ProfileInfo.module.css";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import {ProfileType} from "../../../../../redux/profileReducer";
 
-const ProfileEdit = ({editMode, profile, onSubmit, isOwner, setEditModeHandler}: ProfileEditPropsType) => {
+const ProfileEdit: React.FC<ProfileEditPropsType> = ({
+                                                         editMode,
+                                                         profile,
+                                                         onSubmit,
+                                                         isOwner,
+                                                         setEditModeHandler,
+                                                         disableViewMode
+                                                     }) => {
     return (
         <>
+            <div className={style.view__btn} onClick={disableViewMode}>
+                <button>Hide contacts</button>
+            </div>
             {
                 editMode
-                    ? (<>
+                    ? (
+                        <>
                             <ProfileDataForm
                                 initialValues={profile}
                                 profile={profile}
                                 onSubmit={onSubmit}
                             />
                         </>
-
-
                     ) : (
                         <ProfileData
                             profile={profile}
@@ -38,4 +48,5 @@ type ProfileEditPropsType = {
     onSubmit: any
     isOwner: boolean
     setEditModeHandler: () => void
+    disableViewMode: () => void
 }

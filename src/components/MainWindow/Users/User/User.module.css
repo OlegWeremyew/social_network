@@ -20,6 +20,10 @@
     box-shadow: 3px 5px 10px 2px rgb(34 60 80 / 20%);
 }
 
+.userBlock:hover {
+    background-color: #d3b37e;
+}
+
 .user__btn {
     display: flex;
     justify-content: center;
@@ -59,7 +63,7 @@
 }
 
 .user__btn_unFollow:hover {
-    background-color: #2b522f;
+    background-color: #254b29;
     color: #fff;
 }
 
@@ -75,6 +79,15 @@
     font-family: 'Patrick Hand', cursive;
     color: #601313;
     font-weight: 700;
+}
+
+.userInfo a {
+    text-decoration: none;
+    color: #601313;
+}
+
+.userInfo a:hover {
+    text-decoration: underline;
 }
 
 .user__text {

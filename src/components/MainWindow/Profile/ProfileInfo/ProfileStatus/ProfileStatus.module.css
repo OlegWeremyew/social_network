@@ -4,9 +4,9 @@ h3:hover {
 
 .statusText {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: flex-start;
     width: 300px;
     font-size: 28px;
     font-weight: 700;
@@ -23,10 +23,16 @@ h3:hover {
     font-family: 'Luckiest Guy', cursive;
 }
 
+.activeInput input {
+    outline: none;
+    border: 2px solid #dcb87e;
+    border-radius: 5px;
+}
+
 .status__text {
     cursor: pointer;
     font-size: 18px;
-    font-family: 'Handlee', cursive;
+    font-family: 'Pangolin', cursive;
     text-align: left;
 }
 

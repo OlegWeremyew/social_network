@@ -62,10 +62,9 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
                                 .keys(profile.contacts)
                                 .map(key => {
                                         return (
-                                            <div className={style.contactsBlock__item}>
+                                            <div className={style.contactsBlock__item} key={key}>
                                                 <span className={style.icon}>&#10003; </span>
                                                 <Contact
-                                                    key={key}
                                                     contactTitle={key}
                                                     contactValue={profile.contacts[key as keyof ContactsType]}
                                                 />
@@ -79,7 +78,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataPropsType) => 
                 {
                     isOwner &&
                     <div className={style.activateEdit__btn} onClick={goToEditMode}>
-                        <button>Edit</button>
+                        <button>Edit contacts</button>
                     </div>
                 }
             </div>

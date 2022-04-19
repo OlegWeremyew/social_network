@@ -10,9 +10,10 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
     }
 
     activateEditMode = () => {
-        this.props.isOwner && this.setState(
-            {editMode: true}
-        )
+        this.props.isOwner
+        && this.setState({
+            editMode: true
+        })
     }
 
     deactivateEditMode = () => {
