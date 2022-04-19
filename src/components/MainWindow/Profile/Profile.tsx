@@ -8,7 +8,7 @@ import {ProfileType} from "../../../redux/profileReducer";
 const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus, isOwner, savePhoto, saveProfile}) => {
 
     return (
-        <div className={style.profile}>
+        <section className={style.profile}>
             <ProfileInfo
                 profile={profile}
                 status={status}
@@ -21,7 +21,7 @@ const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus,
                 isOwner
                 && <MyPostsContainer/>
             }
-        </div>
+        </section>
     )
 }
 

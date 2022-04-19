@@ -30,13 +30,13 @@ const Login: React.FC = () => {
     }
 
     return (
-        <div className={s.login__block}>
+        <section className={s.login__block}>
             <h1 className={s.login__title}>Login</h1>
             <LoginReduxForm
                 onSubmit={onSubmit}
                 captchaUrl={captchaUrl}
             />
-        </div>
+        </section>
     )
 }
 export default Login

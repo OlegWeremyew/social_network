@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import style from "./News.module.css"
+import style from "./News.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 
 import {NewsItem} from "./NewsItem/NewsItem";
@@ -44,7 +44,7 @@ const News = () => {
     }
 
     return (
-        <div className={style.news}>
+        <section className={style.news}>
             {isFetching ? <Preloader/> : null}
             <h3 className={style.news__title}>News</h3>
             <div className={style.newsBlock}>
@@ -96,7 +96,7 @@ const News = () => {
                         </div>
                     )
             }
-        </div>
+        </section>
     )
 }
 

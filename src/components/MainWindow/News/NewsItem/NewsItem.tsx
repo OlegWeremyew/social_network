@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import style from "./NewsItem.module.css";
+import style from "./NewsItem.module.scss";
 import {useDispatch} from "react-redux";
 import {NewsActions, NewsType} from "../../../../redux/NewsReducer";
 

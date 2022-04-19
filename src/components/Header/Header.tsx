@@ -15,6 +15,7 @@ import {getAuthDataLoginSelector, getAuthIsAuthSelector} from "../../selectors/a
 import {Undetectable} from "../../types/Undetectable";
 import {getProfilePageProfilePhotosLargeSelector} from "../../selectors/profileSelectors";
 import {PATH} from "../../utils/RouterPath/RouterPath";
+import {Clock} from "../../common/Clock/Clock";
 
 const Header = () => {
 
@@ -34,12 +35,19 @@ const Header = () => {
 
     return (
         <header className={style.header}>
-            <img
-                className={style.header__logo}
-                src={logo}
-                alt='logo'
-                title="image logo"
-            />
+
+            <div className={style.headerInformBlock}>
+                <img
+                    className={style.header__logo}
+                    src={logo}
+                    alt='logo'
+                    title="image logo"
+                />
+                <div  className={style.headerClock}>
+                    <Clock/>
+                </div>
+            </div>
+
             <div className={style.header__loginBlock}>
                 {
                     isAuth
@@ -80,7 +88,9 @@ const Header = () => {
                             </NavLink>
                         )
                 }
+
             </div>
+
         </header>
     )
 }

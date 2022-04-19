@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import style from './Users.module.css'
+import style from './Users.module.scss'
 
 import {FilterType, requestUsers, UserType} from "../../../redux/usersReducer";
 import {Paginator} from "../../../common/Paginator/Paginator";

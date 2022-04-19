@@ -36,7 +36,7 @@ export const Dialogs = ({messagesPage, addMessage}: UsersPropsType) => {
     }
 
     return (
-        <div className={style.dialogs}>
+        <section className={style.dialogs}>
             <div className={style.dialogs__dialog}>
                 <div className={style.dialogItem}>
                     {dialogsItem}
@@ -46,7 +46,7 @@ export const Dialogs = ({messagesPage, addMessage}: UsersPropsType) => {
                 </div>
             </div>
             <ReduxAddMessageForm onSubmit={addNewMessage}/>
-        </div>
+        </section>
     )
 }
 

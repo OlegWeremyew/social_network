@@ -1,6 +1,6 @@
 import React from "react";
 import {Form, Formik, Field} from "formik";
-import style from './UsersSearchForm.module.css'
+import style from './UsersSearchForm.module.scss'
 
 import {FilterType} from "../../../../redux/usersReducer";
 import {useSelector} from "react-redux";
