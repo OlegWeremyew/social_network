@@ -1,6 +1,5 @@
 import {v1} from "uuid";
 import {InferActionTypes} from "./reduxStore";
-import {PostType} from "./profileReducer";
 
 export enum NewsReducerEnum {
     ADD_NEWS = "SOCIAL_NETWORK/NEWS/ADD_POST",
@@ -29,7 +28,16 @@ const initialState = {
             text: 'Full Moon (lat. Luna plena, plenilunium) is the phase of the Moon, at which the difference between the ecliptic longitudes of the Sun and the Moon is 180 °. This means that the plane through the Sun, Earth and Moon is perpendicular to the plane of the ecliptic. If all three objects are on the same line, a lunar eclipse occurs. The full moon looks like a fully illuminated circle.t',
             title: "Full moon",
         },
-    ] as NewsType[]
+    ] as NewsType[],
+    images: [
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPiDO89QlCqt5rl7UI4XOUCQzYA6HBkMNsbA&usqp=CAU"},
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFxS2hQOJC-Aycw9EdLQp90JL3aibHWVB2FQ&usqp=CAU"},
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIKDro5BiB_9ovMAVV9tsnoUXolUwkS63ZQ&usqp=CAU"},
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROO-MgGXP9Ryb20_YWCA8VUKPIWeEgdbzjxA&usqp=CAU"},
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7trf0SnVCbXTPBMFbspsf3LDx3RmcpQrNJw&usqp=CAU"},
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM_nbxbH9uzFOkLNcI-LmE5xShJhbx_nV8-g&usqp=CAU"},
+        {imageForBackground : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhPeeqnU_7s16RI8bOLs4giqKOUorM7iiW2g&usqp=CAU"},
+    ] as ImagesType[]
 }
 
 export const newsReducer = (state = initialState, action: ActionNewsTypes): initialStateType => {
@@ -37,7 +45,7 @@ export const newsReducer = (state = initialState, action: ActionNewsTypes): init
         case NewsReducerEnum.ADD_NEWS: {
             let newsItem: NewsType = {
                 id: v1(),
-                image: "",
+                image: state.images[(Math.round(Math.random() * state.images.length))].imageForBackground,
                 text: "Введите ваш текст",
                 title: action.payload.newTitle
             }
@@ -116,4 +124,8 @@ export type NewsType = {
     image: string
     text: string
     title: string
+}
+
+export type ImagesType = {
+    imageForBackground: string
 }

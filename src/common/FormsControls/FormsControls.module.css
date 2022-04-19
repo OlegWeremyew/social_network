@@ -20,11 +20,12 @@
 
 .textarea {
     width: 100%;
-    border: none;
+    border: 2px solid #dcb87e;
     outline: none;
     font-family: 'Montserrat', sans-serif;
     font-size: large;
     color: #272729;
     padding-left: 25px;
-
+    border-radius: 5px;
+    resize: none;
 }

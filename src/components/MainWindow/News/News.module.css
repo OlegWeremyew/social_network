@@ -30,6 +30,42 @@
 
 }
 
+.addNewsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.addNewsForm textarea {
+    width: 90%;
+    outline: none;
+    border: 2px solid #dcb87e;
+    border-radius: 5px;
+    min-height: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    padding-left: 25px;
+    resize: none;
+}
+
+.ErrorBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.ErrorBlock textarea {
+    border: 2px solid red;
+    width: 90%;
+}
+
+.addNewsError {
+    color: red;
+    font-size: 18px;
+}
+
 .form__btn {
     display: flex;
     justify-content: center;

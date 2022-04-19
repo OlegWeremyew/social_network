@@ -26,8 +26,14 @@
 .textarea {
     display: flex;
     width: 100%;
+    border: 2px solid #dcb87e;
 
     margin-top: 20px;
     justify-content: center;
-    text-align: center;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    padding-left: 25px;
+    outline: none;
+    resize: none;
 }

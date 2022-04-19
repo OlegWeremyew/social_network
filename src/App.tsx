@@ -2,9 +2,8 @@ import React from 'react';
 import style from './App.module.css';
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import {connect, Provider} from "react-redux";
-import {AppStateType, store} from "./redux/reduxStore";
 
-import News from "./components/MainWindow/News/News";
+import {AppStateType, store} from "./redux/reduxStore";
 import {initializeApp} from "./redux/AppReducer";
 import {Preloader} from "./common/Preloader/Preloader";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
@@ -19,6 +18,7 @@ const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profil
 const UsersPage = React.lazy(() => import('./components/MainWindow/Users/UsersPage'))
 const Login = React.lazy(() => import('./components/Login/Login'))
 const ChatPage = React.lazy(() => import('./pages/Chat/ChatPage'))
+const News = React.lazy(() => import('./components/MainWindow/News/News'))
 
 class App extends React.Component<AppContainerType, AppContainerType> {
 

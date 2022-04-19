@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import style from "./News.module.css"
+import {useDispatch, useSelector} from "react-redux";
 
 import {NewsItem} from "./NewsItem/NewsItem";
-import {useDispatch, useSelector} from "react-redux";
 import {NewsActions, NewsType} from "../../../redux/NewsReducer";
 import {AppStateType} from "../../../redux/reduxStore";
 import {getIsFetching} from "../../../redux/usersSelectors";
@@ -12,6 +12,9 @@ const News = () => {
 
     const dispatch = useDispatch()
 
+    const [title, setTitle] = useState<string>("")
+    const [error, setError] = useState<string>("")
+
     const [activateAddMode, setActivateAddMode] = useState<boolean>(false)
     const newsArray = useSelector<AppStateType, NewsType[]>(state => state.news.news)
     const isFetching = useSelector<AppStateType, boolean>(getIsFetching)
@@ -20,8 +23,23 @@ const News = () => {
         setActivateAddMode(!activateAddMode)
     }
 
-    const addNews = (title: string) => {
-        dispatch(NewsActions.addNews(title))
+    const onChangeHandler = (title: string) => {
+        setError("")
+        setTitle(title)
+    }
+    const addNews = () => {
+        if (title.trim()) {
+            dispatch(NewsActions.addNews(title))
+            setError("")
+            setTitle("")
+        } else {
+            setError("Field is required")
+        }
+    }
+
+    const cancelHandler = () => {
+        setActivateAddMode(!activateAddMode)
+        setError("")
     }
 
     return (
@@ -40,13 +58,35 @@ const News = () => {
             {
                 activateAddMode
                     ? (
-                        <div className={style.button__group}>
-                            <input type="text" onChange={(e)=>addNews(e.currentTarget.value)}/>
-                            <div className={style.form__btn} onClick={activateAddModeHandler}>
-                                <button>Save</button>
-                            </div>
-                            <div className={style.form__btn} onClick={activateAddModeHandler}>
-                                <button>Cancel</button>
+                        <div className={style.addNewsForm}>
+                            {
+                                error
+                                    ? (
+                                        <div className={style.ErrorBlock}>
+                                            <textarea
+                                                onChange={(e) => onChangeHandler(e.currentTarget.value)}
+                                                value={title}
+                                                placeholder="write news title"
+                                            />
+                                            <div className={style.addNewsError}>
+                                                {error}
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <textarea
+                                            onChange={(e) => onChangeHandler(e.currentTarget.value)}
+                                            value={title}
+                                            placeholder="write news title"
+                                        />
+                                    )
+                            }
+                            <div className={style.button__group}>
+                                <div className={style.form__btn} onClick={addNews}>
+                                    <button>Save</button>
+                                </div>
+                                <div className={style.form__btn} onClick={cancelHandler}>
+                                    <button>Cancel</button>
+                                </div>
                             </div>
                         </div>
                     ) : (
@@ -55,10 +95,8 @@ const News = () => {
                         </div>
                     )
             }
-
         </div>
     )
 }
 
 export default News
-
