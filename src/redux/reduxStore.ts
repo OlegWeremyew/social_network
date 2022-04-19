@@ -1,7 +1,6 @@
 import {Action, applyMiddleware, combineReducers, createStore} from "redux";
 import {profileReducer} from "./profileReducer";
 import {messagesReducer} from "./messagesReducer";
-import {sidebarReducer} from "./sidebarPageReducer";
 import {usersReducer} from "./usersReducer";
 import {authReducer} from "./authReducer";
 import {appReducer} from "./AppReducer";
@@ -13,7 +12,6 @@ import {newsReducer} from "./NewsReducer";
 export const rootReducer = combineReducers({
     profilePage: profileReducer,
     messagesPage: messagesReducer,
-    sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
     form: formReducer,

@@ -1,4 +1,4 @@
-import {initialStateType, UserActions, usersReducer, UserType} from "./usersReducer";
+import {initialStateType, UserActions, usersReducer, UserType} from "../redux/usersReducer";
 
 let state: initialStateType
 

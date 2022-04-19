@@ -1,15 +1,15 @@
 import React from 'react';
-import c from "./DialogsItem.module.css";
+import style from "./DialogsItem.module.css";
 import {UserType} from "../../../../redux/messagesReducer";
 
-const DialogsItem = ({id, img, name}: UserType) => {
+const DialogsItem = ({img, name}: UserType) => {
 
     return (
-        <div className={c.dialog}>
+        <div className={style.dialog}>
             <div>
                 <img src={img} alt="dialogs item"/>
             </div>
-            <div className={c.dialog__name}>
+            <div className={style.dialog__name}>
                {name}
             </div>
         </div>

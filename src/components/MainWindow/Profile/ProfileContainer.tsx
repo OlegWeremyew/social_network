@@ -12,6 +12,8 @@ import {compose} from "redux";
 import {InjectedProps, withRouter2} from "../../../hoc/withRouter/withRouter";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 import {Nullable} from "../../../types/Nullable";
+import {getProfilePageProfileSelector, getProfilePageStatusSelector} from "../../../selectors/profileSelectors";
+import {getAuthAuthorizedUserIDSelector, getAuthIsAuthSelector} from "../../../selectors/authSelectors";
 
 class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 
@@ -61,10 +63,10 @@ class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        profile: state.profilePage.profile,
-        isAuth: state.auth.isAuth,
-        status: state.profilePage.status,
-        authorizedUserID: state.auth.data.userId,
+        profile: getProfilePageProfileSelector(state),
+        isAuth: getAuthIsAuthSelector(state),
+        status: getProfilePageStatusSelector(state),
+        authorizedUserID: getAuthAuthorizedUserIDSelector(state),
     }
 }
 
@@ -90,6 +92,7 @@ type MapStateToPropsType = {
     status: string
     authorizedUserID: Nullable<string>
 }
+
 type MapDispatchToProps = {
     getUserProfile: (userId: Nullable<string>) => void
     getUserStatus: (userId: Nullable<string>) => void

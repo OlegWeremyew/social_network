@@ -11,19 +11,19 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
 import {login} from "../../redux/authReducer";
 import {PATH} from "../../common/RouterPath/RouterPath";
+import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
 
 
 const Login: React.FC = () => {
 
     const dispatch = useDispatch()
 
-    const captchaUrl = useSelector<AppStateType, Nullable<string>>(state => state.auth.captchaUrl)
-    const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
+    const captchaUrl = useSelector<AppStateType, Nullable<string>>(getAuthCaptchaUrlSelector)
+    const isAuth = useSelector<AppStateType, boolean>(getAuthIsAuthSelector)
 
     const onSubmit = (formData: FormDataType) => {
         dispatch(login(formData.email, formData.password, formData.rememberMe, formData.captcha))
     }
-
 
     if (isAuth) {
         return <Navigate to={PATH.PROFILE}/>

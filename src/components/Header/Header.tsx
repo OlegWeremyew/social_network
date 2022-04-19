@@ -11,14 +11,18 @@ import {NavLink, useLocation} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {AppStateType} from "../../redux/reduxStore";
 import {logout} from "../../redux/authReducer";
+import {getAuthDataLoginSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
+import {Undetectable} from "../../types/Undetectable";
+import {getProfilePageProfilePhotosLargeSelector} from "../../selectors/profileSelectors";
+import {PATH} from "../../common/RouterPath/RouterPath";
 
 const Header = () => {
 
     const dispatch = useDispatch()
 
-    const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
-    const login = useSelector<AppStateType, Nullable<string>>(state => state.auth.data.login)
-    const userAvatar = useSelector<AppStateType, Nullable<string | undefined>>(state => state.profilePage.profile?.photos.large)
+    const isAuth = useSelector<AppStateType, boolean>(getAuthIsAuthSelector)
+    const login = useSelector<AppStateType, Nullable<string>>(getAuthDataLoginSelector)
+    const userAvatar = useSelector<AppStateType, Nullable<Undetectable<string>>>(getProfilePageProfilePhotosLargeSelector)
 
     const logoutHandler = () => {
         dispatch(logout())
@@ -64,7 +68,7 @@ const Header = () => {
                                 </div>
                             </div>
                         ) : (
-                            <NavLink to={'/login'}>
+                            <NavLink to={PATH.LOGIN}>
                                 <div className={style.login__btn}>
                                     <img
                                         className={style.login__image}

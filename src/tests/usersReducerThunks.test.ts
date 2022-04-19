@@ -1,4 +1,4 @@
-import {follow, unFollow, UserActions} from "./usersReducer";
+import {follow, unFollow, UserActions} from "../redux/usersReducer";
 import {usersAPI} from "../Api/usersAPI";
 import {APIResponseType, ResultCodesEnum} from "../Api/api";
 

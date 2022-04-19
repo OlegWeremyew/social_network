@@ -7,12 +7,13 @@ import style from './Chat.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {ReadyStatusType} from "../../../Api/chatApi";
+import {getChatStatusSelector} from "../../../selectors/chatSelectors";
 
 export const Chat: React.FC = () => {
 
     const dispatch = useDispatch()
 
-    const status = useSelector<AppStateType, ReadyStatusType>(state => state.chat.status)
+    const status = useSelector<AppStateType, ReadyStatusType>(getChatStatusSelector)
 
     useEffect(() => {
         dispatch(startMessagesListening())

@@ -14,7 +14,7 @@ import {
     getTotalUsersCount,
     getUsers,
     getUsersFilter
-} from "../../../redux/usersSelectors";
+} from "../../../selectors/usersSelectors";
 import {useNavigate, useSearchParams} from "react-router-dom";
 
 export const Users: React.FC = () => {

@@ -38,7 +38,7 @@ export const Input: React.FC<WrappedFieldProps> = (props) => {
     const {input, meta, ...restProps} = props
     return (
         <FormControl {...props}>
-            <input {...input} {...restProps}/>
+            <input  className={styles.input} {...input} {...restProps}/>
         </FormControl>
     )
 }

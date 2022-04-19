@@ -5,8 +5,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {NewsItem} from "./NewsItem/NewsItem";
 import {NewsActions, NewsType} from "../../../redux/NewsReducer";
 import {AppStateType} from "../../../redux/reduxStore";
-import {getIsFetching} from "../../../redux/usersSelectors";
+import {getIsFetching} from "../../../selectors/usersSelectors";
 import {Preloader} from "../../../common/Preloader/Preloader";
+import {getNewsSelector} from "../../../selectors/newsSelectors";
 
 const News = () => {
 
@@ -14,9 +15,9 @@ const News = () => {
 
     const [title, setTitle] = useState<string>("")
     const [error, setError] = useState<string>("")
-
     const [activateAddMode, setActivateAddMode] = useState<boolean>(false)
-    const newsArray = useSelector<AppStateType, NewsType[]>(state => state.news.news)
+
+    const newsArray = useSelector<AppStateType, NewsType[]>(getNewsSelector)
     const isFetching = useSelector<AppStateType, boolean>(getIsFetching)
 
     const activateAddModeHandler = () => {

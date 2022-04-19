@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {Users} from './Users';
 import {Preloader} from "../../../common/Preloader/Preloader";
-import {getIsFetching} from "../../../redux/usersSelectors";
+import {getIsFetching} from "../../../selectors/usersSelectors";
 
 
 const UsersPage: React.FC = () => {

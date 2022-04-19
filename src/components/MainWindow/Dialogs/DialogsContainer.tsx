@@ -5,10 +5,11 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
+import {getMessagesPageSelector} from "../../../selectors/dialogSelectors";
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        messagesPage: state.messagesPage,
+        messagesPage: getMessagesPageSelector(state)
     }
 }
 
