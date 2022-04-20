@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
-import style from "./ProfileInfo.module.css"
+import style from "./ProfileInfo.module.scss"
 
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
@@ -73,7 +73,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                     id="imageUpload"
                                     accept=".png, .jpg, .jpeg"
                                 />
-                                <label htmlFor="imageUpload"></label>
+                                <label htmlFor="imageUpload"> </label>
                             </div>
                         }
                     </div>

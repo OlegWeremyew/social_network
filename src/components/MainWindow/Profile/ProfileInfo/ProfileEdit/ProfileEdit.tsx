@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../ProfileInfo.module.css";
+import style from "../ProfileInfo.module.scss";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import {ProfileType} from "../../../../../redux/profileReducer";
