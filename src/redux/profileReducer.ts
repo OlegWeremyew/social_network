@@ -11,7 +11,6 @@ export enum ProfileReducerEnum {
     SET_USER_PROFILE = "SOCIAL_NETWORK/PROFILE/SET-USER-PROFILE",
     SET_STATUS = "SOCIAL_NETWORK/PROFILE/SET-STATUS",
     SAVE_PHOTO = "SOCIAL_NETWORK/PROFILE/SAVE_PHOTO_SUCCESS",
-    DELETE_POST = "SOCIAL_NETWORK/PROFILE/ DELETE_POST",
 }
 
 const initialState = {
@@ -34,7 +33,7 @@ export const profileReducer = (state = initialState, action: ActionProfileTypes)
             }
             return {
                 ...state,
-                posts: [...state.posts, newPost],
+                posts: [newPost, ...state.posts],
             }
         }
         case ProfileReducerEnum.DELETED_POST: {

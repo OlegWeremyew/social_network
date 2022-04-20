@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../../common/FormsControls/FormsControls.module.css"
+import style from "../../common/FormsControls/FormsControls.module.scss"
 import s from "./Login.module.scss"
 
 import {InjectedFormProps, reduxForm} from "redux-form";

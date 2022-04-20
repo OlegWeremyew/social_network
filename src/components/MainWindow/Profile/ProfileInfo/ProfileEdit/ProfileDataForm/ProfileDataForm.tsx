@@ -1,9 +1,9 @@
 import React, {FC} from "react";
-import style from './ProfileDataForm.module.css'
+import style from './ProfileDataForm.module.scss'
 
 import {ProfileType} from "../../../../../../redux/profileReducer";
 import {Preloader} from "../../../../../../common/Preloader/Preloader";
-import {createField, Input, Textarea} from "../../../../../../common/FormsControls/FormsControls";
+import {createField, Input} from "../../../../../../common/FormsControls/FormsControls";
 import {InjectedFormProps, reduxForm} from "redux-form";
 
 

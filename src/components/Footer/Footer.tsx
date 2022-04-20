@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./Footer.module.css"
+import style from "./Footer.module.scss"
 
 import phone from '../../assets/images/contacts/phone.svg'
 import operator_mts from '../../assets/images/contacts/operator_mts.svg'
@@ -19,7 +19,7 @@ const Footer = () => {
                     Made with <span className={style.copyright__header}>&#10084;</span> <span>by Oleg Veremyev</span>
                 </div>
 
-                <div  className={style.phoneBlock}>
+                <div className={style.phoneBlock}>
                     <div className={style.phone}>
                         <img src={operator_mts} alt="operator mts"/>
                         <a href="tel:+375298413953">
@@ -36,7 +36,7 @@ const Footer = () => {
 
                     <div className={style.phone}>
                         <img src={mail} alt="mail"/>
-                        <a href="olegweremey1994@mail.ru">
+                        <a href="mailto:olegweremey1994@mail.ru">
                             <span>olegweremey1994@mail.ru</span>
                         </a>
                     </div>

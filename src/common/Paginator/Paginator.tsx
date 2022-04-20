@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from "./Paginator.module.css"
+import styles from "./Paginator.module.scss"
 import cn from 'classnames'
 
 export const Paginator: React.FC<UsersPropsType> = ({

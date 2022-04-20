@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import style from "./Post.module.css"
 import {PostType, ProfileActions} from "../../../../../redux/profileReducer";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "../../../../../redux/reduxStore";
+import {Nullable} from "../../../../../types/Nullable";
+import {Undetectable} from "../../../../../types/Undetectable";
+import {getProfilePageProfilePhotosLargeSelector} from "../../../../../selectors/profileSelectors";
 
 const Post = (props: PostType) => {
 
@@ -9,6 +13,8 @@ const Post = (props: PostType) => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [fingerUp, setFingerUp] = useState<boolean>(false)
+
+    const userAvatar = useSelector<AppStateType, Nullable<Undetectable<string>>>(getProfilePageProfilePhotosLargeSelector)
 
     let heart = editMode ? style.active : style.notActive
 
@@ -28,7 +34,7 @@ const Post = (props: PostType) => {
         <div className={style.item}>
             <div className={style.postAvatar}>
                 <img
-                    src="https://slovami.net/wp-content/uploads/thumbs_dir/the-most-beautiful-guys-russia-4-1-nwkkkydf2f1mhw9a4ijzfs2ktasvevyjiyi4xibqis.jpg"
+                    src={userAvatar ? userAvatar : ""}
                     alt="ava"
                     title="ava"
                 />
