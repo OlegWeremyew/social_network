@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import style from "./Contact.module.css";
+import style from "./Contact.module.scss";
 
 const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
     return (
@@ -9,8 +9,8 @@ const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
             </b>
             {
                 contactValue ?
-                    <span  className={style.address}>{contactValue}</span>
-                    : <span  className={style.address}>"Information is not provided"</span>
+                    <span>{contactValue}</span>
+                    : <span>"Information is not provided"</span>
             }
         </div>
     )

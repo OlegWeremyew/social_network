@@ -1,5 +1,5 @@
 import {Preloader} from "../../../../../../common/Preloader/Preloader";
-import style from "./ProfileData.module.css";
+import style from "./ProfileData.module.scss";
 
 import {ContactsType, ProfileType} from "../../../../../../redux/profileReducer";
 import React from "react";

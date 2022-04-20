@@ -70,11 +70,16 @@
 
         @media screen and (max-width: 650px) {
           right: 62%;
+          top: 125px;
         }
 
         @media screen and (max-width: 500px) {
-          right: 32%;
-          top: 110px;
+          right: 35%;
+          top: 90px;
+        }
+
+        @media screen and (max-width: 450px) {
+          right: 30%;
         }
 
         label {
@@ -107,13 +112,15 @@
             margin: auto;
 
             @media screen and (max-width: 850px) {
-              content: "📷";
               font-size: 22px;
               top: 3px;
-              left: 0;
-              right: 0;
             }
 
+          }
+
+          &:hover {
+            background-color: #ab9c9c;
+            border: 3px solid #fff;
           }
 
         }

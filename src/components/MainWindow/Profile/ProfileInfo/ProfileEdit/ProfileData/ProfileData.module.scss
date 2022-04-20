@@ -1,0 +1,127 @@
+.activateEdit__btn {
+  display: flex;
+  justify-content: center;
+
+  margin: 10px auto 30px;
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #601313;
+
+  &:hover {
+    opacity: .9;
+    color: #fff;
+  }
+
+  button {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+  }
+
+}
+
+.formBlock {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 0;
+  margin: 0 auto;
+
+  @media screen and (max-width: 625px) {
+    display: block;
+    text-align: center;
+  }
+
+  .formBlock__title {
+    font-weight: 700;
+  }
+
+}
+
+.contacts__Title {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font-family: 'Pangolin', cursive;
+
+  &:hover {
+    color: #333;
+  }
+
+}
+
+.contacts__container {
+  margin-top: 20px;
+  text-align: center;
+
+  .contacts__text {
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+
+    @media screen and (max-width: 625px) {
+      font-size: 16px;
+    }
+
+  }
+
+  .contactsBlock {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    text-align: left;
+
+    @media screen and (max-width: 1100px) {
+      justify-content: center;
+    }
+
+    .contactsBlock__item {
+      width: 50%;
+      margin-bottom: 20px;
+      display: flex;
+      font-size: 18px;
+
+      @media screen and (max-width: 1100px) {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .icon {
+        font-size: 14px;
+        color: green;
+        font-weight: 700;
+      }
+
+    }
+
+  }
+
+}
+
+.contact__item {
+  width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contactsRow {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+

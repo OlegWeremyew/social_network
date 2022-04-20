@@ -1,0 +1,85 @@
+h3:hover {
+  color: #333;
+}
+
+.statusText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 300px;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.activeInput {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 300px;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.activeInput input {
+  outline: none;
+  border: 2px solid #dcb87e;
+  border-radius: 5px;
+}
+
+.status__text {
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Pangolin', cursive;
+  text-align: left;
+}
+
+.status__text:hover {
+  color: #333;
+}
+
+.status__pencil:hover {
+  color: #a8792f;
+}
+
+.activeInput input {
+  width: 300px;
+  height: 30px;
+}
+
+@media screen and  (max-width: 800px) {
+
+  .activeInput input {
+    width: 240px;
+  }
+
+}
+
+@media screen and  (max-width: 550px) {
+
+  .activeInput input {
+    width: 240px;
+  }
+
+  .statusText {
+    width: 250px;
+    font-size: 22px;
+  }
+
+  .activeInput {
+    width: 250px;
+    font-size: 22px;
+  }
+
+  .status__text {
+    font-size: 16px;
+  }
+
+  .main {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+}
