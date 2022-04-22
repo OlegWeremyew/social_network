@@ -1,3 +1,5 @@
+@import '../../../../../../assets/styles/SASS/variables';
+
 .saveEdit__btn {
   display: flex;
   justify-content: center;
@@ -8,17 +10,17 @@
   height: 30px;
   border-radius: 3px;
   cursor: pointer;
-  background-color: #601313;
+  background-color: $backgroundAndTextFirstColor;
 
   &:hover {
     opacity: .9;
-    color: #fff;
+    color: $backgroundAndTextHoverFirstColor;
   }
 
   button {
     border: none;
     background: none;
-    color: #fff;
+    color: $backgroundAndTextHoverFirstColor;
     cursor: pointer;
   }
 

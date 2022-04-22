@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/SASS/variables';
+
 .profile {
   width: 100%;
 
@@ -28,7 +30,7 @@
         max-width: 200px;
         max-height: 200px;
         border-radius: 50%;
-        border: 6px outset #fff;
+        border: 6px outset $backgroundAndTextHoverFirstColor;
         box-shadow: 3px 5px 10px 2px rgb(34 60 80 / 60%);
 
         @media screen and (max-width: 850px) {
@@ -39,7 +41,7 @@
         @media screen and (max-width: 500px) {
           max-width: 120px;
           max-height: 120px;
-          border: 4px outset #fff;
+          border: 4px outset $backgroundAndTextHoverFirstColor;
         }
 
       }
@@ -87,7 +89,7 @@
           width: 50px;
           height: 50px;
           border-radius: 50%;
-          background: #FFFFFF;
+          background: $backgroundAndTextHoverFirstColor;
           border: 3px outset #333;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
           cursor: pointer;
@@ -120,7 +122,7 @@
 
           &:hover {
             background-color: #ab9c9c;
-            border: 3px solid #fff;
+            border: 3px solid $backgroundAndTextHoverFirstColor;
           }
 
         }
@@ -145,17 +147,17 @@
     height: 30px;
     border-radius: 3px;
     cursor: pointer;
-    background-color: #601313;
+    background-color: $backgroundAndTextFirstColor;
 
     &:hover {
       opacity: .9;
-      color: #fff;
+      color: $backgroundAndTextHoverFirstColor;
     }
 
     button {
       border: none;
       background: none;
-      color: #fff;
+      color: $backgroundAndTextHoverFirstColor;
       cursor: pointer;
     }
 

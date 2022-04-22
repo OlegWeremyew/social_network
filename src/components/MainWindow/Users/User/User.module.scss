@@ -1,3 +1,4 @@
+@import '../../../../assets/styles/SASS/variables';
 
 .userBlock {
   margin: 0 auto 20px;
@@ -31,7 +32,7 @@
   .userPhoto {
     width: 100px;
     height: 100px;
-    border: 4px outset #fff;
+    border: 4px outset $backgroundAndTextHoverFirstColor;
     border-radius: 50%;
     box-shadow: 3px 5px 10px 2px rgb(34 60 80 / 60%);
 
@@ -51,17 +52,17 @@
     height: 30px;
     border-radius: 3px;
     cursor: pointer;
-    background-color: #601313;
+    background-color: $backgroundAndTextFirstColor;
 
     &:hover {
       opacity: .8;
-      color: #fff;
+      color: $backgroundAndTextHoverFirstColor;
     }
 
     button {
       border: none;
       background: none;
-      color: #fff;
+      color: $backgroundAndTextHoverFirstColor;
       cursor: pointer;
     }
 
@@ -81,13 +82,13 @@
 
     &:hover {
       background-color: #254b29;
-      color: #fff;
+      color: $backgroundAndTextHoverFirstColor;
     }
 
     button {
       border: none;
       background: none;
-      color: #fff;
+      color: $backgroundAndTextHoverFirstColor;
       cursor: pointer;
     }
 
@@ -96,12 +97,12 @@
   .userInfo {
     font-size: 20px;
     font-family: 'Patrick Hand', cursive;
-    color: #601313;
+    color: $backgroundAndTextFirstColor;
     font-weight: 700;
 
     a {
       text-decoration: none;
-      color: #601313;
+      color: $backgroundAndTextFirstColor;
 
       &:hover {
         text-decoration: underline;

@@ -1,3 +1,5 @@
+@import '../../assets/styles/SASS/variables';
+
 .nav {
   background-color: #dcb87e;
   padding: 0 10px;
@@ -22,18 +24,18 @@
 
       &:hover {
         background-color: #e3c796;
-        border-bottom: 3px solid #601313;
+        border-bottom: 3px solid $backgroundAndTextFirstColor;
       }
 
       a {
         padding-left: 10px;
-        color: #601313;
+        color: $backgroundAndTextFirstColor;
         text-decoration: none;
         font-weight: bold;
       }
 
       a.activeLink {
-        color: #fff;
+        color: $backgroundAndTextHoverFirstColor;
       }
 
       .nav__text {

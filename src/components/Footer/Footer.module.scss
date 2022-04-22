@@ -1,17 +1,19 @@
+@import '../../assets/styles/SASS/variables';
+
 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 60px;
-  background-color: #601313;
+  background-color: $backgroundAndTextFirstColor;
   padding: 10px 5px;
   border-radius: 5px 5px 0 0;
 
   .copyright__text {
     text-align: center;
     font-size: 14px;
-    color: #fff;
+    color: $backgroundAndTextHoverFirstColor;
 
     .copyright__header {
       color: #d32828;
@@ -51,12 +53,12 @@
         }
 
         a {
-          color: #fff;
+          color: $backgroundAndTextHoverFirstColor;
           text-decoration: none;
           cursor: pointer;
 
           &:hover {
-            color: #d2b438;
+            color: $footerTextColor;
             text-decoration: underline;
           }
 
@@ -69,7 +71,7 @@
           margin-right: 7px;
 
           &:hover {
-            background-color: #d2b438;
+            background-color: $footerTextColor;
             border-radius: 50%;
           }
 
