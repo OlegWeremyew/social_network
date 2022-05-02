@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {initialStateProfileType, ProfileActions} from "../../../../redux/profileReducer";
 import {MyPosts} from "./MyPosts";
 import {AppStateType} from "../../../../redux/reduxStore";
-import {getProfilePageSelector} from "../../../../selectors/profileSelectors";
+import {getProfilePageSelector} from "../../../../selectors";
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {

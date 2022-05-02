@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Paginator.module.scss"
 import cn from 'classnames'
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
 export const Paginator: React.FC<UsersPropsType> = ({
                                                         totalItemsCount,
@@ -8,7 +9,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
                                                         currentPage,
                                                         onPageChanged,
                                                         portionSize = 10
-                                                    }) => {
+                                                    }): ReturnComponentType => {
 
     const pagesCount = (Math.ceil(totalItemsCount / pageSize))
     const pages: number[] = []

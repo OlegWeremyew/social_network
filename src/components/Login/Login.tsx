@@ -8,10 +8,10 @@ import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
 import {login} from "../../redux/authReducer";
-import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
 import {PATH} from "../../enums";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 import {required} from "../../utils";
+import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors";
 
 
 const Login: React.FC = (): ReturnComponentType => {
@@ -65,7 +65,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
             {captchaUrl && createField<LoginFormValuesKeysType>('Symbols from image', 'captcha', [required], Input, {type: "text"})}
             {captchaUrl && <button type={'submit'}>Get Started</button>}
             <div className={s.form__btn}>
-                <button type="button">Login</button>
+                <button type="submit">Login</button>
             </div>
         </form>
     )

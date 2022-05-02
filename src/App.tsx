@@ -5,13 +5,12 @@ import {connect, Provider} from "react-redux";
 
 import {AppStateType, store} from "./redux/reduxStore";
 import {initializeApp} from "./redux/AppReducer";
-import {Preloader} from "./common/Preloader/Preloader";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import Loading from "./common/Loading/Loading";
 import {PATH} from "./enums";
+import {Loading, Preloader} from "./common";
 
 const DialogsContainer = React.lazy(() => import('./components/MainWindow/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))

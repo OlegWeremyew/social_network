@@ -1,0 +1,1 @@
+export {getMessagesPageSelector} from './dialogSelectors'

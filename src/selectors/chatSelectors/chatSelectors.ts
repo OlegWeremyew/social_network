@@ -1,6 +1,6 @@
-import {AppStateType} from "../redux/reduxStore";
-import {ReadyStatusType} from "../Api/chatApi/types";
-import {ChatMessageType} from "../redux/chatReducer";
+import {AppStateType} from "../../redux/reduxStore";
+import {ReadyStatusType} from "../../Api/chatApi/types";
+import {ChatMessageType} from "../../redux/chatReducer";
 
 export const getChatStatusSelector = (state: AppStateType): ReadyStatusType => {
     return state.chat.status

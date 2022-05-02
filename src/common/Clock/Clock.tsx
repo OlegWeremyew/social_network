@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
 const get2DigitsString = (num: number) => num < 10 ? "0" + num : num
 
-export const Clock: React.FC<PropsType> = () => {
+export const Clock: React.FC<PropsType> = (): ReturnComponentType => {
 
     const [date, setDate] = useState(new Date())
 

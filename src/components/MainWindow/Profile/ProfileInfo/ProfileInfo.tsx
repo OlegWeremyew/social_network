@@ -3,11 +3,11 @@ import style from "./ProfileInfo.module.scss"
 
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
 import {ProfileType} from "../../../../redux/profileReducer";
-import {Preloader} from "../../../../common/Preloader/Preloader";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {FIRST_ELEMENT_IN_ARRAY} from "../../../../constants";
+import {Preloader} from "../../../../common";
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                                          profile,

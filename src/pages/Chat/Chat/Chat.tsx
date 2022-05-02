@@ -5,7 +5,7 @@ import {startMessagesListening, stopMessagesListening} from "../../../redux/chat
 import style from './Chat.module.scss'
 
 import {useDispatch, useSelector} from "react-redux";
-import {getChatStatusSelector} from "../../../selectors/chatSelectors";
+import {getChatStatusSelector} from "../../../selectors/chatSelectors/chatSelectors";
 import {ReadyStatusType} from "../../../Api/chatApi/types";
 import {ReturnComponentType} from "../../../types/ReturnComponentType";
 

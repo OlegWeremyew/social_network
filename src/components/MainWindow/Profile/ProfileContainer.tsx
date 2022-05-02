@@ -12,10 +12,14 @@ import {
 import {AppStateType} from "../../../redux/reduxStore";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 import {Nullable} from "../../../types/Nullable";
-import {getProfilePageProfileSelector, getProfilePageStatusSelector} from "../../../selectors/profileSelectors";
-import {getAuthAuthorizedUserIDSelector, getAuthIsAuthSelector} from "../../../selectors/authSelectors";
 import {withRouter2} from "../../../hoc/withRouter/withRouter";
 import {InjectedProps} from "../../../hoc/withRouter/types";
+import {
+    getAuthAuthorizedUserIDSelector,
+    getAuthIsAuthSelector,
+    getProfilePageProfileSelector,
+    getProfilePageStatusSelector
+} from "../../../selectors";
 
 class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 

@@ -3,9 +3,9 @@ import style from './Users.module.scss'
 
 import {useSelector} from "react-redux";
 import {Users} from './Users';
-import {Preloader} from "../../../common/Preloader/Preloader";
-import {getIsFetching} from "../../../selectors/usersSelectors";
 import {ReturnComponentType} from "../../../types/ReturnComponentType";
+import {Preloader} from "../../../common";
+import {getIsFetching} from "../../../selectors";
 
 
 const UsersPage: React.FC = (): ReturnComponentType => {

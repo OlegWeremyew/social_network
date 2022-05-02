@@ -3,7 +3,7 @@ import style from './AddMessageForm.module.css'
 import {useDispatch, useSelector} from "react-redux";
 
 import {sendMessage} from "../../../../redux/chatReducer";
-import {getChatStatusSelector} from "../../../../selectors/chatSelectors";
+import {getChatStatusSelector} from "../../../../selectors/chatSelectors/chatSelectors";
 import {ReadyStatusType} from "../../../../Api/chatApi/types";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {EMPTY_STRING} from "../../../../constants";

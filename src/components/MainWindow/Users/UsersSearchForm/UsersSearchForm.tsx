@@ -4,9 +4,9 @@ import style from './UsersSearchForm.module.scss'
 
 import {FilterType} from "../../../../redux/usersReducer";
 import {useSelector} from "react-redux";
-import {getUsersFilter} from "../../../../selectors/usersSelectors";
 import s from "../../../Login/Login.module.scss";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {getUsersFilter} from "../../../../selectors";
 
 const usersSearchFormValidate = (values: { term: string; friend: FriendFormType }) => {
     const errors = {}

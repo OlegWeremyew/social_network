@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import style from './Users.module.scss'
 
 import {FilterType, requestUsers, UserType} from "../../../redux/usersReducer";
-import {Paginator} from "../../../common/Paginator/Paginator";
 import {User} from "./User/User";
 import {UsersSearchForm} from "./UsersSearchForm/UsersSearchForm";
 import {useDispatch, useSelector} from "react-redux";
@@ -13,9 +12,10 @@ import {
     getTotalUsersCount,
     getUsers,
     getUsersFilter
-} from "../../../selectors/usersSelectors";
+} from "selectors/usersSelectors/usersSelectors";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import {ReturnComponentType} from "../../../types/ReturnComponentType";
+import {Paginator} from "../../../common";
 
 export const Users: React.FC = (): ReturnComponentType => {
 

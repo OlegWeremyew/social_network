@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Loading.module.scss';
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
-const Loading = () => {
+export const Loading = (): ReturnComponentType => {
 
     return (
         <div className={styles.container}>
@@ -11,5 +12,3 @@ const Loading = () => {
         </div>
     )
 }
-
-export default Loading

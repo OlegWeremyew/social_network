@@ -10,12 +10,15 @@ import loginImage from "../../assets/images/login/login.png"
 
 import {Nullable} from "../../types/Nullable";
 import {logout} from "../../redux/authReducer";
-import {getAuthDataLoginSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
 import {Undetectable} from "../../types/Undetectable";
-import {getProfilePageProfilePhotosLargeSelector} from "../../selectors/profileSelectors";
-import {Clock} from "../../common/Clock/Clock";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 import {PATH} from "../../enums";
+import {
+    getAuthDataLoginSelector,
+    getAuthIsAuthSelector,
+    getProfilePageProfilePhotosLargeSelector
+} from "../../selectors";
+import {Clock} from "../../common";
 
 const Header = (): ReturnComponentType => {
 

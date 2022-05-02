@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 import {Message} from "./Message/Message";
 import {ChatMessageType} from "../../../../redux/chatReducer";
-import {getChatMessagesSelector} from "../../../../selectors/chatSelectors";
+import {getChatMessagesSelector} from "../../../../selectors/chatSelectors/chatSelectors";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 
 export const Messages: React.FC = (): ReturnComponentType => {

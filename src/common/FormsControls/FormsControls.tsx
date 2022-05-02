@@ -4,14 +4,16 @@ import styles from './FormsControls.module.scss'
 import {Field, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
 import {Validator} from "redux-form/lib/Field";
 import {Nullable} from "../../types/Nullable";
+import {EMPTY_STRING} from "../../constants";
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
-const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, error}, children}) => {
+const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, error}, children}): ReturnComponentType => {
 
     const hasError = touched && error
-    const styleError = hasError ? styles.error : ""
+    const styleError = hasError ? styles.error : EMPTY_STRING
 
     return (
-        <div className={styles.formControl + " " + styleError}>
+        <div className={styles.FormControl + " " + styleError}>
             <div>
                 {children}
             </div>

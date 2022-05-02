@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
-import {getMessagesPageSelector} from "../../../selectors/dialogSelectors";
+import {getMessagesPageSelector} from "../../../selectors";
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
