@@ -5,6 +5,7 @@ import {Dispatch} from "redux";
 import {v1} from "uuid";
 import {ReadyStatusType} from "../Api/chatApi/types";
 import {chatApi} from "../Api";
+import {Nullable} from "../types/Nullable";
 
 export enum ChatReducerEnum {
     MESSAGES_RECEIVED = "SOCIAL_NETWORK/CHAT/MESSAGES_RECEIVED",
@@ -16,13 +17,15 @@ const initialState = {
     status: 'pending' as ReadyStatusType,
 }
 
+const subtractedLength: number = 100
+
 export const chatReducer = (state: initialStateType = initialState, action: ActionChatTypes): initialStateType => {
     switch (action.type) {
         case  ChatReducerEnum.MESSAGES_RECEIVED : {
             return {
                 ...state,
                 messages: [...state.messages,  ...action.payload.messages.map( m => ({...m, id: v1() }))]
-                    .filter((message, index, array) => index >= array.length - 100)
+                    .filter((message, index, array) => index >= array.length - subtractedLength)
             }
         }
         case  ChatReducerEnum.STATUS_CHANGED : {
@@ -66,7 +69,7 @@ const newMessageHandlerCreator = (dispatch: Dispatch) => {
     return _newMessageHandler
 }
 
-let _statusChangedHandler: ((status: ReadyStatusType) => void) | null = null
+let _statusChangedHandler: Nullable<((status: ReadyStatusType) => void)> = null
 
 const statusChangedHandlerCreator = (dispatch: Dispatch) => {
 

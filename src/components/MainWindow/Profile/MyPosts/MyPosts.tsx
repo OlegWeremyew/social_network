@@ -4,13 +4,14 @@ import style from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {UsersPropsType} from "./MyPostsContainer";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {maxLengthCreator, required} from "../../../../utils/validators/validators";
 import {Textarea} from "../../../../common/FormsControls/FormsControls";
 import s from "../../../Login/Login.module.scss";
+import {maxLengthCreator, required} from "../../../../utils";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 
 const maxLength = maxLengthCreator(10)
 
-export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => {
+export const MyPosts: React.FC<UsersPropsType> = React.memo(({profilePage, onAddPost}): ReturnComponentType => {
 
     const post = profilePage.posts
         .map(post =>
@@ -21,7 +22,7 @@ export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => 
                 id={post.id}
             />)
 
-    const addPost = (values: AddNewPostFormType) => {
+    const addPost = (values: AddNewPostFormType): void => {
         onAddPost(values.AddNewPost)
     }
 
@@ -36,11 +37,14 @@ export const MyPosts = React.memo(({profilePage, onAddPost}: UsersPropsType) => 
     )
 })
 
-const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handleSubmit, reset}) => {
+const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({
+                                                                             handleSubmit,
+                                                                             reset
+                                                                         }): ReturnComponentType => {
 
-    const onSubmit = (values: SyntheticEvent<any, Event>) => {
-            handleSubmit(values)
-            reset()
+    const onSubmit = (values: SyntheticEvent<any, Event>): void => {
+        handleSubmit(values)
+        reset()
     }
 
     return (
@@ -54,7 +58,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({handle
                 />
             </div>
             <div className={s.form__btn}>
-                <button>Add post</button>
+                <button type="submit">Add post</button>
             </div>
         </form>
     )

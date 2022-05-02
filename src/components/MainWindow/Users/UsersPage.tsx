@@ -2,15 +2,15 @@ import React from 'react';
 import style from './Users.module.scss'
 
 import {useSelector} from "react-redux";
-import {AppStateType} from "../../../redux/reduxStore";
 import {Users} from './Users';
 import {Preloader} from "../../../common/Preloader/Preloader";
 import {getIsFetching} from "../../../selectors/usersSelectors";
+import {ReturnComponentType} from "../../../types/ReturnComponentType";
 
 
-const UsersPage: React.FC = () => {
+const UsersPage: React.FC = (): ReturnComponentType => {
 
-    const isFetching = useSelector<AppStateType, boolean>(getIsFetching)
+    const isFetching: boolean = useSelector(getIsFetching)
 
     return (
         <section className={style.page}>

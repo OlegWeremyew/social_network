@@ -3,6 +3,7 @@ import style from "./Navbar.module.scss"
 import {NavLink} from "react-router-dom";
 import {PATH} from "../../enums";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
+import {EMPTY_STRING} from "../../constants";
 
 const Navbar = (): ReturnComponentType => {
     return (
@@ -10,7 +11,7 @@ const Navbar = (): ReturnComponentType => {
             <div className={style.nav__block}>
 
                 <div className={style.item}>
-                    <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.PROFILE}>
+                    <NavLink className={(navData) => navData.isActive ? style.activeLink : EMPTY_STRING} to={PATH.PROFILE}>
                        <span className={style.nav__text}>
                            Profile
                        </span>
@@ -18,7 +19,7 @@ const Navbar = (): ReturnComponentType => {
                 </div>
 
                 <div className={`${style.item} ${style.active}`}>
-                    <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.DIALOGS}>
+                    <NavLink className={(navData) => navData.isActive ? style.activeLink : EMPTY_STRING} to={PATH.DIALOGS}>
                         <span className={style.nav__text}>
                         Dialogs
                         </span>
@@ -26,7 +27,7 @@ const Navbar = (): ReturnComponentType => {
                 </div>
 
                 <div className={`${style.item} ${style.active}`}>
-                    <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.USERS}>
+                    <NavLink className={(navData) => navData.isActive ? style.activeLink : EMPTY_STRING} to={PATH.USERS}>
                         <span className={style.nav__text}>
                         Users
                          </span>
@@ -34,7 +35,7 @@ const Navbar = (): ReturnComponentType => {
                 </div>
 
                 <div className={style.item}>
-                    <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.CHAT}>
+                    <NavLink className={(navData) => navData.isActive ? style.activeLink : EMPTY_STRING} to={PATH.CHAT}>
                         <span className={style.nav__text}>
                         Chat
                         </span>
@@ -42,7 +43,7 @@ const Navbar = (): ReturnComponentType => {
                 </div>
 
                 <div className={style.item}>
-                    <NavLink className={(navData) => navData.isActive ? style.activeLink : ""} to={PATH.NEWS}>
+                    <NavLink className={(navData) => navData.isActive ? style.activeLink : EMPTY_STRING} to={PATH.NEWS}>
                         <span className={style.nav__text}>
                         News
                         </span>

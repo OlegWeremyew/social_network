@@ -4,6 +4,7 @@ import {stopSubmit} from "redux-form";
 import {Nullable} from "../types/Nullable";
 import {profileAPI} from "../Api";
 import {ResultCodesEnum} from "../Api/enums";
+import {FIRST_ELEMENT_IN_ARRAY} from "../constants";
 
 export enum ProfileReducerEnum {
     ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST",
@@ -123,8 +124,8 @@ export const saveProfile = (profile: ProfileType): ThunkType => async (dispatch:
     if (saveProfileData.resultCode === ResultCodesEnum.Success) {
         dispatch(getUserProfile(userId))
     } else {
-        dispatch(stopSubmit("edit-profile", {_error: saveProfileData.messages[0]}))
-        return Promise.reject(saveProfileData.messages[0])
+        dispatch(stopSubmit("edit-profile", {_error: saveProfileData.messages[FIRST_ELEMENT_IN_ARRAY]}))
+        return Promise.reject(saveProfileData.messages[FIRST_ELEMENT_IN_ARRAY])
     }
 }
 

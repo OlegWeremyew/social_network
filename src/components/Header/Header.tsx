@@ -29,7 +29,7 @@ const Header = (): ReturnComponentType => {
         dispatch(logout())
     }
 
-    const HeaderView = () => {
+    const HeaderView = (): string => {
         return useLocation().pathname.substring(1)
     }
 

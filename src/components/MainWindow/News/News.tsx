@@ -8,8 +8,9 @@ import {getIsFetching} from "../../../selectors/usersSelectors";
 import {Preloader} from "../../../common/Preloader/Preloader";
 import {getNewsSelector} from "../../../selectors/newsSelectors";
 import {EMPTY_STRING} from "../../../constants";
+import {ReturnComponentType} from "../../../types/ReturnComponentType";
 
-const News = () => {
+const News = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
@@ -20,25 +21,26 @@ const News = () => {
     const newsArray: NewsType[] = useSelector(getNewsSelector)
     const isFetching: boolean = useSelector(getIsFetching)
 
-    const activateAddModeHandler = () => {
+    const activateAddModeHandler = (): void => {
         setActivateAddMode(!activateAddMode)
     }
 
-    const onChangeHandler = (title: string) => {
-        setError("")
+    const onChangeHandler = (title: string): void => {
+        setError(EMPTY_STRING)
         setTitle(title)
     }
-    const addNews = () => {
+    const addNews = (): void => {
         if (title.trim()) {
             dispatch(NewsActions.addNews(title))
             setError(EMPTY_STRING)
             setTitle(EMPTY_STRING)
         } else {
-            setError("Field is required")
+            const error = "Field is required"
+            setError(error)
         }
     }
 
-    const cancelHandler = () => {
+    const cancelHandler = (): void => {
         setActivateAddMode(!activateAddMode)
         setError(EMPTY_STRING)
     }
@@ -83,16 +85,16 @@ const News = () => {
                             }
                             <div className={style.button__group}>
                                 <div className={style.form__btn} onClick={addNews}>
-                                    <button>Save</button>
+                                    <button type="button">Save</button>
                                 </div>
                                 <div className={style.form__btn} onClick={cancelHandler}>
-                                    <button>Cancel</button>
+                                    <button type="button">Cancel</button>
                                 </div>
                             </div>
                         </div>
                     ) : (
                         <div className={style.form__btn} onClick={activateAddModeHandler}>
-                            <button>Add new news</button>
+                            <button type="button">Add new news</button>
                         </div>
                     )
             }

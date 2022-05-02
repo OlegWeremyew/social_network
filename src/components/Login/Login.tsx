@@ -4,7 +4,6 @@ import s from "./Login.module.scss"
 
 import {InjectedFormProps, reduxForm} from "redux-form";
 import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsControls/FormsControls";
-import {required} from "../../utils/validators/validators";
 import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,6 +11,7 @@ import {login} from "../../redux/authReducer";
 import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
 import {PATH} from "../../enums";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
+import {required} from "../../utils";
 
 
 const Login: React.FC = (): ReturnComponentType => {
@@ -46,7 +46,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
                                                                                                          handleSubmit,
                                                                                                          error,
                                                                                                          captchaUrl
-                                                                                                     }) => {
+                                                                                                     }): ReturnComponentType => {
     return (
         <form onSubmit={handleSubmit}>
             <div className={s.input__form}>
@@ -65,7 +65,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
             {captchaUrl && createField<LoginFormValuesKeysType>('Symbols from image', 'captcha', [required], Input, {type: "text"})}
             {captchaUrl && <button type={'submit'}>Get Started</button>}
             <div className={s.form__btn}>
-                <button>Login</button>
+                <button type="button">Login</button>
             </div>
         </form>
     )

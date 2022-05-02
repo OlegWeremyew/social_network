@@ -2,33 +2,34 @@ import React, {useState} from 'react';
 import style from "./NewsItem.module.scss";
 import {useDispatch} from "react-redux";
 import {NewsActions, NewsType} from "../../../../redux/NewsReducer";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 
-export const NewsItem:React.FC<PropsType> = ({news}) => {
+export const NewsItem: React.FC<PropsType> = ({news}): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
     const [titleEditMode, setTitleEditMode] = useState<boolean>(false)
     const [textEditMode, setTextEditMode] = useState<boolean>(false)
 
-    const titleChangeHandler = () => {
+    const titleChangeHandler = (): void => {
         setTitleEditMode(!titleEditMode)
         setTextEditMode(false)
     }
 
-    const textChangeHandler = () => {
+    const textChangeHandler = (): void => {
         setTextEditMode(!textEditMode)
         setTitleEditMode(false)
     }
 
-    const deleteNewsHandler = (newsId: string) => {
+    const deleteNewsHandler = (newsId: string): void => {
         dispatch(NewsActions.deleteNews(newsId))
     }
 
-    const changeTitle = (newsID: string, title: string) => {
+    const changeTitle = (newsID: string, title: string): void => {
         dispatch(NewsActions.changeNewsTitle(newsID, title))
     }
 
-    const changeText = (newsID: string, text: string) => {
+    const changeText = (newsID: string, text: string): void => {
         dispatch(NewsActions.changeNewsText(newsID, text))
     }
 
@@ -83,11 +84,11 @@ export const NewsItem:React.FC<PropsType> = ({news}) => {
                         titleEditMode
                             ? (
                                 <div className={style.form__btn} onClick={titleChangeHandler}>
-                                    <button>Save</button>
+                                    <button type="button">Save</button>
                                 </div>
                             ) : (
                                 <div className={style.form__btn} onClick={titleChangeHandler}>
-                                    <button>Edit title</button>
+                                    <button type="button">Edit title</button>
                                 </div>
                             )
                     }
@@ -95,17 +96,17 @@ export const NewsItem:React.FC<PropsType> = ({news}) => {
                         textEditMode
                             ? (
                                 <div className={style.form__btn} onClick={textChangeHandler}>
-                                    <button>Save</button>
+                                    <button type="button">Save</button>
                                 </div>
                             ) : (
                                 <div className={style.form__btn} onClick={textChangeHandler}>
-                                    <button>Edit text</button>
+                                    <button type="button">Edit text</button>
                                 </div>
                             )
 
                     }
                     <div className={style.form__btn} onClick={() => deleteNewsHandler(news.id)}>
-                        <button>Delete news</button>
+                        <button type="button">Delete news</button>
                     </div>
                 </div>
             </div>

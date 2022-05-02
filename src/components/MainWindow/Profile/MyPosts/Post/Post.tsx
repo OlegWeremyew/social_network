@@ -2,31 +2,32 @@ import React, {useState} from 'react';
 import style from "./Post.module.css"
 import {PostType, ProfileActions} from "../../../../../redux/profileReducer";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../../../../redux/reduxStore";
 import {Nullable} from "../../../../../types/Nullable";
 import {Undetectable} from "../../../../../types/Undetectable";
 import {getProfilePageProfilePhotosLargeSelector} from "../../../../../selectors/profileSelectors";
+import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
+import {EMPTY_STRING} from "../../../../../constants";
 
-const Post = (props: PostType) => {
+const Post:React.FC<PostType> = (props): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [fingerUp, setFingerUp] = useState<boolean>(false)
 
-    const userAvatar = useSelector<AppStateType, Nullable<Undetectable<string>>>(getProfilePageProfilePhotosLargeSelector)
+    const userAvatar: Nullable<Undetectable<string>> = useSelector(getProfilePageProfilePhotosLargeSelector)
 
     let heart = editMode ? style.active : style.notActive
 
-    const statusChangeHandler = () => {
+    const statusChangeHandler = (): void => {
         setEditMode(!editMode)
     }
 
-    const fingerUpChangeHandler = () => {
+    const fingerUpChangeHandler = (): void => {
         setFingerUp(!fingerUp)
     }
 
-    const deletePostHandler = (id: number) => {
+    const deletePostHandler = (id: number): void => {
         dispatch(ProfileActions.deletePost(id))
     }
 
@@ -34,7 +35,7 @@ const Post = (props: PostType) => {
         <div className={style.item}>
             <div className={style.postAvatar}>
                 <img
-                    src={userAvatar ? userAvatar : ""}
+                    src={userAvatar ? userAvatar : EMPTY_STRING}
                     alt="ava"
                     title="ava"
                 />

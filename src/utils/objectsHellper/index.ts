@@ -1,0 +1,1 @@
+export {updateObjectInArray} from './objectsHellper'

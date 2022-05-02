@@ -1,11 +1,13 @@
 import React, {FC} from "react";
 import style from "./Contact.module.scss";
+import {ReturnComponentType} from "../../../../../../../types/ReturnComponentType";
+import {EMPTY_STRING} from "../../../../../../../constants";
 
-const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
+const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}): ReturnComponentType => {
     return (
         <div className={style.formBlock}>
             <b>
-                <a href={contactValue ? contactValue : ''}> {contactTitle}</a>:
+                <a href={contactValue ? contactValue : EMPTY_STRING}> {contactTitle}</a>:
             </b>
             {
                 contactValue ?

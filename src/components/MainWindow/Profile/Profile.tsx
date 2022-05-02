@@ -4,8 +4,9 @@ import style from "./Profile.module.scss"
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 import {ProfileType} from "../../../redux/profileReducer";
+import {ReturnComponentType} from "../../../types/ReturnComponentType";
 
-const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus, isOwner, savePhoto, saveProfile}) => {
+const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus, isOwner, savePhoto, saveProfile}): ReturnComponentType => {
 
     return (
         <section className={style.profile}>

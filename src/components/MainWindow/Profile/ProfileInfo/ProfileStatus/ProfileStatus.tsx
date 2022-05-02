@@ -9,21 +9,21 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
         isOwner: this.props.isOwner,
     }
 
-    activateEditMode = () => {
+    activateEditMode = (): void => {
         this.props.isOwner
         && this.setState({
             editMode: true
         })
     }
 
-    deactivateEditMode = () => {
+    deactivateEditMode = (): void => {
         this.setState({
             editMode: false
         })
         this.props.updateUserStatus(this.state.status)
     }
 
-    onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
         this.setState({
             status: e.currentTarget.value
         })

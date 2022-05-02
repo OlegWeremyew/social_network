@@ -3,28 +3,29 @@ import style from './AddMessageForm.module.css'
 import {useDispatch, useSelector} from "react-redux";
 
 import {sendMessage} from "../../../../redux/chatReducer";
-import {AppStateType} from "../../../../redux/reduxStore";
 import {getChatStatusSelector} from "../../../../selectors/chatSelectors";
 import {ReadyStatusType} from "../../../../Api/chatApi/types";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {EMPTY_STRING} from "../../../../constants";
 
-export const AddMessageForm: React.FC = () => {
+export const AddMessageForm: React.FC = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
-    const [message, setMessage] = useState<string>("")
+    const [message, setMessage] = useState<string>(EMPTY_STRING)
 
-    const status = useSelector<AppStateType, ReadyStatusType>(getChatStatusSelector)
+    const status: ReadyStatusType = useSelector(getChatStatusSelector)
 
-    const sendMessageHandler = () => {
+    const sendMessageHandler = (): void => {
         if (!message.trim()) return
         dispatch(sendMessage(message))
-        setMessage("")
+        setMessage(EMPTY_STRING)
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
             dispatch(sendMessage(message))
-            setMessage("")
+            setMessage(EMPTY_STRING)
         }
     }
 

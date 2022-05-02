@@ -1,11 +1,12 @@
 
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
-import {updateObjectInArray} from "../utils/objectsHellper";
 import {Dispatch} from "redux";
 import {Nullable} from "../types/Nullable";
 import {usersAPI} from "../Api";
 import {ResultCodesEnum} from "../Api/enums";
 import {APIResponseType} from "../Api/types";
+import {EMPTY_STRING, ZERO_VALUE} from "../constants";
+import {updateObjectInArray} from "../utils";
 
 export enum UserReducerEnum {
     FOLLOW = "SOCIAL_NETWORK/USERS/FOLLOW",
@@ -21,12 +22,12 @@ export enum UserReducerEnum {
 const initialState: initialStateType = {
     users: [] as UserType[],
     pageSize: 9,
-    totalUsersCount: 0,
+    totalUsersCount: ZERO_VALUE,
     currentPage: 1,
     isFetching: false,
     followingInProgress: [] as string[],
     filter: {
-        term: '',
+        term: EMPTY_STRING,
         friend: null as Nullable<boolean>,
     },
 }

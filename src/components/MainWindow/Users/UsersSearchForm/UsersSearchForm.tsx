@@ -4,20 +4,20 @@ import style from './UsersSearchForm.module.scss'
 
 import {FilterType} from "../../../../redux/usersReducer";
 import {useSelector} from "react-redux";
-import {AppStateType} from "../../../../redux/reduxStore";
 import {getUsersFilter} from "../../../../selectors/usersSelectors";
 import s from "../../../Login/Login.module.scss";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 
 const usersSearchFormValidate = (values: { term: string; friend: FriendFormType }) => {
     const errors = {}
     return errors
 }
 
-export const UsersSearchForm: React.FC<PropsType> = React.memo(({onFilterChanged}) => {
+export const UsersSearchForm: React.FC<PropsType> = React.memo(({onFilterChanged}): ReturnComponentType => {
 
-    const filter = useSelector<AppStateType, FilterType>(getUsersFilter)
+    const filter: FilterType = useSelector(getUsersFilter)
 
-    const submit = (values: FormType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }) => {
+    const submit = (values: FormType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }): void => {
         const filter: FilterType = {
             term: values.term,
             friend: values.friend === 'null' ? null : values.friend === 'true' ? true : false

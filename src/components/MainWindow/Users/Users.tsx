@@ -34,13 +34,14 @@ export const Users: React.FC = (): ReturnComponentType => {
     const filter: FilterType = useSelector(getUsersFilter)
     const users: Array<UserType> = useSelector(getUsers)
     const followingInProgress: Array<string> = useSelector(getFollowingInProgress)
+    const pageValue: number = 1
 
     const onPageChanged = (pageNumber: number): void => {
         dispatch(requestUsers(pageNumber, pageSize, filter))
     }
 
     const onFilterChanged = (filter: FilterType): void => {
-        dispatch(requestUsers(1, pageSize, filter))
+        dispatch(requestUsers(pageValue, pageSize, filter))
     }
 
     useEffect(() => {
@@ -70,10 +71,11 @@ export const Users: React.FC = (): ReturnComponentType => {
         const query = {} as queryObjType
 
         if (!!parsedTerm) query.term = parsedTerm
-        if (currentPage !== 1) query.page = String(currentPage)
+        if (currentPage !== pageValue) query.page = String(currentPage)
         if (parsedFriend !== null) query.friends = String(parsedFriend)
 
-        navigate(`?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`)
+        const navigatePath = `?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`
+        navigate(navigatePath)
 
     }, [filter, currentPage])
 

@@ -1,11 +1,12 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
+import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
 
 type ProfileStatusType = {
     status: string
     updateUserStatus: (status: string) => void
 }
 
-export const ProfileStatusWithHooks = (props: ProfileStatusType) => {
+export const ProfileStatusWithHooks:React.FC<ProfileStatusType> = (props): ReturnComponentType => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [status, setStatus] = useState<string>(props.status)
@@ -14,14 +15,14 @@ export const ProfileStatusWithHooks = (props: ProfileStatusType) => {
         setStatus(props.status)
     }, [props.status])
 
-    const activateEditMode = () => {
+    const activateEditMode = (): void => {
         setEditMode(true)
     }
-    const deactivateEditMode = () => {
+    const deactivateEditMode = (): void => {
         setEditMode(false)
     }
 
-    const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const onStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setStatus(e.currentTarget.value)
         props.updateUserStatus(status)
     }

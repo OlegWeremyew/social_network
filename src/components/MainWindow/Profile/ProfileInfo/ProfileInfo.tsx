@@ -6,6 +6,8 @@ import {ProfileType} from "../../../../redux/profileReducer";
 import {Preloader} from "../../../../common/Preloader/Preloader";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {FIRST_ELEMENT_IN_ARRAY} from "../../../../constants";
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                                          profile,
@@ -14,7 +16,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                                          savePhoto,
                                                          isOwner,
                                                          saveProfile
-                                                     }) => {
+                                                     }): ReturnComponentType => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [viewMode, setViewMode] = useState<boolean>(false)
@@ -25,7 +27,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
 
     const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length) {
-            savePhoto(e.target.files[0])
+            savePhoto(e.target.files[FIRST_ELEMENT_IN_ARRAY])
         }
     }
 
@@ -34,11 +36,11 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
         setEditMode(false)
     }
 
-    const setEditModeHandler = () => {
+    const setEditModeHandler = (): void => {
         setEditMode(true)
     }
 
-    const disableViewModeHandler = () => {
+    const disableViewModeHandler = (): void => {
         setViewMode(false)
     }
 
@@ -84,7 +86,7 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                 !viewMode
                     ? (
                         <div className={style.view__btn} onClick={() => setViewMode(true)}>
-                            <button>View contacts</button>
+                            <button type="button">View contacts</button>
                         </div>
 
                     ) : (

@@ -1,8 +1,9 @@
 import React from 'react';
 import style from "./DialogsItem.module.css";
 import {UserType} from "../../../../redux/messagesReducer";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 
-const DialogsItem = ({img, name}: UserType) => {
+const DialogsItem: React.FC<UserType> = ({img, name}): ReturnComponentType => {
 
     return (
         <div className={style.dialog}>
@@ -10,7 +11,7 @@ const DialogsItem = ({img, name}: UserType) => {
                 <img src={img} alt="dialogs item"/>
             </div>
             <div className={style.dialog__name}>
-               {name}
+                {name}
             </div>
         </div>
     )

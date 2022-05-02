@@ -5,15 +5,16 @@ import {useSelector} from "react-redux";
 import {Message} from "./Message/Message";
 import {ChatMessageType} from "../../../../redux/chatReducer";
 import {getChatMessagesSelector} from "../../../../selectors/chatSelectors";
+import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 
-export const Messages: React.FC = () => {
+export const Messages: React.FC = (): ReturnComponentType => {
 
     const [isAutoScroll, setIsAutoScroll] = useState<boolean>(false)
 
     const messages: ChatMessageType[] = useSelector(getChatMessagesSelector)
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
 
-    const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
+    const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>): void => {
 
         const element = e.currentTarget
 

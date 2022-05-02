@@ -3,6 +3,7 @@ import style from "../ProfileInfo.module.scss";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import {ProfileType} from "../../../../../redux/profileReducer";
+import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
 
 const ProfileEdit: React.FC<ProfileEditPropsType> = ({
                                                          editMode,
@@ -11,11 +12,11 @@ const ProfileEdit: React.FC<ProfileEditPropsType> = ({
                                                          isOwner,
                                                          setEditModeHandler,
                                                          disableViewMode
-                                                     }) => {
+                                                     }): ReturnComponentType => {
     return (
         <>
             <div className={style.view__btn} onClick={disableViewMode}>
-                <button>Hide contacts</button>
+                <button type="button">Hide contacts</button>
             </div>
             {
                 editMode

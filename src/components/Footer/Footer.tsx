@@ -4,8 +4,9 @@ import style from "./Footer.module.scss"
 import phone from '../../assets/images/contacts/phone.svg'
 import operator_mts from '../../assets/images/contacts/operator_mts.svg'
 import mail from '../../assets/images/contacts/mail.svg'
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
-const Footer = () => {
+const Footer = (): ReturnComponentType => {
     return (
         <div className={style.footer}>
 

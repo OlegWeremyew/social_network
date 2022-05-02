@@ -3,14 +3,17 @@ import style from './Message.module.css'
 import {ChatMessageType} from "../../../../../redux/chatReducer";
 import {NavLink} from "react-router-dom";
 import {PATH} from "../../../../../enums";
+import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
 
-export const Message: React.FC<MessageType> = React.memo(({message}) => {
+export const Message: React.FC<MessageType> = React.memo(({message}): ReturnComponentType => {
+
+    const navLinkPath = `${PATH.PROFILE}/${message.userId}`
 
         return (
             <>
                 <div className={style.message}>
                     <div className={style.message__item}>
-                        <NavLink to={`${PATH.PROFILE}/${message.userId}`}>
+                        <NavLink to={navLinkPath}>
                             <img
                                 className={style.message__img}
                                 src={message.photo}
