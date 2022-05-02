@@ -5,17 +5,17 @@ import {NavLink} from "react-router-dom";
 
 import userImage from "../../../../assets/images/user.png";
 import {follow, unFollow, UserType} from "../../../../redux/usersReducer";
-import {PATH} from "../../../../utils/RouterPath/RouterPath";
+import {PATH} from "../../../../enums";
 
 export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
 
     const dispatch = useDispatch()
 
-    const followHandler = (userID: string) => {
+    const followHandler = (userID: string): void => {
         dispatch(follow(userID))
     }
 
-    const unfollowHandler = (userID: string) => {
+    const unfollowHandler = (userID: string):void => {
         dispatch(unFollow(userID))
     }
 

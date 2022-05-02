@@ -9,23 +9,23 @@ import avatarDefault from '../../assets/images/user.png'
 import loginImage from "../../assets/images/login/login.png"
 
 import {Nullable} from "../../types/Nullable";
-import {AppStateType} from "../../redux/reduxStore";
 import {logout} from "../../redux/authReducer";
 import {getAuthDataLoginSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
 import {Undetectable} from "../../types/Undetectable";
 import {getProfilePageProfilePhotosLargeSelector} from "../../selectors/profileSelectors";
-import {PATH} from "../../utils/RouterPath/RouterPath";
 import {Clock} from "../../common/Clock/Clock";
+import {ReturnComponentType} from "../../types/ReturnComponentType";
+import {PATH} from "../../enums";
 
-const Header = () => {
+const Header = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
-    const isAuth = useSelector<AppStateType, boolean>(getAuthIsAuthSelector)
-    const login = useSelector<AppStateType, Nullable<string>>(getAuthDataLoginSelector)
-    const userAvatar = useSelector<AppStateType, Nullable<Undetectable<string>>>(getProfilePageProfilePhotosLargeSelector)
+    const isAuth: boolean = useSelector(getAuthIsAuthSelector)
+    const login: Nullable<string> = useSelector(getAuthDataLoginSelector)
+    const userAvatar: Nullable<Undetectable<string>> = useSelector(getProfilePageProfilePhotosLargeSelector)
 
-    const logoutHandler = () => {
+    const logoutHandler = (): void => {
         dispatch(logout())
     }
 
@@ -43,7 +43,7 @@ const Header = () => {
                     alt='logo'
                     title="image logo"
                 />
-                <div  className={style.headerClock}>
+                <div className={style.headerClock}>
                     <Clock/>
                 </div>
             </div>

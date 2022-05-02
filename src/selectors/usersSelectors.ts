@@ -1,35 +1,35 @@
 import {AppStateType} from "../redux/reduxStore";
 import {createSelector} from "reselect";
-import {UserType} from "../redux/usersReducer";
+import {FilterType, UserType} from "../redux/usersReducer";
 
-export const getUsersSelector = (state: AppStateType) => {
+export const getUsersSelector = (state: AppStateType): UserType[] => {
     return state.usersPage.users
 }
 
-export const getUsers = createSelector(getUsersSelector, (users: UserType[]) => {
+export const getUsers = createSelector(getUsersSelector, (users: UserType[]): Array<UserType> => {
     return users.filter(user => true)
 })
 
-export const getPageSize = (state: AppStateType) => {
+export const getPageSize = (state: AppStateType): number => {
     return state.usersPage.pageSize
 }
 
-export const getTotalUsersCount = (state: AppStateType) => {
+export const getTotalUsersCount = (state: AppStateType): number => {
     return state.usersPage.totalUsersCount
 }
 
-export const getCurrentPage = (state: AppStateType) => {
+export const getCurrentPage = (state: AppStateType): number => {
     return state.usersPage.currentPage
 }
 
-export const getIsFetching = (state: AppStateType) => {
+export const getIsFetching = (state: AppStateType): boolean => {
     return state.usersPage.isFetching
 }
 
-export const getFollowingInProgress = (state: AppStateType) => {
+export const getFollowingInProgress = (state: AppStateType): Array<string> => {
     return state.usersPage.followingInProgress
 }
 
-export const getUsersFilter = (state: AppStateType) => {
+export const getUsersFilter = (state: AppStateType): FilterType => {
     return state.usersPage.filter
 }

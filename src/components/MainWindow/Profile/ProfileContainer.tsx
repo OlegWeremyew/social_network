@@ -10,11 +10,12 @@ import {
     updateUserStatus, savePhoto, saveProfile
 } from "../../../redux/profileReducer";
 import {AppStateType} from "../../../redux/reduxStore";
-import {InjectedProps, withRouter2} from "../../../hoc/withRouter/withRouter";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 import {Nullable} from "../../../types/Nullable";
 import {getProfilePageProfileSelector, getProfilePageStatusSelector} from "../../../selectors/profileSelectors";
 import {getAuthAuthorizedUserIDSelector, getAuthIsAuthSelector} from "../../../selectors/authSelectors";
+import {withRouter2} from "../../../hoc/withRouter/withRouter";
+import {InjectedProps} from "../../../hoc/withRouter/types";
 
 class ProfileAPIContainer extends React.Component<ProfilePropsType> {
 

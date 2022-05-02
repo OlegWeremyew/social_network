@@ -1,6 +1,6 @@
 import React from "react";
 import {useLocation, useParams} from "react-router-dom";
-import {Nullable} from "../../types/Nullable";
+import {WrappedComponentWithRouterPropsType} from "./types";
 
 export const withRouter = (WrappedComponent: typeof React.Component) => (props: WrappedComponentWithRouterPropsType) => {
 
@@ -30,22 +30,3 @@ export const withRouter2 = <T  extends object> (WrappedComponent: React.Componen
         />
     )
 }
-
-//types===========
-export type locationType = {
-    hash: string
-    key: string
-    pathname: string
-    search: string
-    state: Nullable<object>
-}
-
-export type WrappedComponentWithRouterPropsType = {
-    userId: string
-    location: locationType
-}
-
-export type InjectedProps = {
-    userId : string
-}
-

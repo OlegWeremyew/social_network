@@ -3,7 +3,6 @@ import style from './Messages.module.css';
 import {useSelector} from "react-redux";
 
 import {Message} from "./Message/Message";
-import {AppStateType} from "../../../../redux/reduxStore";
 import {ChatMessageType} from "../../../../redux/chatReducer";
 import {getChatMessagesSelector} from "../../../../selectors/chatSelectors";
 
@@ -11,7 +10,7 @@ export const Messages: React.FC = () => {
 
     const [isAutoScroll, setIsAutoScroll] = useState<boolean>(false)
 
-    const messages = useSelector<AppStateType, ChatMessageType[]>(getChatMessagesSelector)
+    const messages: ChatMessageType[] = useSelector(getChatMessagesSelector)
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
 
     const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {

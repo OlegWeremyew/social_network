@@ -1,9 +1,10 @@
 import React from 'react';
 import style from "./Navbar.module.scss"
 import {NavLink} from "react-router-dom";
-import {PATH} from "../../utils/RouterPath/RouterPath";
+import {PATH} from "../../enums";
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
-const Navbar = () => {
+const Navbar = (): ReturnComponentType => {
     return (
         <nav className={style.nav}>
             <div className={style.nav__block}>

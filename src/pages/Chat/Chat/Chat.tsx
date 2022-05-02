@@ -5,7 +5,6 @@ import {startMessagesListening, stopMessagesListening} from "../../../redux/chat
 import style from './Chat.module.scss'
 
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../../redux/reduxStore";
 import {getChatStatusSelector} from "../../../selectors/chatSelectors";
 import {ReadyStatusType} from "../../../Api/chatApi/types";
 
@@ -13,7 +12,7 @@ export const Chat: React.FC = () => {
 
     const dispatch = useDispatch()
 
-    const status = useSelector<AppStateType, ReadyStatusType>(getChatStatusSelector)
+    const status:ReadyStatusType = useSelector(getChatStatusSelector)
 
     useEffect(() => {
         dispatch(startMessagesListening())

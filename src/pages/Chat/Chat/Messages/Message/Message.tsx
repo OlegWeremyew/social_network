@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Message.module.css'
 import {ChatMessageType} from "../../../../../redux/chatReducer";
 import {NavLink} from "react-router-dom";
-import {PATH} from "../../../../../utils/RouterPath/RouterPath";
+import {PATH} from "../../../../../enums";
 
 export const Message: React.FC<MessageType> = React.memo(({message}) => {
 

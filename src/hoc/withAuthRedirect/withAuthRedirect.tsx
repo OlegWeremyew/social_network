@@ -2,7 +2,8 @@ import React from "react";
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
-import {PATH} from "../../utils/RouterPath/RouterPath";
+import {PATH} from "../../enums";
+import {mapStateToPropsType} from "./types";
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {
@@ -21,10 +22,4 @@ export function withAuthRedirect<T>(WrappedComponent: React.ComponentType<T>) {
         return <WrappedComponent {...restProps as T} />
     }
     return connect(mapStateToProps)(RedirectComponent)
-}
-
-//types============
-
-type mapStateToPropsType = {
-    isAuth: boolean
 }

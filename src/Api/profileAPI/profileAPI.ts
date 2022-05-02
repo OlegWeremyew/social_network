@@ -5,21 +5,25 @@ import {APIResponseType} from "../types";
 
 export const profileAPI = {
     getProfile(userId: string) {
-        return instance.get<ProfileType>(`profile/${userId}`)
+        const endpoint = `profile/${userId}`
+        return instance.get<ProfileType>(endpoint)
             .then(res => res.data)
     },
     getStatus(userId: string) {
-        return instance.get<string>(`profile/status/${userId}`)
+        const endpoint = `profile/status/${userId}`
+        return instance.get<string>(endpoint)
             .then(res => res.data)
     },
     updateStatus(status: string) {
-        return instance.put<APIResponseType>(`profile/status`, {status})
+        const endpoint = `profile/status`
+        return instance.put<APIResponseType>(endpoint, {status})
             .then(res => res.data)
     },
     savePhoto(photoFile: File) {
+        const endpoint = `profile/photo`
         const formData = new FormData()
         formData.append("image", photoFile)
-        return instance.put<APIResponseType<SavePhotoResponseDataType>>(`profile/photo`, formData, {
+        return instance.put<APIResponseType<SavePhotoResponseDataType>>(endpoint, formData, {
             headers: {
                 "Content-Type": 'multipart/form-data'
             }
@@ -27,6 +31,7 @@ export const profileAPI = {
             .then(res => res.data)
     },
     saveProfile(profile: ProfileType) {
-        return instance.put<APIResponseType>(`profile`, profile).then(res => res.data)
+        const endpoint = `profile`
+        return instance.put<APIResponseType>(endpoint, profile).then(res => res.data)
     },
 }

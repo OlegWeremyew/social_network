@@ -3,7 +3,8 @@ import {captchaType} from "./types";
 
 export const securityApi = {
     getCaptchaUrl() {
-        return instance.get<captchaType>(`security/get-captcha-url`)
+        const endpoint = `security/get-captcha-url`
+        return instance.get<captchaType>(endpoint)
             .then(res => res.data)
     },
 }

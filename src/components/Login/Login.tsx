@@ -8,20 +8,20 @@ import {required} from "../../utils/validators/validators";
 import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redux/reduxStore";
 import {login} from "../../redux/authReducer";
-import {PATH} from "../../utils/RouterPath/RouterPath";
 import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors/authSelectors";
+import {PATH} from "../../enums";
+import {ReturnComponentType} from "../../types/ReturnComponentType";
 
 
-const Login: React.FC = () => {
+const Login: React.FC = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
-    const captchaUrl = useSelector<AppStateType, Nullable<string>>(getAuthCaptchaUrlSelector)
-    const isAuth = useSelector<AppStateType, boolean>(getAuthIsAuthSelector)
+    const captchaUrl: Nullable<string> = useSelector(getAuthCaptchaUrlSelector)
+    const isAuth: boolean = useSelector(getAuthIsAuthSelector)
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormDataType): void => {
         dispatch(login(formData.email, formData.password, formData.rememberMe, formData.captcha))
     }
 

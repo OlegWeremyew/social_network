@@ -11,6 +11,7 @@ const subscribers = {
     'messages-received': [] as MessagesReceivedSubscriberType[],
     'status-changed': [] as StatusChangedSubscriberType[],
 }
+
 let ws: Nullable<WebSocket>
 
 const notifySubscribersAboutStatus = (status: ReadyStatusType) => {
@@ -43,9 +44,10 @@ const cleanUp = () => {
 }
 
 export function createChanel() {
+    const endpoint = 'wss://social-network.samuraijs.com/handlers/ChatHandler.ashx'
     cleanUp()
     ws?.close()
-    ws = (new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashx'))
+    ws = (new WebSocket(endpoint))
     notifySubscribersAboutStatus('pending')
     ws.addEventListener('close', closeHandler)
     ws.addEventListener('message', messageHandler)

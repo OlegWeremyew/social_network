@@ -4,21 +4,21 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {NewsItem} from "./NewsItem/NewsItem";
 import {NewsActions, NewsType} from "../../../redux/NewsReducer";
-import {AppStateType} from "../../../redux/reduxStore";
 import {getIsFetching} from "../../../selectors/usersSelectors";
 import {Preloader} from "../../../common/Preloader/Preloader";
 import {getNewsSelector} from "../../../selectors/newsSelectors";
+import {EMPTY_STRING} from "../../../constants";
 
 const News = () => {
 
     const dispatch = useDispatch()
 
-    const [title, setTitle] = useState<string>("")
-    const [error, setError] = useState<string>("")
+    const [title, setTitle] = useState<string>(EMPTY_STRING)
+    const [error, setError] = useState<string>(EMPTY_STRING)
     const [activateAddMode, setActivateAddMode] = useState<boolean>(false)
 
-    const newsArray = useSelector<AppStateType, NewsType[]>(getNewsSelector)
-    const isFetching = useSelector<AppStateType, boolean>(getIsFetching)
+    const newsArray: NewsType[] = useSelector(getNewsSelector)
+    const isFetching: boolean = useSelector(getIsFetching)
 
     const activateAddModeHandler = () => {
         setActivateAddMode(!activateAddMode)
@@ -31,8 +31,8 @@ const News = () => {
     const addNews = () => {
         if (title.trim()) {
             dispatch(NewsActions.addNews(title))
-            setError("")
-            setTitle("")
+            setError(EMPTY_STRING)
+            setTitle(EMPTY_STRING)
         } else {
             setError("Field is required")
         }
@@ -40,7 +40,7 @@ const News = () => {
 
     const cancelHandler = () => {
         setActivateAddMode(!activateAddMode)
-        setError("")
+        setError(EMPTY_STRING)
     }
 
     return (

@@ -6,7 +6,6 @@ import {Paginator} from "../../../common/Paginator/Paginator";
 import {User} from "./User/User";
 import {UsersSearchForm} from "./UsersSearchForm/UsersSearchForm";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../../redux/reduxStore";
 import {
     getCurrentPage,
     getFollowingInProgress,
@@ -16,8 +15,9 @@ import {
     getUsersFilter
 } from "../../../selectors/usersSelectors";
 import {useNavigate, useSearchParams} from "react-router-dom";
+import {ReturnComponentType} from "../../../types/ReturnComponentType";
 
-export const Users: React.FC = () => {
+export const Users: React.FC = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -28,18 +28,18 @@ export const Users: React.FC = () => {
     const parsedTerm = searchParams.get('term')
     const parsedFriend = searchParams.get('friend')
 
-    const totalUsersCount = useSelector<AppStateType, number>(getTotalUsersCount)
-    const currentPage = useSelector<AppStateType, number>(getCurrentPage)
-    const pageSize = useSelector<AppStateType, number>(getPageSize)
-    const filter = useSelector<AppStateType, FilterType>(getUsersFilter)
-    const users = useSelector<AppStateType, Array<UserType>>(getUsers)
-    const followingInProgress = useSelector<AppStateType, Array<string>>(getFollowingInProgress)
+    const totalUsersCount: number = useSelector(getTotalUsersCount)
+    const currentPage: number = useSelector(getCurrentPage)
+    const pageSize: number = useSelector(getPageSize)
+    const filter: FilterType = useSelector(getUsersFilter)
+    const users: Array<UserType> = useSelector(getUsers)
+    const followingInProgress: Array<string> = useSelector(getFollowingInProgress)
 
-    const onPageChanged = (pageNumber: number) => {
+    const onPageChanged = (pageNumber: number): void => {
         dispatch(requestUsers(pageNumber, pageSize, filter))
     }
 
-    const onFilterChanged = (filter: FilterType) => {
+    const onFilterChanged = (filter: FilterType): void => {
         dispatch(requestUsers(1, pageSize, filter))
     }
 
@@ -82,7 +82,7 @@ export const Users: React.FC = () => {
             <UsersSearchForm
                 onFilterChanged={onFilterChanged}
             />
-            <div  className={style.searchResult}>
+            <div className={style.searchResult}>
                 {
                     users.map(user => {
                             return (
