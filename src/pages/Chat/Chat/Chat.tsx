@@ -6,8 +6,8 @@ import style from './Chat.module.scss'
 
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
-import {ReadyStatusType} from "../../../Api/chatApi";
 import {getChatStatusSelector} from "../../../selectors/chatSelectors";
+import {ReadyStatusType} from "../../../Api/chatApi/types";
 
 export const Chat: React.FC = () => {
 

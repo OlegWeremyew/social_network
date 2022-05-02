@@ -1,0 +1,1 @@
+export {profileAPI} from './profileAPI'

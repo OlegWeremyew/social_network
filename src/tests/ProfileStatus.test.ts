@@ -6,8 +6,8 @@ import {create} from "react-test-renderer";
 describe("Button component", () => {
     // test("status from props should be in the state", () => {
     //     const component = create(<ProfileStatus status={"it-kamasutra.com"}/>);
-    //     const instance = component.getInstance();
-    //     expect(instance.state.status).toBe("it-kamasutra.com");
+    //     const index = component.getInstance();
+    //     expect(index.state.status).toBe("it-kamasutra.com");
     // })
     //
     // test("after creation <span> should be displayed with correct status", () => {
@@ -44,8 +44,8 @@ describe("Button component", () => {
     // test("callback should be called", () => {
     //     const mackCallback = jest.fn()
     //     const component = create(<ProfileStatus status={"it-kamasutra.com"} updateStatus={mackCallback}/>);
-    //     const instance = component.getInstance()
-    //     instance.deActivateEditMode()
+    //     const index = component.getInstance()
+    //     index.deActivateEditMode()
     //     expect(mackCallback.mock.calls.length).toBe(1);
     // })
 

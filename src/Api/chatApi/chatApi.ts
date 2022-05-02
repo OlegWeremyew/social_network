@@ -1,5 +1,11 @@
-import {Nullable} from "../types/Nullable";
-import {ChatMessageType} from "../redux/chatReducer";
+import {Nullable} from "../../types/Nullable";
+import {
+    CallBackType,
+    EventNamesType,
+    MessagesReceivedSubscriberType,
+    ReadyStatusType,
+    StatusChangedSubscriberType
+} from "./types";
 
 const subscribers = {
     'messages-received': [] as MessagesReceivedSubscriberType[],
@@ -73,14 +79,3 @@ export const chatApi = {
         ws?.send(message)
     },
 }
-
-//type
-
-export type MessagesReceivedSubscriberType = (messages: ChatMessageType[]) => void
-export type StatusChangedSubscriberType = (status: ReadyStatusType) => void
-
-type EventNamesType = 'messages-received' | 'status-changed'
-
-type CallBackType = MessagesReceivedSubscriberType | StatusChangedSubscriberType
-
-export type ReadyStatusType = 'pending' | 'ready' | 'error'

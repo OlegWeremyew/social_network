@@ -1,8 +1,10 @@
-import {chatApi, ReadyStatusType} from "../Api/chatApi";
+
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {ChatMessageAPIType} from "../pages/Chat/ChatPage";
 import {Dispatch} from "redux";
 import {v1} from "uuid";
+import {ReadyStatusType} from "../Api/chatApi/types";
+import {chatApi} from "../Api";
 
 export enum ChatReducerEnum {
     MESSAGES_RECEIVED = "SOCIAL_NETWORK/CHAT/MESSAGES_RECEIVED",

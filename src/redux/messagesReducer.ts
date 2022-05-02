@@ -1,5 +1,4 @@
 import {InferActionTypes} from "./reduxStore";
-import {ProfileReducerEnum} from "./profileReducer";
 
 export enum UserReducerEnum {
     ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE",

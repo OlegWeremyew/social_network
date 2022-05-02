@@ -1,9 +1,11 @@
-import {APIResponseType, ResultCodesEnum} from "../Api/api";
+
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {updateObjectInArray} from "../utils/objectsHellper";
-import {usersAPI} from "../Api/usersAPI";
 import {Dispatch} from "redux";
 import {Nullable} from "../types/Nullable";
+import {usersAPI} from "../Api";
+import {ResultCodesEnum} from "../Api/enums";
+import {APIResponseType} from "../Api/types";
 
 export enum UserReducerEnum {
     FOLLOW = "SOCIAL_NETWORK/USERS/FOLLOW",

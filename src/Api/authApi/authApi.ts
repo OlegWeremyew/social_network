@@ -1,5 +1,7 @@
-import {APIResponseType} from "./api";
-import {instance} from "./instance";
+import {instance} from "../apiConfig";
+import {APIResponseType} from "../types";
+import {LoginResponseDataType, MeResponseType} from "./types";
+
 
 export const authApi = {
     getAuth() {
@@ -14,16 +16,4 @@ export const authApi = {
         return instance.delete<APIResponseType>(`auth/login`)
             .then(res => res.data)
     },
-}
-
-//types===
-
-type MeResponseType = {
-    id: string
-    email: string
-    login: string
-}
-
-type LoginResponseDataType = {
-    userId: number
 }

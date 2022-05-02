@@ -4,8 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {sendMessage} from "../../../../redux/chatReducer";
 import {AppStateType} from "../../../../redux/reduxStore";
-import {ReadyStatusType} from "../../../../Api/chatApi";
 import {getChatStatusSelector} from "../../../../selectors/chatSelectors";
+import {ReadyStatusType} from "../../../../Api/chatApi/types";
 
 export const AddMessageForm: React.FC = () => {
 

@@ -1,6 +1,7 @@
-import {PhotosType, ProfileType} from "../redux/profileReducer";
-import {APIResponseType} from "./api";
-import {instance} from "./instance";
+import {ProfileType} from "../../redux/profileReducer";
+import {instance} from "../apiConfig";
+import {SavePhotoResponseDataType} from "./types";
+import {APIResponseType} from "../types";
 
 export const profileAPI = {
     getProfile(userId: string) {
@@ -28,10 +29,4 @@ export const profileAPI = {
     saveProfile(profile: ProfileType) {
         return instance.put<APIResponseType>(`profile`, profile).then(res => res.data)
     },
-}
-
-//types
-
-type SavePhotoResponseDataType = {
-    photos: PhotosType
 }

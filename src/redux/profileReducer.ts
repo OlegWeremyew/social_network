@@ -1,9 +1,9 @@
 import {Dispatch} from "redux";
-import {ResultCodesEnum} from "../Api/api";
 import {BaseThunkType, InferActionTypes} from "./reduxStore";
 import {stopSubmit} from "redux-form";
-import {profileAPI} from "../Api/profileAPI";
 import {Nullable} from "../types/Nullable";
+import {profileAPI} from "../Api";
+import {ResultCodesEnum} from "../Api/enums";
 
 export enum ProfileReducerEnum {
     ADD_POST = "SOCIAL_NETWORK/PROFILE/ADD_POST",
