@@ -7,11 +7,11 @@ import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsCon
 import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/authReducer";
 import {PATH} from "../../enums";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 import {required} from "../../utils";
 import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors";
+import {login} from "../../redux/authReducer";
 
 
 const Login: React.FC = (): ReturnComponentType => {

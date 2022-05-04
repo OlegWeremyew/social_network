@@ -1,10 +1,11 @@
-import {Preloader} from "../../../../../../common/Preloader/Preloader";
+
 import style from "./ProfileData.module.scss";
 
-import {ContactsType, ProfileType} from "../../../../../../redux/profileReducer";
 import React from "react";
 import Contact from "./Contact/Contact";
 import {ReturnComponentType} from "../../../../../../types/ReturnComponentType";
+import {Preloader} from "../../../../../../common";
+import {ContactsType, ProfileType} from "../../../../../../redux/profileReducer/types";
 
 const ProfileData:React.FC<ProfileDataPropsType> = ({profile, isOwner, goToEditMode}): ReturnComponentType => {
 

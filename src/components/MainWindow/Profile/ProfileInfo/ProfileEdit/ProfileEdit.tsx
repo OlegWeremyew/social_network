@@ -2,8 +2,8 @@ import React from 'react';
 import style from "../ProfileInfo.module.scss";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
-import {ProfileType} from "../../../../../redux/profileReducer";
 import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
+import {ProfileType} from "../../../../../redux/profileReducer/types";
 
 const ProfileEdit: React.FC<ProfileEditPropsType> = ({
                                                          editMode,

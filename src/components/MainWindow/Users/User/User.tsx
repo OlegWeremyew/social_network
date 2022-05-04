@@ -4,8 +4,9 @@ import {useDispatch} from "react-redux";
 import {NavLink} from "react-router-dom";
 
 import userImage from "../../../../assets/images/user.png";
-import {follow, unFollow, UserType} from "../../../../redux/usersReducer";
 import {PATH} from "../../../../enums";
+import {UserType} from "../../../../redux/usersReducer/types";
+import {follow, unFollow} from "../../../../redux/usersReducer";
 
 export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
 
@@ -15,7 +16,7 @@ export const User: React.FC<UsersPropsType> = ({user, followingInProgress}) => {
         dispatch(follow(userID))
     }
 
-    const unfollowHandler = (userID: string):void => {
+    const unfollowHandler = (userID: string): void => {
         dispatch(unFollow(userID))
     }
 

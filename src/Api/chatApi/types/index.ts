@@ -1,4 +1,4 @@
-import {ChatMessageType} from "../../../redux/chatReducer";
+import {ChatMessageType} from "../../../redux/chatReducer/types";
 
 export type MessagesReceivedSubscriberType = (messages: ChatMessageType[]) => void
 export type StatusChangedSubscriberType = (status: ReadyStatusType) => void

@@ -1,12 +1,12 @@
 import React, {FC} from "react";
 import style from './ProfileDataForm.module.scss'
 
-import {ProfileType} from "../../../../../../redux/profileReducer";
-import {Preloader} from "../../../../../../common/Preloader/Preloader";
 import {createField, Input} from "../../../../../../common/FormsControls/FormsControls";
 import {InjectedFormProps, reduxForm} from "redux-form";
 import {ReturnComponentType} from "../../../../../../types/ReturnComponentType";
 import {EMPTY_STRING} from "../../../../../../constants";
+import {ProfileType} from "../../../../../../redux/profileReducer/types";
+import {Preloader} from "../../../../../../common";
 
 
 const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType> = ({

@@ -1,0 +1,1 @@
+export {newsReducer} from './NewsReducer'

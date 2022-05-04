@@ -1,0 +1,1 @@
+export {withAuthRedirect} from './withAuthRedirect'

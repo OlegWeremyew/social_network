@@ -1,5 +1,5 @@
 import {AppStateType} from "../../redux/reduxStore";
-import {NewsType} from "../../redux/NewsReducer";
+import {NewsType} from "../../redux/NewsReducer/types";
 
 
 export const getNewsSelector = (state: AppStateType): NewsType[] => {

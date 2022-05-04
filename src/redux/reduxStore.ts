@@ -1,13 +1,13 @@
 import {Action, applyMiddleware, combineReducers, createStore} from "redux";
-import {profileReducer} from "./profileReducer";
-import {messagesReducer} from "./messagesReducer";
-import {usersReducer} from "./usersReducer";
-import {authReducer} from "./authReducer";
-import {appReducer} from "./AppReducer";
-import {chatReducer} from "./chatReducer";
 import thunkMiddleware, {ThunkAction} from "redux-thunk"
 import {reducer as formReducer} from "redux-form"
 import {newsReducer} from "./NewsReducer";
+import {chatReducer} from "./chatReducer";
+import {appReducer} from "./AppReducer";
+import {usersReducer} from "./usersReducer";
+import {messagesReducer} from "./messagesReducer";
+import {profileReducer} from "./profileReducer";
+import {authReducer} from "./authReducer";
 
 export const rootReducer = combineReducers({
     profilePage: profileReducer,

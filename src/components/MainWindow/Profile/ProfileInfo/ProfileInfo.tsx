@@ -2,12 +2,12 @@ import React, {ChangeEvent, useState} from 'react';
 import style from "./ProfileInfo.module.scss"
 
 import avatarDefault from '../../../../assets/images/avatar_for_profile.jpg'
-import {ProfileType} from "../../../../redux/profileReducer";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {FIRST_ELEMENT_IN_ARRAY} from "../../../../constants";
 import {Preloader} from "../../../../common";
+import {ProfileType} from "../../../../redux/profileReducer/types";
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                                          profile,

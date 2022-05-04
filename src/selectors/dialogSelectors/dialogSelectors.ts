@@ -1,6 +1,6 @@
 import {AppStateType} from "../../redux/reduxStore";
-import {initialStateType} from "../../redux/messagesReducer";
+import {initialStateMessagesType} from "../../redux/messagesReducer/types";
 
-export const getMessagesPageSelector = (state: AppStateType): initialStateType => {
+export const getMessagesPageSelector = (state: AppStateType): initialStateMessagesType => {
     return state.messagesPage
 }

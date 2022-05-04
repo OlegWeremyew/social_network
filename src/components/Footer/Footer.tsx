@@ -2,7 +2,7 @@ import React from 'react';
 import style from "./Footer.module.scss"
 
 import phone from '../../assets/images/contacts/phone.svg'
-import operator_mts from '../../assets/images/contacts/operator_mts.svg'
+import operatorMts from '../../assets/images/contacts/operator_mts.svg'
 import mail from '../../assets/images/contacts/mail.svg'
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 
@@ -22,7 +22,7 @@ const Footer = (): ReturnComponentType => {
 
                 <div className={style.phoneBlock}>
                     <div className={style.phone}>
-                        <img src={operator_mts} alt="operator mts"/>
+                        <img src={operatorMts} alt="operator mts"/>
                         <a href="tel:+375298413953">
                             +375 (29) 841-39-53
                         </a>

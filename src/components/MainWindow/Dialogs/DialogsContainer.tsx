@@ -1,11 +1,12 @@
 import React, {ComponentType} from 'react';
-import {initialStateType, MessageActions} from "../../../redux/messagesReducer";
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
-import {compose} from "redux";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect/withAuthRedirect";
 import {getMessagesPageSelector} from "../../../selectors";
+import {withAuthRedirect} from "../../../hoc";
+import {compose} from "redux";
+import {MessageActions} from "../../../redux/messagesReducer";
+import {initialStateMessagesType} from "../../../redux/messagesReducer/types";
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
@@ -23,7 +24,7 @@ export default DialogsContainer
 
 //types===================
 type MapStateToPropsType = {
-    messagesPage: initialStateType
+    messagesPage: initialStateMessagesType
 }
 
 type MapDispatchToPropsType = {

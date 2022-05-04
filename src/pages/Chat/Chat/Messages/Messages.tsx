@@ -1,14 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
 import style from './Messages.module.css';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {Message} from "./Message/Message";
-import {ChatMessageType} from "../../../../redux/chatReducer";
-import {getChatMessagesSelector} from "../../../../selectors/chatSelectors/chatSelectors";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {ChatMessageType} from "../../../../redux/chatReducer/types";
+import {getChatMessagesSelector} from "../../../../selectors";
 
 export const Messages: React.FC = (): ReturnComponentType => {
 
+    const dispatch = useDispatch()
     const [isAutoScroll, setIsAutoScroll] = useState<boolean>(false)
 
     const messages: ChatMessageType[] = useSelector(getChatMessagesSelector)
@@ -30,7 +31,7 @@ export const Messages: React.FC = (): ReturnComponentType => {
         if (isAutoScroll) {
             messagesAnchorRef.current?.scrollIntoView({behavior: 'smooth'})
         }
-    }, [messages])
+    }, [dispatch, messages, isAutoScroll])
 
     return (
         <div className={style.chat__item} onScroll={scrollHandler}>

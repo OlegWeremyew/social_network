@@ -9,7 +9,6 @@ import avatarDefault from '../../assets/images/user.png'
 import loginImage from "../../assets/images/login/login.png"
 
 import {Nullable} from "../../types/Nullable";
-import {logout} from "../../redux/authReducer";
 import {Undetectable} from "../../types/Undetectable";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 import {PATH} from "../../enums";
@@ -19,6 +18,7 @@ import {
     getProfilePageProfilePhotosLargeSelector
 } from "../../selectors";
 import {Clock} from "../../common";
+import {logout} from "../../redux/authReducer";
 
 const Header = (): ReturnComponentType => {
 

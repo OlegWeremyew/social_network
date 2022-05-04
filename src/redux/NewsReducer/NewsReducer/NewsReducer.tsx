@@ -1,14 +1,8 @@
 import {v1} from "uuid";
-import {InferActionTypes} from "./reduxStore";
+import {NewsReducerEnum} from "../constants";
+import {ActionNewsTypes, ImagesType, initialNewsStateType, NewsType} from "../types";
 
-export enum NewsReducerEnum {
-    ADD_NEWS = "SOCIAL_NETWORK/NEWS/ADD_POST",
-    CHANGE_NEWS_TITLE = "SOCIAL_NETWORK/NEWS/CHANGE_NEWS_TITLE",
-    CHANGE_NEWS_TEXT = "SOCIAL_NETWORK/NEWS/CHANGE_NEWS_TEXT",
-    DELETE_NEWS = "SOCIAL_NETWORK/NEWS/DELETE_NEWS",
-}
-
-const initialState = {
+export const initialNewsState = {
     news: [
         {
             id: v1(),
@@ -40,7 +34,7 @@ const initialState = {
     ] as ImagesType[]
 }
 
-export const newsReducer = (state = initialState, action: ActionNewsTypes): initialStateType => {
+export const newsReducer = (state: initialNewsStateType = initialNewsState, action: ActionNewsTypes): initialNewsStateType => {
     switch (action.type) {
         case NewsReducerEnum.ADD_NEWS: {
             let newsItem: NewsType = {
@@ -75,57 +69,4 @@ export const newsReducer = (state = initialState, action: ActionNewsTypes): init
         default:
             return state
     }
-}
-
-export const NewsActions = {
-    addNews: (newTitle: string) => {
-        return {
-            type: NewsReducerEnum.ADD_NEWS,
-            payload: {
-                newTitle
-            }
-        } as const
-    },
-    changeNewsText: (id: string, text: string) => {
-        return {
-            type: NewsReducerEnum.CHANGE_NEWS_TEXT,
-            payload: {
-                id,
-                text,
-            }
-        } as const
-    },
-    changeNewsTitle: (id: string, title: string) => {
-        return {
-            type: NewsReducerEnum.CHANGE_NEWS_TITLE,
-            payload: {
-                id,
-                title,
-            }
-        } as const
-    },
-    deleteNews: (id: string) => {
-        return {
-            type: NewsReducerEnum.DELETE_NEWS,
-            payload: {
-                id,
-            }
-        } as const
-    },
-}
-
-//types
-export type initialStateType = typeof initialState
-
-type ActionNewsTypes = InferActionTypes<typeof NewsActions>
-
-export type NewsType = {
-    id: string
-    image: string
-    text: string
-    title: string
-}
-
-export type ImagesType = {
-    imageForBackground: string
 }

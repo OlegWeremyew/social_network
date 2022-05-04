@@ -23,3 +23,5 @@ export {getCurrentPage} from './usersSelectors'
 export {getIsFetching} from './usersSelectors'
 export {getFollowingInProgress} from './usersSelectors'
 export {getUsersFilter} from './usersSelectors'
+
+export {getInitializedAppSelector} from './appSelectors'

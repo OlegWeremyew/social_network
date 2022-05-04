@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import style from "./NewsItem.module.scss";
 import {useDispatch} from "react-redux";
-import {NewsActions, NewsType} from "../../../../redux/NewsReducer";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {NewsType} from "../../../../redux/NewsReducer/types";
+import {NewsActions} from "../../../../redux/NewsReducer";
 
 export const NewsItem: React.FC<PropsType> = ({news}): ReturnComponentType => {
 

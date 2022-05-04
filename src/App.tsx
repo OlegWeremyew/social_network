@@ -4,13 +4,14 @@ import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 
 import {AppStateType, store} from "./redux/reduxStore";
-import {initializeApp} from "./redux/AppReducer";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import {PATH} from "./enums";
 import {Loading, Preloader} from "./common";
+import {initializeApp} from "./redux/AppReducer";
+import {getInitializedAppSelector} from "./selectors";
 
 const DialogsContainer = React.lazy(() => import('./components/MainWindow/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/MainWindow/Profile/ProfileContainer'))
@@ -59,8 +60,8 @@ class App extends React.Component<AppContainerType, AppContainerType> {
     }
 }
 
-const mapStateToProps = (state: AppStateType) => ({
-    initialized: state.app.initialized
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
+    initialized: getInitializedAppSelector(state)
 })
 
 const AppContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {

@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import style from "./Post.module.css"
-import {PostType, ProfileActions} from "../../../../../redux/profileReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {Nullable} from "../../../../../types/Nullable";
 import {Undetectable} from "../../../../../types/Undetectable";
 import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
 import {EMPTY_STRING} from "../../../../../constants";
 import {getProfilePageProfilePhotosLargeSelector} from "../../../../../selectors";
+import {PostType} from "../../../../../redux/profileReducer/types";
+import {ProfileActions} from "../../../../../redux/profileReducer";
 
 const Post:React.FC<PostType> = (props): ReturnComponentType => {
 

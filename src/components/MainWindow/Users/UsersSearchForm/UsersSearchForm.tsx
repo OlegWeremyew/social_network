@@ -2,11 +2,11 @@ import React from "react";
 import {Form, Formik, Field} from "formik";
 import style from './UsersSearchForm.module.scss'
 
-import {FilterType} from "../../../../redux/usersReducer";
 import {useSelector} from "react-redux";
 import s from "../../../Login/Login.module.scss";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {getUsersFilter} from "../../../../selectors";
+import {FilterType} from "../../../../redux/usersReducer/types";
 
 const usersSearchFormValidate = (values: { term: string; friend: FriendFormType }) => {
     const errors = {}

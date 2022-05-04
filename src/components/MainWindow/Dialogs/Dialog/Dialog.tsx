@@ -2,8 +2,9 @@ import React from 'react';
 import style from "./Dialog.module.css"
 import {useDispatch} from "react-redux";
 
-import {MessageActions, MessageType} from "../../../../redux/messagesReducer";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {MessageActions} from "../../../../redux/messagesReducer";
+import {MessageType} from "../../../../redux/messagesReducer/types";
 
 const Dialog: React.FC<MessageType> = ({message, id}): ReturnComponentType => {
 

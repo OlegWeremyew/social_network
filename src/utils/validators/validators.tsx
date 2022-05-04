@@ -1,4 +1,3 @@
-import React from 'react';
 import {ReturnValidatorType} from "./types";
 
 export const required = (value: string): ReturnValidatorType => {

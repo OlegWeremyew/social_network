@@ -3,11 +3,12 @@ import style from "./News.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 
 import {NewsItem} from "./NewsItem/NewsItem";
-import {NewsActions, NewsType} from "../../../redux/NewsReducer";
 import {EMPTY_STRING} from "../../../constants";
 import {ReturnComponentType} from "../../../types/ReturnComponentType";
 import {getIsFetching, getNewsSelector} from "../../../selectors";
 import {Preloader} from "../../../common";
+import {NewsType} from "../../../redux/NewsReducer/types";
+import {NewsActions} from "../../../redux/NewsReducer";
 
 const News = (): ReturnComponentType => {
 

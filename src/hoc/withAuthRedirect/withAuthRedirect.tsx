@@ -4,10 +4,11 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../redux/reduxStore";
 import {PATH} from "../../enums";
 import {mapStateToPropsType} from "./types";
+import {getAuthIsAuthSelector} from "../../selectors";
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: getAuthIsAuthSelector(state)
     }
 }
 

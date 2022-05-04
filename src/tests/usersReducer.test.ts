@@ -1,4 +1,4 @@
-import {initialStateType, UserActions, usersReducer, UserType} from "../redux/usersReducer";
+import {initialStateType, UserActions, usersReducer, UserType} from "../redux/usersReducer/usersReducer/usersReducer";
 import {Nullable} from "../types/Nullable";
 import {
     FIRST_ELEMENT_IN_ARRAY,

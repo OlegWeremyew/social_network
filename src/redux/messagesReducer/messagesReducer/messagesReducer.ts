@@ -1,11 +1,7 @@
-import {InferActionTypes} from "./reduxStore";
+import {UserReducerEnum} from "../constants";
+import {ActionMessageTypes, initialStateMessagesType, MessageType, UserType} from "../types";
 
-export enum UserReducerEnum {
-    ADD_MESSAGE = "SOCIAL_NETWORK/MESSAGES/ADD_MESSAGE",
-    DELETED_MESSAGE = "SOCIAL_NETWORK/MESSAGES/DELETED_MESSAGE",
-}
-
-const initialState = {
+export const initialMessagesState = {
     users: [
         {
             name: "Oleg",
@@ -47,9 +43,7 @@ const initialState = {
     ] as Array<MessageType>,
 }
 
-export type initialStateType = typeof initialState
-
-export const messagesReducer = (state: initialStateType = initialState, action: ActionMessageTypes): initialStateType => {
+export const messagesReducer = (state: initialStateMessagesType = initialMessagesState, action: ActionMessageTypes): initialStateMessagesType => {
 
     switch (action.type) {
         case UserReducerEnum.ADD_MESSAGE: {
@@ -71,26 +65,4 @@ export const messagesReducer = (state: initialStateType = initialState, action: 
         default:
             return state
     }
-}
-export const MessageActions = {
-    addMessage: (newMessageText: string) => {
-        return {type: UserReducerEnum.ADD_MESSAGE, payload: {newMessageText}} as const
-    },
-    deleteMessage: (messageId: number) => {
-        return {type: UserReducerEnum.DELETED_MESSAGE, payload: {messageId}} as const
-    },
-}
-
-//Types ======================================
-export type ActionMessageTypes = InferActionTypes<typeof MessageActions>
-
-export type UserType = {
-    name: string
-    id: number
-    img: string
-}
-
-export type MessageType = {
-    message: string
-    id: number
 }

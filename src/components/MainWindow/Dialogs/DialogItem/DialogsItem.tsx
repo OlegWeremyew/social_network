@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./DialogsItem.module.css";
-import {UserType} from "../../../../redux/messagesReducer";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
+import {UserType} from "../../../../redux/messagesReducer/types";
 
 const DialogsItem: React.FC<UserType> = ({img, name}): ReturnComponentType => {
 
