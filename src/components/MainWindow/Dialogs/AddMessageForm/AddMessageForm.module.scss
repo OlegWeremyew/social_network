@@ -1,0 +1,46 @@
+.addMessage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 100%;
+  }
+
+  .textField {
+    background: #d32828;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #272729;
+    padding-left: 25px;
+  }
+
+  .form__btn {
+    display: flex;
+    justify-content: center;
+
+    margin: 10px auto;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #601313;
+
+    &:hover {
+      opacity: .9;
+      color: #fff;
+    }
+
+    button {
+      border: none;
+      background: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
