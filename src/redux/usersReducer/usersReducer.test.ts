@@ -1,13 +1,15 @@
-import {initialStateType, UserActions, usersReducer, UserType} from "../redux/usersReducer/usersReducer/usersReducer";
-import {Nullable} from "../types/Nullable";
+import {Nullable} from "../../types/Nullable";
 import {
     FIRST_ELEMENT_IN_ARRAY,
     FOURTH_ELEMENT_IN_ARRAY,
     SECOND_ELEMENT_IN_ARRAY,
     THIRD_ELEMENT_IN_ARRAY
-} from "../constants";
+} from "../../constants";
+import {initialUsersStateType, UserType} from "./types";
+import {usersReducer} from "./usersReducer";
+import {UserActions} from "./usersActions";
 
-let state: initialStateType
+let state: initialUsersStateType
 
 beforeEach(() => {
     state = {

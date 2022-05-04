@@ -1,7 +1,7 @@
-import {follow, unFollow, UserActions} from "../redux/usersReducer/usersReducer/usersReducer";
-import {usersAPI} from "../Api";
-import {APIResponseType} from "../Api/types";
-import {ResultCodesEnum} from "../Api/enums";
+import {usersAPI} from "../../Api";
+import {APIResponseType} from "../../Api/types";
+import {ResultCodesEnum} from "../../Api/enums";
+import {follow, unFollow, UserActions} from "./index";
 
 jest.mock("../Api/usersAPI")
 const usersAPIMock = usersAPI as jest.Mocked<typeof usersAPI>

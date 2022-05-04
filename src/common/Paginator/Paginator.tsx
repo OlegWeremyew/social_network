@@ -25,7 +25,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
 
     useEffect(() => {
         setPortionNumber(Math.ceil(currentPage / portionSize))
-    }, [currentPage])
+    }, [currentPage, portionSize])
 
     return (
         <div className={cn(styles.paginator)}>
@@ -33,7 +33,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
                 {
                     portionNumber > 1
                     && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber - 1)}>
-                        <button>
+                        <button  type='button'>
                             &#10096;
                         </button>
                     </div>
@@ -43,7 +43,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
                 {
                     portionNumber > 1
                     && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber - 1)}>
-                        <button>
+                        <button  type='button'>
                             &#10096; &#10096; &#10096;
                         </button>
                     </div>
@@ -68,7 +68,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
                 {
                     portionCount > portionNumber
                     && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber + 1)}>
-                        <button>
+                        <button  type='button'>
                             &#10097;
                         </button>
                     </div>
@@ -78,7 +78,7 @@ export const Paginator: React.FC<UsersPropsType> = ({
                 {
                     portionCount > portionNumber
                     && <div className={styles.user__btn} onClick={() => setPortionNumber(portionNumber + 1)}>
-                        <button>
+                        <button type='button'>
                             &#10097; &#10097; &#10097;
                         </button>
                     </div>

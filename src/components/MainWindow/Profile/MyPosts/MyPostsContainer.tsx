@@ -1,6 +1,4 @@
-import React from 'react';
 import {connect} from "react-redux";
-
 import {MyPosts} from "./MyPosts";
 import {AppStateType} from "../../../../redux/reduxStore";
 import {getProfilePageSelector} from "../../../../selectors";

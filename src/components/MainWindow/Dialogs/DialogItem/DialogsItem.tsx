@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./DialogsItem.module.css";
+import style from "./DialogsItem.module.scss";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {UserType} from "../../../../redux/messagesReducer/types";
 

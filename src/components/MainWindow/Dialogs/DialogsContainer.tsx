@@ -1,12 +1,12 @@
-import React, {ComponentType} from 'react';
+import  {ComponentType} from 'react';
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {getMessagesPageSelector} from "../../../selectors";
-import {withAuthRedirect} from "../../../hoc";
 import {compose} from "redux";
 import {MessageActions} from "../../../redux/messagesReducer";
 import {initialStateMessagesType} from "../../../redux/messagesReducer/types";
+import {withAuthRedirect} from "../../../utils";
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {

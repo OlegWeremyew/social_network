@@ -1,5 +1,7 @@
-import {PostType, ProfileActions, profileReducer, ProfileType} from "../redux/profileReducer/profileReducer/profileReducer";
-import {EMPTY_STRING, THIRD_ELEMENT_IN_ARRAY} from "../constants";
+import {EMPTY_STRING, THIRD_ELEMENT_IN_ARRAY} from "../../constants";
+import {PostType, ProfileType} from "./types";
+import {profileReducer} from "./profileReducer";
+import {ProfileActions} from "./profileActions";
 
 const initialState = {
     posts: [

@@ -1,5 +1,5 @@
 import React, {SyntheticEvent} from "react";
-import style from './AddMessageForm.module.css'
+import style from './AddMessageForm.module.scss'
 
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {Textarea} from "../../../../common/FormsControls/FormsControls";

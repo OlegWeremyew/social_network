@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./Dialog.module.css"
+import style from "./Dialog.module.scss"
 import {useDispatch} from "react-redux";
 
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
