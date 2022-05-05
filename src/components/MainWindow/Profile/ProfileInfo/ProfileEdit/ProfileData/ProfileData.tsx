@@ -1,13 +1,13 @@
-
 import style from "./ProfileData.module.scss";
 
 import React from "react";
-import Contact from "./Contact/Contact";
 import {ReturnComponentType} from "../../../../../../types/ReturnComponentType";
 import {Preloader} from "../../../../../../common";
-import {ContactsType, ProfileType} from "../../../../../../redux/profileReducer/types";
+import {ContactsType} from "../../../../../../redux/profileReducer/types";
+import {ProfileDataPropsType} from "./types";
+import {Contact} from "./Contact";
 
-const ProfileData:React.FC<ProfileDataPropsType> = ({profile, isOwner, goToEditMode}): ReturnComponentType => {
+export const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, goToEditMode}): ReturnComponentType => {
 
     if (!profile) {
         return <Preloader/>
@@ -86,13 +86,4 @@ const ProfileData:React.FC<ProfileDataPropsType> = ({profile, isOwner, goToEditM
             </div>
         </>
     )
-}
-
-export default ProfileData
-
-//types====
-export type ProfileDataPropsType = {
-    profile: ProfileType
-    isOwner: boolean
-    goToEditMode?: () => void
 }

@@ -7,9 +7,10 @@ import {ReturnComponentType} from "../../../../../../types/ReturnComponentType";
 import {EMPTY_STRING} from "../../../../../../constants";
 import {ProfileType} from "../../../../../../redux/profileReducer/types";
 import {Preloader} from "../../../../../../common";
+import {ProfileDataFormPropsType} from "./types";
 
 
-const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType> = ({
+export const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType> = ({
                                                                                                                       profile,
                                                                                                                       handleSubmit,
                                                                                                                       error,
@@ -68,12 +69,4 @@ const ProfileDataForm: FC<InjectedFormProps<ProfileType, ProfileDataFormPropsTyp
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm<ProfileType, ProfileDataFormPropsType>({form: 'edit-profile'})(ProfileDataForm)
-
-export default ProfileDataFormReduxForm
-
-//types======
-export type ProfileDataFormPropsType = {
-    profile: ProfileType
-    goToEditMode?: () => void
-}
+export const ProfileDataFormReduxForm = reduxForm<ProfileType, ProfileDataFormPropsType>({form: 'edit-profile'})(ProfileDataForm)

@@ -1,10 +1,10 @@
 import React from 'react';
 import style from "./Profile.module.scss"
 
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 import {ReturnComponentType} from "../../../types/ReturnComponentType";
-import {ProfileType} from "../../../redux/profileReducer/types";
+import {ProfilePropsType} from "./types";
+import {ProfileInfo} from "./ProfileInfo";
 
 const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus, isOwner, savePhoto, saveProfile}): ReturnComponentType => {
 
@@ -27,13 +27,3 @@ const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus,
 }
 
 export default Profile
-
-//Types
-type ProfilePropsType = {
-    profile: ProfileType
-    status: string
-    updateUserStatus: (status: string) => void
-    isOwner: boolean
-    savePhoto: (file: File) => void
-    saveProfile: (formData: ProfileType) => Promise<any>
-}

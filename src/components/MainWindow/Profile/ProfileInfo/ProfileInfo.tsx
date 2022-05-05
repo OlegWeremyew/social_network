@@ -8,8 +8,9 @@ import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {FIRST_ELEMENT_IN_ARRAY} from "../../../../constants";
 import {Preloader} from "../../../../common";
 import {ProfileType} from "../../../../redux/profileReducer/types";
+import {ProfileInfoPropsType} from "./types";
 
-const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
+export const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
                                                          profile,
                                                          status,
                                                          updateUserStatus,
@@ -103,16 +104,4 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
             <hr/>
         </div>
     )
-}
-
-export default ProfileInfo
-
-//types
-export type ProfileInfoPropsType = {
-    profile: ProfileType
-    status: string
-    updateUserStatus: (status: string) => void
-    isOwner: boolean
-    savePhoto: (file: File) => void
-    saveProfile: (formData: ProfileType) => Promise<any>
 }

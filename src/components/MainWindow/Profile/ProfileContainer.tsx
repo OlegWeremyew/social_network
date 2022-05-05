@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {AppStateType} from "../../../redux/reduxStore";
 import {Nullable} from "../../../types/Nullable";
-import {InjectedProps} from "../../../utils/hoc/withRouter/types";
 import {
     getAuthAuthorizedUserIDSelector,
     getAuthIsAuthSelector,
@@ -12,10 +11,10 @@ import {
     getProfilePageStatusSelector
 } from "../../../selectors";
 import {getUserProfile, getUserStatus, savePhoto, saveProfile, updateUserStatus} from "../../../redux/profileReducer";
-import {ProfileType} from "../../../redux/profileReducer/types";
 import {withAuthRedirect, withRouter2} from "../../../utils";
+import {MapStateToPropsProfileType, ProfileContainerPropsType} from "./types";
 
-class ProfileAPIContainer extends React.Component<ProfilePropsType> {
+class ProfileAPIContainer extends React.Component<ProfileContainerPropsType> {
 
     refreshProfile() {
         let userId: Nullable<string> = this.props.userId
@@ -39,7 +38,7 @@ class ProfileAPIContainer extends React.Component<ProfilePropsType> {
         this.refreshProfile()
     }
 
-    componentDidUpdate(prevProps: Readonly<ProfilePropsType>, prevState: Readonly<{}>, snapshot?: any) {
+    componentDidUpdate(prevProps: Readonly<ProfileContainerPropsType>, prevState: Readonly<{}>, snapshot?: any) {
         if (this.props.userId !== prevProps.userId) {
             this.refreshProfile()
         }
@@ -61,7 +60,7 @@ class ProfileAPIContainer extends React.Component<ProfilePropsType> {
     }
 }
 
-const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+const mapStateToProps = (state: AppStateType): MapStateToPropsProfileType => {
     return {
         profile: getProfilePageProfileSelector(state),
         isAuth: getAuthIsAuthSelector(state),
@@ -83,23 +82,3 @@ const ProfileContainer = compose<ComponentType>(
 )(ProfileAPIContainer)
 
 export default ProfileContainer
-
-//types===
-
-type MapStateToPropsType = {
-    profile: ProfileType
-    isAuth: boolean
-    status: string
-    authorizedUserID: Nullable<string>
-}
-
-type MapDispatchToProps = {
-    getUserProfile: (userId: Nullable<string>) => void
-    getUserStatus: (userId: Nullable<string>) => void
-    updateUserStatus: (status: string) => void
-    savePhoto: (file: File) => void
-    saveProfile: (formData: ProfileType) => Promise<any>
-}
-
-export type ProfilePropsType = MapStateToPropsType & MapDispatchToProps & InjectedProps
-

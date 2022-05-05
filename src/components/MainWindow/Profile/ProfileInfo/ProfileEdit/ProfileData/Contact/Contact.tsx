@@ -2,8 +2,9 @@ import React, {FC} from "react";
 import style from "./Contact.module.scss";
 import {ReturnComponentType} from "../../../../../../../types/ReturnComponentType";
 import {EMPTY_STRING} from "../../../../../../../constants";
+import {ContactsPropsType} from "./types";
 
-const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}): ReturnComponentType => {
+export const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}): ReturnComponentType => {
     return (
         <div className={style.formBlock}>
             <b>
@@ -16,12 +17,4 @@ const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}): ReturnCom
             }
         </div>
     )
-}
-
-export default Contact
-
-//types
-export type ContactsPropsType = {
-    contactTitle: string
-    contactValue: string
 }

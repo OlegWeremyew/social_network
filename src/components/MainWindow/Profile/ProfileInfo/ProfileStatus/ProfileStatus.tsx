@@ -1,9 +1,10 @@
 import React, {ChangeEvent} from 'react';
 import style from './ProfileStatus.module.scss'
+import {ProfileStatusPropsType, stateProfileStateType} from "./types";
 
-export class ProfileStatus extends React.Component<ProfileStatusType> {
+export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
 
-    state: stateType = {
+    state: stateProfileStateType = {
         editMode: false,
         status: this.props.status,
         isOwner: this.props.isOwner,
@@ -29,7 +30,7 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
         })
     }
 
-    componentDidUpdate(prevProps: ProfileStatusType, prevState: boolean) {
+    componentDidUpdate(prevProps: ProfileStatusPropsType, prevState: boolean) {
         if (prevProps.status !== this.props.status) {
             this.setState({
                 status: this.props.status,
@@ -70,18 +71,4 @@ export class ProfileStatus extends React.Component<ProfileStatusType> {
             </div>
         )
     }
-}
-
-//types====
-
-type ProfileStatusType = {
-    status: string
-    updateUserStatus: (status: string) => void
-    isOwner: boolean
-}
-
-type stateType = {
-    editMode: boolean
-    status: string
-    isOwner: boolean
 }
