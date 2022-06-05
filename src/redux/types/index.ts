@@ -1,11 +1,18 @@
-import {Action} from "redux";
-import {ThunkAction} from "redux-thunk";
-import {rootReducer} from "../reduxStore";
+import { Action } from 'redux';
+import { ThunkAction } from 'redux-thunk';
 
-export type AppStateType = ReturnType<typeof rootReducer>
+import { rootReducer } from '../reduxStore';
 
-export type PropertiesTypes<T> = T extends { [key: string]: infer U } ? U : never
+export type AppStateType = ReturnType<typeof rootReducer>;
 
-export type InferActionTypes<T extends { [key: string]: (...args: any[]) => any }> = ReturnType<PropertiesTypes<T>>
+export type PropertiesTypes<T> = T extends { [key: string]: infer U } ? U : never;
 
-export type BaseThunkType<A extends Action, RT = Promise<void>> = ThunkAction<RT, AppStateType, unknown, A>
+export type InferActionTypes<T extends { [key: string]: (...args: any[]) => any }> =
+  ReturnType<PropertiesTypes<T>>;
+
+export type BaseThunkType<A extends Action, RT = Promise<void>> = ThunkAction<
+  RT,
+  AppStateType,
+  unknown,
+  A
+>;

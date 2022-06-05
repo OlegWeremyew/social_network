@@ -1,1 +1,1 @@
-export {ReduxAddMessageForm} from './AddMessageForm'
+export { ReduxAddMessageForm } from './AddMessageForm';

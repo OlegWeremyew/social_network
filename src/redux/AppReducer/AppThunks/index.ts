@@ -1,1 +1,1 @@
-export {initializeApp} from './AppThunks'
+export { initializeApp } from './AppThunks';

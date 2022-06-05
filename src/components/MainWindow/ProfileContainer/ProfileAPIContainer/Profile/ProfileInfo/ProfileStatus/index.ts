@@ -1,1 +1,1 @@
-export {ProfileStatus} from './ProfileStatus'
+export { ProfileStatus } from './ProfileStatus';

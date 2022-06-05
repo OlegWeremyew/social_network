@@ -1,26 +1,27 @@
-import React from "react";
-import {Navigate} from "react-router-dom";
-import {connect} from "react-redux";
-import {PATH} from "../../../enums";
-import {mapStateToPropsType} from "./types";
-import {getAuthIsAuthSelector} from "../../../selectors";
-import {AppStateType} from "../../../redux/types";
+import React from 'react';
 
-const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
-    return {
-        isAuth: getAuthIsAuthSelector(state)
+import { connect } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+
+import { PATH } from '../../../enums';
+import { AppStateType } from '../../../redux/types';
+import { getAuthIsAuthSelector } from '../../../selectors';
+import { ReturnComponentType } from '../../../types/ReturnComponentType';
+
+import { mapStateToPropsType } from './types';
+
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
+  isAuth: getAuthIsAuthSelector(state),
+});
+
+export function withAuthRedirect<T>(WrappedComponent: any): any {
+  const RedirectComponent = (props: mapStateToPropsType): ReturnComponentType => {
+    const { isAuth, ...restProps } = props;
+
+    if (!isAuth) {
+      return <Navigate to={PATH.LOGIN} />;
     }
-}
-
-export function withAuthRedirect<T>(WrappedComponent: React.ComponentType<T>) {
-    const RedirectComponent = (props: mapStateToPropsType) => {
-
-        const {isAuth, ...restProps} = props
-
-        if (!isAuth) {
-            return <Navigate to={PATH.LOGIN}/>
-        }
-        return <WrappedComponent {...restProps as T} />
-    }
-    return connect(mapStateToProps)(RedirectComponent)
+    return <WrappedComponent {...(restProps as T)} />;
+  };
+  return connect(mapStateToProps)(RedirectComponent);
 }

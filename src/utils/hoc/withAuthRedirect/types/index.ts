@@ -1,3 +1,3 @@
 export type mapStateToPropsType = {
-    isAuth: boolean
-}
+  isAuth: boolean;
+};

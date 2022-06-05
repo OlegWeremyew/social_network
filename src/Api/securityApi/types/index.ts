@@ -1,3 +1,3 @@
 export type captchaType = {
-    url: string
-}
+  url: string;
+};

@@ -1,20 +1,24 @@
-import React, {FC} from "react";
-import style from "./Contact.module.scss";
-import {ReturnComponentType} from "../../../../../../../../../types/ReturnComponentType";
-import {EMPTY_STRING} from "../../../../../../../../../constants";
-import {ContactsPropsType} from "./types";
+import React, { FC } from 'react';
 
-export const Contact: FC<ContactsPropsType> = ({contactTitle, contactValue}): ReturnComponentType => {
-    return (
-        <div className={style.formBlock}>
-            <b>
-                <a href={contactValue ? contactValue : EMPTY_STRING}> {contactTitle}</a>:
-            </b>
-            {
-                contactValue ?
-                    <span>{contactValue}</span>
-                    : <span>"Information is not provided"</span>
-            }
-        </div>
-    )
-}
+import { EMPTY_STRING } from '../../../../../../../../../constants';
+import { ReturnComponentType } from '../../../../../../../../../types/ReturnComponentType';
+
+import style from './Contact.module.scss';
+import { ContactsPropsType } from './types';
+
+export const Contact: FC<ContactsPropsType> = ({
+  contactTitle,
+  contactValue,
+}): ReturnComponentType => (
+  <div className={style.formBlock}>
+    <b>
+      <a href={contactValue || EMPTY_STRING}> {contactTitle}</a>:
+    </b>
+    {contactValue ? (
+      <span>{contactValue}</span>
+    ) : (
+      // eslint-disable-next-line react/no-unescaped-entities
+      <span>"Information is not provided"</span>
+    )}
+  </div>
+);

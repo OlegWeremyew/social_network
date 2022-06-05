@@ -1,1 +1,1 @@
-export {updateObjectInArray} from './objectsHellper'
+export { updateObjectInArray } from './objectsHellper';

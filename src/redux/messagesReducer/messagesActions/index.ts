@@ -1,1 +1,1 @@
-export {MessageActions} from './messagesActions'
+export { MessageActions } from './messagesActions';

@@ -1,2 +1,2 @@
-export {ProfileDataFormReduxForm} from './ProfileDataForm'
-export {ProfileDataForm} from './ProfileDataForm'
+export { ProfileDataFormReduxForm } from './ProfileDataForm';
+export { ProfileDataForm } from './ProfileDataForm';

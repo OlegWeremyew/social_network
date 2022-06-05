@@ -1,1 +1,1 @@
-export {MainApp} from './MainApp'
+export { MainApp } from './MainApp';

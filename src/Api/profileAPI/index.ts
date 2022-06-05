@@ -1,1 +1,1 @@
-export {profileAPI} from './profileAPI'
+export { profileAPI } from './profileAPI';

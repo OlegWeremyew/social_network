@@ -1,11 +1,11 @@
-import {Dispatch} from "redux";
-import {AppAction} from "../AppActions";
-import {getAuthUserData} from "../../authReducer";
+import { Dispatch } from 'redux';
+
+import { getAuthUserData } from '../../authReducer';
+import { AppAction } from '../AppActions';
 
 export const initializeApp = () => (dispatch: Dispatch<any>) => {
-    const promise = dispatch(getAuthUserData())
-    Promise.all([promise])
-        .then(() => {
-            dispatch(AppAction.initializedSuccess())
-        })
-}
+  const promise = dispatch(getAuthUserData());
+  Promise.all([promise]).then(() => {
+    dispatch(AppAction.initializedSuccess());
+  });
+};

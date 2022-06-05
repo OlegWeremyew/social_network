@@ -1,1 +1,1 @@
-export {getInitializedAppSelector} from './appSelectors'
+export { getInitializedAppSelector } from './appSelectors';

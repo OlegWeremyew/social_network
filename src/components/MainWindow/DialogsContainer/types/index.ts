@@ -1,11 +1,11 @@
-import {initialStateMessagesType} from "../../../../redux/messagesReducer/types";
+import { initialStateMessagesType } from '../../../../redux/messagesReducer/types';
 
 export type MapStateToPropsType = {
-    messagesPage: initialStateMessagesType
-}
+  messagesPage: initialStateMessagesType;
+};
 
 export type MapDispatchToPropsType = {
-    addMessage: (newMessageText: string) => void
-}
+  addMessage: (newMessageText: string) => void;
+};
 
-export type DialogPropsType = MapStateToPropsType & MapDispatchToPropsType
+export type DialogPropsType = MapStateToPropsType & MapDispatchToPropsType;

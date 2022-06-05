@@ -1,15 +1,15 @@
-import {Nullable} from "../../types/Nullable";
-import {ResultCodesEnum} from "../enums";
-import {UserType} from "../../redux/usersReducer/types";
+import { UserType } from '../../redux/usersReducer/types';
+import { Nullable } from '../../types/Nullable';
+import { ResultCodesEnum } from '../enums';
 
 export type APIResponseType<D = {}, RC = ResultCodesEnum> = {
-    data: D
-    resultCode: RC
-    messages: string[]
-}
+  data: D;
+  resultCode: RC;
+  messages: string[];
+};
 
 export type GetItemType = {
-    items: Array<UserType>
-    totalCount: number
-    error: Nullable<string>
-}
+  items: Array<UserType>;
+  totalCount: number;
+  error: Nullable<string>;
+};

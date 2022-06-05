@@ -1,24 +1,28 @@
-import {ComponentType} from 'react';
-import {connect} from "react-redux";
-import {getMessagesPageSelector} from "../../../selectors";
-import {compose} from "redux";
-import {MessageActions} from "../../../redux/messagesReducer";
-import {withAuthRedirect} from "../../../utils";
-import {AppStateType} from "../../../redux/types";
-import {MapDispatchToPropsType, MapStateToPropsType} from "./types";
-import {Dialogs} from "./Dialogs";
+import { ComponentType } from 'react';
 
-const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
-    return {
-        messagesPage: getMessagesPageSelector(state)
-    }
-}
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { MessageActions } from '../../../redux/messagesReducer';
+import { AppStateType } from '../../../redux/types';
+import { getMessagesPageSelector } from '../../../selectors';
+import { withAuthRedirect } from '../../../utils';
+
+import { Dialogs } from './Dialogs';
+import { MapDispatchToPropsType, MapStateToPropsType } from './types';
+
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
+  messagesPage: getMessagesPageSelector(state),
+});
 
 const DialogsContainer = compose<ComponentType>(
-    connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
-        addMessage: MessageActions.addMessage
-    }), withAuthRedirect
-)(Dialogs)
+  connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(
+    mapStateToProps,
+    {
+      addMessage: MessageActions.addMessage,
+    },
+  ),
+  withAuthRedirect,
+)(Dialogs);
 
-export default DialogsContainer
-
+export default DialogsContainer;

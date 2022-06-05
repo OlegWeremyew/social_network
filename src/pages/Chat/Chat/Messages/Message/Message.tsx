@@ -1,41 +1,36 @@
 import React from 'react';
-import style from './Message.module.css'
-import {NavLink} from "react-router-dom";
-import {PATH} from "../../../../../enums";
-import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
-import {ChatMessageType} from "../../../../../redux/chatReducer/types";
 
-export const Message: React.FC<MessageType> = React.memo(({message}): ReturnComponentType => {
+import { NavLink } from 'react-router-dom';
 
-    const navLinkPath = `${PATH.PROFILE}/${message.userId}`
+import { PATH } from '../../../../../enums';
+import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
 
-        return (
-            <>
-                <div className={style.message}>
-                    <div className={style.message__item}>
-                        <NavLink to={navLinkPath}>
-                            <img
-                                className={style.message__img}
-                                src={message.photo}
-                                alt="avatar"
-                                title={`avatar ${message.userName}`}
-                            />
-                        </NavLink>
-                        <div className={style.message__userName}>
-                            {message.userName}
-                        </div>
-                        <br/>
-                    </div>
-                    <div className={style.message__text}>
-                        {message.message}
-                    </div>
-                </div>
-                <hr/>
-            </>
-        )
-    }
-)
+import style from './Message.module.css';
+import { MessageType } from './types';
 
-type MessageType = {
-    message: ChatMessageType
-}
+export const Message: React.FC<MessageType> = React.memo(
+  ({ message }): ReturnComponentType => {
+    const navLinkPath = `${PATH.PROFILE}/${message.userId}`;
+
+    return (
+      <>
+        <div className={style.message}>
+          <div className={style.message__item}>
+            <NavLink to={navLinkPath}>
+              <img
+                className={style.message__img}
+                src={message.photo}
+                alt="avatar"
+                title={`avatar ${message.userName}`}
+              />
+            </NavLink>
+            <div className={style.message__userName}>{message.userName}</div>
+            <br />
+          </div>
+          <div className={style.message__text}>{message.message}</div>
+        </div>
+        <hr />
+      </>
+    );
+  },
+);

@@ -1,1 +1,1 @@
-export {AuthActions} from './authActions'
+export { AuthActions } from './authActions';

@@ -1,21 +1,17 @@
+import { initialStateProfileType, ProfileType } from '../../redux/profileReducer/types';
+import { AppStateType } from '../../redux/types';
+import { Nullable } from '../../types/Nullable';
+import { Undetectable } from '../../types/Undetectable';
 
-import {Nullable} from "../../types/Nullable";
-import {Undetectable} from "../../types/Undetectable";
-import {initialStateProfileType, ProfileType} from "../../redux/profileReducer/types";
-import {AppStateType} from "../../redux/types";
+export const getProfilePageSelector = (state: AppStateType): initialStateProfileType =>
+  state.profilePage;
 
-export const getProfilePageSelector = (state: AppStateType): initialStateProfileType => {
-    return state.profilePage
-}
+export const getProfilePageProfileSelector = (state: AppStateType): ProfileType =>
+  state.profilePage.profile;
 
-export const getProfilePageProfileSelector = (state: AppStateType): ProfileType => {
-    return state.profilePage.profile
-}
+export const getProfilePageStatusSelector = (state: AppStateType): string =>
+  state.profilePage.status;
 
-export const getProfilePageStatusSelector = (state: AppStateType): string => {
-    return state.profilePage.status
-}
-
-export const getProfilePageProfilePhotosLargeSelector = (state: AppStateType): Nullable<Undetectable<string>> => {
-    return state.profilePage.profile?.photos.large
-}
+export const getProfilePageProfilePhotosLargeSelector = (
+  state: AppStateType,
+): Nullable<Undetectable<string>> => state.profilePage.profile?.photos.large;

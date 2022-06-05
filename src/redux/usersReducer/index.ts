@@ -1,8 +1,5 @@
-export {UserActions} from './usersActions'
+export { UserActions } from './usersActions';
 
-export {requestUsers} from './usersThunks'
-export {followUnfollowFlow} from './usersThunks'
-export {follow} from './usersThunks'
-export {unFollow} from './usersThunks'
+export { requestUsers, followUnfollowFlow, follow, unFollow } from './usersThunks';
 
-export {usersReducer} from './usersReducer'
+export { usersReducer } from './usersReducer';

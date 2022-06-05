@@ -1,3 +1,3 @@
 export type newObjPropsType = {
-    followed: boolean
-}
+  followed: boolean;
+};

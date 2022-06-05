@@ -1,1 +1,1 @@
-export {ProfileAPIContainer} from './ProfileAPIContainer'
+export { ProfileAPIContainer } from './ProfileAPIContainer';

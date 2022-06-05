@@ -1,1 +1,1 @@
-export {getNewsSelector} from './newsSelectors'
+export { getNewsSelector } from './newsSelectors';

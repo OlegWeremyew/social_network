@@ -1,71 +1,70 @@
-import React, {useState} from 'react';
-import style from "./Post.module.css"
-import {useDispatch, useSelector} from "react-redux";
-import {Nullable} from "../../../../../../../../types/Nullable";
-import {Undetectable} from "../../../../../../../../types/Undetectable";
-import {ReturnComponentType} from "../../../../../../../../types/ReturnComponentType";
-import {EMPTY_STRING} from "../../../../../../../../constants";
-import {getProfilePageProfilePhotosLargeSelector} from "../../../../../../../../selectors";
-import {PostType} from "../../../../../../../../redux/profileReducer/types";
-import {ProfileActions} from "../../../../../../../../redux/profileReducer";
+import React, { useState } from 'react';
 
-export const Post:React.FC<PostType> = (props): ReturnComponentType => {
+import { useDispatch, useSelector } from 'react-redux';
 
-    const dispatch = useDispatch()
+import { EMPTY_STRING } from '../../../../../../../../constants';
+import { ProfileActions } from '../../../../../../../../redux/profileReducer';
+import { PostType } from '../../../../../../../../redux/profileReducer/types';
+import { getProfilePageProfilePhotosLargeSelector } from '../../../../../../../../selectors';
+import { Nullable } from '../../../../../../../../types/Nullable';
+import { ReturnComponentType } from '../../../../../../../../types/ReturnComponentType';
+import { Undetectable } from '../../../../../../../../types/Undetectable';
 
-    const [editMode, setEditMode] = useState<boolean>(false)
-    const [fingerUp, setFingerUp] = useState<boolean>(false)
+import style from './Post.module.css';
 
-    const userAvatar: Nullable<Undetectable<string>> = useSelector(getProfilePageProfilePhotosLargeSelector)
+export const Post: React.FC<PostType> = ({
+  message,
+  likesCount,
+  id,
+}): ReturnComponentType => {
+  const dispatch = useDispatch();
 
-    let heart = editMode ? style.active : style.notActive
+  const [editMode, setEditMode] = useState<boolean>(false);
+  const [fingerUp, setFingerUp] = useState<boolean>(false);
 
-    const statusChangeHandler = (): void => {
-        setEditMode(!editMode)
-    }
+  const userAvatar: Nullable<Undetectable<string>> = useSelector(
+    getProfilePageProfilePhotosLargeSelector,
+  );
 
-    const fingerUpChangeHandler = (): void => {
-        setFingerUp(!fingerUp)
-    }
+  const heart = editMode ? style.active : style.notActive;
 
-    const deletePostHandler = (id: number): void => {
-        dispatch(ProfileActions.deletePost(id))
-    }
+  const statusChangeHandler = (): void => {
+    setEditMode(!editMode);
+  };
 
-    return (
-        <div className={style.item}>
-            <div className={style.postAvatar}>
-                <img
-                    src={userAvatar ? userAvatar : EMPTY_STRING}
-                    alt="ava"
-                    title="ava"
-                />
-            </div>
-            <div className={style.itemText}>
-                {props.message}
-                <div className={style.activeBlock}>
-                    <span className={style.likeCounter} onClick={statusChangeHandler}>
-                        like: {editMode ? props.likesCount + 1 : props.likesCount}
-                        <span className={heart}>
-                            &#9829;
-                        </span>
-                    </span>
-                    <span className={style.likeCounter} onClick={fingerUpChangeHandler}>
-                        respect:
-                        {
-                            !fingerUp
-                                ? <span className={style.reaction}>&#128077;</span>
-                                : <span className={style.reaction}>&#128526;</span>
-                        }
-                    </span>
-                </div>
-            </div>
-            <div
-                onClick={() => deletePostHandler(props.id)}
-                className={style.delete__btn}
-            >
-                ❌
-            </div>
+  const fingerUpChangeHandler = (): void => {
+    setFingerUp(!fingerUp);
+  };
+
+  const deletePostHandler = (id: number): void => {
+    dispatch(ProfileActions.deletePost(id));
+  };
+
+  return (
+    <div className={style.item}>
+      <div className={style.postAvatar}>
+        <img src={userAvatar || EMPTY_STRING} alt="ava" title="ava" />
+      </div>
+      <div className={style.itemText}>
+        {message}
+        <div className={style.activeBlock}>
+          <span className={style.likeCounter} onClick={statusChangeHandler}>
+            like: {editMode ? likesCount + 1 : likesCount}
+            <span className={heart}>&#9829;</span>
+          </span>
+          <span className={style.likeCounter} onClick={fingerUpChangeHandler}>
+            respect:
+            {!fingerUp ? (
+              <span className={style.reaction}>&#128077;</span>
+            ) : (
+              <span className={style.reaction}>&#128526;</span>
+            )}
+          </span>
         </div>
-    )
-}
+      </div>
+      <div onClick={() => deletePostHandler(id)} className={style.delete__btn}>
+        ❌
+      </div>
+    </div>
+  );
+};

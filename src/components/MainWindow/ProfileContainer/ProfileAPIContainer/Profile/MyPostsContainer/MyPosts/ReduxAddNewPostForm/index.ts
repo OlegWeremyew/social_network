@@ -1,1 +1,1 @@
-export {ReduxAddNewPostForm} from './ReduxAddNewPostForm'
+export { ReduxAddNewPostForm } from './ReduxAddNewPostForm';

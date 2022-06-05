@@ -1,3 +1,1 @@
-export {startMessagesListening} from './chatTunks'
-export {stopMessagesListening} from './chatTunks'
-export {sendMessage} from './chatTunks'
+export { startMessagesListening, stopMessagesListening, sendMessage } from './chatTunks';

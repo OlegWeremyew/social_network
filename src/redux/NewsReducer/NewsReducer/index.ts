@@ -1,1 +1,1 @@
-export {newsReducer} from './NewsReducer'
+export { newsReducer } from './NewsReducer';

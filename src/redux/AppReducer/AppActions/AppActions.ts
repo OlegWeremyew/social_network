@@ -1,6 +1,5 @@
-import {UserReducerEnum} from "../constants";
-
+import { UserReducerEnum } from '../constants';
 
 export const AppAction = {
-    initializedSuccess : () => {return {type: UserReducerEnum.SET_INITIALIZED} as const}
-}
+  initializedSuccess: () => ({ type: UserReducerEnum.SET_INITIALIZED } as const),
+};

@@ -1,1 +1,1 @@
-export {profileReducer} from './profileReducer'
+export { profileReducer } from './profileReducer';

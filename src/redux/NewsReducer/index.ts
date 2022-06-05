@@ -1,3 +1,3 @@
-export {NewsActions} from './NewsActions'
+export { NewsActions } from './NewsActions';
 
-export {newsReducer} from './NewsReducer'
+export { newsReducer } from './NewsReducer';

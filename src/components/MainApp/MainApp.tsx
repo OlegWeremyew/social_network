@@ -1,19 +1,20 @@
-import React from "react";
-import {Loading} from "../../common";
-import {HashRouter} from "react-router-dom";
-import {Provider} from "react-redux";
-import {store} from "../../redux/reduxStore";
-import {ReturnComponentType} from "../../types/ReturnComponentType";
-import {AppContainer} from "./AppContainer";
+import React from 'react';
 
-export const MainApp = (): ReturnComponentType => {
-    return (
-        <React.Suspense fallback={<Loading/>}>
-            <HashRouter>
-                <Provider store={store}>
-                    <AppContainer/>
-                </Provider>
-            </HashRouter>
-        </React.Suspense>
-    )
-}
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
+
+import { Loading } from '../../common';
+import { store } from '../../redux/reduxStore';
+import { ReturnComponentType } from '../../types/ReturnComponentType';
+
+import { App } from './App';
+
+export const MainApp = (): ReturnComponentType => (
+  <React.Suspense fallback={<Loading />}>
+    <HashRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </HashRouter>
+  </React.Suspense>
+);

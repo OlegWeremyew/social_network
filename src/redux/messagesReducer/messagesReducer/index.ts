@@ -1,1 +1,1 @@
-export  {messagesReducer} from "./messagesReducer";
+export { messagesReducer } from './messagesReducer';

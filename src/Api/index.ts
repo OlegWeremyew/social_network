@@ -1,9 +1,9 @@
-export {authApi} from "./authApi";
+export { authApi } from './authApi';
 
-export {chatApi} from './chatApi'
+export { chatApi } from './chatApi';
 
-export {profileAPI} from './profileAPI'
+export { profileAPI } from './profileAPI';
 
-export {securityApi} from './securityApi'
+export { securityApi } from './securityApi';
 
-export {usersAPI} from './usersAPI'
+export { usersAPI } from './usersAPI';

@@ -1,1 +1,1 @@
-export {withAuthRedirect} from './withAuthRedirect'
+export { withAuthRedirect } from './withAuthRedirect';

@@ -1,119 +1,109 @@
-import React, {useEffect} from 'react';
-import style from './Users.module.scss'
+import React, { useEffect } from 'react';
 
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+
+import { Paginator } from '../../../../common';
+import { requestUsers } from '../../../../redux/usersReducer';
+import { FilterType, UserType } from '../../../../redux/usersReducer/types';
+import { ReturnComponentType } from '../../../../types/ReturnComponentType';
+
+import { User } from './User';
+import style from './Users.module.scss';
+import { UsersSearchForm } from './UsersSearchForm';
+
 import {
-    getCurrentPage,
-    getFollowingInProgress,
-    getPageSize,
-    getTotalUsersCount,
-    getUsers,
-    getUsersFilter
-} from "selectors/usersSelectors/usersSelectors";
-import {useNavigate, useSearchParams} from "react-router-dom";
-import {ReturnComponentType} from "../../../../types/ReturnComponentType";
-import {Paginator} from "../../../../common";
-import {FilterType, UserType} from "../../../../redux/usersReducer/types";
-import {requestUsers} from "../../../../redux/usersReducer";
-import {UsersSearchForm} from "./UsersSearchForm";
-import {User} from "./User";
+  getCurrentPage,
+  getFollowingInProgress,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers,
+  getUsersFilter,
+} from 'selectors/usersSelectors/usersSelectors';
 
 export const Users = (): ReturnComponentType => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+  const [searchParams] = useSearchParams();
 
-    const [searchParams] = useSearchParams()
+  const parsedPage = searchParams.get('page');
+  const parsedTerm = searchParams.get('term');
+  const parsedFriend = searchParams.get('friend');
 
-    const parsedPage = searchParams.get('page')
-    const parsedTerm = searchParams.get('term')
-    const parsedFriend = searchParams.get('friend')
+  const totalUsersCount: number = useSelector(getTotalUsersCount);
+  const currentPage: number = useSelector(getCurrentPage);
+  const pageSize: number = useSelector(getPageSize);
+  const filter: FilterType = useSelector(getUsersFilter);
+  const users: Array<UserType> = useSelector(getUsers);
+  const followingInProgress: Array<string> = useSelector(getFollowingInProgress);
+  const pageValue: number = 1;
 
-    const totalUsersCount: number = useSelector(getTotalUsersCount)
-    const currentPage: number = useSelector(getCurrentPage)
-    const pageSize: number = useSelector(getPageSize)
-    const filter: FilterType = useSelector(getUsersFilter)
-    const users: Array<UserType> = useSelector(getUsers)
-    const followingInProgress: Array<string> = useSelector(getFollowingInProgress)
-    const pageValue: number = 1
+  const onPageChanged = (pageNumber: number): void => {
+    dispatch(requestUsers(pageNumber, pageSize, filter));
+  };
 
-    const onPageChanged = (pageNumber: number): void => {
-        dispatch(requestUsers(pageNumber, pageSize, filter))
+  const onFilterChanged = (filter: FilterType): void => {
+    dispatch(requestUsers(pageValue, pageSize, filter));
+  };
+
+  useEffect(() => {
+    let actualPage = currentPage;
+    let actualFilter = filter;
+
+    if (parsedPage) actualPage = Number(parsedPage);
+    if (parsedTerm) actualFilter = { ...actualFilter, term: parsedTerm as string };
+
+    switch (parsedFriend) {
+      case 'null':
+        actualFilter = { ...actualFilter, friend: null };
+        break;
+      case 'true':
+        actualFilter = { ...actualFilter, friend: true };
+        break;
+      case 'false':
+        actualFilter = { ...actualFilter, friend: false };
+        break;
     }
 
-    const onFilterChanged = (filter: FilterType): void => {
-        dispatch(requestUsers(pageValue, pageSize, filter))
-    }
+    dispatch(requestUsers(actualPage, pageSize, actualFilter));
+  }, []);
 
-    useEffect(() => {
-        let actualPage = currentPage
-        let actualFilter = filter
+  useEffect(() => {
+    const query = {} as queryObjType;
 
-        if (!!parsedPage) actualPage = Number(parsedPage)
-        if (!!parsedTerm) actualFilter = {...actualFilter, term: parsedTerm as string}
+    if (parsedTerm) query.term = parsedTerm;
+    if (currentPage !== pageValue) query.page = String(currentPage);
+    if (parsedFriend !== null) query.friends = String(parsedFriend);
 
-        switch (parsedFriend) {
-            case "null" :
-                actualFilter = {...actualFilter, friend: null}
-                break
-            case "true" :
-                actualFilter = {...actualFilter, friend: true}
-                break
-            case "false" :
-                actualFilter = {...actualFilter, friend: false}
-                break
-        }
+    const navigatePath = `?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`;
+    navigate(navigatePath);
+  }, [filter, currentPage]);
 
-        dispatch(requestUsers(actualPage, pageSize, actualFilter))
-    }, [])
+  return (
+    <div className={style.users}>
+      <UsersSearchForm onFilterChanged={onFilterChanged} />
+      <div className={style.searchResult}>
+        {users.map(user => (
+          <div key={user.id}>
+            <User user={user} followingInProgress={followingInProgress} />
+          </div>
+        ))}
+      </div>
+      <Paginator
+        totalItemsCount={totalUsersCount}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChanged={onPageChanged}
+      />
+    </div>
+  );
+};
 
-    useEffect(() => {
-
-        const query = {} as queryObjType
-
-        if (!!parsedTerm) query.term = parsedTerm
-        if (currentPage !== pageValue) query.page = String(currentPage)
-        if (parsedFriend !== null) query.friends = String(parsedFriend)
-
-        const navigatePath = `?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`
-        navigate(navigatePath)
-
-    }, [filter, currentPage])
-
-    return (
-        <div className={style.users}>
-            <UsersSearchForm
-                onFilterChanged={onFilterChanged}
-            />
-            <div className={style.searchResult}>
-                {
-                    users.map(user => {
-                            return (
-                                <div key={user.id}>
-                                    <User
-                                        user={user}
-                                        followingInProgress={followingInProgress}
-                                    />
-                                </div>
-                            )
-                        }
-                    )
-                }
-            </div>
-            <Paginator
-                totalItemsCount={totalUsersCount}
-                pageSize={pageSize}
-                currentPage={currentPage}
-                onPageChanged={onPageChanged}
-            />
-        </div>
-    )
-}
-
-//types====
+// types====
 
 type queryObjType = {
-    term: string
-    page: string
-    friends: string
-}
+  term: string;
+  page: string;
+  friends: string;
+};

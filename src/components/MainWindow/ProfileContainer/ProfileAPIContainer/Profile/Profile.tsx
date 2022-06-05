@@ -1,27 +1,29 @@
 import React from 'react';
-import style from "./Profile.module.scss"
 
-import {MyPostsContainer} from "./MyPostsContainer/MyPostsContainer";
-import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
-import {ProfileInfo} from "./ProfileInfo";
-import {ProfilePropsType} from "./types";
+import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
 
-export const Profile: React.FC<ProfilePropsType> = ({profile, status, updateUserStatus, isOwner, savePhoto, saveProfile}): ReturnComponentType => {
+import { MyPostsContainer } from './MyPostsContainer/MyPostsContainer';
+import style from './Profile.module.scss';
+import { ProfileInfo } from './ProfileInfo';
+import { ProfilePropsType } from './types';
 
-    return (
-        <section className={style.profile}>
-            <ProfileInfo
-                profile={profile}
-                status={status}
-                updateUserStatus={updateUserStatus}
-                isOwner={isOwner}
-                savePhoto={savePhoto}
-                saveProfile={saveProfile}
-            />
-            {
-                isOwner
-                && <MyPostsContainer/>
-            }
-        </section>
-    )
-}
+export const Profile: React.FC<ProfilePropsType> = ({
+  profile,
+  status,
+  updateUserStatus,
+  isOwner,
+  savePhoto,
+  saveProfile,
+}): ReturnComponentType => (
+  <section className={style.profile}>
+    <ProfileInfo
+      profile={profile}
+      status={status}
+      updateUserStatus={updateUserStatus}
+      isOwner={isOwner}
+      savePhoto={savePhoto}
+      saveProfile={saveProfile}
+    />
+    {isOwner && <MyPostsContainer />}
+  </section>
+);

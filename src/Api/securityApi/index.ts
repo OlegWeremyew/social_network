@@ -1,1 +1,1 @@
-export {securityApi} from './securityApi'
+export { securityApi } from './securityApi';

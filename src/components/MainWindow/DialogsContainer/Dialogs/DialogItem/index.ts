@@ -1,1 +1,1 @@
-export {DialogsItem} from "./DialogsItem";
+export { DialogsItem } from './DialogsItem';

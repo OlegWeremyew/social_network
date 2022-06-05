@@ -1,26 +1,22 @@
 import React from 'react';
-import styles from './FormsControls.module.scss'
 
-import {EMPTY_STRING} from "../../constants";
-import {ReturnComponentType} from "../../types/ReturnComponentType";
-import {FormControlPropsParamsType} from "./types";
+import { EMPTY_STRING } from '../../constants';
+import { ReturnComponentType } from '../../types/ReturnComponentType';
 
-export const FormControl: React.FC<FormControlPropsParamsType> = ({meta: {touched, error}, children}): ReturnComponentType => {
+import styles from './FormsControls.module.scss';
+import { FormControlPropsParamsType } from './types';
 
-    const hasError = touched && error
-    const styleError = hasError ? styles.error : EMPTY_STRING
+export const FormControl: React.FC<FormControlPropsParamsType> = ({
+  meta: { touched, error },
+  children,
+}): ReturnComponentType => {
+  const hasError = touched && error;
+  const styleError = hasError ? styles.error : EMPTY_STRING;
 
-    return (
-        <div className={styles.FormControl + " " + styleError}>
-            <div>
-                {children}
-            </div>
-            <div>
-                {
-                    hasError
-                    && <span>{error}</span>
-                }
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className={`${styles.FormControl} ${styleError}`}>
+      <div>{children}</div>
+      <div>{hasError && <span>{error}</span>}</div>
+    </div>
+  );
+};

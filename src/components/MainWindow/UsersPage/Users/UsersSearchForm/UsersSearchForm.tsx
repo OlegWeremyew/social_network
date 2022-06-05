@@ -1,65 +1,79 @@
-import React from "react";
-import {Form, Formik, Field} from "formik";
-import style from './UsersSearchForm.module.scss'
+import React from 'react';
 
-import {useSelector} from "react-redux";
-import s from "../../../../Login/Login.module.scss";
-import {ReturnComponentType} from "../../../../../types/ReturnComponentType";
-import {getUsersFilter} from "../../../../../selectors";
-import {FilterType} from "../../../../../redux/usersReducer/types";
-import {FormType, FriendFormType, PropsType} from "./types";
+import { Form, Formik, Field } from 'formik';
+import { useSelector } from 'react-redux';
 
-const usersSearchFormValidate = (values: { term: string; friend: FriendFormType }) => {
-    const errors = {}
-    return errors
-}
+import { FilterType } from '../../../../../redux/usersReducer/types';
+import { getUsersFilter } from '../../../../../selectors';
+import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
+import s from '../../../../Login/Login.module.scss';
 
-export const UsersSearchForm: React.FC<PropsType> = React.memo(({onFilterChanged}): ReturnComponentType => {
+import { FormType, FriendFormType, PropsType } from './types';
+import style from './UsersSearchForm.module.scss';
 
-    const filter: FilterType = useSelector(getUsersFilter)
+const usersSearchFormValidate = (values: {
+  term: string;
+  friend: FriendFormType;
+}): object => {
+  const errors = {};
+  return errors;
+};
 
-    const submit = (values: FormType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }): void => {
-        const filter: FilterType = {
-            term: values.term,
-            friend: values.friend === 'null' ? null : values.friend === 'true' ? true : false
-        }
-        onFilterChanged(filter)
-        setSubmitting(false)
-    }
+export const UsersSearchForm: React.FC<PropsType> = React.memo(
+  ({ onFilterChanged }): ReturnComponentType => {
+    const filter: FilterType = useSelector(getUsersFilter);
+
+    const submit = (
+      values: FormType,
+      { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void },
+    ): void => {
+      const filter: FilterType = {
+        term: values.term,
+        friend: values.friend === 'null' ? null : values.friend === 'true',
+      };
+      onFilterChanged(filter);
+      setSubmitting(false);
+    };
 
     return (
-        <div className={style.search}>
-            <Formik
-                enableReinitialize
-                initialValues={{term: filter.term, friend: String(filter.friend) as FriendFormType}}
-                validate={usersSearchFormValidate}
-                onSubmit={submit}
-            >
-                {
-                    ({isSubmitting}) => (
-                        <Form className={style.searchForm}>
-                            <div className={style.searchForm__block}>
-                                <Field
-                                    className={style.searchForm__item__input}
-                                    type="text"
-                                    name="term"
-                                    placeholder="Write user name 🔎"
-                                />
-                                <Field className={style.searchForm__item__select} name="friend" as="select">
-                                    <option value="null">All</option>
-                                    <option value="true">Only followed</option>
-                                    <option value="false">Only unfollowed</option>
-                                </Field>
-                            </div>
-                            <div className={s.form__btn}>
-                                <button type="submit" disabled={isSubmitting}>
-                                    Find users 🔎
-                                </button>
-                            </div>
-                        </Form>
-                    )
-                }
-            </Formik>
-        </div>
-    )
-})
+      <div className={style.search}>
+        <Formik
+          enableReinitialize
+          initialValues={{
+            term: filter.term,
+            friend: String(filter.friend) as FriendFormType,
+          }}
+          validate={usersSearchFormValidate}
+          onSubmit={submit}
+        >
+          {({ isSubmitting }) => (
+            <Form className={style.searchForm}>
+              <div className={style.searchForm__block}>
+                <Field
+                  className={style.searchForm__item__input}
+                  type="text"
+                  name="term"
+                  placeholder="Write user name 🔎"
+                />
+                <Field
+                  className={style.searchForm__item__select}
+                  name="friend"
+                  as="select"
+                >
+                  <option value="null">All</option>
+                  <option value="true">Only followed</option>
+                  <option value="false">Only unfollowed</option>
+                </Field>
+              </div>
+              <div className={s.form__btn}>
+                <button type="submit" disabled={isSubmitting}>
+                  Find users 🔎
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    );
+  },
+);

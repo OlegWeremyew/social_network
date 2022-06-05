@@ -1,2 +1,1 @@
-export {required} from './validators'
-export {maxLengthCreator} from './validators'
+export { required, maxLengthCreator } from './validators';

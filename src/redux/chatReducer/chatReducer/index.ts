@@ -1,1 +1,1 @@
-export {chatReducer} from './chatReducer'
+export { chatReducer } from './chatReducer';

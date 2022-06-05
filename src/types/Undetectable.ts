@@ -1,1 +1,1 @@
-export type Undetectable<T> = T | undefined
+export type Undetectable<T> = T | undefined;

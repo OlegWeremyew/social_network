@@ -1,5 +1,7 @@
-export {getUserProfile} from './profileThunks'
-export {getUserStatus} from './profileThunks'
-export {updateUserStatus} from './profileThunks'
-export {savePhoto} from './profileThunks'
-export {saveProfile} from './profileThunks'
+export {
+  getUserProfile,
+  getUserStatus,
+  updateUserStatus,
+  savePhoto,
+  saveProfile,
+} from './profileThunks';

@@ -1,7 +1,7 @@
-import {ProfileType} from "../../../../../../../../../redux/profileReducer/types";
+import { ProfileType } from '../../../../../../../../../redux/profileReducer/types';
 
 export type ProfileDataPropsType = {
-    profile: ProfileType
-    isOwner: boolean
-    goToEditMode?: () => void
-}
+  profile: ProfileType;
+  isOwner: boolean;
+  goToEditMode?: () => void;
+};
