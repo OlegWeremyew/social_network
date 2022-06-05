@@ -66,6 +66,12 @@ export const newsReducer = (state: initialNewsStateType = initialNewsState, acti
                 news: state.news.filter(f => f.id !== action.payload.id)
             }
         }
+        case NewsReducerEnum.SET_HISTORY_FROM_SESSION_STORAGE: {
+            return {
+                ...state,
+                news: action.payload.list
+            }
+        }
         default:
             return state
     }

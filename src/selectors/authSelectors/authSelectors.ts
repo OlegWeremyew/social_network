@@ -1,5 +1,6 @@
-import {AppStateType} from "../../redux/reduxStore";
+
 import {Nullable} from "../../types/Nullable";
+import {AppStateType} from "../../redux/types";
 
 export const getAuthIsAuthSelector = (state: AppStateType): boolean => {
     return state.auth.isAuth

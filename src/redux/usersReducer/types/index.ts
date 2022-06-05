@@ -1,7 +1,7 @@
-import {BaseThunkType, InferActionTypes} from "../../reduxStore";
 import {Nullable} from "../../../types/Nullable";
 import {initialUsersState} from "../usersReducer/usersReducer";
 import {UserActions} from "../usersActions";
+import {BaseThunkType, InferActionTypes} from "../../types";
 
 export type ThunkUsersType = BaseThunkType<ActionUsersTypes>
 

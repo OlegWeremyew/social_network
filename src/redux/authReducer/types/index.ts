@@ -1,8 +1,8 @@
-import {BaseThunkType, InferActionTypes} from "../../reduxStore";
 import {FormAction} from "redux-form";
 import {Nullable} from "../../../types/Nullable";
 import {AuthActions} from "../authActions";
 import {initialAuthState} from "../authReducer/authReducer";
+import {BaseThunkType, InferActionTypes} from "../../types";
 
 export type ThunkType = BaseThunkType<ActionAuthReducerType | FormAction>
 

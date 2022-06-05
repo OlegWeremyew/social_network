@@ -1,0 +1,82 @@
+@import '../../../../../assets/styles/SASS/variables';
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .searchForm {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+
+    .searchForm__block {
+      width: 100%;
+      padding-bottom: 15px;
+
+      .searchForm__item__input {
+        width: 48%;
+        height: 30px;
+        outline: none;
+        border: outset;
+        border-radius: 5px;
+        margin-left: 2px;
+
+        &:hover {
+          background-color: $backgroundAndTextHoverFirstColor;
+        }
+
+      }
+
+      .searchForm__item__select {
+        width: 48%;
+        height: 30px;
+        outline: none;
+        border: outset;
+        border-radius: 5px;
+        margin-left: 2px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $backgroundAndTextHoverFirstColor;
+        }
+
+      }
+
+      @media screen and (max-width: 800px) {
+        .searchForm__item__input {
+          width: 100%;
+        }
+
+        .searchForm__item__select {
+          width: 100%;
+        }
+      }
+
+    }
+
+    .form__btn {
+      display: flex;
+      justify-content: center;
+      margin: 10px auto 30px;
+      text-align: center;
+      width: 120px;
+      height: 30px;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: $backgroundAndTextFirstColor;
+
+      &:hover {
+        opacity: .8;
+        color: $backgroundAndTextHoverFirstColor;
+      }
+
+      button {
+        border: none;
+        background: none;
+        color: $backgroundAndTextHoverFirstColor;
+        cursor: pointer;
+      }
+    }
+  }
+}

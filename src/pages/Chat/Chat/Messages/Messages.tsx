@@ -2,10 +2,10 @@ import React, {useEffect, useRef, useState} from 'react';
 import style from './Messages.module.css';
 import {useDispatch, useSelector} from "react-redux";
 
-import {Message} from "./Message/Message";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
 import {ChatMessageType} from "../../../../redux/chatReducer/types";
 import {getChatMessagesSelector} from "../../../../selectors";
+import {Message} from "./Message";
 
 export const Messages: React.FC = (): ReturnComponentType => {
 

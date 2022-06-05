@@ -22,14 +22,14 @@ export const AddMessageForm: React.FC = (): ReturnComponentType => {
         setMessage(EMPTY_STRING)
     }
 
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLTextAreaElement>): void => {
         if (e.key === "Enter") {
             dispatch(sendMessage(message))
             setMessage(EMPTY_STRING)
         }
     }
 
-    const addMessageText = (e: string) => {
+    const addMessageText = (e: string): void => {
         setMessage(e)
     }
 

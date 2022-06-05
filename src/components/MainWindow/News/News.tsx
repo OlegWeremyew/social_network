@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import style from "./News.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 
-import {NewsItem} from "./NewsItem/NewsItem";
 import {EMPTY_STRING} from "../../../constants";
 import {ReturnComponentType} from "../../../types/ReturnComponentType";
-import {getIsFetching, getNewsSelector} from "../../../selectors";
+import {getIsFetching} from "../../../selectors";
 import {Preloader} from "../../../common";
 import {NewsType} from "../../../redux/NewsReducer/types";
 import {NewsActions} from "../../../redux/NewsReducer";
+import {NewsItem} from "./NewsItem";
+import {useGetHistoryList} from "../../../utils/localStorage/useGetNewsListFromLocalStorage";
 
 const News = (): ReturnComponentType => {
 
@@ -18,7 +19,7 @@ const News = (): ReturnComponentType => {
     const [error, setError] = useState<string>(EMPTY_STRING)
     const [activateAddMode, setActivateAddMode] = useState<boolean>(false)
 
-    const newsArray: NewsType[] = useSelector(getNewsSelector)
+    const newsArray: NewsType[] = useGetHistoryList()
     const isFetching: boolean = useSelector(getIsFetching)
 
     const activateAddModeHandler = (): void => {

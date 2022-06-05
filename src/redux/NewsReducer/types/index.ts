@@ -1,6 +1,6 @@
-import {InferActionTypes} from "../../reduxStore";
 import {initialNewsState} from "../NewsReducer/NewsReducer";
 import {NewsActions} from "../NewsActions";
+import {InferActionTypes} from "../../types";
 
 export type initialNewsStateType = typeof initialNewsState
 

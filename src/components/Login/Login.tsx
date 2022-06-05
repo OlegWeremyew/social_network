@@ -3,7 +3,6 @@ import style from "../../common/FormsControls/FormsControls.module.scss"
 import s from "./Login.module.scss"
 
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Input, LoginFormValuesKeysType} from "../../common/FormsControls/FormsControls";
 import {Navigate} from "react-router-dom";
 import {Nullable} from "../../types/Nullable";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,9 +11,12 @@ import {ReturnComponentType} from "../../types/ReturnComponentType";
 import {required} from "../../utils";
 import {getAuthCaptchaUrlSelector, getAuthIsAuthSelector} from "../../selectors";
 import {login} from "../../redux/authReducer";
+import {LoginFormValuesKeysType} from "../../common/FormsControls/types";
+import {createField, Input} from "../../common";
+import {FormDataType, LoginFormOwnProps} from "./types";
 
 
-const Login: React.FC = (): ReturnComponentType => {
+const Login = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
@@ -72,19 +74,3 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginFormOwnProps> & L
 }
 
 const LoginReduxForm = reduxForm<FormDataType, LoginFormOwnProps>({form: "Login"})(LoginForm)
-
-
-//Types==============================================
-
-
-type FormDataType = {
-    email: string
-    password: string
-    rememberMe: boolean
-    captcha: string
-    checkbox: boolean
-}
-
-type LoginFormOwnProps = {
-    captchaUrl: Nullable<string>
-}

@@ -1,0 +1,19 @@
+.users {
+    width: 80%;
+    text-align: center;
+
+    .searchResult {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
+        margin-top: 10px;
+
+        @media screen and   (max-width: 640px) {
+            justify-content: center;
+        }
+
+    }
+
+}

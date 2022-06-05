@@ -1,10 +1,10 @@
 import React from "react";
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
-import {AppStateType} from "../../../redux/reduxStore";
 import {PATH} from "../../../enums";
 import {mapStateToPropsType} from "./types";
 import {getAuthIsAuthSelector} from "../../../selectors";
+import {AppStateType} from "../../../redux/types";
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {

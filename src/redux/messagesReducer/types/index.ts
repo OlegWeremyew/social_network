@@ -1,6 +1,6 @@
-import {InferActionTypes} from "../../reduxStore";
 import {MessageActions} from "../messagesActions";
 import {initialMessagesState} from "../messagesReducer/messagesReducer";
+import {InferActionTypes} from "../../types";
 
 export type ActionMessageTypes = InferActionTypes<typeof MessageActions>
 

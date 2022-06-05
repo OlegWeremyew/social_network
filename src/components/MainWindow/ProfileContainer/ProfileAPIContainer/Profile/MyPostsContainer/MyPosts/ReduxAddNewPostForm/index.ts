@@ -1,0 +1,1 @@
+export {ReduxAddNewPostForm} from './ReduxAddNewPostForm'

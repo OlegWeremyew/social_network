@@ -6,7 +6,7 @@ import operatorMts from '../../assets/images/contacts/operator_mts.svg'
 import mail from '../../assets/images/contacts/mail.svg'
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 
-const Footer = (): ReturnComponentType => {
+export const Footer = (): ReturnComponentType => {
     return (
         <div className={style.footer}>
 
@@ -49,5 +49,3 @@ const Footer = (): ReturnComponentType => {
         </div>
     )
 }
-
-export default Footer

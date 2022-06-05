@@ -1,0 +1,1 @@
+export {DialogsItem} from "./DialogsItem";

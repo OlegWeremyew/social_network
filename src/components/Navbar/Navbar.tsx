@@ -5,7 +5,7 @@ import {PATH} from "../../enums";
 import {ReturnComponentType} from "../../types/ReturnComponentType";
 import {EMPTY_STRING} from "../../constants";
 
-const Navbar = (): ReturnComponentType => {
+export const Navbar = (): ReturnComponentType => {
     return (
         <nav className={style.nav}>
             <div className={style.nav__block}>
@@ -54,5 +54,3 @@ const Navbar = (): ReturnComponentType => {
         </nav>
     )
 }
-
-export default Navbar

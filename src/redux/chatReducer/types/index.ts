@@ -1,7 +1,7 @@
-import {BaseThunkType, InferActionTypes} from "../../reduxStore";
-import {ChatMessageAPIType} from "../../../pages/Chat/ChatPage";
 import {chatActions} from "../chatActions";
 import {initialChatState} from "../chatReducer/chatReducer";
+import {BaseThunkType, InferActionTypes} from "../../types";
+import {ChatMessageAPIType} from "../../../pages/Chat/types";
 
 export type ThunkType = BaseThunkType<ActionChatTypes>
 

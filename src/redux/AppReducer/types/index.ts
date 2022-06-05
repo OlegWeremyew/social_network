@@ -1,6 +1,6 @@
-import {InferActionTypes} from "../../reduxStore";
 import {AppAction} from "../AppActions";
 import {initialAppState} from "../AppReducer/AppReducer";
+import {InferActionTypes} from "../../types";
 
 export type ActionAppReducerType = InferActionTypes<typeof AppAction>
 

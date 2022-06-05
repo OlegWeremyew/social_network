@@ -1,7 +1,7 @@
 import React from 'react';
-import {Chat} from "./Chat/Chat";
 import style from './ChatPage.module.scss'
 import {ReturnComponentType} from "../../types/ReturnComponentType";
+import {Chat} from "./Chat";
 
 const ChatPage: React.FC = (): ReturnComponentType => {
     return (
@@ -15,11 +15,4 @@ const ChatPage: React.FC = (): ReturnComponentType => {
 }
 
 export default ChatPage
-
-export type ChatMessageAPIType = {
-    message: string,
-    photo: string
-    userId: number,
-    userName: string
-}
 

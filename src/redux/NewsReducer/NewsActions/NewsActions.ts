@@ -1,4 +1,5 @@
 import {NewsReducerEnum} from "../constants";
+import {NewsType} from "../types";
 
 export const NewsActions = {
     addNews: (newTitle: string) => {
@@ -34,5 +35,13 @@ export const NewsActions = {
                 id,
             }
         } as const
+    },
+    setHistoryFromSessionStorage(list: NewsType[]) {
+        return {
+            type: NewsReducerEnum.SET_HISTORY_FROM_SESSION_STORAGE,
+            payload: {
+                list,
+            },
+        } as const;
     },
 }

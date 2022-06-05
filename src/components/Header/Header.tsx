@@ -20,7 +20,7 @@ import {
 import {Clock} from "../../common";
 import {logout} from "../../redux/authReducer";
 
-const Header = (): ReturnComponentType => {
+export const Header = (): ReturnComponentType => {
 
     const dispatch = useDispatch()
 
@@ -91,11 +91,7 @@ const Header = (): ReturnComponentType => {
                             </NavLink>
                         )
                 }
-
             </div>
-
         </header>
     )
 }
-
-export default Header

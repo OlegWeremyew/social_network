@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import style from "./NewsItem.module.scss";
 import {useDispatch} from "react-redux";
 import {ReturnComponentType} from "../../../../types/ReturnComponentType";
-import {NewsType} from "../../../../redux/NewsReducer/types";
 import {NewsActions} from "../../../../redux/NewsReducer";
+import {PropsType} from "./types";
 
 export const NewsItem: React.FC<PropsType> = ({news}): ReturnComponentType => {
 
@@ -89,7 +89,7 @@ export const NewsItem: React.FC<PropsType> = ({news}): ReturnComponentType => {
                                 </div>
                             ) : (
                                 <div className={style.form__btn} onClick={titleChangeHandler}>
-                                    <button type="button">Edit title</button>
+                                    <button type="button">Edit title ✎</button>
                                 </div>
                             )
                     }
@@ -101,20 +101,16 @@ export const NewsItem: React.FC<PropsType> = ({news}): ReturnComponentType => {
                                 </div>
                             ) : (
                                 <div className={style.form__btn} onClick={textChangeHandler}>
-                                    <button type="button">Edit text</button>
+                                    <button type="button">Edit text ✎</button>
                                 </div>
                             )
 
                     }
                     <div className={style.form__btn} onClick={() => deleteNewsHandler(news.id)}>
-                        <button type="button">Delete news</button>
+                        <button type="button">Delete news ⌦</button>
                     </div>
                 </div>
             </div>
         </div>
     )
-}
-
-type PropsType = {
-    news: NewsType
 }
