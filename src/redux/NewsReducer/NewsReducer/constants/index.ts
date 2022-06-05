@@ -37,20 +37,35 @@ export const newsArray: NewsType[] = [
     id: v1(),
     image:
       'https://s9.travelask.ru/system/images/files/000/336/893/wysiwyg_jpg/makro-fotografiya.jpg?1502197661',
-    text: 'Articles about mushrooms will be useful and interesting for both experienced mushroom pickers and beginners who know only the basics of mushroom gathering. In this section, you will certainly find something that you did not know about before. Picking mushrooms is not just a casual pastime, but a rather serious hobby that will require more and more new, extensive and complete knowledge from you.',
+    text:
+      'Articles about mushrooms will be useful and interesting for both experienced mushroom pickers' +
+      ' and beginners who know only the basics of mushroom gathering. In this section, you will certainly' +
+      ' find something that you did not know about before. Picking mushrooms is not just a casual pastime,' +
+      ' but a rather serious hobby that will require more and more new, extensive and complete knowledge from you.',
     title: 'Mushrooms',
   },
   {
     id: v1(),
     image:
       'https://funart.pro/uploads/posts/2021-03/1617075044_6-p-oboi-krasota-russkoi-prirodi-7.jpg',
-    text: 'I remember the disdainful attitude of the authorities towards people and their problems, which, due to circumstances, constantly arose. I remember skinny collective farm cows that gave a liter of milk a day, and constantly drunk shepherds. It was impossible to buy something officially, but “for a bottle” you could get a lot: hay, straw, grain, silage, and so on. Something to bring, take, plow, mow turned into a big problem. In general, then life in the village was quite difficult. Half a century has passed. What has changed during this time?',
+    text:
+      'I remember the disdainful attitude of the authorities towards people and their problems,' +
+      ' which, due to circumstances, constantly arose. I remember skinny collective farm cows that' +
+      ' gave a liter of milk a day, and constantly drunk shepherds. It was impossible to buy something' +
+      ' officially, but “for a bottle” you could get a lot: hay, straw, grain, silage, and so on. Something' +
+      ' to bring, take, plow, mow turned into a big problem. In general, then life in the village was quite' +
+      ' difficult. Half a century has passed. What has changed during this time?',
     title: 'Village',
   },
   {
     id: v1(),
     image: 'https://i.pinimg.com/originals/5a/df/1b/5adf1b97742a65d0a3c98299c545570b.jpg',
-    text: 'Full Moon (lat. Luna plena, plenilunium) is the phase of the Moon, at which the difference between the ecliptic longitudes of the Sun and the Moon is 180 °. This means that the plane through the Sun, Earth and Moon is perpendicular to the plane of the ecliptic. If all three objects are on the same line, a lunar eclipse occurs. The full moon looks like a fully illuminated circle.t',
+    text:
+      'Full Moon (lat. Luna plena, plenilunium) is the phase of the Moon, at which the' +
+      ' difference between the ecliptic longitudes of the Sun and the Moon is 180 °. This means' +
+      ' that the plane through the Sun, Earth and Moon is perpendicular to the plane of the' +
+      ' ecliptic. If all three objects are on the same line, a lunar eclipse occurs. The full moon' +
+      ' looks like a fully illuminated circle.t',
     title: 'Full moon',
   },
 ];

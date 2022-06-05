@@ -28,12 +28,9 @@ export const updateUserStatus =
       const updateStatusData = await profileAPI.updateStatus(status);
       if (updateStatusData.resultCode === ResultCodesEnum.Success) {
         dispatch(ProfileActions.setStatus(status));
-      } else {
-        console.log('resultCode < 0');
       }
-    } catch (error) {
-      console.log('error');
-    }
+      // eslint-disable-next-line no-empty
+    } catch (error) {}
   };
 
 export const savePhoto = (file: File) => (dispatch: Dispatch<ActionProfileTypes>) => {

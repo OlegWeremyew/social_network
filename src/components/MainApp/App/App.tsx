@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -26,9 +26,11 @@ const News = React.lazy(() => import('../../MainWindow/News/News'));
 
 export const App = (): ReturnComponentType => {
   const dispatch = useDispatch();
-
-  dispatch(initializeApp());
   const initialized = useSelector(getInitializedAppSelector);
+
+  useEffect(() => {
+    dispatch(initializeApp());
+  });
 
   if (!initialized) {
     return <Preloader />;
