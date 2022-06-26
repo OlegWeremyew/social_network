@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import cn from 'classnames';
-
-import { ReturnComponentType } from '../../types/ReturnComponentType';
 
 import styles from './Paginator.module.scss';
 import { UsersPropsType } from './types';
 
-export const Paginator: React.FC<UsersPropsType> = ({
+export const Paginator: FC<UsersPropsType> = ({
   totalItemsCount,
   pageSize,
   currentPage,
   onPageChanged,
   portionSize = 10,
-}): ReturnComponentType => {
+}) => {
   const pagesCount = Math.ceil(totalItemsCount / pageSize);
   const pages: number[] = [];
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ import { required } from '../../utils';
 import s from './Login.module.scss';
 import { FormDataType, LoginFormOwnProps } from './types';
 
-const Login = (): ReturnComponentType => {
+const Login: FC = () => {
   const dispatch = useDispatch();
 
   const captchaUrl: Nullable<string> = useSelector(getAuthCaptchaUrlSelector);

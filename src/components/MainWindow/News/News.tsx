@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,13 +7,12 @@ import { EMPTY_STRING } from '../../../constants';
 import { NewsActions } from '../../../redux/NewsReducer';
 import { NewsType } from '../../../redux/NewsReducer/types';
 import { getIsFetching } from '../../../selectors';
-import { ReturnComponentType } from '../../../types/ReturnComponentType';
 import { useGetHistoryList } from '../../../utils/localStorage/useGetNewsListFromLocalStorage';
 
 import style from './News.module.scss';
 import { NewsItem } from './NewsItem';
 
-const News = (): ReturnComponentType => {
+const News: FC = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState<string>(EMPTY_STRING);

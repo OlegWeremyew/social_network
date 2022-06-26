@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import mail from '../../assets/images/contacts/mail.svg';
 import operatorMts from '../../assets/images/contacts/operator_mts.svg';
 import phone from '../../assets/images/contacts/phone.svg';
-import { ReturnComponentType } from '../../types/ReturnComponentType';
 
 import style from './Footer.module.scss';
 
-export const Footer = (): ReturnComponentType => (
+export const Footer: FC = () => (
   <div className={style.footer}>
     <div className={style.copyright__text}>
       <div>Copyright © 2022 Social network. All Rights Reserved</div>

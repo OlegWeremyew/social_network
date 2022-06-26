@@ -5,14 +5,13 @@ import { InjectedFormProps, reduxForm } from 'redux-form';
 import { createField, Input, Preloader } from '../../../../../../../../common';
 import { EMPTY_STRING } from '../../../../../../../../constants';
 import { ProfileType } from '../../../../../../../../redux/profileReducer/types';
-import { ReturnComponentType } from '../../../../../../../../types/ReturnComponentType';
 
 import style from './ProfileDataForm.module.scss';
 import { ProfileDataFormPropsType } from './types';
 
 export const ProfileDataForm: FC<
   InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType
-> = ({ profile, handleSubmit, error }): ReturnComponentType => {
+> = ({ profile, handleSubmit, error }) => {
   if (!profile) {
     return <Preloader />;
   }

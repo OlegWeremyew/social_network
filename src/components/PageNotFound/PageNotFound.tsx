@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { ReturnComponentType } from '../../types/ReturnComponentType';
+import React, { FC } from 'react';
 
 import style from './PageNotFound.module.scss';
 
-const PageNotFound = (): ReturnComponentType => (
+const PageNotFound: FC = () => (
   <section className={style.notFound__page}>
     <h1 className={style.title}>404. Page not found</h1>
   </section>

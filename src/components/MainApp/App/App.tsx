@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC, lazy, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -7,24 +7,23 @@ import { Preloader } from '../../../common';
 import { PATH } from '../../../enums';
 import { initializeApp } from '../../../redux/AppReducer';
 import { getInitializedAppSelector } from '../../../selectors';
-import { ReturnComponentType } from '../../../types/ReturnComponentType';
 import { Footer, Header, Navbar } from '../../index';
 import PageNotFound from '../../PageNotFound/PageNotFound';
 
 import style from './App.module.scss';
 
-const DialogsContainer = React.lazy(
+const DialogsContainer = lazy(
   () => import('../../MainWindow/DialogsContainer/DialogsContainer'),
 );
-const ProfileContainer = React.lazy(
+const ProfileContainer = lazy(
   () => import('../../MainWindow/ProfileContainer/ProfileContainer'),
 );
-const UsersPage = React.lazy(() => import('../../MainWindow/UsersPage/UsersPage'));
-const Login = React.lazy(() => import('../../Login/Login'));
-const ChatPage = React.lazy(() => import('../../../pages/Chat/ChatPage'));
-const News = React.lazy(() => import('../../MainWindow/News/News'));
+const UsersPage = lazy(() => import('../../MainWindow/UsersPage/UsersPage'));
+const Login = lazy(() => import('../../Login/Login'));
+const ChatPage = lazy(() => import('../../../pages/Chat/ChatPage'));
+const News = lazy(() => import('../../MainWindow/News/News'));
 
-export const App = (): ReturnComponentType => {
+export const App: FC = () => {
   const dispatch = useDispatch();
   const initialized = useSelector(getInitializedAppSelector);
 

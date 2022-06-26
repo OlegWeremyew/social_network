@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Preloader } from '../../../../../../../../common';
 import { ContactsType } from '../../../../../../../../redux/profileReducer/types';
-import { ReturnComponentType } from '../../../../../../../../types/ReturnComponentType';
 
 import { Contact } from './Contact';
 import style from './ProfileData.module.scss';
 import { ProfileDataPropsType } from './types';
 
-export const ProfileData: React.FC<ProfileDataPropsType> = ({
+export const ProfileData: FC<ProfileDataPropsType> = ({
   profile,
   isOwner,
   goToEditMode,
-}): ReturnComponentType => {
+}) => {
   if (!profile) {
     return <Preloader />;
   }

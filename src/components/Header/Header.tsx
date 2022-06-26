@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -15,20 +15,15 @@ import {
   getAuthIsAuthSelector,
   getProfilePageProfilePhotosLargeSelector,
 } from '../../selectors';
-import { Nullable } from '../../types/Nullable';
-import { ReturnComponentType } from '../../types/ReturnComponentType';
-import { Undetectable } from '../../types/Undetectable';
 
 import style from './Header.module.scss';
 
-export const Header = (): ReturnComponentType => {
+export const Header: FC = () => {
   const dispatch = useDispatch();
 
-  const isAuth: boolean = useSelector(getAuthIsAuthSelector);
-  const login: Nullable<string> = useSelector(getAuthDataLoginSelector);
-  const userAvatar: Nullable<Undetectable<string>> = useSelector(
-    getProfilePageProfilePhotosLargeSelector,
-  );
+  const isAuth = useSelector(getAuthIsAuthSelector);
+  const login = useSelector(getAuthDataLoginSelector);
+  const userAvatar = useSelector(getProfilePageProfilePhotosLargeSelector);
 
   const logoutHandler = (): void => {
     dispatch(logout());

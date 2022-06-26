@@ -1,15 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ChatMessageType } from '../../../../redux/chatReducer/types';
 import { getChatMessagesSelector } from '../../../../selectors';
-import { ReturnComponentType } from '../../../../types/ReturnComponentType';
 
 import { Message } from './Message';
-import style from './Messages.module.css';
+import style from './Messages.module.scss';
 
-export const Messages: React.FC = (): ReturnComponentType => {
+export const Messages: FC = () => {
   const dispatch = useDispatch();
   const [isAutoScroll, setIsAutoScroll] = useState<boolean>(false);
 

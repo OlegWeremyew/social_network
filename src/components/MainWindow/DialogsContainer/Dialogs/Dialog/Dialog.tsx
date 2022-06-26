@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 
 import { MessageActions } from '../../../../../redux/messagesReducer';
 import { MessageType } from '../../../../../redux/messagesReducer/types';
-import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
 
 import style from './Dialog.module.scss';
 
-export const Dialog: React.FC<MessageType> = ({ message, id }): ReturnComponentType => {
+export const Dialog: FC<MessageType> = ({ message, id }) => {
   const dispatch = useDispatch();
 
   const deletePostHandler = (id: number): void => {

@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { EMPTY_STRING } from '../../constants';
-import { ReturnComponentType } from '../../types/ReturnComponentType';
 
 import styles from './FormsControls.module.scss';
 import { FormControlPropsParamsType } from './types';
 
-export const FormControl: React.FC<FormControlPropsParamsType> = ({
+export const FormControl: FC<FormControlPropsParamsType> = ({
   meta: { touched, error },
   children,
-}): ReturnComponentType => {
+}) => {
   const hasError = touched && error;
   const styleError = hasError ? styles.error : EMPTY_STRING;
 

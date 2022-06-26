@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { ReturnComponentType } from '../../../../types/ReturnComponentType';
 import { DialogPropsType } from '../types';
 
 import { ReduxAddMessageForm } from './AddMessageForm';
@@ -9,10 +8,7 @@ import { DialogsItem } from './DialogItem';
 import style from './Dialogs.module.scss';
 import { FormMessagesType } from './types';
 
-export const Dialogs: React.FC<DialogPropsType> = ({
-  messagesPage,
-  addMessage,
-}): ReturnComponentType => {
+export const Dialogs: FC<DialogPropsType> = ({ messagesPage, addMessage }) => {
   const dialogsItem = messagesPage.users.map(user => (
     <DialogsItem key={user.id} name={user.name} id={user.id} img={user.img} />
   ));

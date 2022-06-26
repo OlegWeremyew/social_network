@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -6,15 +6,11 @@ import { NavLink } from 'react-router-dom';
 import userImage from '../../../../../assets/images/user.png';
 import { PATH } from '../../../../../enums';
 import { follow, unFollow } from '../../../../../redux/usersReducer';
-import { UserType } from '../../../../../redux/usersReducer/types';
-import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
 
+import { UsersPropsType } from './types';
 import style from './User.module.scss';
 
-export const User: React.FC<UsersPropsType> = ({
-  user,
-  followingInProgress,
-}): ReturnComponentType => {
+export const User: FC<UsersPropsType> = ({ user, followingInProgress }) => {
   const dispatch = useDispatch();
 
   const followHandler = (userID: string): void => {
@@ -77,11 +73,4 @@ export const User: React.FC<UsersPropsType> = ({
       </div>
     </div>
   );
-};
-
-// type
-
-type UsersPropsType = {
-  user: UserType;
-  followingInProgress: string[];
 };

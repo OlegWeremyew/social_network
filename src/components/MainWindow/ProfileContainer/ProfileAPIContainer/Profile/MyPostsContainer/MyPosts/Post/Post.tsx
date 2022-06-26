@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,16 +7,11 @@ import { ProfileActions } from '../../../../../../../../redux/profileReducer';
 import { PostType } from '../../../../../../../../redux/profileReducer/types';
 import { getProfilePageProfilePhotosLargeSelector } from '../../../../../../../../selectors';
 import { Nullable } from '../../../../../../../../types/Nullable';
-import { ReturnComponentType } from '../../../../../../../../types/ReturnComponentType';
 import { Undetectable } from '../../../../../../../../types/Undetectable';
 
 import style from './Post.module.css';
 
-export const Post: React.FC<PostType> = ({
-  message,
-  likesCount,
-  id,
-}): ReturnComponentType => {
+export const Post: FC<PostType> = ({ message, likesCount, id }) => {
   const dispatch = useDispatch();
 
   const [editMode, setEditMode] = useState<boolean>(false);

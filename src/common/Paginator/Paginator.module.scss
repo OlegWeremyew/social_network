@@ -1,81 +1,81 @@
 .paginator {
-    display: flex;
-    justify-content: center ;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pageNumber {
-    padding: 5px 8px;
-    border: 1px solid #565454;
-    margin: 0 1px;
-    border-radius: 4px;
+  padding: 5px 8px;
+  border: 1px solid #565454;
+  margin: 0 1px;
+  border-radius: 4px;
 }
 
 .pageNumber.selectedPage {
-    font-weight: bold;
-    border-color: black;
-    background-color: #601313;
-    color: #fff;
+  font-weight: bold;
+  border-color: black;
+  background-color: #601313;
+  color: #fff;
 }
 
 .DisplayNone {
-    display: none;
+  display: none;
 }
 
 .pageNumber:hover {
-    cursor: pointer;
-    background-color: #dcb87e;
-    color: #fff;
+  cursor: pointer;
+  background-color: #dcb87e;
+  color: #fff;
 }
 
 .user__btn {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    margin: 0 2px;
-    text-align: center;
-    width: 45px;
-    height: 30px;
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: #601313;
+  margin: 0 2px;
+  text-align: center;
+  width: 45px;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #601313;
 }
 
 .user__btn:hover {
-    opacity: .9;
-    color: #fff;
+  opacity: .9;
+  color: #fff;
 }
 
 .user__btn button {
-    border: none;
-    background: none;
-    color: #fff;
-    cursor: pointer;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 
-@media  screen and  (max-width: 500px) {
+@media screen and (max-width: 500px) {
 
-    .pageNumber {
-        padding: 2px 4px;
-        font-size: 11px;
-    }
+  .pageNumber {
+    padding: 2px 4px;
+    font-size: 11px;
+  }
 
-    .user__btn {
-        width: 25px;
-        height: 18px;
-    }
+  .user__btn {
+    width: 25px;
+    height: 18px;
+  }
 
-    .user__btn button {
-        font-size: 12px;
-    }
+  .user__btn button {
+    font-size: 12px;
+  }
 
-    .DisplayBlock {
-        display: none;
-    }
+  .DisplayBlock {
+    display: none;
+  }
 
-    .DisplayNone {
-        display: block;
-    }
+  .DisplayNone {
+    display: block;
+  }
 
 }

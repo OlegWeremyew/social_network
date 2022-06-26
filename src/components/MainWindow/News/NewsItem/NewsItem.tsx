@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
 import { NewsActions } from '../../../../redux/NewsReducer';
-import { ReturnComponentType } from '../../../../types/ReturnComponentType';
 
 import style from './NewsItem.module.scss';
 import { PropsType } from './types';
 
-export const NewsItem: React.FC<PropsType> = ({ news }): ReturnComponentType => {
+export const NewsItem: FC<PropsType> = ({ news }) => {
   const dispatch = useDispatch();
 
   const [titleEditMode, setTitleEditMode] = useState<boolean>(false);

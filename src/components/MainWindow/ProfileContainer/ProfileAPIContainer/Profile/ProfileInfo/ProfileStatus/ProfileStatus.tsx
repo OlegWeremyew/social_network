@@ -1,11 +1,9 @@
-import React, { ChangeEvent } from 'react';
-
-import { ReturnComponentType } from '../../../../../../../types/ReturnComponentType';
+import React, { ChangeEvent, Component } from 'react';
 
 import style from './ProfileStatus.module.scss';
 import { ProfileStatusPropsType, stateProfileStateType } from './types';
 
-export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
+export class ProfileStatus extends Component<ProfileStatusPropsType> {
   state: stateProfileStateType = {
     editMode: false,
     status: this.props.status,

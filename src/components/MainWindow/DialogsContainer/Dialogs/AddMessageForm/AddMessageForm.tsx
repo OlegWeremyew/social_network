@@ -1,9 +1,8 @@
-import React, { SyntheticEvent } from 'react';
+import React, { FC, SyntheticEvent } from 'react';
 
 import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 
 import { Textarea } from '../../../../../common';
-import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
 import { maxLengthCreator, required } from '../../../../../utils';
 import { FormMessagesType } from '../types';
 
@@ -11,10 +10,10 @@ import style from './AddMessageForm.module.scss';
 
 const maxLength = maxLengthCreator(30);
 
-const AddMessageForm: React.FC<InjectedFormProps<FormMessagesType>> = ({
+const AddMessageForm: FC<InjectedFormProps<FormMessagesType>> = ({
   handleSubmit,
   reset,
-}): ReturnComponentType => {
+}) => {
   const onSubmit = (values: SyntheticEvent<any, Event>): void => {
     handleSubmit(values);
     reset();

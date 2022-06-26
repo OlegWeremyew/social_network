@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
 
@@ -7,7 +7,7 @@ import style from './Profile.module.scss';
 import { ProfileInfo } from './ProfileInfo';
 import { ProfilePropsType } from './types';
 
-export const Profile: React.FC<ProfilePropsType> = ({
+export const Profile: FC<ProfilePropsType> = ({
   profile,
   status,
   updateUserStatus,

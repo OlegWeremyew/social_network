@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Paginator } from '../../../../common';
 import { requestUsers } from '../../../../redux/usersReducer';
-import { FilterType, UserType } from '../../../../redux/usersReducer/types';
-import { ReturnComponentType } from '../../../../types/ReturnComponentType';
+import { FilterType } from '../../../../redux/usersReducer/types';
 
+import { queryObjType } from './types';
 import { User } from './User';
 import style from './Users.module.scss';
 import { UsersSearchForm } from './UsersSearchForm';
@@ -21,7 +21,7 @@ import {
   getUsersFilter,
 } from 'selectors/usersSelectors/usersSelectors';
 
-export const Users = (): ReturnComponentType => {
+export const Users: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,13 +31,13 @@ export const Users = (): ReturnComponentType => {
   const parsedTerm = searchParams.get('term');
   const parsedFriend = searchParams.get('friend');
 
-  const totalUsersCount: number = useSelector(getTotalUsersCount);
-  const currentPage: number = useSelector(getCurrentPage);
-  const pageSize: number = useSelector(getPageSize);
-  const filter: FilterType = useSelector(getUsersFilter);
-  const users: Array<UserType> = useSelector(getUsers);
-  const followingInProgress: Array<string> = useSelector(getFollowingInProgress);
-  const pageValue: number = 1;
+  const totalUsersCount = useSelector(getTotalUsersCount);
+  const currentPage = useSelector(getCurrentPage);
+  const pageSize = useSelector(getPageSize);
+  const filter = useSelector(getUsersFilter);
+  const users = useSelector(getUsers);
+  const followingInProgress = useSelector(getFollowingInProgress);
+  const pageValue = 1;
 
   const onPageChanged = (pageNumber: number): void => {
     dispatch(requestUsers(pageNumber, pageSize, filter));
@@ -98,12 +98,4 @@ export const Users = (): ReturnComponentType => {
       />
     </div>
   );
-};
-
-// types====
-
-type queryObjType = {
-  term: string;
-  page: string;
-  friends: string;
 };

@@ -45,7 +45,7 @@
     font-weight: 700;
 }
 
-@media  screen and   (max-width: 600px) {
+@media screen and   (max-width: 600px) {
 
     .message__userName {
         font-size: 18px;
@@ -62,7 +62,7 @@
     }
 }
 
-@media  screen and   (max-width: 400px) {
+@media screen and   (max-width: 400px) {
 
     .message__userName {
         font-size: 16px;

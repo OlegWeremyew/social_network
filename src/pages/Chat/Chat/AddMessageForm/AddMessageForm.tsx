@@ -1,21 +1,19 @@
-import React, { useState, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent, FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ReadyStatusType } from '../../../../Api/chatApi/types';
 import { EMPTY_STRING } from '../../../../constants';
 import { sendMessage } from '../../../../redux/chatReducer';
 import { getChatStatusSelector } from '../../../../selectors';
-import { ReturnComponentType } from '../../../../types/ReturnComponentType';
 
 import style from './AddMessageForm.module.css';
 
-export const AddMessageForm: React.FC = (): ReturnComponentType => {
+export const AddMessageForm: FC = () => {
   const dispatch = useDispatch();
 
   const [message, setMessage] = useState<string>(EMPTY_STRING);
 
-  const status: ReadyStatusType = useSelector(getChatStatusSelector);
+  const status = useSelector(getChatStatusSelector);
 
   const sendMessageHandler = (): void => {
     if (!message.trim()) return;

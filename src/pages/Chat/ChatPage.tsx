@@ -1,11 +1,9 @@
-import React from 'react';
-
-import { ReturnComponentType } from '../../types/ReturnComponentType';
+import React, { FC } from 'react';
 
 import { Chat } from './Chat';
 import style from './ChatPage.module.scss';
 
-const ChatPage: React.FC = (): ReturnComponentType => (
+const ChatPage: FC = () => (
   <section className={style.chatPageBlock}>
     <div className={style.chatPage__title}>Common chat</div>
     <Chat />

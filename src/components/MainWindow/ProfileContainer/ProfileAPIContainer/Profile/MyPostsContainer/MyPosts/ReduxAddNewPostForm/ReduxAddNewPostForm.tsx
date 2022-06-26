@@ -1,19 +1,18 @@
-import React, { SyntheticEvent } from 'react';
+import React, { FC, SyntheticEvent } from 'react';
 
 import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 
 import { Textarea } from '../../../../../../../../common';
-import { ReturnComponentType } from '../../../../../../../../types/ReturnComponentType';
 import { maxLengthCreator, required } from '../../../../../../../../utils';
 import s from '../../../../../../../Login/Login.module.scss';
 import { AddNewPostFormType } from '../types';
 
 const maxLength = maxLengthCreator(10);
 
-const AddNewPostForm: React.FC<InjectedFormProps<AddNewPostFormType>> = ({
+const AddNewPostForm: FC<InjectedFormProps<AddNewPostFormType>> = ({
   handleSubmit,
   reset,
-}): ReturnComponentType => {
+}) => {
   const onSubmit = (values: SyntheticEvent<any, Event>): void => {
     handleSubmit(values);
     reset();

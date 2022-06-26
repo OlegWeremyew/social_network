@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { ReturnComponentType } from '../../types/ReturnComponentType';
+import React, { FC } from 'react';
 
 import styles from './Loading.module.scss';
 
-export const Loading = (): ReturnComponentType => (
+export const Loading: FC = () => (
   <div className={styles.container}>
     <div className={styles.loader_three} />
   </div>

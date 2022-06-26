@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
-import { ReturnComponentType } from '../../types/ReturnComponentType';
+import { PropsType } from './types';
 
 const get2DigitsString = (num: number): string | number => (num < 10 ? `0${num}` : num);
 
-export const Clock: React.FC<PropsType> = (): ReturnComponentType => {
+export const Clock: FC<PropsType> = () => {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
@@ -29,6 +29,3 @@ export const Clock: React.FC<PropsType> = (): ReturnComponentType => {
     </div>
   );
 };
-
-// type
-type PropsType = {};

@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
 import { EMPTY_STRING } from '../../constants';
 import { PATH } from '../../enums';
-import { ReturnComponentType } from '../../types/ReturnComponentType';
 
 import style from './Navbar.module.scss';
 
-export const Navbar = (): ReturnComponentType => (
+export const Navbar: FC = () => (
   <nav className={style.nav}>
     <div className={style.nav__block}>
       <div className={style.item}>

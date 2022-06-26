@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
@@ -10,11 +10,11 @@ import { ReturnComponentType } from '../../types/ReturnComponentType';
 import { App } from './App';
 
 export const MainApp = (): ReturnComponentType => (
-  <React.Suspense fallback={<Loading />}>
+  <Suspense fallback={<Loading />}>
     <HashRouter>
       <Provider store={store}>
         <App />
       </Provider>
     </HashRouter>
-  </React.Suspense>
+  </Suspense>
 );
