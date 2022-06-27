@@ -1,5 +1,5 @@
-import { UserReducerEnum } from '../constants';
-import { FilterType, UserType } from '../types';
+import { UserReducerEnum } from 'redux/usersReducer/constants';
+import { FilterType, UserType } from 'redux/usersReducer/types';
 
 export const UserActions = {
   followSuccess: (userID: string) =>

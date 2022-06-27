@@ -1,6 +1,6 @@
-import { ProfileType } from '../../../../redux/profileReducer/types';
-import { Nullable } from '../../../../types/Nullable';
-import { InjectedProps } from '../../../../utils/hoc/withRouter/types';
+import { ProfileType } from 'redux/profileReducer/types';
+import { Nullable } from 'types/Nullable';
+import { InjectedProps } from 'utils/hoc/withRouter/types';
 
 export type MapStateToPropsProfileType = {
   profile: ProfileType;

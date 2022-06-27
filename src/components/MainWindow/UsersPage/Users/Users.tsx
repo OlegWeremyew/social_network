@@ -3,15 +3,14 @@ import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import { Paginator } from '../../../../common';
-import { requestUsers } from '../../../../redux/usersReducer';
-import { FilterType } from '../../../../redux/usersReducer/types';
-
 import { queryObjType } from './types';
 import { User } from './User';
 import style from './Users.module.scss';
 import { UsersSearchForm } from './UsersSearchForm';
 
+import { Paginator } from 'common';
+import { requestUsers } from 'redux/usersReducer';
+import { FilterType } from 'redux/usersReducer/types';
 import {
   getCurrentPage,
   getFollowingInProgress,

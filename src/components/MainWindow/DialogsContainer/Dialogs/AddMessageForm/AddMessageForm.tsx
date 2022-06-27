@@ -2,11 +2,12 @@ import React, { FC, SyntheticEvent } from 'react';
 
 import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 
-import { Textarea } from '../../../../../common';
-import { maxLengthCreator, required } from '../../../../../utils';
 import { FormMessagesType } from '../types';
 
 import style from './AddMessageForm.module.scss';
+
+import { Textarea } from 'common';
+import { maxLengthCreator, required } from 'utils';
 
 const maxLength = maxLengthCreator(30);
 

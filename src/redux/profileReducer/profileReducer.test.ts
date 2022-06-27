@@ -1,8 +1,8 @@
-import { EMPTY_STRING, THIRD_ELEMENT_IN_ARRAY } from '../../constants';
-
 import { ProfileActions } from './profileActions';
 import { profileReducer } from './profileReducer';
 import { PostType, ProfileType } from './types';
+
+import { EMPTY_STRING, THIRD_ELEMENT_IN_ARRAY } from 'constants/variables';
 
 const initialState = {
   posts: [

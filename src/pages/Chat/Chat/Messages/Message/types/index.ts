@@ -1,4 +1,4 @@
-import { ChatMessageType } from '../../../../../../redux/chatReducer/types';
+import { ChatMessageType } from 'redux/chatReducer/types';
 
 export type MessageType = {
   message: ChatMessageType;

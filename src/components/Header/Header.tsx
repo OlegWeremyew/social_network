@@ -3,20 +3,20 @@ import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import exit from '../../assets/images/header/exit.png';
-import logo from '../../assets/images/header/logo.png';
-import loginImage from '../../assets/images/login/login.png';
-import avatarDefault from '../../assets/images/user.png';
-import { Clock } from '../../common';
-import { PATH } from '../../enums';
-import { logout } from '../../redux/authReducer';
+import style from './Header.module.scss';
+
+import exit from 'assets/images/header/exit.png';
+import logo from 'assets/images/header/logo.png';
+import loginImage from 'assets/images/login/login.png';
+import avatarDefault from 'assets/images/user.png';
+import { Clock } from 'common';
+import { PATH } from 'enums';
+import { logout } from 'redux/authReducer';
 import {
   getAuthDataLoginSelector,
   getAuthIsAuthSelector,
   getProfilePageProfilePhotosLargeSelector,
-} from '../../selectors';
-
-import style from './Header.module.scss';
+} from 'selectors';
 
 export const Header: FC = () => {
   const dispatch = useDispatch();

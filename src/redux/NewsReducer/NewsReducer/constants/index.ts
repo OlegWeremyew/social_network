@@ -1,6 +1,6 @@
 import { v1 } from 'uuid';
 
-import { ImagesType, NewsType } from '../../types';
+import { ImagesType, NewsType } from 'redux/NewsReducer/types';
 
 export const imagesArray: ImagesType[] = [
   {

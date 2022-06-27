@@ -1,10 +1,10 @@
-import { usersAPI } from '../../Api';
-import { ResultCodesEnum } from '../../Api/enums';
-import { APIResponseType } from '../../Api/types';
-
 import { follow, unFollow, UserActions } from './index';
 
-jest.mock('../Api/usersAPI');
+import { usersAPI } from 'Api';
+import { ResultCodesEnum } from 'Api/enums';
+import { APIResponseType } from 'Api/types';
+
+jest.mock('Api/usersAPI');
 const usersAPIMock = usersAPI as jest.Mocked<typeof usersAPI>;
 
 const dispatchMock = jest.fn();

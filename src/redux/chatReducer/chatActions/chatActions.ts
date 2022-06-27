@@ -1,6 +1,6 @@
-import { ReadyStatusType } from '../../../Api/chatApi/types';
-import { ChatReducerEnum } from '../constants';
-import { ChatMessageType } from '../types';
+import { ReadyStatusType } from 'Api/chatApi/types';
+import { ChatReducerEnum } from 'redux/chatReducer/constants';
+import { ChatMessageType } from 'redux/chatReducer/types';
 
 export const chatActions = {
   messagesReceived: (messages: ChatMessageType[]) =>

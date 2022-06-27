@@ -1,9 +1,14 @@
 import { v1 } from 'uuid';
 
-import { NewsReducerEnum } from '../constants';
-import { ActionNewsTypes, ImagesType, initialNewsStateType, NewsType } from '../types';
-
 import { imagesArray, newsArray } from './constants';
+
+import { NewsReducerEnum } from 'redux/NewsReducer/constants';
+import {
+  ActionNewsTypes,
+  ImagesType,
+  initialNewsStateType,
+  NewsType,
+} from 'redux/NewsReducer/types';
 
 export const initialNewsState = {
   news: newsArray as NewsType[],

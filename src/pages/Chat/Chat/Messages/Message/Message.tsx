@@ -2,10 +2,10 @@ import React, { FC, memo } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import { PATH } from '../../../../../enums';
-
 import style from './Message.module.css';
 import { MessageType } from './types';
+
+import { PATH } from 'enums';
 
 export const Message: FC<MessageType> = memo(({ message }) => {
   const navLinkPath = `${PATH.PROFILE}/${message.userId}`;

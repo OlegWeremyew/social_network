@@ -1,12 +1,12 @@
-import { UserReducerEnum } from '../constants';
+import { messagesArray, usersArray } from './constants';
+
+import { UserReducerEnum } from 'redux/messagesReducer/constants';
 import {
   ActionMessageTypes,
   initialStateMessagesType,
   MessageType,
   UserType,
-} from '../types';
-
-import { messagesArray, usersArray } from './constants';
+} from 'redux/messagesReducer/types';
 
 export const initialMessagesState = {
   users: usersArray as Array<UserType>,

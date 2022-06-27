@@ -1,6 +1,6 @@
-import { instance } from '../apiConfig';
-
 import { captchaType } from './types';
+
+import { instance } from 'Api/apiConfig';
 
 export const securityApi = {
   getCaptchaUrl() {

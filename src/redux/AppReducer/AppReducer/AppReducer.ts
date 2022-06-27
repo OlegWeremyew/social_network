@@ -1,5 +1,5 @@
-import { UserReducerEnum } from '../constants';
-import { ActionAppReducerType, initialStateAppType } from '../types';
+import { UserReducerEnum } from 'redux/AppReducer/constants';
+import { ActionAppReducerType, initialStateAppType } from 'redux/AppReducer/types';
 
 export const initialAppState = {
   initialized: false,

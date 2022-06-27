@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import { EMPTY_STRING } from '../../constants';
-import { PATH } from '../../enums';
-
 import style from './Navbar.module.scss';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { PATH } from 'enums';
 
 export const Navbar: FC = () => (
   <nav className={style.nav}>

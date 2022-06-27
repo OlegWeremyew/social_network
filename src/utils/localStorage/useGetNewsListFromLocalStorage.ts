@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { NewsActions } from '../../redux/NewsReducer';
-import { NewsType } from '../../redux/NewsReducer/types';
-import { getNewsSelector } from '../../selectors';
+import { NewsActions } from 'redux/NewsReducer';
+import { NewsType } from 'redux/NewsReducer/types';
+import { getNewsSelector } from 'selectors';
 
 export const useGetHistoryList = (): NewsType[] => {
   const dispatch = useDispatch();

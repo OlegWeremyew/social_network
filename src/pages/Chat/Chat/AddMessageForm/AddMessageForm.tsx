@@ -2,11 +2,11 @@ import React, { useState, KeyboardEvent, FC } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../../constants';
-import { sendMessage } from '../../../../redux/chatReducer';
-import { getChatStatusSelector } from '../../../../selectors';
-
 import style from './AddMessageForm.module.css';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { sendMessage } from 'redux/chatReducer';
+import { getChatStatusSelector } from 'selectors';
 
 export const AddMessageForm: FC = () => {
   const dispatch = useDispatch();

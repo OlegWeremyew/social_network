@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import mail from '../../assets/images/contacts/mail.svg';
-import operatorMts from '../../assets/images/contacts/operator_mts.svg';
-import phone from '../../assets/images/contacts/phone.svg';
-
 import style from './Footer.module.scss';
+
+import mail from 'assets/images/contacts/mail.svg';
+import operatorMts from 'assets/images/contacts/operator_mts.svg';
+import phone from 'assets/images/contacts/phone.svg';
 
 export const Footer: FC = () => (
   <div className={style.footer}>

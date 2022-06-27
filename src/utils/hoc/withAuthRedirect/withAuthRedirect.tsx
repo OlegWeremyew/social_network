@@ -3,12 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import { PATH } from '../../../enums';
-import { AppStateType } from '../../../redux/types';
-import { getAuthIsAuthSelector } from '../../../selectors';
-import { ReturnComponentType } from '../../../types/ReturnComponentType';
-
 import { mapStateToPropsType } from './types';
+
+import { PATH } from 'enums';
+import { AppStateType } from 'redux/types';
+import { getAuthIsAuthSelector } from 'selectors';
+import { ReturnComponentType } from 'types/ReturnComponentType';
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
   isAuth: getAuthIsAuthSelector(state),

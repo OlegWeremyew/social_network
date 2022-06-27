@@ -3,12 +3,12 @@ import React, { FC, memo } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { useSelector } from 'react-redux';
 
-import { FilterType } from '../../../../../redux/usersReducer/types';
-import { getUsersFilter } from '../../../../../selectors';
-import s from '../../../../Login/Login.module.scss';
-
 import { FormType, FriendFormType, PropsType } from './types';
 import style from './UsersSearchForm.module.scss';
+
+import s from 'components/Login/Login.module.scss';
+import { FilterType } from 'redux/usersReducer/types';
+import { getUsersFilter } from 'selectors';
 
 const usersSearchFormValidate = (values: {
   term: string;

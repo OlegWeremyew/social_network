@@ -1,14 +1,14 @@
+import { initialUsersStateType, UserType } from './types';
+import { UserActions } from './usersActions';
+import { usersReducer } from './usersReducer';
+
 import {
   FIRST_ELEMENT_IN_ARRAY,
   FOURTH_ELEMENT_IN_ARRAY,
   SECOND_ELEMENT_IN_ARRAY,
   THIRD_ELEMENT_IN_ARRAY,
-} from '../../constants';
-import { Nullable } from '../../types/Nullable';
-
-import { initialUsersStateType, UserType } from './types';
-import { UserActions } from './usersActions';
-import { usersReducer } from './usersReducer';
+} from 'constants/variables';
+import { Nullable } from 'types/Nullable';
 
 let state: initialUsersStateType;
 

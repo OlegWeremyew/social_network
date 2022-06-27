@@ -1,5 +1,3 @@
-import { Nullable } from '../../types/Nullable';
-
 import {
   CallBackType,
   EventNamesType,
@@ -7,6 +5,8 @@ import {
   ReadyStatusType,
   StatusChangedSubscriberType,
 } from './types';
+
+import { Nullable } from 'types/Nullable';
 
 const subscribers = {
   'messages-received': [] as MessagesReceivedSubscriberType[],

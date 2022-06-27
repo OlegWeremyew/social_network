@@ -1,3 +1,3 @@
 export type AddNewPostFormType = {
-    AddNewPost: string
-}
+  AddNewPost: string;
+};

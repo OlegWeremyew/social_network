@@ -1,15 +1,15 @@
 import React, { ChangeEvent, useState } from 'react';
 
-import avatarDefault from '../../../../../../assets/images/avatar_for_profile.jpg';
-import { Preloader } from '../../../../../../common';
-import { FIRST_ELEMENT_IN_ARRAY } from '../../../../../../constants';
-import { ProfileType } from '../../../../../../redux/profileReducer/types';
-import { ReturnComponentType } from '../../../../../../types/ReturnComponentType';
-
 import { ProfileEdit } from './ProfileEdit';
 import style from './ProfileInfo.module.scss';
 import { ProfileStatus } from './ProfileStatus';
 import { ProfileInfoPropsType } from './types';
+
+import avatarDefault from 'assets/images/avatar_for_profile.jpg';
+import { Preloader } from 'common';
+import { FIRST_ELEMENT_IN_ARRAY } from 'constants/variables';
+import { ProfileType } from 'redux/profileReducer/types';
+import { ReturnComponentType } from 'types/ReturnComponentType';
 
 export const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
   profile,

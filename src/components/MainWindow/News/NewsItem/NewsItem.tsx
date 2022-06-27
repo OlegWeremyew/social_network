@@ -2,10 +2,10 @@ import React, { FC, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { NewsActions } from '../../../../redux/NewsReducer';
-
 import style from './NewsItem.module.scss';
 import { PropsType } from './types';
+
+import { NewsActions } from 'redux/NewsReducer';
 
 export const NewsItem: FC<PropsType> = ({ news }) => {
   const dispatch = useDispatch();

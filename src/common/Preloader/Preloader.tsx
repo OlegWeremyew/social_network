@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import preloader from '../../assets/images/preloader.gif';
-
 import style from './Preloader.module.scss';
+
+import preloader from 'assets/images/preloader.gif';
 
 export const Preloader: FC = () => (
   <div>

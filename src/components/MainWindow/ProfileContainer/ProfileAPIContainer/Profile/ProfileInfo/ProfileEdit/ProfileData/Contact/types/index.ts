@@ -1,4 +1,4 @@
 export type ContactsPropsType = {
-    contactTitle: string
-    contactValue: string
-}
+  contactTitle: string;
+  contactValue: string;
+};

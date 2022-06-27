@@ -3,8 +3,8 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { Validator } from 'redux-form/lib/Field';
 
-import { Nullable } from '../../../types/Nullable';
-import { ReturnComponentType } from '../../../types/ReturnComponentType';
+import { Nullable } from 'types/Nullable';
+import { ReturnComponentType } from 'types/ReturnComponentType';
 
 export function createField<T extends string>(
   placeholder: Nullable<string>,

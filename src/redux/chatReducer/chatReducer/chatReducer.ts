@@ -1,8 +1,12 @@
 import { v1 } from 'uuid';
 
-import { ReadyStatusType } from '../../../Api/chatApi/types';
-import { ChatReducerEnum } from '../constants';
-import { ActionChatTypes, ChatMessageType, initialStateType } from '../types';
+import { ReadyStatusType } from 'Api/chatApi/types';
+import { ChatReducerEnum } from 'redux/chatReducer/constants';
+import {
+  ActionChatTypes,
+  ChatMessageType,
+  initialStateType,
+} from 'redux/chatReducer/types';
 
 export const initialChatState = {
   messages: [] as ChatMessageType[],

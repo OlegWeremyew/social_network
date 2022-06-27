@@ -1,9 +1,9 @@
 import { stopSubmit } from 'redux-form';
 
-import { authApi, securityApi } from '../../../Api';
-import { ResultCodesEnum } from '../../../Api/enums';
-import { AuthActions } from '../authActions';
-import { ThunkType } from '../types';
+import { authApi, securityApi } from 'Api';
+import { ResultCodesEnum } from 'Api/enums';
+import { AuthActions } from 'redux/authReducer';
+import { ThunkType } from 'redux/authReducer/types';
 
 export const getAuthUserData = (): ThunkType => async dispatch => {
   const MyData = await authApi.getAuth();

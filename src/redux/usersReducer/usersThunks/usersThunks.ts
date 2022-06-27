@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
 
-import { usersAPI } from '../../../Api';
-import { ResultCodesEnum } from '../../../Api/enums';
-import { APIResponseType } from '../../../Api/types';
-import { ActionUsersTypes, FilterType, ThunkUsersType } from '../types';
-import { UserActions } from '../usersActions';
+import { usersAPI } from 'Api';
+import { ResultCodesEnum } from 'Api/enums';
+import { APIResponseType } from 'Api/types';
+import { UserActions } from 'redux/usersReducer';
+import { ActionUsersTypes, FilterType, ThunkUsersType } from 'redux/usersReducer/types';
 
 export const requestUsers =
   (page: number, pageSize: number, filter: FilterType): ThunkUsersType =>

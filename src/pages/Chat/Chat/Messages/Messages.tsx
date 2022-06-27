@@ -2,11 +2,11 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ChatMessageType } from '../../../../redux/chatReducer/types';
-import { getChatMessagesSelector } from '../../../../selectors';
-
 import { Message } from './Message';
 import style from './Messages.module.scss';
+
+import { ChatMessageType } from 'redux/chatReducer/types';
+import { getChatMessagesSelector } from 'selectors';
 
 export const Messages: FC = () => {
   const dispatch = useDispatch();

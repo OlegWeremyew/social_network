@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { MessageActions } from '../../../../../redux/messagesReducer';
-import { MessageType } from '../../../../../redux/messagesReducer/types';
-
 import style from './Dialog.module.scss';
+
+import { MessageActions } from 'redux/messagesReducer';
+import { MessageType } from 'redux/messagesReducer/types';
 
 export const Dialog: FC<MessageType> = ({ message, id }) => {
   const dispatch = useDispatch();

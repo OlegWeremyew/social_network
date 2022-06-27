@@ -1,6 +1,10 @@
-import { Nullable } from '../../../types/Nullable';
-import { AuthReducerEnum } from '../constants';
-import { ActionAuthReducerType, dataType, initialAuthStateType } from '../types';
+import { AuthReducerEnum } from 'redux/authReducer/constants';
+import {
+  ActionAuthReducerType,
+  dataType,
+  initialAuthStateType,
+} from 'redux/authReducer/types';
+import { Nullable } from 'types/Nullable';
 
 export const initialAuthState = {
   data: {} as dataType,

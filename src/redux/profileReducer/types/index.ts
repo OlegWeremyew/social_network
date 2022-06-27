@@ -1,8 +1,8 @@
 import { stopSubmit } from 'redux-form';
 
-import { BaseThunkType, InferActionTypes } from '../../types';
-import { ProfileActions } from '../profileActions';
-import { initialProfileState } from '../profileReducer/profileReducer';
+import { ProfileActions } from 'redux/profileReducer';
+import { initialProfileState } from 'redux/profileReducer/profileReducer/profileReducer';
+import { BaseThunkType, InferActionTypes } from 'redux/types';
 
 export type ThunkProfileType = BaseThunkType<
   ActionProfileTypes | ReturnType<typeof stopSubmit>

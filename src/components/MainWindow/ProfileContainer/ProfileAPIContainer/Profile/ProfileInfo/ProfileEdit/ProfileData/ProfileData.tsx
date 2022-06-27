@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import { Preloader } from '../../../../../../../../common';
-import { ContactsType } from '../../../../../../../../redux/profileReducer/types';
-
 import { Contact } from './Contact';
 import style from './ProfileData.module.scss';
 import { ProfileDataPropsType } from './types';
+
+import { Preloader } from 'common';
+import { ContactsType } from 'redux/profileReducer/types';
 
 export const ProfileData: FC<ProfileDataPropsType> = ({
   profile,

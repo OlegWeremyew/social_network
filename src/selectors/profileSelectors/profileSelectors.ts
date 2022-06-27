@@ -1,7 +1,7 @@
-import { initialStateProfileType, ProfileType } from '../../redux/profileReducer/types';
-import { AppStateType } from '../../redux/types';
-import { Nullable } from '../../types/Nullable';
-import { Undetectable } from '../../types/Undetectable';
+import { initialStateProfileType, ProfileType } from 'redux/profileReducer/types';
+import { AppStateType } from 'redux/types';
+import { Nullable } from 'types/Nullable';
+import { Undetectable } from 'types/Undetectable';
 
 export const getProfilePageSelector = (state: AppStateType): initialStateProfileType =>
   state.profilePage;

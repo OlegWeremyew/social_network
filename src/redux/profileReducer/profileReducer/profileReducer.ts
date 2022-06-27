@@ -1,12 +1,12 @@
-import { EMPTY_STRING } from '../../../constants';
-import { Nullable } from '../../../types/Nullable';
-import { ProfileReducerEnum } from '../constants';
+import { EMPTY_STRING } from 'constants/variables';
+import { ProfileReducerEnum } from 'redux/profileReducer/constants';
 import {
   ActionProfileTypes,
   initialStateProfileType,
   PostType,
   ProfileType,
-} from '../types';
+} from 'redux/profileReducer/types';
+import { Nullable } from 'types/Nullable';
 
 export const initialProfileState = {
   posts: [

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { UserType } from '../../../../../redux/messagesReducer/types';
-
 import style from './DialogsItem.module.scss';
+
+import { UserType } from 'redux/messagesReducer/types';
 
 export const DialogsItem: FC<UserType> = ({ img, name }) => (
   <div className={style.dialog}>

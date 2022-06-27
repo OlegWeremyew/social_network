@@ -1,5 +1,5 @@
-import { Nullable } from '../../../types/Nullable';
-import { AuthReducerEnum } from '../constants';
+import { AuthReducerEnum } from 'redux/authReducer/constants';
+import { Nullable } from 'types/Nullable';
 
 export const AuthActions = {
   setAuthUserData: (

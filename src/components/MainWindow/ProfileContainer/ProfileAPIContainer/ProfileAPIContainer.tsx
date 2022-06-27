@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ReturnComponentType } from '../../../../types/ReturnComponentType';
-import { ProfileContainerPropsType } from '../types';
-
 import { Profile } from './Profile';
+
+import { ProfileContainerPropsType } from 'components/MainWindow/ProfileContainer/types';
+import { ReturnComponentType } from 'types/ReturnComponentType';
 
 export class ProfileAPIContainer extends React.Component<ProfileContainerPropsType> {
   refreshProfile(): void {

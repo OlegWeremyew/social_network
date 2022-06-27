@@ -1,4 +1,4 @@
-import { MessageType, UserType } from '../../types';
+import { MessageType, UserType } from 'redux/messagesReducer/types';
 
 export const usersArray: Array<UserType> = [
   {

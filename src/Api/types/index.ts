@@ -1,6 +1,6 @@
-import { UserType } from '../../redux/usersReducer/types';
-import { Nullable } from '../../types/Nullable';
-import { ResultCodesEnum } from '../enums';
+import { ResultCodesEnum } from 'Api/enums';
+import { UserType } from 'redux/usersReducer/types';
+import { Nullable } from 'types/Nullable';
 
 export type APIResponseType<D = {}, RC = ResultCodesEnum> = {
   data: D;

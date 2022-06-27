@@ -1,4 +1,4 @@
-import { UserReducerEnum } from '../constants';
+import { UserReducerEnum } from 'redux/messagesReducer/constants';
 
 export const MessageActions = {
   addMessage: (newMessageText: string) =>

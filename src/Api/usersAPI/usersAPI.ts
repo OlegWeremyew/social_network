@@ -1,7 +1,8 @@
-import { EMPTY_STRING } from '../../constants';
-import { Nullable } from '../../types/Nullable';
-import { instance } from '../apiConfig';
 import { APIResponseType, GetItemType } from '../types';
+
+import { instance } from 'Api/apiConfig';
+import { EMPTY_STRING } from 'constants/variables';
+import { Nullable } from 'types/Nullable';
 
 export const usersAPI = {
   getUsers(

@@ -4,18 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { InjectedFormProps, reduxForm } from 'redux-form';
 
-import { createField, Input } from '../../common';
-import style from '../../common/FormsControls/FormsControls.module.scss';
-import { LoginFormValuesKeysType } from '../../common/FormsControls/types';
-import { PATH } from '../../enums';
-import { login } from '../../redux/authReducer';
-import { getAuthCaptchaUrlSelector, getAuthIsAuthSelector } from '../../selectors';
-import { Nullable } from '../../types/Nullable';
-import { ReturnComponentType } from '../../types/ReturnComponentType';
-import { required } from '../../utils';
-
 import s from './Login.module.scss';
 import { FormDataType, LoginFormOwnProps } from './types';
+
+import { createField, Input } from 'common';
+import style from 'common/FormsControls/FormsControls.module.scss';
+import { LoginFormValuesKeysType } from 'common/FormsControls/types';
+import { PATH } from 'enums';
+import { login } from 'redux/authReducer';
+import { getAuthCaptchaUrlSelector, getAuthIsAuthSelector } from 'selectors';
+import { Nullable } from 'types/Nullable';
+import { ReturnComponentType } from 'types/ReturnComponentType';
+import { required } from 'utils';
 
 const Login: FC = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 
-import { rootReducer } from '../reduxStore';
+import { rootReducer } from 'redux/reduxStore';
 
 export type AppStateType = ReturnType<typeof rootReducer>;
 

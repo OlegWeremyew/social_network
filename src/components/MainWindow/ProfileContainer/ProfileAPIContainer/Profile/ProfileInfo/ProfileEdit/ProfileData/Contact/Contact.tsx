@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import { EMPTY_STRING } from '../../../../../../../../../constants';
-
 import style from './Contact.module.scss';
 import { ContactsPropsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 export const Contact: FC<ContactsPropsType> = ({ contactTitle, contactValue }) => (
   <div className={style.formBlock}>

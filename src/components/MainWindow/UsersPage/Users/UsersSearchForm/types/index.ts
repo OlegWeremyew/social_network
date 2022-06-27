@@ -1,4 +1,4 @@
-import { FilterType } from '../../../../../../redux/usersReducer/types';
+import { FilterType } from 'redux/usersReducer/types';
 
 export type PropsType = {
   onFilterChanged: (filter: FilterType) => void;

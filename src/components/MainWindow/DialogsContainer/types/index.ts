@@ -1,4 +1,4 @@
-import { initialStateMessagesType } from '../../../../redux/messagesReducer/types';
+import { initialStateMessagesType } from 'redux/messagesReducer/types';
 
 export type MapStateToPropsType = {
   messagesPage: initialStateMessagesType;

@@ -2,10 +2,11 @@ import React, { FC, SyntheticEvent } from 'react';
 
 import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 
-import { Textarea } from '../../../../../../../../common';
-import { maxLengthCreator, required } from '../../../../../../../../utils';
-import s from '../../../../../../../Login/Login.module.scss';
 import { AddNewPostFormType } from '../types';
+
+import { Textarea } from 'common';
+import s from 'components/Login/Login.module.scss';
+import { maxLengthCreator, required } from 'utils';
 
 const maxLength = maxLengthCreator(10);
 

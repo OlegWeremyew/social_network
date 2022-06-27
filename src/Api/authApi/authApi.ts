@@ -1,8 +1,8 @@
-import { Nullable } from '../../types/Nullable';
-import { instance } from '../apiConfig';
-import { APIResponseType } from '../types';
-
 import { LoginResponseDataType, MeResponseType } from './types';
+
+import { instance } from 'Api/apiConfig';
+import { APIResponseType } from 'Api/types';
+import { Nullable } from 'types/Nullable';
 
 export const authApi = {
   getAuth() {

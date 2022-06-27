@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import { ReturnComponentType } from '../../../../../types/ReturnComponentType';
-
 import { MyPostsContainer } from './MyPostsContainer/MyPostsContainer';
 import style from './Profile.module.scss';
 import { ProfileInfo } from './ProfileInfo';
 import { ProfilePropsType } from './types';
+
+import { ReturnComponentType } from 'types/ReturnComponentType';
 
 export const Profile: FC<ProfilePropsType> = ({
   profile,

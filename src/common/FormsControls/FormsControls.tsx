@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import { EMPTY_STRING } from '../../constants';
-
 import styles from './FormsControls.module.scss';
 import { FormControlPropsParamsType } from './types';
+
+import { EMPTY_STRING } from 'constants/variables';
 
 export const FormControl: FC<FormControlPropsParamsType> = ({
   meta: { touched, error },

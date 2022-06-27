@@ -1,5 +1,5 @@
-import { NewsReducerEnum } from '../constants';
-import { NewsType } from '../types';
+import { NewsReducerEnum } from 'redux/NewsReducer/constants';
+import { NewsType } from 'redux/NewsReducer/types';
 
 export const NewsActions = {
   addNews: (newTitle: string) =>

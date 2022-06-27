@@ -3,12 +3,12 @@ import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import userImage from '../../../../../assets/images/user.png';
-import { PATH } from '../../../../../enums';
-import { follow, unFollow } from '../../../../../redux/usersReducer';
-
 import { UsersPropsType } from './types';
 import style from './User.module.scss';
+
+import userImage from 'assets/images/user.png';
+import { PATH } from 'enums';
+import { follow, unFollow } from 'redux/usersReducer';
 
 export const User: FC<UsersPropsType> = ({ user, followingInProgress }) => {
   const dispatch = useDispatch();

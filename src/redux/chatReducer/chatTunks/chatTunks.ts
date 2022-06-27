@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
 
-import { chatApi } from '../../../Api';
-import { ReadyStatusType } from '../../../Api/chatApi/types';
-import { Nullable } from '../../../types/Nullable';
-import { chatActions } from '../chatActions';
-import { ChatMessageType, ThunkType } from '../types';
+import { chatApi } from 'Api';
+import { ReadyStatusType } from 'Api/chatApi/types';
+import { chatActions } from 'redux/chatReducer';
+import { ChatMessageType, ThunkType } from 'redux/chatReducer/types';
+import { Nullable } from 'types/Nullable';
 
 let _newMessageHandler: ((messages: ChatMessageType[]) => void) | null = null;
 

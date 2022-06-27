@@ -1,11 +1,15 @@
 import { Dispatch } from 'redux';
 import { stopSubmit } from 'redux-form';
 
-import { profileAPI } from '../../../Api';
-import { ResultCodesEnum } from '../../../Api/enums';
-import { FIRST_ELEMENT_IN_ARRAY } from '../../../constants';
-import { ProfileActions } from '../profileActions';
-import { ActionProfileTypes, ProfileType, ThunkProfileType } from '../types';
+import { profileAPI } from 'Api';
+import { ResultCodesEnum } from 'Api/enums';
+import { FIRST_ELEMENT_IN_ARRAY } from 'constants/variables';
+import { ProfileActions } from 'redux/profileReducer';
+import {
+  ActionProfileTypes,
+  ProfileType,
+  ThunkProfileType,
+} from 'redux/profileReducer/types';
 
 export const getUserProfile =
   (userId: string): ThunkProfileType =>

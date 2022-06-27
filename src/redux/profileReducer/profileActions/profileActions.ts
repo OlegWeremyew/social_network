@@ -1,5 +1,5 @@
-import { ProfileReducerEnum } from '../constants';
-import { PhotosType, ProfileType } from '../types';
+import { ProfileReducerEnum } from 'redux/profileReducer/constants';
+import { PhotosType, ProfileType } from 'redux/profileReducer/types';
 
 export const ProfileActions = {
   addPost: (newPostText: string) =>

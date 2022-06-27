@@ -2,14 +2,14 @@ import React, { FC, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { EMPTY_STRING } from '../../../../../../../../constants';
-import { ProfileActions } from '../../../../../../../../redux/profileReducer';
-import { PostType } from '../../../../../../../../redux/profileReducer/types';
-import { getProfilePageProfilePhotosLargeSelector } from '../../../../../../../../selectors';
-import { Nullable } from '../../../../../../../../types/Nullable';
-import { Undetectable } from '../../../../../../../../types/Undetectable';
-
 import style from './Post.module.css';
+
+import { EMPTY_STRING } from 'constants/variables';
+import { ProfileActions } from 'redux/profileReducer';
+import { PostType } from 'redux/profileReducer/types';
+import { getProfilePageProfilePhotosLargeSelector } from 'selectors';
+import { Nullable } from 'types/Nullable';
+import { Undetectable } from 'types/Undetectable';
 
 export const Post: FC<PostType> = ({ message, likesCount, id }) => {
   const dispatch = useDispatch();

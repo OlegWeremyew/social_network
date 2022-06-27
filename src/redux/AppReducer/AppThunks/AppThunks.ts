@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
-import { getAuthUserData } from '../../authReducer';
-import { AppAction } from '../AppActions';
+import { AppAction } from 'redux/AppReducer';
+import { getAuthUserData } from 'redux/authReducer';
 
 export const initializeApp = () => (dispatch: Dispatch<any>) => {
   const promise = dispatch(getAuthUserData());

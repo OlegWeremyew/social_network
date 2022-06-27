@@ -1,8 +1,12 @@
-import { EMPTY_STRING, ZERO_VALUE } from '../../../constants';
-import { Nullable } from '../../../types/Nullable';
-import { updateObjectInArray } from '../../../utils';
-import { UserReducerEnum } from '../constants';
-import { ActionUsersTypes, initialUsersStateType, UserType } from '../types';
+import { EMPTY_STRING, ZERO_VALUE } from 'constants/variables';
+import { UserReducerEnum } from 'redux/usersReducer/constants';
+import {
+  ActionUsersTypes,
+  initialUsersStateType,
+  UserType,
+} from 'redux/usersReducer/types';
+import { Nullable } from 'types/Nullable';
+import { updateObjectInArray } from 'utils';
 
 export const initialUsersState: initialUsersStateType = {
   users: [] as UserType[],
