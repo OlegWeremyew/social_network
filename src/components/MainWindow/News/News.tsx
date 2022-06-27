@@ -2,8 +2,6 @@ import React, { FC, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getIsFetching } from '../../../selectors';
-
 import style from './News.module.scss';
 import { NewsItem } from './NewsItem';
 
@@ -11,6 +9,7 @@ import { Preloader } from 'common';
 import { EMPTY_STRING } from 'constants/variables';
 import { NewsActions } from 'redux/NewsReducer';
 import { NewsType } from 'redux/NewsReducer/types';
+import { getIsFetching } from 'selectors';
 import { useGetHistoryList } from 'utils/localStorage/useGetNewsListFromLocalStorage';
 
 const News: FC = () => {
