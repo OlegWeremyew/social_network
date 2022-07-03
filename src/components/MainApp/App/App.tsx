@@ -1,48 +1,25 @@
-import React, { FC, lazy, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { Footer, Header, Navbar } from '../../index';
-import PageNotFound from '../../PageNotFound/PageNotFound';
 
 import style from './App.module.scss';
+import {
+  ChatPage,
+  DialogsContainer,
+  Login,
+  News,
+  PageNotFound,
+  ProfileContainer,
+  UsersPage,
+} from './lazyComponents';
 
 import { Preloader } from 'common';
 import { PATH } from 'enums';
 import { initializeApp } from 'redux/AppReducer';
 import { getInitializedAppSelector } from 'selectors';
-
-const DialogsContainer = lazy(() =>
-  import('components/MainWindow/').then(tm => ({
-    default: tm.DialogsContainer,
-  })),
-);
-const ProfileContainer = lazy(() =>
-  import('components/MainWindow').then(tm => ({
-    default: tm.ProfileContainer,
-  })),
-);
-const UsersPage = lazy(() =>
-  import('components/MainWindow').then(tm => ({
-    default: tm.UsersPage,
-  })),
-);
-const Login = lazy(() =>
-  import('components/Login').then(tm => ({
-    default: tm.Login,
-  })),
-);
-const ChatPage = lazy(() =>
-  import('pages').then(tm => ({
-    default: tm.ChatPage,
-  })),
-);
-const News = lazy(() =>
-  import('components/MainWindow').then(tm => ({
-    default: tm.News,
-  })),
-);
 
 export const App: FC = () => {
   const dispatch = useDispatch();
