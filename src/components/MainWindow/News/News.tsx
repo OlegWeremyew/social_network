@@ -12,7 +12,7 @@ import { NewsType } from 'redux/NewsReducer/types';
 import { getIsFetching } from 'selectors';
 import { useGetHistoryList } from 'utils/localStorage/useGetNewsListFromLocalStorage';
 
-const News: FC = () => {
+export const News: FC = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState<string>(EMPTY_STRING);
@@ -90,5 +90,3 @@ const News: FC = () => {
     </section>
   );
 };
-
-export default News;

@@ -2,19 +2,6 @@
   "compilerOptions": {
     "target": "es5",
     "baseUrl": "src",
-    "paths": {
-      "Api/*": ["./Api/*"],
-      "assets/*": ["./assets/*"],
-      "common/*": ["./common/*"],
-      "components/*": ["./components/*"],
-      "constants/*": ["./constants/*"],
-      "enums/*": ["./enums/*"],
-      "pages/*": ["./pages/*"],
-      "redux/*": ["./redux/*"],
-      "selectors/*": ["./selectors/*"],
-      "types/*": ["./types/*"],
-      "utils/*": ["./utils/*"],
-    },
     "lib": [
       "dom",
       "dom.iterable",

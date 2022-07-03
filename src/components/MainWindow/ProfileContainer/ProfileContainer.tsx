@@ -29,7 +29,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsProfileType => ({
   authorizedUserID: getAuthAuthorizedUserIDSelector(state),
 });
 
-const ProfileContainer = compose<ComponentType>(
+export const ProfileContainer = compose<ComponentType>(
   connect(mapStateToProps, {
     getUserProfile,
     getUserStatus,
@@ -40,5 +40,3 @@ const ProfileContainer = compose<ComponentType>(
   withRouter2,
   withAuthRedirect,
 )(ProfileAPIContainer);
-
-export default ProfileContainer;

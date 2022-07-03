@@ -17,7 +17,7 @@ import { Nullable } from 'types/Nullable';
 import { ReturnComponentType } from 'types/ReturnComponentType';
 import { required } from 'utils';
 
-const Login: FC = () => {
+export const Login: FC = () => {
   const dispatch = useDispatch();
 
   const captchaUrl: Nullable<string> = useSelector(getAuthCaptchaUrlSelector);
@@ -41,9 +41,7 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
-
-const LoginForm: React.FC<
+const LoginForm: FC<
   InjectedFormProps<FormDataType, LoginFormOwnProps> & LoginFormOwnProps
 > = ({ handleSubmit, error, captchaUrl }): ReturnComponentType => (
   <form onSubmit={handleSubmit}>

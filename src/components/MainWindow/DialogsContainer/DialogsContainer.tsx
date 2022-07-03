@@ -15,7 +15,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
   messagesPage: getMessagesPageSelector(state),
 });
 
-const DialogsContainer = compose<ComponentType>(
+export const DialogsContainer = compose<ComponentType>(
   connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(
     mapStateToProps,
     {
@@ -24,5 +24,3 @@ const DialogsContainer = compose<ComponentType>(
   ),
   withAuthRedirect,
 )(Dialogs);
-
-export default DialogsContainer;

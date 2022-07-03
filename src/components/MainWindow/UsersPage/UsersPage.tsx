@@ -8,7 +8,7 @@ import style from './UsersPage.module.scss';
 import { Preloader } from 'common';
 import { getIsFetching } from 'selectors';
 
-const UsersPage: FC = () => {
+export const UsersPage: FC = () => {
   const isFetching = useSelector(getIsFetching);
 
   return (
@@ -18,5 +18,3 @@ const UsersPage: FC = () => {
     </section>
   );
 };
-
-export default UsersPage;
