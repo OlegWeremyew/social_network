@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import { Helmet } from 'react-helmet';
+
 import { DialogPropsType } from '../types';
 
 import { ReduxAddMessageForm } from './AddMessageForm';
@@ -23,6 +25,11 @@ export const Dialogs: FC<DialogPropsType> = ({ messagesPage, addMessage }) => {
 
   return (
     <section className={style.dialogs}>
+      <Helmet>
+        <title>Dialogs</title>
+        <meta name="description" content="your messages page" />
+        <meta name="keywords" content="dialogs, conversation, friends, messages" />
+      </Helmet>
       <div className={style.dialogs__dialog}>
         <div className={style.dialogItem}>{dialogsItem}</div>
         <div className={style.messages}>{message}</div>

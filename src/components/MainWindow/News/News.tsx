@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 
 import style from './News.module.scss';
@@ -48,6 +49,11 @@ export const News: FC = () => {
 
   return (
     <section className={style.news}>
+      <Helmet>
+        <title>News</title>
+        <meta name="description" content="different news" />
+        <meta name="keywords" content="news, posts, hobby, interests, articles" />
+      </Helmet>
       {isFetching ? <Preloader /> : null}
       <h3 className={style.news__title}>News</h3>
       <div className={style.newsBlock}>

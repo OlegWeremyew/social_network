@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 
 import { Users } from './Users';
@@ -13,6 +14,11 @@ export const UsersPage: FC = () => {
 
   return (
     <section className={style.page}>
+      <Helmet>
+        <title>User</title>
+        <meta name="description" content="all site users list" />
+        <meta name="keywords" content="users, search, friends" />
+      </Helmet>
       {isFetching ? <Preloader /> : null}
       <Users />
     </section>
