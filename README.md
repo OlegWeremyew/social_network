@@ -9,7 +9,7 @@ On the *User* page, users can find new friends and add them to their contactor l
 
 ###### React(hooks)
 
-![socialNetwork](src\assets\images\socialNetwork.png)
+[![social-network.png](https://i.postimg.cc/vBcTtbJ5/social-network.png)](https://postimg.cc/0M198R2N)
 
 ## Start locally
 
